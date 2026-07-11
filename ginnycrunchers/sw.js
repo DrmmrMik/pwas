@@ -1,11 +1,11 @@
 const CACHE_NAME = 'ginny-crunchers-v1';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/comprehensive_curriculum_package.json',
-  '/icon-192.png',
-  '/icon-512.png'
+  './',
+  'index.html',
+  'manifest.json',
+  'comprehensive_curriculum_package.json',
+  'icon-192.png',
+  'icon-512.png'
 ];
 
 // Install Event - cache core shell assets
