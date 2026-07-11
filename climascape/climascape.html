@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Climascape — Weather Covariance Vacation Finder</title>
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#0b0e17">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Climascape">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- ChartJS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Stylesheets -->
+  <script type="module" crossorigin src="/assets/main-CTzEfr6C.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-Bjm_sBF9.css">
+</head>
+<body>
+  <!-- Offline Alert Banner -->
+  <div id="offline-indicator" class="offline-banner hidden">
+    <i class="fa-solid fa-cloud-slash"></i> Offline Mode: showing cached weather data
+  </div>
+
+  <div class="app-container">
+    
+    <!-- Sidebar: Controls & Leaderboard -->
+    <aside class="sidebar" id="sidebar-panel">
+      <div class="brand">
+        <div class="logo">
+          <i class="fa-solid fa-cloud-sun-rain"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Climascape</h1>
+          <p>Weather Covariance Analyzer</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher -->
+      <div class="mode-switcher">
+        <button id="mode-btn-historical" class="mode-btn active" data-mode="historical"><i class="fa-solid fa-clock-rotate-left"></i> Historical (2 Yr)</button>
+        <button id="mode-btn-forecast" class="mode-btn" data-mode="forecast"><i class="fa-solid fa-calendar-week"></i> Forecast (7 Day)</button>
+      </div>
+
+      <!-- PWA Install Banner -->
+      <div id="pwa-install-banner" class="install-banner card hidden">
+        <div class="banner-content">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <div class="banner-text">
+            <h4>Climascape App</h4>
+            <p>Add to home screen</p>
+          </div>
+        </div>
+        <button id="btn-pwa-install" class="btn-install"><i class="fa-solid fa-download"></i> Install</button>
+      </div>
+      
+      <!-- Control Panel -->
+      <section class="control-panel card">
+        <h2 class="section-title"><i class="fa-solid fa-sliders"></i> Escape Criteria</h2>
+        
+        <div class="control-group">
+          <div class="control-label">
+            <span>Feels-Like Temperature</span>
+            <span id="temp-val-display" class="badge">65°F - 80°F</span>
+          </div>
+          <div class="range-slider-container">
+            <input type="range" id="temp-min" min="40" max="90" value="65" class="slider">
+            <input type="range" id="temp-max" min="40" max="100" value="80" class="slider">
+          </div>
+          <div class="slider-labels">
+            <span>40°F</span>
+            <span>70°F</span>
+            <span>100°F</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Max Daily Precipitation</span>
+            <span id="rain-val-display" class="badge">0.20"</span>
+          </div>
+          <input type="range" id="rain-max" min="0" max="100" value="20" step="5" class="slider-single">
+          <div class="slider-labels">
+            <span>Dry (0.0")</span>
+            <span>Light (0.2")</span>
+            <span>Heavy (1.0"+)</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Ignore Snow in Escapes</span>
+            <label class="switch">
+              <input type="checkbox" id="ignore-snow">
+              <span class="slider-toggle"></span>
+            </label>
+          </div>
+          <span class="switch-desc">Treat freezing precipitation (&le;32&deg;F) as dry days</span>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Date Filter (Season / Month)</span>
+          </div>
+          <div class="date-filters">
+            <!-- Seasons -->
+            <button class="btn-date active" data-filter="all">All Year</button>
+            <button class="btn-date" data-filter="winter">Winter</button>
+            <button class="btn-date" data-filter="spring">Spring</button>
+            <button class="btn-date" data-filter="summer">Summer</button>
+            <button class="btn-date" data-filter="autumn">Autumn</button>
+            
+            <!-- Months -->
+            <button class="btn-date" data-filter="month-0">Jan</button>
+            <button class="btn-date" data-filter="month-1">Feb</button>
+            <button class="btn-date" data-filter="month-2">Mar</button>
+            <button class="btn-date" data-filter="month-3">Apr</button>
+            <button class="btn-date" data-filter="month-4">May</button>
+            <button class="btn-date" data-filter="month-5">Jun</button>
+            <button class="btn-date" data-filter="month-6">Jul</button>
+            <button class="btn-date" data-filter="month-7">Aug</button>
+            <button class="btn-date" data-filter="month-8">Sep</button>
+            <button class="btn-date" data-filter="month-9">Oct</button>
+            <button class="btn-date" data-filter="month-10">Nov</button>
+            <button class="btn-date" data-filter="month-11">Dec</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Max Drive Time</span>
+          </div>
+          <div class="drive-toggles">
+            <button class="btn-drive active" data-drive="all">Any</button>
+            <button class="btn-drive" data-drive="2">&lt; 2h</button>
+            <button class="btn-drive" data-drive="4">&lt; 4h</button>
+            <button class="btn-drive" data-drive="6">&lt; 6h</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leaderboard -->
+      <section class="leaderboard-section card">
+        <h2 class="section-title"><i class="fa-solid fa-trophy"></i> Escape Leaderboard</h2>
+        <div class="type-filters">
+          <button class="filter-type-btn active" data-type="all">All</button>
+          <button class="filter-type-btn" data-type="Lake">Lakes</button>
+          <button class="filter-type-btn" data-type="Mountain">Mountains</button>
+          <button class="filter-type-btn" data-type="Coast">Coasts</button>
+        </div>
+        <div class="leaderboard-list-wrapper">
+          <ol id="leaderboard-list" class="leaderboard-list">
+            <!-- Dynamic list items -->
+          </ol>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      
+      <!-- Top Section: Interactive Map -->
+      <section class="map-section card">
+        <div id="map"></div>
+        <div class="map-legend">
+          <span class="legend-title">Escape Rate</span>
+          <div class="legend-gradient"></div>
+          <div class="legend-labels">
+            <span>0% (Poor Escape)</span>
+            <span>50%</span>
+            <span>100% (Perfect Escape)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Section: Selected Location Analytics -->
+      <section class="analytics-section card" id="analytics-panel">
+        <div class="analytics-header">
+          <div>
+            <h2 id="selected-city-name">Deep Creek Lake, MD</h2>
+            <p id="selected-city-meta">Lake Destination • approx. 120 miles from Pittsburgh</p>
+          </div>
+          <div class="header-actions">
+            <button id="btn-download-report" class="btn-report"><i class="fa-solid fa-file-pdf"></i> Download PDF Report</button>
+            <span class="badge badge-type" id="selected-city-type">Lake</span>
+          </div>
+        </div>
+
+        <!-- Tab Switcher Navigation -->
+        <div class="analytics-tabs">
+          <button class="tab-btn active" data-tab="climate"><i class="fa-solid fa-cloud-sun"></i> Climate Analytics</button>
+          <button class="tab-btn" data-tab="profile"><i class="fa-solid fa-map-pinned"></i> Travel Profile & Itinerary</button>
+        </div>
+
+        <!-- Climate Analytics Tab Content -->
+        <div id="content-climate" class="tab-content">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon icon-escape"><i class="fa-solid fa-person-running"></i></div>
+              <div class="stat-data">
+                <span class="stat-label">Escape Rate</span>
+                <h3 id="stat-escape-rate">--%</h3>
+                <p class="stat-desc">Pleasant when PGH is bad</p>
+              </div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="stat-icon icon-overlap"><i class="fa-solid fa-calendar-check"></i></div>
+              <div class="stat-data">
+                <span class="stat-label">Escape Opportunities</span>
+                <h3 id="stat-escape-days">-- days</h3>
+                <p class="stat-desc">Out of -- unpleasant PGH days</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon icon-cost"><i class="fa-solid fa-dollar-sign"></i></div>
+              <div class="stat-data">
+                <span class="stat-label">Cost per Escape Day</span>
+                <h3 id="stat-cost-escape-day">$--</h3>
+                <p id="stat-cost-escape-day-desc" class="stat-desc">Based on $--k home price</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon icon-covariance"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="stat-data">
+                <span class="stat-label">Covariance / Correlation</span>
+                <h3 id="stat-correlation">0.00</h3>
+                <p id="stat-correlation-desc" class="stat-desc">Opposite weather indicator</p>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon icon-baseline"><i class="fa-solid fa-sun"></i></div>
+              <div class="stat-data">
+                <span class="stat-label">Pleasant Days (Total)</span>
+                <h3 id="stat-pleasant-total">--% vs --%</h3>
+                <p class="stat-desc">This Location vs Pittsburgh</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Escape Calendar Grid -->
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <h3><i class="fa-solid fa-calendar-days"></i> Weather Escape Calendar Grid</h3>
+              <div class="calendar-legend">
+                <span class="legend-item"><span class="color-box both-pleasant"></span> Both Pleasant</span>
+                <span class="legend-item"><span class="color-box escape-day"></span> Escape Day (PGH Bad, Loc Pleasant)</span>
+                <span class="legend-item"><span class="color-box home-pleasant"></span> Home is Pleasant</span>
+                <span class="legend-item"><span class="color-box both-unpleasant"></span> Both Unpleasant</span>
+              </div>
+            </div>
+            <div class="calendar-grids-wrapper" id="calendar-grids">
+              <!-- Generated dynamically via JS -->
+            </div>
+          </div>
+
+          <!-- Charts Grid -->
+          <div class="charts-grid">
+            <div class="chart-wrapper">
+              <h3>Monthly Escape Performance</h3>
+              <canvas id="monthly-escape-chart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+              <h3>Daily Temperature Comparisons</h3>
+              <canvas id="temp-comparison-chart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Travel Profile & Itinerary Tab Content -->
+        <div id="content-profile" class="tab-content hidden">
+          <div class="profile-layout">
+            <!-- Left Side: Overview and Accessibility -->
+            <div class="profile-info-column">
+              <div class="info-card">
+                <h3><i class="fa-solid fa-circle-info"></i> Destination Overview</h3>
+                <p id="profile-writeup">Brief description goes here...</p>
+              </div>
+              
+              <div class="info-card">
+                <h3><i class="fa-solid fa-anchor"></i> Sports & Water Accessibility</h3>
+                <div class="access-grid">
+                  <div class="access-item">
+                    <span class="access-label">Boating</span>
+                    <span class="badge rating-badge" id="access-boating">N/A</span>
+                    <span class="access-desc" id="access-boating-desc">Description...</span>
+                  </div>
+                  <div class="access-item">
+                    <span class="access-label">Kayaking</span>
+                    <span class="badge rating-badge" id="access-kayaking">N/A</span>
+                    <span class="access-desc" id="access-kayaking-desc">Description...</span>
+                  </div>
+                  <div class="access-item">
+                    <span class="access-label">Spin Fishing</span>
+                    <span class="badge rating-badge" id="access-spin-fishing">N/A</span>
+                    <span class="access-desc" id="access-spin-fishing-desc">Description...</span>
+                  </div>
+                  <div class="access-item">
+                    <span class="access-label">Fly Fishing</span>
+                    <span class="badge rating-badge" id="access-fly-fishing">N/A</span>
+                    <span class="access-desc" id="access-fly-fishing-desc">Description...</span>
+                  </div>
+                  <div class="access-item">
+                    <span class="access-label">Winter Skiing</span>
+                    <span class="badge rating-badge" id="access-skiing">N/A</span>
+                    <span class="access-desc" id="access-skiing-desc">Description...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right Side: 36-Hour Weekend Itinerary -->
+            <div class="profile-itinerary-column">
+              <div class="info-card">
+                <h3><i class="fa-solid fa-calendar-day"></i> 36-Hour Weekend Itinerary</h3>
+                <div class="itinerary-timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <h4>Friday Night - Arrival</h4>
+                      <p><strong>Dinner:</strong> <span id="itin-fri-dinner">...</span></p>
+                      <p><strong>Activity:</strong> <span id="itin-fri-activity">...</span></p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <h4>Saturday Morning</h4>
+                      <p><strong>Breakfast:</strong> <span id="itin-sat-breakfast">...</span></p>
+                      <p><strong>Activity:</strong> <span id="itin-sat-activity">...</span></p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <h4>Saturday Afternoon</h4>
+                      <p><strong>Lunch:</strong> <span id="itin-sat-lunch">...</span></p>
+                      <p><strong>Activity:</strong> <span id="itin-sat-activity-afternoon">...</span></p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <h4>Saturday Night</h4>
+                      <p><strong>Dinner:</strong> <span id="itin-sat-dinner">...</span></p>
+                      <p><strong>Activity:</strong> <span id="itin-sat-activity-night">...</span></p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <h4>Sunday Morning</h4>
+                      <p><strong>Breakfast:</strong> <span id="itin-sun-breakfast">...</span></p>
+                      <p><strong>Activity:</strong> <span id="itin-sun-activity">...</span></p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                      <h4>Sunday Afternoon</h4>
+                      <p><strong>Lunch:</strong> <span id="itin-sun-lunch">...</span></p>
+                      <p><strong>Activity:</strong> <span id="itin-sun-activity-afternoon">...</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-nav-bar">
+    <button class="nav-item active" data-tab="tab-map">
+      <i class="fa-solid fa-map-location-dot"></i>
+      <span>Map & Criteria</span>
+    </button>
+    <button class="nav-item" data-tab="tab-leaderboard">
+      <i class="fa-solid fa-trophy"></i>
+      <span>Leaderboard</span>
+    </button>
+    <button class="nav-item" data-tab="tab-analytics">
+      <i class="fa-solid fa-chart-pie"></i>
+      <span>Analytics</span>
+    </button>
+  </nav>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((reg) => console.log('Service Worker registered successfully!', reg.scope))
+          .catch((err) => console.error('Service Worker registration failed:', err));
+      });
+    }
+  </script>
+
+  <!-- Main Logic Script -->
+</body>
+</html>
