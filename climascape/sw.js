@@ -1,10 +1,10 @@
 const CACHE_NAME = 'climascape-cache-v2';
 const ASSETS_TO_CACHE = [
   '/',
-  '/climascape.html',
+  '/index.html',
   '/report.html',
-  '/style.css',
-  '/main.js',
+  '/assets/main-Bjm_sBF9.css',
+  '/assets/main-CTzEfr6C.js',
   '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
