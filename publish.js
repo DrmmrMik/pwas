@@ -162,19 +162,25 @@ try {
 
   // A. Publish to the individual target repository
   log(`Deploying directly to individual repository: "DrmmrMik/${repoName}"...`);
-  runGitSecure('git init', targetDir);
-  runGitSecure('git config user.name "PWA Publisher"', targetDir);
-  runGitSecure('git config user.email "publisher@pwa.local"', targetDir);
-  runGitSecure('git checkout -B main', targetDir);
-  runGitSecure('git add -A', targetDir);
-  runGitSecure(`git commit -m "deploy: update ${targetFolder} PWA assets"`, targetDir);
-  runGitSecure(`git push -f ${individualPushUrl} main`, targetDir);
-  
-  // Clean up target directory's .git directory to keep the monorepo clean
-  const gitDir = path.join(targetDir, '.git');
-  if (fs.existsSync(gitDir)) {
-    fs.rmSync(gitDir, { recursive: true, force: true });
-    log("Cleaned up temporary .git metadata from target folder.");
+  try {
+    runGitSecure('git init', targetDir);
+    runGitSecure('git config user.name "PWA Publisher"', targetDir);
+    runGitSecure('git config user.email "publisher@pwa.local"', targetDir);
+    runGitSecure('git checkout -B main', targetDir);
+    runGitSecure('git add -A', targetDir);
+    runGitSecure(`git commit -m "deploy: update ${targetFolder} PWA assets"`, targetDir);
+    runGitSecure(`git push -f ${individualPushUrl} main`, targetDir);
+    log(`Successfully deployed to individual repository "DrmmrMik/${repoName}".`);
+  } catch (err) {
+    logError(`Could not deploy to individual repository "DrmmrMik/${repoName}": ${err.message}`);
+    log("Continuing with central monorepo publication...");
+  } finally {
+    // Clean up target directory's .git directory to keep the monorepo clean
+    const gitDir = path.join(targetDir, '.git');
+    if (fs.existsSync(gitDir)) {
+      fs.rmSync(gitDir, { recursive: true, force: true });
+      log("Cleaned up temporary .git metadata from target folder.");
+    }
   }
 
   // B. Commit and push the monorepo changes to the central 'pwas' repository if any changes exist
