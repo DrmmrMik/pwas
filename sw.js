@@ -1,42 +1,41 @@
-const CACHE_NAME = 'climascape-cache-v2';
+const CACHE_NAME = 'nova-portal-v1';
 const ASSETS_TO_CACHE = [
   './',
   'index.html',
-  'report.html',
-  'assets/main-Bjm_sBF9.css',
-  'assets/main-CTzEfr6C.js',
+  'style.css',
+  'app.js',
   'manifest.json',
+  'projects.json',
+  'icons/icon.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/icon-192-maskable.png',
   'icons/icon-512-maskable.png',
-  'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
-  'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-  'https://cdn.jsdelivr.net/npm/chart.js'
+  'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];
 
-// Map assets to absolute URLs based on SW location
 const CACHED_URLS = ASSETS_TO_CACHE.map(asset => new URL(asset, self.location.href).href);
 
+// Install
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[Service Worker] Pre-caching static assets');
+      console.log('[Portal Service Worker] Pre-caching assets');
       return cache.addAll(ASSETS_TO_CACHE);
     })
   );
   self.skipWaiting();
 });
 
+// Activate
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
-            console.log('[Service Worker] Clearing old cache', cache);
+            console.log('[Portal Service Worker] Clearing old cache', cache);
             return caches.delete(cache);
           }
         })
@@ -46,33 +45,29 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+// Fetch
 self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url);
-  
-  // Skip POST/DELETE APIs, only handle GET queries
   if (event.request.method !== 'GET') {
     return;
   }
 
-  // Handle local files and CDN assets with cache-first strategy
+  const url = new URL(event.request.url);
+
+  // Stale-While-Revalidate for cached assets
   if (
-    CACHED_URLS.includes(event.request.url) || 
+    CACHED_URLS.includes(event.request.url) ||
     url.hostname.includes('fonts.googleapis.com') ||
     url.hostname.includes('fonts.gstatic.com') ||
-    url.hostname.includes('unpkg.com') ||
-    url.hostname.includes('cdnjs.cloudflare.com') ||
-    url.hostname.includes('jsdelivr.net')
+    url.hostname.includes('cdnjs.cloudflare.com')
   ) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
         if (cachedResponse) {
-          // Fetch update in background (stale-while-revalidate style)
           fetch(event.request).then((networkResponse) => {
             if (networkResponse.status === 200) {
               caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
             }
-          }).catch(() => {}); // ignore errors when offline
-          
+          }).catch(() => {});
           return cachedResponse;
         }
 
@@ -85,26 +80,19 @@ self.addEventListener('fetch', (event) => {
         });
       })
     );
-  } else if (url.pathname.startsWith('/api/')) {
-    // For API calls, implement Network-First strategy
-    event.respondWith(
-      fetch(event.request)
-        .then((networkResponse) => {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
-          return networkResponse;
-        })
-        .catch(() => {
-          // If offline, check if we have cached API data
-          return caches.match(event.request);
-        })
-    );
   } else {
-    // General fallback
+    // Network first or fallback
     event.respondWith(
       caches.match(event.request).then((response) => {
         return response || fetch(event.request);
       })
     );
+  }
+});
+
+// Message listener to trigger skipWaiting on demand
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.action === 'skipWaiting') {
+    self.skipWaiting();
   }
 });

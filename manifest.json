@@ -1,13 +1,14 @@
 {
-  "name": "Climascape Weather Covariance",
-  "short_name": "Climascape",
-  "description": "Weather covariance analysis and vacation home finder",
+  "name": "Nova PWA Portal",
+  "short_name": "Nova Portal",
+  "description": "Sleek self-hosted portal to launch and install your Progressive Web Apps.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b0e17",
-  "theme_color": "#0b0e17",
-  "orientation": "any",
+  "background_color": "#090d16",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait",
+  "categories": ["utilities", "productivity"],
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -32,18 +33,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Leaderboard",
-      "url": "./index.html#tab-leaderboard",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Analytics",
-      "url": "./index.html#tab-analytics",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }

@@ -89,11 +89,28 @@ try {
   fs.cpSync(resolvedSrcDir, targetDir, { recursive: true });
   log("Assets copied successfully.");
 
+  // Update projects.json registry if targetFolder is not already listed
+  const projectsJsonPath = path.join(repoDir, 'projects.json');
+  try {
+    let projects = [];
+    if (fs.existsSync(projectsJsonPath)) {
+      projects = JSON.parse(fs.readFileSync(projectsJsonPath, 'utf8'));
+    }
+    if (!projects.includes(targetFolder)) {
+      projects.push(targetFolder);
+      projects.sort();
+      fs.writeFileSync(projectsJsonPath, JSON.stringify(projects, null, 2) + '\n', 'utf8');
+      log(`Added "${targetFolder}" to projects.json registry.`);
+    }
+  } catch (err) {
+    logError(`Failed to update projects.json registry: ${err.message}`);
+  }
+
   // 5. Automate Git workflow
   log("Starting Git deployment workflow...");
   
   // Secure runner to prevent token leak
-  const runGitSecure = (cmdStr) => {
+  const runGitSecure = (cmdStr, cwd = repoDir) => {
     // Determine if token is in command and replace it in printed logs
     let printCmd = cmdStr;
     if (token) {
@@ -102,7 +119,7 @@ try {
     log(`Running: ${printCmd}`);
 
     try {
-      const output = execSync(cmdStr, { cwd: repoDir, stdio: 'pipe' });
+      const output = execSync(cmdStr, { cwd, stdio: 'pipe' });
       const outputStr = output.toString();
       if (outputStr.trim()) {
         console.log(token ? outputStr.replace(new RegExp(token, 'g'), '[REDACTED]') : outputStr);
@@ -119,28 +136,62 @@ try {
     }
   };
 
-  // Add the changes
+  // Add the changes to the monorepo to check status
   runGitSecure(`git add "${targetFolder}"`);
+  runGitSecure('git add "projects.json"');
 
-  // Check if there are any changes to commit in the target folder
-  const statusCheck = execSync(`git status --porcelain "${targetFolder}"`, { cwd: repoDir }).toString().trim();
-  if (!statusCheck) {
-    log(`No changes detected in Git for "${targetFolder}". Target directory is already up-to-date. Skipping commit and push.`);
-    process.exit(0);
-  }
+  // Check if there are any changes to commit in the target folder or projects.json
+  const statusCheck = execSync(`git status --porcelain "${targetFolder}" projects.json`, { cwd: repoDir }).toString().trim();
 
-  // Commit
-  runGitSecure(`git commit -m "deploy: update ${targetFolder} PWA assets"`);
+  // Determine matching repository name for the individual project
+  const repoMapping = {
+    'climascape': 'climascape',
+    'penandpaper': 'penandpaper',
+    'fitnesstracker': 'fitness_tracker'
+  };
+  const repoName = repoMapping[targetFolder] || targetFolder;
+  log(`Target repository name mapped to: "${repoName}"`);
 
-  // Push to main branch (use token if available)
+  // Define individual push URL
+  let individualPushUrl;
   if (token && token !== 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE') {
-    runGitSecure(`git push https://${token}@github.com/DrmmrMik/pwas.git main`);
+    individualPushUrl = `https://${token}@github.com/DrmmrMik/${repoName}.git`;
   } else {
-    log("No GITHUB_TOKEN configured in .env. Attempting standard git push...");
-    runGitSecure("git push origin main");
+    individualPushUrl = `git@github.com:DrmmrMik/${repoName}.git`;
   }
 
-  log(`Successfully deployed "${targetFolder}" to GitHub!`);
+  // A. Publish to the individual target repository
+  log(`Deploying directly to individual repository: "DrmmrMik/${repoName}"...`);
+  runGitSecure('git init', targetDir);
+  runGitSecure('git config user.name "PWA Publisher"', targetDir);
+  runGitSecure('git config user.email "publisher@pwa.local"', targetDir);
+  runGitSecure('git checkout -B main', targetDir);
+  runGitSecure('git add -A', targetDir);
+  runGitSecure(`git commit -m "deploy: update ${targetFolder} PWA assets"`, targetDir);
+  runGitSecure(`git push -f ${individualPushUrl} main`, targetDir);
+  
+  // Clean up target directory's .git directory to keep the monorepo clean
+  const gitDir = path.join(targetDir, '.git');
+  if (fs.existsSync(gitDir)) {
+    fs.rmSync(gitDir, { recursive: true, force: true });
+    log("Cleaned up temporary .git metadata from target folder.");
+  }
+
+  // B. Commit and push the monorepo changes to the central 'pwas' repository if any changes exist
+  if (statusCheck) {
+    log("Syncing changes with central monorepo...");
+    runGitSecure(`git commit -m "deploy: update ${targetFolder} PWA assets"`);
+    if (token && token !== 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE') {
+      runGitSecure(`git push https://${token}@github.com/DrmmrMik/pwas.git main`);
+    } else {
+      log("No GITHUB_TOKEN configured in .env. Attempting standard git push for monorepo...");
+      runGitSecure("git push origin main");
+    }
+  } else {
+    log(`No changes detected in monorepo for "${targetFolder}". Skipping monorepo commit and push.`);
+  }
+
+  log(`Successfully deployed "${targetFolder}" to both its individual repository and the central monorepo!`);
 } catch (err) {
   logError(`An error occurred during publication: ${err.message}`);
   process.exit(1);
