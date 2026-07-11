@@ -10,3 +10,8 @@ Always refer to the custom skill [pwa-standards](file:///home/gallabot/Documents
    - Implement native safe areas using CSS variables `env(safe-area-inset-*)`.
    - Prevent default grey tap highlight and text selections on buttons and controls.
 4. **Graceful Offline support**: Always provide an offline status indicator banner that triggers when the user loses connection.
+
+## Rules for Git Transactions
+5. **Authenticate with GITHUB_TOKEN**: When performing remote git pushes, always read the `.env` file first. If a `GITHUB_TOKEN` is defined, execute the push using the authenticated HTTPS format:
+   `git push https://<token>@github.com/<owner>/<repo>.git <branch>`
+   This avoids interactive authentication prompts that cause hangs or require manual input. Never run generic `git push` without verifying authentication or token availability.
