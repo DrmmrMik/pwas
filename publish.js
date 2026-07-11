@@ -122,10 +122,10 @@ try {
   // Add the changes
   runGitSecure(`git add "${targetFolder}"`);
 
-  // Check if there are any changes to commit
-  const statusCheck = execSync('git status --porcelain', { cwd: repoDir }).toString().trim();
+  // Check if there are any changes to commit in the target folder
+  const statusCheck = execSync(`git status --porcelain "${targetFolder}"`, { cwd: repoDir }).toString().trim();
   if (!statusCheck) {
-    log("No changes detected in Git. Target directory is already up-to-date. Skipping commit and push.");
+    log(`No changes detected in Git for "${targetFolder}". Target directory is already up-to-date. Skipping commit and push.`);
     process.exit(0);
   }
 
