@@ -3,7 +3,6 @@
   "short_name": "Pen & Paper",
   "description": "Lightweight client-side engine for procedural pen-and-paper games.",
   "start_url": "./index.html",
-  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#121212",
