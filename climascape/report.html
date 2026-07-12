@@ -10,8 +10,8 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="manifest" href="./manifest.json">
   
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -518,10 +518,36 @@
       return allForecasts;
     }
 
+    // Helper to fetch data supporting both backend API and static JSON deployment (e.g. GitHub Pages)
+    async function fetchFromApi(endpoint) {
+      const isStaticHost = window.location.hostname.includes('github.io') || window.location.protocol === 'file:';
+      
+      if (isStaticHost) {
+        try {
+          const response = await fetch(`api/${endpoint}.json`);
+          if (response.ok) return await response.json();
+        } catch (e) {
+          console.warn(`Failed to load static api/${endpoint}.json, trying backend...`, e);
+        }
+      }
+
+      try {
+        const response = await fetch(`/api/${endpoint}`);
+        if (response.ok) return await response.json();
+        throw new Error(`Server returned status ${response.status}`);
+      } catch (err) {
+        if (!isStaticHost) {
+          console.warn(`Backend fetch for /api/${endpoint} failed. Trying static fallback...`);
+          const response = await fetch(`api/${endpoint}.json`);
+          if (response.ok) return await response.json();
+        }
+        throw err;
+      }
+    }
+
     async function loadAndGenerate() {
       try {
-        const locResponse = await fetch('/api/locations');
-        locations = await locResponse.json();
+        locations = await fetchFromApi('locations');
         
         // Pittsburgh Home Base ID
         const pgh = locations.find(l => l.name.toLowerCase().includes('pittsburgh'));
@@ -530,8 +556,7 @@
         if (activeMode === 'forecast') {
           weatherData = await fetchForecastData();
         } else {
-          const weatherResponse = await fetch('/api/weather');
-          weatherData = await weatherResponse.json();
+          weatherData = await fetchFromApi('weather');
         }
 
         generateReport();
@@ -1108,7 +1133,7 @@
     // Register Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
+        navigator.serviceWorker.register('./sw.js')
           .then((reg) => console.log('Service Worker registered in Report successfully!', reg.scope))
           .catch((err) => console.error('Service Worker registration in Report failed:', err));
       });

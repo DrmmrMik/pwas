@@ -11,8 +11,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Climascape">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="manifest" href="./manifest.json">
   
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +29,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Custom Stylesheets -->
-  <script type="module" crossorigin src="assets/main-CTzEfr6C.js"></script>
-  <link rel="stylesheet" crossorigin href="assets/main-Bjm_sBF9.css">
+  <script type="module" crossorigin src="./assets/main-pX9h-HGd.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-Bjm_sBF9.css">
 </head>
 <body>
   <!-- Offline Alert Banner -->
@@ -414,7 +414,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
+        navigator.serviceWorker.register('./sw.js')
           .then((reg) => console.log('Service Worker registered successfully!', reg.scope))
           .catch((err) => console.error('Service Worker registration failed:', err));
       });

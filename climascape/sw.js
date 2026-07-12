@@ -1,10 +1,10 @@
 const CACHE_NAME = 'climascape-cache-v2';
 const ASSETS_TO_CACHE = [
-  './',
+  '',
   'index.html',
   'report.html',
   'assets/main-Bjm_sBF9.css',
-  'assets/main-CTzEfr6C.js',
+  'assets/main-pX9h-HGd.js',
   'manifest.json',
   'icons/icon-192.png',
   'icons/icon-512.png',
@@ -16,9 +16,6 @@ const ASSETS_TO_CACHE = [
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
   'https://cdn.jsdelivr.net/npm/chart.js'
 ];
-
-// Map assets to absolute URLs based on SW location
-const CACHED_URLS = ASSETS_TO_CACHE.map(asset => new URL(asset, self.location.href).href);
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -54,9 +51,25 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Determine if request is a static asset cached by the Service Worker
+  const scopeUrl = new URL(self.registration.scope);
+  let isAsset = false;
+  
+  if (url.origin === scopeUrl.origin) {
+    let relativePath = url.pathname;
+    if (relativePath.startsWith(scopeUrl.pathname)) {
+      relativePath = relativePath.slice(scopeUrl.pathname.length);
+    }
+    // Remove leading slash if present
+    if (relativePath.startsWith('/')) {
+      relativePath = relativePath.slice(1);
+    }
+    isAsset = ASSETS_TO_CACHE.includes(relativePath);
+  }
+
   // Handle local files and CDN assets with cache-first strategy
   if (
-    CACHED_URLS.includes(event.request.url) || 
+    isAsset ||
     url.hostname.includes('fonts.googleapis.com') ||
     url.hostname.includes('fonts.gstatic.com') ||
     url.hostname.includes('unpkg.com') ||
@@ -85,7 +98,7 @@ self.addEventListener('fetch', (event) => {
         });
       })
     );
-  } else if (url.pathname.startsWith('/api/')) {
+  } else if (url.pathname.includes('/api/')) {
     // For API calls, implement Network-First strategy
     event.respondWith(
       fetch(event.request)

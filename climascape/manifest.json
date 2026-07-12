@@ -2,8 +2,7 @@
   "name": "Climascape Weather Covariance",
   "short_name": "Climascape",
   "description": "Weather covariance analysis and vacation home finder",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#0b0e17",
   "theme_color": "#0b0e17",
@@ -37,12 +36,12 @@
   "shortcuts": [
     {
       "name": "Leaderboard",
-      "url": "./index.html#tab-leaderboard",
+      "url": "./#tab-leaderboard",
       "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "Analytics",
-      "url": "./index.html#tab-analytics",
+      "url": "./#tab-analytics",
       "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
     }
   ]
