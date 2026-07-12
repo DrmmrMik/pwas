@@ -273,8 +273,10 @@ async function clearSubAppCache(app) {
       const keys = await caches.keys();
       let cleared = false;
       for (const key of keys) {
-        // Match cache names containing project folder or identifier
-        if (key.toLowerCase().includes(app.folder.toLowerCase())) {
+        // Match cache names containing project folder or identifier, ignoring hyphens/underscores
+        const cleanKey = key.toLowerCase().replace(/[-_]/g, '');
+        const cleanFolder = app.folder.toLowerCase().replace(/[-_]/g, '');
+        if (cleanKey.includes(cleanFolder) || cleanFolder.includes(cleanKey)) {
           await caches.delete(key);
           cleared = true;
           console.log(`[Portal] Cleared cache partition: ${key}`);
