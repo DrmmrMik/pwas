@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ginny-crunchers-v1';
+const CACHE_NAME = 'ginny-crunchers-v2';
 const ASSETS_TO_CACHE = [
   './',
   'index.html',
