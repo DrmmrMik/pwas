@@ -2,12 +2,14 @@ const CACHE_NAME = 'aurafit-v1';
 const ASSETS = [
   './',
   'index.html',
-  'style.css',
-  'app.js',
+  'assets/style.css',
+  'assets/app.js',
+  'assets/chart.umd.js',
+  'assets/lucide.js',
   'manifest.json',
-  'icon.svg',
-  'icon_192.png',
-  'icon_512.png'
+  'icons/icon.svg',
+  'icons/icon_192.png',
+  'icons/icon_512.png'
 ];
 
 // Install Event - Pre-cache core shell
