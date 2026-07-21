@@ -2165,7 +2165,10 @@ function loadSampleData() {
     bbsExercises: ["Chest Press", "Lat Pulldown", "Overhead Press", "Seated Row", "Leg Press"],
     bbsLogs: [],
     meditationLogs: [],
-    pelotonLogs: []
+    pelotonLogs: [],
+    // Preserve cadence settings across the sample-load (don't wipe them)
+    cadenceUp: state.cadenceUp !== undefined ? state.cadenceUp : 5,
+    cadenceDown: state.cadenceDown !== undefined ? state.cadenceDown : 5
   };
 
   const today = new Date();
