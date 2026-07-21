@@ -43,7 +43,7 @@
         </a>
         <a href="#bbs" class="nav-item" data-tab="bbs">
           <i data-lucide="dumbbell"></i>
-          <span>BBS Lifting</span>
+          <span>Heavy Duty</span>
         </a>
         <a href="#meditation" class="nav-item" data-tab="meditation">
           <i data-lucide="flower"></i>
@@ -98,7 +98,7 @@
         <div class="stats-grid">
           <div class="stat-card glass-panel text-cyan">
             <div class="stat-header">
-              <span>BBS LIFTING STATE</span>
+              <span>HEAVY DUTY STATE</span>
               <i data-lucide="calendar-days"></i>
             </div>
             <div class="stat-value" id="dash-bbs-last-lift">-</div>
@@ -139,11 +139,11 @@
 
         <!-- Recommendations & Daily Insights -->
         <div class="dashboard-layouts">
-          <!-- Daily Plan & BBS Targets -->
+          <!-- Daily Plan & Heavy Duty Targets -->
           <div class="glass-panel main-panel">
             <div class="panel-header">
               <h2 class="panel-title"><i data-lucide="sparkles"></i> Recommendations for Next Workout</h2>
-              <span class="badge badge-cyan">BBS Protocol</span>
+              <span class="badge badge-cyan">Heavy Duty Protocol</span>
             </div>
             <div class="recs-container" id="bbs-recs-list">
               <!-- Dynamically populated BBS advice cards -->
@@ -286,7 +286,7 @@
           <!-- Exercise History Panel -->
           <div class="glass-panel exercise-history-panel">
             <div class="panel-header">
-              <h2 class="panel-title"><i data-lucide="history"></i> BBS Lift History</h2>
+              <h2 class="panel-title"><i data-lucide="history"></i> Heavy Duty Lift History</h2>
               <button class="btn btn-outline btn-xs" id="btn-bbs-add-custom">
                 <i data-lucide="plus"></i> Custom Exercise
               </button>
@@ -550,7 +550,7 @@
       <!-- 5. ANALYTICS TAB -->
       <section id="tab-analytics" class="tab-pane">
         <div class="analytics-sub-tabs">
-          <button class="analytics-tab-btn active" data-chart-view="bbs">BBS Strength Progress</button>
+          <button class="analytics-tab-btn active" data-chart-view="bbs">Heavy Duty Strength Progress</button>
           <button class="analytics-tab-btn" data-chart-view="peloton">Peloton Cardio Trends</button>
           <button class="analytics-tab-btn" data-chart-view="meditation">Meditation Consistency</button>
         </div>
@@ -575,7 +575,7 @@
           </div>
           <div class="chart-legend-info">
             <p class="text-secondary text-sm">
-              <i data-lucide="info" class="icon-inline"></i> Solid line represents <strong>Weight (lbs)</strong> (left axis), and bars represent <strong>Time Under Load (seconds)</strong> (right axis). Target zone is 45-90 seconds.
+              <i data-lucide="info" class="icon-inline"></i> Solid line represents <strong>Weight (lbs)</strong> (left axis), and bars represent <strong>Time Under Load (seconds)</strong> (right axis). TUL is a failure signal, not the target -- overload only when you reached failure in the 40-90s window. We never deload just because TUL was under 80s.
             </p>
           </div>
         </div>
@@ -677,9 +677,9 @@
           <!-- BBS Cadence Settings -->
           <div class="glass-panel">
             <div class="panel-header">
-              <h2 class="panel-title"><i data-lucide="timer"></i> BBS Cadence Settings</h2>
+              <h2 class="panel-title"><i data-lucide="timer"></i> Heavy Duty Cadence Settings</h2>
             </div>
-            <p class="panel-desc">Configure the lift pacing cadence. Defaults to 5s up and 5s down. This affects the audio ticks and pacing visualizer.</p>
+            <p class="panel-desc">Configure the lift pacing cadence. Defaults to 5s up and 5s down (slow, controlled reps to failure). This affects the audio ticks and pacing visualizer.</p>
             <div class="settings-actions">
               <div class="form-row">
                 <div class="input-group">
@@ -700,9 +700,9 @@
           <!-- BBS Exercises List Customization -->
           <div class="glass-panel span-2-cols">
             <div class="panel-header">
-              <h2 class="panel-title"><i data-lucide="edit-3"></i> BBS Exercise Catalog</h2>
+              <h2 class="panel-title"><i data-lucide="edit-3"></i> Heavy Duty Exercise Catalog</h2>
             </div>
-            <p class="panel-desc">Manage the exercises tracked under the Body by Science protocol. Adding or removing exercises updates the selectors in the weightlifting and analytics logs.</p>
+            <p class="panel-desc">Manage the exercises tracked under the Mike Mentzer Heavy Duty protocol. Adding or removing exercises updates the selectors in the weightlifting and analytics logs.</p>
             <div class="exercise-editor-wrapper">
               <div class="add-exercise-form">
                 <input type="text" id="new-bbs-exercise-name" class="form-input" placeholder="e.g. Bicep Curl or Leg Press Variation">
