@@ -752,7 +752,7 @@ function getBBSRecommendation(exercise) {
     type: "maintain",
     class: "bbs-maintain",
     nextWeight: lastWeight,
-    desc: `Last: ${lastWeight} lbs for ${lastTUL}s. Failure came fast -- load was heavy enough. KEEP ${lastWeight} lbs and re-achieve the set (try a slower negative or one forced rep).`,
+    desc: `Last: ${lastWeight} lbs for ${lastTUL}s. Failure came fast -- load was heavy enough. KEEP ${lastWeight} lbs and re-achieve the set (try a slow negative or one forced rep).`,
     targetTUL: "40-90s"
   };
 }
