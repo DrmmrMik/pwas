@@ -6,7 +6,6 @@
   "scope": "./",
   "display": "standalone",
   "display_override": [
-    "window-controls-overlay",
     "standalone"
   ],
   "background_color": "#090d16",
@@ -105,19 +104,6 @@
   ],
   "prefer_related_applications": false,
   "related_applications": [],
-  "launch_handler": {
-    "client_mode": "focus-existing"
-  },
-  "protocol_handlers": [
-    {
-      "protocol": "web+aurfit",
-      "url": "./index.html?protocol=%s"
-    }
-  ],
-  "handle_links": "preferred",
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
   "version": "1.0.20260722",
-  "x-build-stamp": "20260722-203753"
+  "x-build-stamp": "20260722-211948"
 }
