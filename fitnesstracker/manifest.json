@@ -1,10 +1,14 @@
 {
   "name": "AuraFit - Quantum Fitness & Mind Tracker",
   "short_name": "AuraFit",
-  "description": "A premium, simple, and quantified fitness tracker for Body by Science weightlifting, meditation, and Peloton metrics.",
+  "description": "A premium, simple, and quantified fitness tracker for Heavy Duty weightlifting, meditation, and Peloton metrics.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
   "background_color": "#090d16",
   "theme_color": "#06b6d4",
   "orientation": "portrait",
@@ -18,13 +22,25 @@
       "src": "icons/icon_192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icons/icon_512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon_192_maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon_512_maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "icons/icon.svg",
@@ -32,5 +48,74 @@
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "AuraFit Dashboard on desktop"
+    },
+    {
+      "src": "screenshots/mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "AuraFit on mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Log Workout",
+      "short_name": "Workout",
+      "description": "Quickly log a Heavy Duty set",
+      "url": "./index.html#bbs",
+      "icons": [
+        {
+          "src": "icons/icon_192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Start Meditation",
+      "short_name": "Meditate",
+      "description": "Start a guided meditation session",
+      "url": "./index.html#meditation",
+      "icons": [
+        {
+          "src": "icons/icon_192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Log Peloton Ride",
+      "short_name": "Peloton",
+      "description": "Record a Peloton class",
+      "url": "./index.html#peloton",
+      "icons": [
+        {
+          "src": "icons/icon_192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+aurfit",
+      "url": "./index.html?protocol=%s"
+    }
+  ],
+  "handle_links": "preferred",
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }
