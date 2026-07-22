@@ -1,0 +1,92 @@
+{
+  "name": "Nova PWA Portal",
+  "short_name": "Nova Portal",
+  "description": "Sleek self-hosted portal to launch and install your Progressive Web Apps.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "background_color": "#090d16",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Nova Portal on desktop"
+    },
+    {
+      "src": "screenshots/mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Nova Portal on mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Scan Apps",
+      "short_name": "Scan",
+      "description": "Scan for new PWA applications",
+      "url": "./index.html?action=scan",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Installed Apps",
+      "short_name": "Installed",
+      "description": "View installed PWA applications",
+      "url": "./index.html?view=installed",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+portal",
+      "url": "./index.html?protocol=%s"
+    }
+  ],
+  "handle_links": "preferred"
+}

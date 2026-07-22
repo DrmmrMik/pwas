@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <title>Nova PWA Portal</title>
+  <meta name="description" content="Sleek, self-hosted Progressive Web App hub to quickly launch and install your mobile projects.">
+  <meta name="theme-color" content="#8b5cf6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#8b5cf6" media="(prefers-color-scheme: dark)">
+  
+  <!-- Manifest & Favicons -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Nova Portal">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="alternate icon" href="icons/icon-192.png" sizes="192x192">
+  <link rel="icon" href="icons/icon-512.png" sizes="512x512">
+  <link rel="mask-icon" href="icons/icon.svg" color="#8b5cf6">
+  
+  <!-- External Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- Local Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Service Worker Registration -->
+  <script>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+      <meta name="color-scheme" content="dark light">
+      <title>Nova PWA Portal</title>
+      <meta name="description" content="Sleek, self-hosted Progressive Web App hub to quickly launch and install your mobile projects.">
+      <meta name="theme-color" content="#8b5cf6" media="(prefers-color-scheme: light)">
+      <meta name="theme-color" content="#8b5cf6" media="(prefers-color-scheme: dark)">
+  
+      <!-- Manifest & Favicons -->
+      <link rel="manifest" href="manifest.json">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      <meta name="apple-mobile-web-app-title" content="Nova Portal">
+      <link rel="apple-touch-icon" href="icons/icon-192.png">
+      <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+      <link rel="alternate icon" href="icons/icon-192.png" sizes="192x192">
+      <link rel="icon" href="icons/icon-512.png" sizes="512x512">
+      <link rel="mask-icon" href="icons/icon.svg" color="#8b5cf6">
+  
+      <!-- External Fonts & Icons -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+      <!-- Local Stylesheet -->
+      <link rel="stylesheet" href="style.css">
+  
+      <!-- Service Worker Registration -->
+      <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+              .then(reg => {
+                console.log('[Nova Portal] SW registered:', reg.scope);
+                // Check for updates
+                reg.addEventListener('updatefound', () => {
+                  const newWorker = reg.installing;
+                  newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                      console.log('[Nova Portal] New version available');
+                      // Show update notification to user
+                      showUpdateNotification();
+                    }
+                  });
+                });
+              })
+              .catch(err => console.error('[Nova Portal] SW registration failed:', err));
+          });
+      
+          function showUpdateNotification() {
+            const banner = document.getElementById('sw-update-banner');
+            if (banner) banner.classList.remove('hidden');
+          }
+        </script>
+    </head>
+    <body>
+      <!-- Update Available Banner -->
+      <div id="sw-update-banner" class="update-banner hidden" role="alert">
+        <span>New version available!</span>
+        <button id="sw-update-btn" class="btn-update">Refresh</button>
+      </div>
+  
+      <!-- Offline status notification banner -->
+      <div id="offline-indicator" class="offline-banner hidden" role="alert">
+        <i class="fa-solid fa-cloud-slash"></i> Offline mode active. Cached content available.
+      </div>
+
+      <div class="app-container">
+        <!-- Header Area -->
+        <header>
+          <div class="header-top">
+            <div class="brand">
+              <div class="logo-wrapper">
+                <img src="icons/icon.svg" alt="Nova logo" loading="lazy">
+              </div>
+              <div class="brand-text">
+                <h1>Nova PWA Portal</h1>
+                <p>Self-Hosted App Launcher</p>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button id="btn-portal-install" class="btn-install hidden" title="Install Portal PWA">
+                <i class="fa-solid fa-download"></i> Install Portal
+              </button>
+            </div>
+          </div>
+          <div class="search-controls">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search-input" class="search-input" placeholder="Search applications..." aria-label="Search applications" autocomplete="off">
+          </div>
+        </header>
+
+        <!-- Main Scrollable App Grid -->
+        <main class="scroll-content">
+          <div id="pwa-grid" class="pwa-grid">
+            <!-- Dynamic app cards injected here by app.js -->
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary);">
+              <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 16px;"></i>
+              <p>Scanning registry...</p>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- Advanced Details Drawer -->
+      <div id="details-drawer" class="drawer" role="dialog" aria-labelledby="drawer-app-title" aria-modal="true">
+        <div class="drawer-header">
+          <h2 id="drawer-app-title">App Name</h2>
+          <button id="btn-close-drawer" class="btn-icon" aria-label="Close details panel">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="drawer-content">
+          <div class="info-item">
+            <span class="info-label">Deployment Directory</span>
+            <span id="info-folder" class="info-val">dir_name/</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Resolve URL</span>
+            <span id="info-start-url" class="info-val">index.html</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Accent Theme Color</span>
+            <span id="info-theme-color" class="info-val">#000000</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Categories</span>
+            <span id="info-categories" class="info-val">utility</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Description</span>
+            <span id="info-description" class="info-val">Detailed description will appear here.</span>
+          </div>
+      
+          <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+            <button id="btn-install-app" class="btn-action-block" style="background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: var(--bg-primary); font-weight: 600;">
+              <i class="fa-solid fa-download"></i> Install App
+            </button>
+            <button id="btn-clear-cache" class="btn-action-block">
+              <i class="fa-solid fa-trash-can"></i> Clear Application Cache
+            </button>
+            <button id="btn-open-app" class="btn-action-block" style="background: var(--bg-tertiary); border-color: var(--border-color);">
+              <i class="fa-solid fa-external-link-alt"></i> Open App
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drawer backdrop -->
+      <div id="drawer-backdrop" class="drawer-backdrop hidden" aria-hidden="true"></div>
+
+      <!-- Portal Logic Script -->
+      <script src="app.js"></script>
+    </body>
+    </html>
+  </div>
+
+  <!-- Drawer backdrop -->
+  <div id="drawer-backdrop" class="drawer-backdrop hidden" aria-hidden="true"></div>
+
+  <!-- Portal Logic Script -->
+  <script src="app.js"></script>
+</body>
+</html>
