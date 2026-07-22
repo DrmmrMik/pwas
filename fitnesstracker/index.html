@@ -28,6 +28,16 @@
   <!-- Chart.js and Lucide Icons -->
   <script src="assets/chart.umd.js"></script>
   <script src="assets/lucide.js"></script>
+  <!-- Service Worker Registration (REQUIRED for PWA install on Android) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('[AuraFit] SW registered:', reg.scope))
+          .catch(err => console.error('[AuraFit] SW registration failed:', err));
+      });
+    }
+  </script>
 </head>
 <body>
 

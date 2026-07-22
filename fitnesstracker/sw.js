@@ -13,17 +13,22 @@ const IMAGE_CACHE = `aurfit-images-${CACHE_VERSION}`;
 const CDN_CACHE = `aurfit-cdn-${CACHE_VERSION}`;
 
 // Core app shell assets to cache on install
+// NOTE: paths MUST match the actual build output (build.js puts style.css /
+// app.js / chart.umd.js / lucide.js under assets/). A 404 here would fail the
+// entire install event and make Chrome refuse install ("Unsafe app blocked").
 const STATIC_ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './style.css',
-  './app.js',
+  './assets/style.css',
+  './assets/app.js',
+  './assets/chart.umd.js',
+  './assets/lucide.js',
   './icons/icon.svg',
   './icons/icon_192.png',
   './icons/icon_512.png',
-  './icons/icon_192.png', // maskable 192
-  './icons/icon_512.png', // maskable 512
+  './icons/icon_192_maskable.png',
+  './icons/icon_512_maskable.png',
 ];
 
 // External resources to cache
@@ -164,21 +169,23 @@ function getStrategy(request) {
 
 // Install - cache core assets
 self.addEventListener('install', (event) => {
+  // Resilient caching: cache each asset individually so a single 404 / blocked
+  // external resource cannot abort the entire install (which would leave the SW
+  // uninstalled and cause Chrome to refuse install with "Unsafe app blocked").
+  const cacheListSafely = (cacheName, urls) =>
+    caches.open(cacheName).then(cache =>
+      Promise.all(urls.map(u =>
+        cache.add(u).catch(err => console.warn(`[AuraFit SW] skip ${u}:`, err.message))
+      ))
+    );
+
   event.waitUntil(
     Promise.all([
-      caches.open(STATIC_CACHE).then(cache => {
-        console.log('[AuraFit SW] Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
-      }),
-      caches.open(FONT_CACHE).then(cache => {
-        console.log('[AuraFit SW] Caching fonts');
-        return cache.addAll(EXTERNAL_RESOURCES.filter(r => r.includes('fonts')));
-      }),
-      caches.open(CDN_CACHE).then(cache => {
-        return cache.addAll(EXTERNAL_RESOURCES.filter(r => 
-          r.includes('cdn.jsdelivr.net') || r.includes('unpkg.com')
-        ));
-      })
+      cacheListSafely(STATIC_CACHE, STATIC_ASSETS),
+      cacheListSafely(FONT_CACHE, EXTERNAL_RESOURCES.filter(r => r.includes('fonts'))),
+      cacheListSafely(CDN_CACHE, EXTERNAL_RESOURCES.filter(r =>
+        r.includes('cdn.jsdelivr.net') || r.includes('unpkg.com')
+      )),
     ]).then(() => {
       console.log('[AuraFit SW] Install complete');
       self.skipWaiting();
