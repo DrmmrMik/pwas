@@ -117,5 +117,7 @@
   "handle_links": "preferred",
   "edge_side_panel": {
     "preferred_width": 400
-  }
+  },
+  "version": "1.0.20260722",
+  "x-build-stamp": "20260722-203753"
 }

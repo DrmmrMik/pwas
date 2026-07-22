@@ -4,13 +4,30 @@
  * Uses modern caching strategies with versioned caches
  */
 
-const CACHE_VERSION = 'v2';
+// BUILD INDICATOR: cache version is derived from the build stamp written into
+// manifest.json (x-build-stamp) by build.js. A new build => new cache => the SW
+// self-reports its version and force-refreshes assets. Falls back to 'v2'.
+let CACHE_VERSION = 'v2';
+try {
+  // Synchronous XHR at SW top-level is allowed during install/startup.
+  const manifestText = (function () {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', './manifest.json', false);
+    xhr.send();
+    return xhr.responseText;
+  })();
+  const manifest = JSON.parse(manifestText);
+  if (manifest && manifest['x-build-stamp']) {
+    CACHE_VERSION = 'b' + manifest['x-build-stamp'];
+  }
+} catch (e) { /* keep fallback */ }
 const CACHE_NAME = `aurfit-${CACHE_VERSION}`;
 const STATIC_CACHE = `aurfit-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `aurfit-dynamic-${CACHE_VERSION}`;
 const FONT_CACHE = `aurfit-fonts-${CACHE_VERSION}`;
 const IMAGE_CACHE = `aurfit-images-${CACHE_VERSION}`;
 const CDN_CACHE = `aurfit-cdn-${CACHE_VERSION}`;
+console.log('[AuraFit SW] build version:', CACHE_VERSION);
 
 // Core app shell assets to cache on install
 // NOTE: paths MUST match the actual build output (build.js puts style.css /
