@@ -45,7 +45,7 @@
       "src": "icons/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "screenshots": [
@@ -105,5 +105,5 @@
   "prefer_related_applications": false,
   "related_applications": [],
   "version": "1.0.20260725",
-  "x-build-stamp": "20260725-134801"
+  "x-build-stamp": "20260725-134844"
 }

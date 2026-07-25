@@ -36,16 +36,16 @@ console.log('[AuraFit SW] build version:', CACHE_VERSION);
 const STATIC_ASSETS = [
   './',
   './index.html',
-  './manifest.json',
   './assets/style.css',
   './assets/app.js',
   './assets/chart.umd.js',
   './assets/lucide.js',
+  './manifest.json',
   './icons/icon.svg',
   './icons/icon_192.png',
   './icons/icon_512.png',
   './icons/icon_192_maskable.png',
-  './icons/icon_512_maskable.png',
+  './icons/icon_512_maskable.png'
 ];
 
 // External resources to cache
