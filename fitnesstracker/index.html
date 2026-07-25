@@ -38,8 +38,10 @@
       });
     }
   </script>
+
+<script>window.__BUILD_INFO__={stamp:"20260725-152045",ver:"1.0.20260725"};</script>
 </head>
-<body data-build="20260725-134844" data-version="1.0.20260725">
+<body data-build="20260725-152045" data-version="1.0.20260725">
 
   <!-- App Wrapper -->
   <div class="app-container">
@@ -671,6 +673,20 @@
             </div>
           </div>
 
+          <!-- Build Info -->
+          <div class="glass-panel">
+            <div class="panel-header">
+              <h2 class="panel-title"><i data-lucide="info"></i> Build Information</h2>
+            </div>
+            <p class="panel-desc">App version and build details for tracking deployments.</p>
+            <div class="settings-actions">
+              <div class="build-info-display" id="settings-build-info" style="font:600 13px/1.6 monospace;color:var(--text-secondary);background:rgba(6,182,212,0.08);border-radius:8px;padding:12px;text-align:center;">
+                <span id="settings-build-version">Loading...</span><br>
+                <span id="settings-build-stamp" style="font-size:11px;opacity:0.7;"></span>
+              </div>
+            </div>
+          </div>
+
           <!-- Sandbox and Demo Tools -->
           <div class="glass-panel">
             <div class="panel-header">
@@ -789,7 +805,5 @@
 
   <!-- Main Application Logic -->
   <script src="assets/app.js"></script>
-
-<div class="build-indicator" style="position:fixed;left:8px;bottom:8px;z-index:9999;font:600 11px/1.4 monospace;color:#06b6d4;background:rgba(9,13,22,.82);border:1px solid #06b6d4;padding:4px 8px;border-radius:8px;opacity:.55;pointer-events:none">build 20260725-134844 · v1.0.20260725</div>
 </body>
 </html>

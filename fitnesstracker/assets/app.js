@@ -2036,6 +2036,22 @@ function initSettings() {
       alert(`Cadence settings saved! Pacing is now set to ${upVal}s up and ${downVal}s down.`);
     });
   }
+
+  // Render build info in Settings
+  const buildVersionEl = document.getElementById('settings-build-version');
+  const buildStampEl = document.getElementById('settings-build-stamp');
+  if (buildVersionEl) {
+    if (window.__BUILD_INFO__) {
+      buildVersionEl.textContent = 'AuraFit v' + window.__BUILD_INFO__.ver;
+      if (buildStampEl) buildStampEl.textContent = 'Build: ' + window.__BUILD_INFO__.stamp;
+    } else {
+      buildVersionEl.textContent = 'AuraFit v1.0.0';
+      if (buildStampEl) buildStampEl.textContent = 'Development build';
+    }
+  }
+  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+    setTimeout(() => lucide.createIcons(), 50);
+  }
 }
 
 function renderBBSExercisesSettings() {
