@@ -48,22 +48,6 @@
       "purpose": "any"
     }
   ],
-  "screenshots": [
-    {
-      "src": "screenshots/desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "AuraFit Dashboard on desktop"
-    },
-    {
-      "src": "screenshots/mobile.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "AuraFit on mobile"
-    }
-  ],
   "shortcuts": [
     {
       "name": "Log Workout",
@@ -105,5 +89,5 @@
   "prefer_related_applications": false,
   "related_applications": [],
   "version": "1.0.20260725",
-  "x-build-stamp": "20260725-152045"
+  "x-build-stamp": "20260725-152840"
 }
