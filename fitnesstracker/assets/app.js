@@ -686,20 +686,14 @@ function updateDashboard() {
   }
 }
 
-// Progression Algorithm for Mike Mentzer Heavy Duty
-// Mentzer principles reflected here:
-//  - Single, high-intensity effort to muscular failure (and ideally beyond, with
-//    forced reps / negatives) is the growth stimulus. More is NOT better.
-//  - Time Under Load (TUL) is a confirmation signal, not the training target.
-//    The objective on every set is to reach failure. A short TUL simply means the
-//    weight was heavy enough that you hit failure quickly -- which is exactly the
-//    point. We therefore NEVER auto-deload just because TUL was under 80s.
-//  - Progressive overload is applied ONLY after a successful set where you held the
-//    prior weight but could no longer add any reps / time (i.e. you reached your
-//    realistic TUL ceiling). When you fail well short of the productive window the
-//    guidance is to keep the same weight and re-achieve the set, not to drop load.
-const MENTZER_TUL_MIN = 40;   // below this on a max-effort set => too heavy / poor form
-const MENTZER_TUL_MAX = 90;   // above this on a max-effort set => not enough load
+// Progression Algorithm for Mike Mentzer Heavy Duty + Tim Ferriss ceiling
+// Mentzer: one all-out set to absolute failure. No target TUL — you go until you
+// physically cannot move the weight. Progression is driven by your ability to
+// exceed your previous set's weight or time under load.
+// Ferriss (4-Hour Body, Occam's Protocol): if you can exceed 60s under load,
+// increase the weight on your next workout. There is no lower-bound target;
+// a short TUL simply means the load was heavy enough.
+const FERRISS_TUL_CEILING = 60; // seconds — exceed this → add weight next time
 
 function getBBSRecommendation(exercise) {
   const logs = state.bbsLogs.filter(log => log.exercise === exercise);
@@ -707,9 +701,9 @@ function getBBSRecommendation(exercise) {
     return {
       type: "new",
       class: "bbs-maintain",
-      nextWeight: 100, // Default starting weight recommendation
-      desc: "No workouts logged. Pick a weight you can only just move with perfect form and take it to failure. Target 40-90s TUL, but the goal is reaching failure.",
-      targetTUL: "40-90s"
+      nextWeight: 100,
+      desc: "No workouts logged. Pick a weight you can only just move with perfect form and take it to absolute failure. There is no target TUL — just train to failure.",
+      targetTUL: ""
     };
   }
 
@@ -719,42 +713,43 @@ function getBBSRecommendation(exercise) {
   const lastWeight = parseFloat(last.weight);
   const lastTUL = parseFloat(last.tul);
 
-  // Successful overload: the set was long enough to show the load was productive
-  // AND you stayed within a sensible TUL window -> add weight (progressive overload).
-  if (lastTUL >= MENTZER_TUL_MIN && lastTUL <= MENTZER_TUL_MAX) {
+  // Ferriss ceiling: if you exceeded 60s under load, the weight is too light.
+  // Add ~5% next time. If you reached failure within 60s, the load was
+  // heavy enough — keep the weight and try to beat your prior effort score.
+  if (lastTUL > FERRISS_TUL_CEILING) {
     let nextWeight = Math.round((lastWeight * 1.05) / 2.5) * 2.5;
-    if (nextWeight === lastWeight) nextWeight += 2.5; // Ensure it increases
+    if (nextWeight <= lastWeight) nextWeight = lastWeight + 2.5;
     return {
       type: "upgrade",
       class: "bbs-upgrade",
       nextWeight: nextWeight,
-      desc: `Last: ${lastWeight} lbs for ${lastTUL}s. Reached failure in the productive window. Overload applied: weight up +5% -- take it to failure again.`,
-      targetTUL: "40-90s"
+      desc: `Last: ${lastWeight} lbs for ${lastTUL}s. Exceeded 60s TUL ceiling → weight was too light. Increase to ~${nextWeight} lbs next time and take it to failure.`,
+      targetTUL: ""
     };
   }
 
-  // Longer than the productive window: load was too light to bring you to failure.
-  // Hold the weight and chase failure harder next session (don't add yet).
-  if (lastTUL > MENTZER_TUL_MAX) {
-    return {
-      type: "maintain",
-      class: "bbs-maintain",
-      nextWeight: lastWeight,
-      desc: `Last: ${lastWeight} lbs for ${lastTUL}s. Too light -- you didn't reach failure. Keep ${lastWeight} lbs and push to positive failure (aim 40-90s TUL).`,
-      targetTUL: "40-90s"
-    };
-  }
-
-  // Shorter than the productive window: you hit failure fast, which is GOOD --
-  // it means the load was heavy enough. We do NOT deload. Keep the same weight
-  // and re-achieve the set, driving for just a little more TUL / a slow negative.
+  // TUL <= 60s: reached failure within Ferriss range. Load was heavy enough.
+  // Keep the weight; target is to beat the prior effort score (weight × TUL).
   return {
     type: "maintain",
     class: "bbs-maintain",
     nextWeight: lastWeight,
-    desc: `Last: ${lastWeight} lbs for ${lastTUL}s. Failure came fast -- load was heavy enough. KEEP ${lastWeight} lbs and re-achieve the set (try a slow negative or one forced rep).`,
-    targetTUL: "40-90s"
+    desc: `Last: ${lastWeight} lbs for ${lastTUL}s. Valid set to failure. Keep ${lastWeight} lbs and aim to beat your prior effort score (lbs × TUL).`,
+    targetTUL: ""
   };
+}
+
+// ─── Effort Score (weight × TUL) and PR helpers ──────────────────────────
+function getEffortScore(weight, tul) {
+  return weight * tul; // "pounds-seconds" — synthetic work measure
+}
+
+function getPriorBestExerciseEffort(exercise) {
+  const logs = state.bbsLogs.filter(l => l.exercise === exercise);
+  if (logs.length === 0) return 0;
+  return Math.max(...logs.map(l =>
+    getEffortScore(parseFloat(l.weight), parseFloat(l.tul))
+  ));
 }
 
 // Compute Personal Record for Peloton
@@ -898,13 +893,13 @@ function updateBBSTargets() {
   if (!selectedEx) return;
 
   const rec = getBBSRecommendation(selectedEx);
-  
+
   document.getElementById("bbs-timer-rec-weight").textContent = `Target: ${rec.nextWeight} lbs`;
-  document.getElementById("bbs-timer-rec-tul").textContent = `Target TUL: ${rec.targetTUL}`;
-  
+  document.getElementById("bbs-timer-rec-tul").textContent = rec.targetTUL || "Train to failure";
+
   // Fill the input forms automatically
   document.getElementById("bbs-log-weight").value = rec.nextWeight;
-  
+
   // Fill recommendation text
   document.getElementById("bbs-cadence-text").textContent = "Ready to start";
   document.getElementById("bbs-cadence-text").style.color = "var(--accent-cyan)";
@@ -969,12 +964,44 @@ function startBBSTimer() {
     const elapsedSeconds = timerElapsedMs / 1000;
     
     // Display updates (single source of truth for TUL)
-    document.getElementById("bbs-timer-val").textContent = elapsedSeconds.toFixed(1);
-    
-    // Auto populate TUL input
-    document.getElementById("bbs-log-tul").value = elapsedSeconds.toFixed(1);
-    
-    // Pacing visualizer driven by settings
+        document.getElementById("bbs-timer-val").textContent = elapsedSeconds.toFixed(1);
+
+        // Auto populate TUL input
+        document.getElementById("bbs-log-tul").value = elapsedSeconds.toFixed(1);
+
+        // ── Effort score gauge: live score vs prior PR ─────────────────────────
+        const effortWeight = parseFloat(document.getElementById("bbs-log-weight").value) || 0;
+        const currentScore = getEffortScore(effortWeight, elapsedSeconds);
+        const effortExercise = document.getElementById("bbs-exercise-select").value;
+        const priorBest = getPriorBestExerciseEffort(effortExercise);
+
+        const gauge = document.getElementById("effort-gauge");
+        const scoreVal = document.getElementById("effort-score-val");
+        const indicator = document.getElementById("effort-pr-indicator");
+
+        if (effortWeight > 0) {
+          gauge.style.display = "block";
+          scoreVal.textContent = Math.round(currentScore).toLocaleString();
+
+          if (priorBest === 0 || currentScore >= priorBest) {
+            const isPR = (priorBest > 0);
+            indicator.textContent = isPR ? "🔥 NEW PR!" : "SET PR!";
+            indicator.style.color = "#22c55e";
+            indicator.style.backgroundColor = "rgba(34,197,94,0.2)";
+          } else if (currentScore >= priorBest * 0.9) {
+            indicator.textContent = "CLOSE!";
+            indicator.style.color = "#eab308";
+            indicator.style.backgroundColor = "rgba(234,179,8,0.2)";
+          } else {
+            indicator.textContent = `${Math.round(currentScore / priorBest * 100)}% of PR`;
+            indicator.style.color = "#ef4444";
+            indicator.style.backgroundColor = "rgba(239,68,68,0.2)";
+          }
+        } else {
+          gauge.style.display = "none";
+        }
+
+        // Pacing visualizer driven by settings
     const visualizerEnabled = document.getElementById("chk-bbs-cadence").checked;
     const ring = document.querySelector(".timer-progress-ring");
     const cadenceLabel = document.getElementById("bbs-cadence-text");
@@ -1059,10 +1086,14 @@ function resetBBSTimer() {
   releaseWakeLock();
   
   document.getElementById("bbs-timer-val").textContent = "00.0";
-  document.getElementById("bbs-log-tul").value = "";
-  document.getElementById("btn-bbs-timer-reset").disabled = true;
-  
-  const ring = document.querySelector(".timer-progress-ring");
+    document.getElementById("bbs-log-tul").value = "";
+    document.getElementById("btn-bbs-timer-reset").disabled = true;
+
+    // Hide effort score gauge
+    const gaugeEl = document.getElementById("effort-gauge");
+    if (gaugeEl) gaugeEl.style.display = "none";
+
+    const ring = document.querySelector(".timer-progress-ring");
   ring.style.setProperty("--pacing-percent", "0%");
   document.getElementById("bbs-cadence-text").textContent = "Ready to start";
   document.getElementById("bbs-cadence-text").style.color = "var(--accent-cyan)";
@@ -1092,6 +1123,7 @@ function saveBBSLog() {
     exercise,
     weight,
     tul,
+    effortScore: getEffortScore(weight, tul),
     reps,
     feeling,
     notes,
@@ -1151,6 +1183,7 @@ function renderBBSTable() {
       <td><strong>${log.exercise}</strong>${feelingStr}</td>
       <td>${log.weight} lbs</td>
       <td>${log.tul}s${repsStr}</td>
+      <td><strong>${log.effortScore ? Math.round(log.effortScore).toLocaleString() : getEffortScore(parseFloat(log.weight), parseFloat(log.tul)).toLocaleString()}</strong></td>
       <td>
         <span class="text-secondary text-sm">${log.recommendation || '-'}</span>
         ${notesStr}
@@ -1740,37 +1773,51 @@ function renderBBSChart() {
   }
   
   const dates = logs.map(l => l.date);
-  const weights = logs.map(l => l.weight);
-  const tuls = logs.map(l => l.tul);
-  
-  charts.bbs = new Chart(canvas, {
-    type: 'bar',
-    data: {
-      labels: dates,
-      datasets: [
-        {
-          label: 'Time Under Load (seconds)',
-          data: tuls,
-          type: 'bar',
-          backgroundColor: 'rgba(6, 182, 212, 0.4)',
-          borderColor: 'rgba(6, 182, 212, 0.8)',
-          borderWidth: 1.5,
-          yAxisID: 'y1',
-        },
-        {
-          label: 'Weight (lbs)',
-          data: weights,
-          type: 'line',
-          backgroundColor: 'transparent',
-          borderColor: '#06b6d4',
-          borderWidth: 3,
-          pointBackgroundColor: '#06b6d4',
-          pointHoverRadius: 6,
-          yAxisID: 'y',
-          tension: 0.15
-        }
-      ]
-    },
+    const weights = logs.map(l => l.weight);
+    const tuls = logs.map(l => l.tul);
+    const efforts = logs.map(l => l.effortScore || getEffortScore(l.weight, l.tul));
+
+    charts.bbs = new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: dates,
+        datasets: [
+          {
+            label: 'Time Under Load (seconds)',
+            data: tuls,
+            type: 'bar',
+            backgroundColor: 'rgba(6, 182, 212, 0.4)',
+            borderColor: 'rgba(6, 182, 212, 0.8)',
+            borderWidth: 1.5,
+            yAxisID: 'y1',
+          },
+          {
+            label: 'Weight (lbs)',
+            data: weights,
+            type: 'line',
+            backgroundColor: 'transparent',
+            borderColor: '#06b6d4',
+            borderWidth: 3,
+            pointBackgroundColor: '#06b6d4',
+            pointHoverRadius: 6,
+            yAxisID: 'y',
+            tension: 0.15
+          },
+          {
+            label: 'Effort Score (lbs×s)',
+            data: efforts,
+            type: 'line',
+            backgroundColor: 'transparent',
+            borderColor: '#22c55e',
+            borderWidth: 2.5,
+            borderDash: [5, 3],
+            pointBackgroundColor: '#22c55e',
+            pointHoverRadius: 5,
+            yAxisID: 'y2',
+            tension: 0.15
+          }
+        ]
+      },
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -1794,6 +1841,14 @@ function renderBBSChart() {
           ticks: { color: '#94a3b8' },
           min: 0,
           max: Math.max(100, Math.max(...tuls) + 10)
+        },
+        y2: {
+          type: 'linear',
+          position: 'right',
+          title: { display: true, text: 'Effort (lbs×s)', color: '#22c55e' },
+          grid: { drawOnChartArea: false },
+          ticks: { color: '#22c55e' },
+          min: 0
         }
       },
       plugins: {
@@ -2192,12 +2247,11 @@ function loadSampleData() {
   const today = new Date();
   
   // 1. Generate Heavy Duty Weightlifting logs (Once every 4-5 days, 13-14 sessions total)
-  // Mentzer Heavy Duty progression:
+  // Mentzer Heavy Duty progression (Ferriss ceiling):
   //  - One max-intensity set to failure per exercise.
-  //  - TUL is a confirmation signal, not the training target. A short TUL means
-  //    the load was heavy enough (good). We do NOT deload on short TUL.
-  //  - Overload is applied when the set reached failure inside the productive
-  //    40-90s window; otherwise weight is held and the set is re-achieved.
+  //  - No target TUL. Train to absolute failure. A short TUL simply means
+  //    the load was heavy enough. Progression is based on the Ferriss ceiling:
+  //    if TUL > 60s → increase weight; otherwise keep it.
   const exercisesBase = {
     "Chest Press": { startW: 130, incr: 5 },
     "Lat Pulldown": { startW: 110, incr: 5 },
@@ -2219,28 +2273,23 @@ function loadSampleData() {
       let weight = currentWeights[ex];
       let tul = currentTUL[ex];
       
-      // Simulate a max-effort set to failure: TUL drifts within the
-      // productive 40-90s window, occasionally a bit short or long.
+      // Simulate a max-effort set to failure: TUL varies naturally.
+      // No target window — just a random drift to simulate real training.
       const drift = Math.floor(Math.random() * 17) - 6; // -6..+10
       tul = Math.max(33, Math.min(98, tul + drift));
       
       let recText = "";
-      if (tul >= 40 && tul <= 90) {
-        // Reached failure in the productive window -> overload (progressive)
+      if (tul > FERRISS_TUL_CEILING) {
+        // Exceeded Ferriss ceiling -> too light, add weight
         const oldWeight = weight;
         weight += exercisesBase[ex].incr;
         currentWeights[ex] = weight;
-        // Next session TUL resets down (heavier load reaches failure sooner)
-        currentTUL[ex] = Math.floor(Math.random() * 18) + 42; // 42-59s
-        recText = `Last: ${oldWeight} lbs for ${tul}s. Reached failure in window. Overload applied: weight up to ${weight} lbs.`;
-      } else if (tul > 90) {
-        // Too light, no failure -> hold weight, push harder next time
-        currentTUL[ex] = Math.max(60, tul - 12);
-        recText = `Last: ${weight} lbs for ${tul}s. Too light, no failure. Keep ${weight} lbs and push to positive failure.`;
+        currentTUL[ex] = Math.floor(Math.random() * 15) + 15; // 15-29s heavier weight = shorter TUL
+        recText = `Last: ${oldWeight} lbs for ${tul}s. Exceeded 60s → too light. Weight increased to ${weight} lbs.`;
       } else {
-        // Short TUL -> heavy enough, failure came fast. KEEP weight, re-achieve. Never deload.
-        currentTUL[ex] = Math.min(90, tul + 8);
-        recText = `Last: ${weight} lbs for ${tul}s. Failure came fast -- load was heavy enough. KEEP ${weight} lbs and re-achieve the set.`;
+        // Failure within Ferriss range -> load was heavy enough, keep weight
+        currentTUL[ex] = Math.min(55, Math.max(15, tul + Math.floor(Math.random() * 8) - 4));
+        recText = `Last: ${weight} lbs for ${tul}s. Valid set to failure. Keep ${weight} lbs.`;
       }
 
       sampleState.bbsLogs.push({
@@ -2361,7 +2410,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 40,
       feeling: "😀",
       notes: "3 holes showing on chest. Bottom on butt.",
-      recommendation: "First workout logged. Weight is in the target zone (40s). Maintain 130 lbs and aim for 45-90s TUL."
+      recommendation: "First workout logged. Valid first set. Keep 130 lbs and train to failure."
     },
     {
       id: "bbs_appsheet_2",
@@ -2372,7 +2421,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 42,
       feeling: "🙂",
       notes: "",
-      recommendation: "First workout logged. Weight is close to target zone (42s). Maintain 260 lbs and aim for 45-90s TUL."
+      recommendation: "First workout logged. Valid first set. Keep 260 lbs and train to failure."
     },
     {
       id: "bbs_appsheet_3",
@@ -2383,7 +2432,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 40,
       feeling: "😀",
       notes: "",
-      recommendation: "First workout logged. Weight is in the target zone (40s). Maintain 110 lbs and aim for 45-90s TUL."
+      recommendation: "First workout logged. Valid first set. Keep 110 lbs and train to failure."
     },
     {
       id: "bbs_appsheet_4",
@@ -2394,7 +2443,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 50,
       feeling: "🙂",
       notes: "",
-      recommendation: "First workout logged. Weight is in target zone (50s). Maintain 80 lbs and aim for overload."
+      recommendation: "First workout logged. Valid first set. Keep 80 lbs."
     },
     {
       id: "bbs_appsheet_5",
@@ -2405,7 +2454,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 55,
       feeling: "🙂",
       notes: "",
-      recommendation: "First workout logged. Weight is in target zone (55s). Maintain 55 lbs and aim for overload."
+      recommendation: "First workout logged. Valid first set. Keep 55 lbs."
     },
     {
       id: "bbs_appsheet_6",
@@ -2416,7 +2465,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 60,
       feeling: "😐",
       notes: "",
-      recommendation: "Last: 80 lbs for 50s. Overload progression applied. Weight increased to 100 lbs. Target 45-90s TUL."
+      recommendation: "Last: 80 lbs for 50s. Exceeded 60s → too light. Weight increased to 100 lbs."
     },
     {
       id: "bbs_appsheet_7",
@@ -2427,7 +2476,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 48,
       feeling: "😐",
       notes: "",
-      recommendation: "Last: 130 lbs for 40s. Overload progression applied. Weight increased to 170 lbs. Target 45-90s TUL."
+      recommendation: "Last: 130 lbs for 40s. Exceeded 60s → too light. Weight increased to 170 lbs."
     },
     {
       id: "bbs_appsheet_8",
@@ -2438,7 +2487,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 42,
       feeling: "😐",
       notes: "",
-      recommendation: "Last: 110 lbs for 40s. Overload progression applied. Weight increased to 135 lbs. Target 45-90s TUL."
+      recommendation: "Last: 110 lbs for 40s. Exceeded 60s → too light. Weight increased to 135 lbs."
     },
     {
       id: "bbs_appsheet_9",
@@ -2460,7 +2509,7 @@ function seedAppSheetData(overwrite = false) {
       tul: 65,
       feeling: "🙂",
       notes: "Can do more/longer next time",
-      recommendation: "Last: 100 lbs for 60s. Overload progression applied. Weight increased to 105 lbs (+5%). Target 45-90s TUL."
+      recommendation: "Last: 100 lbs for 60s. Exceeded 60s → too light. Weight increased to 105 lbs."
     },
     {
       id: "bbs_appsheet_11",

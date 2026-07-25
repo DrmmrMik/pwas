@@ -223,7 +223,12 @@
               </div>
               <div class="timer-quick-info">
                 <span class="recommendation-pill" id="bbs-timer-rec-weight">Target: -- lbs</span>
-                <span class="recommendation-pill" id="bbs-timer-rec-tul">Target TUL: 45-90s</span>
+                <span class="recommendation-pill" id="bbs-timer-rec-tul">Train to failure</span>
+              </div>
+              <!-- Effort Score Gauge (gamified PR indicator) -->
+              <div class="effort-gauge" id="effort-gauge" style="display:none; text-align:center; margin: 8px 0; font-size: 13px;">
+                <span id="effort-score-label">Effort: <strong id="effort-score-val">0</strong></span>
+                <span id="effort-pr-indicator" style="margin-left:8px; padding:2px 8px; border-radius:12px; font-weight:700; font-size:12px;">—</span>
               </div>
             </div>
 
@@ -317,6 +322,7 @@
                     <th>Exercise</th>
                     <th>Weight</th>
                     <th>TUL</th>
+                    <th>Effort Score</th>
                     <th>Progression Info</th>
                     <th>Actions</th>
                   </tr>
