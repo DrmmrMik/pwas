@@ -2037,13 +2037,15 @@ function initSettings() {
     });
   }
 
-  // Render build info in Settings
+  // Render build info in Settings - read from body data attributes (set in HTML by build.js)
   const buildVersionEl = document.getElementById('settings-build-version');
   const buildStampEl = document.getElementById('settings-build-stamp');
   if (buildVersionEl) {
-    if (window.__BUILD_INFO__) {
-      buildVersionEl.textContent = 'AuraFit v' + window.__BUILD_INFO__.ver;
-      if (buildStampEl) buildStampEl.textContent = 'Build: ' + window.__BUILD_INFO__.stamp;
+    const buildStamp = document.body && document.body.dataset.build;
+    const buildVer = document.body && document.body.dataset.version;
+    if (buildVer) {
+      buildVersionEl.textContent = 'AuraFit v' + buildVer;
+      if (buildStampEl) buildStampEl.textContent = 'Build: ' + buildStamp;
     } else {
       buildVersionEl.textContent = 'AuraFit v1.0.0';
       if (buildStampEl) buildStampEl.textContent = 'Development build';
