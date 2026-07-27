@@ -648,5 +648,7 @@
   // ── export ────────────────────────────────────────────────────────
 
   window.App = App;
-  window.CrayonBoxApp = new App();
+  document.addEventListener('DOMContentLoaded', function () {
+    window.CrayonBoxApp = new App();
+  });
 })();
