@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1536">
+  <!-- Dress -->
+  <path d="M900 1000 L1100 1000 L1200 1400 L800 1400 Z" fill="none" stroke="#1A1817" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Dress decorations -->
+  <path d="M950 1100 L1050 1100" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <path d="M900 1200 L1100 1200" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <path d="M850 1300 L1150 1300" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <!-- Bodice -->
+  <path d="M900 1000 L900 880 Q1000 850 1100 880 L1100 1000 Z" fill="none" stroke="#1A1817" stroke-width="7" stroke-linejoin="round"/>
+  <!-- Neck -->
+  <rect x="960" y="820" width="80" height="60" rx="10" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <!-- Head -->
+  <circle cx="1000" cy="760" r="65" fill="none" stroke="#1A1817" stroke-width="7"/>
+  <!-- Hair -->
+  <path d="M935 760 Q935 660 1000 650 Q1065 660 1065 760" fill="none" stroke="#1A1817" stroke-width="8" stroke-linecap="round"/>
+  <path d="M935 760 Q920 780 920 820" fill="none" stroke="#1A1817" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1065 760 Q1080 780 1080 820" fill="none" stroke="#1A1817" stroke-width="6" stroke-linecap="round"/>
+  <!-- Eyes -->
+  <circle cx="980" cy="755" r="6" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <circle cx="1020" cy="755" r="6" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <!-- Smile -->
+  <path d="M985 780 Q1000 795 1015 780" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <!-- Crown -->
+  <path d="M935 700 L920 640 L960 670 L1000 620 L1040 670 L1080 640 L1065 700 Z" fill="none" stroke="#1A1817" stroke-width="7" stroke-linejoin="round"/>
+  <!-- Crown jewels -->
+  <circle cx="960" cy="660" r="6" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <circle cx="1000" cy="640" r="8" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <circle cx="1040" cy="660" r="6" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <!-- Arms -->
+  <path d="M880 900 Q800 950 780 1000" fill="none" stroke="#1A1817" stroke-width="7" stroke-linecap="round"/>
+  <path d="M1120 900 Q1200 950 1220 1000" fill="none" stroke="#1A1817" stroke-width="7" stroke-linecap="round"/>
+  <!-- Hands -->
+  <circle cx="780" cy="1000" r="12" fill="none" stroke="#1A1817" stroke-width="5"/>
+  <circle cx="1220" cy="1000" r="12" fill="none" stroke="#1A1817" stroke-width="5"/>
+  <!-- Wand -->
+  <path d="M1220 1000 L1350 850" fill="none" stroke="#1A1817" stroke-width="6" stroke-linecap="round"/>
+  <!-- Wand star -->
+  <path d="M1350 830 L1355 845 L1370 845 L1358 855 L1362 870 L1350 860 L1338 870 L1342 855 L1330 845 L1345 845 Z" fill="none" stroke="#1A1817" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Sparkles -->
+  <circle cx="1300" cy="800" r="4" fill="none" stroke="#1A1817" stroke-width="3"/>
+  <circle cx="1380" cy="780" r="3" fill="none" stroke="#1A1817" stroke-width="3"/>
+  <circle cx="1400" cy="830" r="4" fill="none" stroke="#1A1817" stroke-width="3"/>
+  <!-- Shoes -->
+  <ellipse cx="900" cy="1405" rx="35" ry="12" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <ellipse cx="1100" cy="1405" rx="35" ry="12" fill="none" stroke="#1A1817" stroke-width="6"/>
+</svg>
