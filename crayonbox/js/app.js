@@ -40,12 +40,8 @@
   // ── App constructor ───────────────────────────────────────────────
 
   function App() {
-    this.state = 'INIT'; // INIT → BOOK_CAROUSEL ⇄ WORKSPACE
-
-    // Current page (1-indexed, 1–8)
+    this.state = 'INIT';
     this.currentPage = 1;
-
-    // DOM refs
     this.loadingEl      = document.getElementById('loading');
     this.bookScreen     = document.getElementById('screen-book-carousel');
     this.workspaceScreen = document.getElementById('screen-workspace');
@@ -63,24 +59,23 @@
     this.paletteEl      = document.getElementById('crayonPalette');
     this.bookSpread     = document.getElementById('bookSpread');
     this.bookContainer  = document.getElementById('bookContainer');
-
-    // Engine refs (set up in WORKSPACE)
     this.engine         = null;
     this.pointerHandler = null;
     this.storage        = null;
     this.soundEngine    = null;
     this.gestureDetector = null;
-
-    // Clear-hold state
     this._clearHoldTimer  = null;
     this._clearHoldActive = false;
-    this._selectedColor   = CRAYON_COLORS[0]; // default red
-
-    // SVG cache for pages
+    this._selectedColor   = CRAYON_COLORS[0];
     this._svgCache = {};
-
-    // Bind methods that need it
     this._onResize = this._handleResize.bind(this);
+    // Kick off initialization
+    var self = this;
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { self.init(); });
+    } else {
+      self.init();
+    }
   }
 
   // ── INIT ──────────────────────────────────────────────────────────
@@ -648,7 +643,5 @@
   // ── export ────────────────────────────────────────────────────────
 
   window.App = App;
-  document.addEventListener('DOMContentLoaded', function () {
-    window.CrayonBoxApp = new App();
-  });
+  window.CrayonBoxApp = new App();
 })();
