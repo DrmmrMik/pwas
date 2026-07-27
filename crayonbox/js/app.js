@@ -16,7 +16,7 @@
   'use strict';
 
   var PAGE_COUNT = 8;
-  var PAGE_PREFIX = 'assets/pages/page_';
+  var PAGE_PREFIX = 'assets/pages/';
   var PAGE_EXT = '.svg';
 
   var CANVAS_W = 2732;
@@ -281,19 +281,20 @@
 
     // ── Load the SVG overlay ───────────────────────────────────────
     var key = 'page_' + String(this.currentPage).padStart(3, '0');
-    var svgContent = this._svgCache[key] || '';
-    this.coloringSvg.innerHTML = svgContent;
+    var svgContent = this._svgCache[key];
+    if (svgContent) {
+      this.coloringSvg.innerHTML = svgContent;
+    } else {
+      // SVG not yet cached — load it directly for the overlay
+      this._loadSvgInto(this.currentPage, this.coloringSvg);
+    }
 
     // ── Init WebGL engine ──────────────────────────────────────────
-    if (typeof WebGLEngine !== 'undefined') {
-      this.engine = new WebGLEngine({
-        canvas: this.canvas,
-        width: CANVAS_W,
-        height: CANVAS_H
-      });
-      this.engine.init();
+    if (typeof CrayonEngine !== 'undefined') {
+      this.engine = new CrayonEngine();
+      this.engine.init(this.canvas);
     } else {
-      console.warn('[App] WebGLEngine not loaded');
+      console.warn('[App] CrayonEngine not loaded');
     }
 
     // ── Init PointerHandler ────────────────────────────────────────
@@ -405,8 +406,15 @@
         // Load the raster image onto the canvas
         var img = new Image();
         img.onload = function () {
-          var ctx = self.canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, CANVAS_W, CANVAS_H);
+          // Use an offscreen canvas for compositing since this canvas
+          // already has a WebGL context (getContext('2d') would return null)
+          var offCanvas = document.createElement('canvas');
+          offCanvas.width = CANVAS_W;
+          offCanvas.height = CANVAS_H;
+          var offCtx = offCanvas.getContext('2d');
+          if (offCtx) {
+            offCtx.drawImage(img, 0, 0, CANVAS_W, CANVAS_H);
+          }
           if (self.engine && typeof self.engine.loadImage === 'function') {
             self.engine.loadImage(img);
           }
@@ -498,16 +506,13 @@
   App.prototype._clearCanvas = function () {
     var self = this;
 
-    // Clear the canvas
-    var ctx = this.canvas.getContext('2d');
-    ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
-    // Fill with transparent
-    ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
-
-    // Notify engine
+    // Clear via WebGL engine if available
     if (this.engine && typeof this.engine.clear === 'function') {
       this.engine.clear();
     }
+
+    // Also clear the 2D canvas fallback via an offscreen canvas
+    // (WebGL owns the real canvas, so we can't get a 2D context on it)
 
     // Reset stroke history
     if (this.engine && typeof this.engine.resetStrokeHistory === 'function') {

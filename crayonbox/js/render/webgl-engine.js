@@ -120,6 +120,11 @@
 
     // Performance
     this._pointCache = [];
+
+    // Stroke history for persistence
+    this._strokeHistory = [];
+    this._currentColor = null;
+    this._eraserMode = false;
   }
 
   /**
@@ -763,6 +768,151 @@
     this.gl = null;
     this.program = null;
     this.canvas = null;
+  };
+
+  /**
+   * setColor(color)
+   * Stores the current drawing color for future strokes.
+   * @param {string} color — hex string (#RRGGBB)
+   */
+  CrayonEngine.prototype.setColor = function (color) {
+    this._currentColor = color;
+  };
+
+  /**
+   * setEraser(isEraser)
+   * Enables or disables eraser mode.
+   * @param {boolean} isEraser
+   */
+  CrayonEngine.prototype.setEraser = function (isEraser) {
+    this._eraserMode = !!isEraser;
+  };
+
+  /**
+   * getStrokeHistory()
+   * Returns the array of recorded stroke descriptors.
+   * @returns {Array}
+   */
+  CrayonEngine.prototype.getStrokeHistory = function () {
+    return this._strokeHistory || [];
+  };
+
+  /**
+   * resetStrokeHistory()
+   * Clears the stroke history array.
+   */
+  CrayonEngine.prototype.resetStrokeHistory = function () {
+    this._strokeHistory = [];
+  };
+
+  /**
+   * loadStrokeHistory(history)
+   * Replaces the internal stroke history with previously saved data.
+   * @param {Array} history
+   */
+  CrayonEngine.prototype.loadStrokeHistory = function (history) {
+    this._strokeHistory = Array.isArray(history) ? history.slice() : [];
+  };
+
+  /**
+   * loadImage(img)
+   * Loads an HTMLImageElement into the WebGL canvas via texImage2D.
+   * Used when restoring saved page state.
+   * @param {HTMLImageElement} img
+   */
+  CrayonEngine.prototype.loadImage = function (img) {
+    var gl = this.gl;
+    if (!gl || !img) return;
+
+    // Draw the image into a temporary canvas for WebGL upload
+    var tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = img.naturalWidth || this.canvas.width;
+    tmpCanvas.height = img.naturalHeight || this.canvas.height;
+    var ctx = tmpCanvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+
+    // Upload as a texture and render full-quad
+    var tex = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, tmpCanvas);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+    // Use the existing _drawFullQuad approach — but we need the temp texture bound
+    // Render a full-screen quad with this texture using a simple shader
+    var vs = this._compileShader(gl.VERTEX_SHADER,
+      '#version 300 es\n' +
+      'in vec2 a_pos;\n' +
+      'out vec2 v_uv;\n' +
+      'void main() {\n' +
+      '  v_uv = a_pos * 0.5 + 0.5;\n' +
+      '  gl_Position = vec4(a_pos, 0.0, 1.0);\n' +
+      '}'
+    );
+    var fs = this._compileShader(gl.FRAGMENT_SHADER,
+      '#version 300 es\n' +
+      'precision highp float;\n' +
+      'in vec2 v_uv;\n' +
+      'uniform sampler2D u_tex;\n' +
+      'out vec4 fragColor;\n' +
+      'void main() {\n' +
+      '  fragColor = texture(u_tex, v_uv);\n' +
+      '}'
+    );
+
+    if (!vs || !fs) {
+      gl.deleteTexture(tex);
+      return;
+    }
+
+    var prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      gl.deleteProgram(prog);
+      gl.deleteTexture(tex);
+      return;
+    }
+
+    gl.useProgram(prog);
+
+    var aPos = gl.getAttribLocation(prog, 'a_pos');
+    var uTex = gl.getUniformLocation(prog, 'u_tex');
+
+    // Overwrite blend mode
+    gl.blendFuncSeparate(gl.ONE, gl.ZERO, gl.ONE, gl.ZERO);
+
+    var verts = new Float32Array([
+      -1, -1, 1, -1, -1, 1,
+       1,  1, -1, 1,  1, -1
+    ]);
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(aPos);
+    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.uniform1i(uTex, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+    // Cleanup
+    gl.disableVertexAttribArray(aPos);
+    gl.deleteBuffer(buf);
+    gl.deleteProgram(prog);
+    gl.deleteShader(vs);
+    gl.deleteShader(fs);
+    gl.deleteTexture(tex);
+
+    // Restore the subtractive blend mode and main program
+    gl.blendFuncSeparate(gl.ZERO, gl.ONE_MINUS_SRC_COLOR, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    if (this.program) {
+      gl.useProgram(this.program);
+    }
   };
 
   // Export
