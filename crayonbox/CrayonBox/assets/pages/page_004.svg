@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1536">
+  <!-- Sun -->
+  <circle cx="1600" cy="250" r="100" fill="none" stroke="#1A1817" stroke-width="8"/>
+  <path d="M1600 130 L1600 170" fill="none" stroke="#1A1817" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1600 330 L1600 370" fill="none" stroke="#1A1817" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1480 250 L1520 250" fill="none" stroke="#1A1817" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1680 250 L1720 250" fill="none" stroke="#1A1817" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1515 165 L1545 195" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1685 165 L1655 195" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1515 335 L1545 305" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1685 335 L1655 305" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <!-- Ground -->
+  <path d="M0 1200 L2048 1200 L2048 1536 L0 1536 Z" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <!-- Big flower center -->
+  <circle cx="600" cy="900" r="60" fill="none" stroke="#1A1817" stroke-width="8"/>
+  <!-- Big flower petals -->
+  <ellipse cx="600" cy="780" rx="45" ry="70" fill="none" stroke="#1A1817" stroke-width="7"/>
+  <ellipse cx="600" cy="1020" rx="45" ry="70" fill="none" stroke="#1A1817" stroke-width="7"/>
+  <ellipse cx="480" cy="900" rx="70" ry="45" fill="none" stroke="#1A1817" stroke-width="7"/>
+  <ellipse cx="720" cy="900" rx="70" ry="45" fill="none" stroke="#1A1817" stroke-width="7"/>
+  <ellipse cx="510" cy="810" rx="45" ry="60" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <ellipse cx="690" cy="810" rx="45" ry="60" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <ellipse cx="510" cy="990" rx="45" ry="60" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <ellipse cx="690" cy="990" rx="45" ry="60" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <!-- Stem -->
+  <path d="M600 960 L600 1200" fill="none" stroke="#1A1817" stroke-width="8" stroke-linecap="round"/>
+  <!-- Leaves -->
+  <ellipse cx="680" cy="1100" rx="50" ry="20" transform="rotate(-30 680 1100)" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <ellipse cx="520" cy="1050" rx="50" ry="20" transform="rotate(30 520 1050)" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <!-- Small flower 1 -->
+  <circle cx="1100" cy="1050" r="25" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <ellipse cx="1100" cy="1010" rx="18" ry="25" fill="none" stroke="#1A1817" stroke-width="5"/>
+  <ellipse cx="1100" cy="1090" rx="18" ry="25" fill="none" stroke="#1A1817" stroke-width="5"/>
+  <ellipse cx="1060" cy="1050" rx="25" ry="18" fill="none" stroke="#1A1817" stroke-width="5"/>
+  <ellipse cx="1140" cy="1050" rx="25" ry="18" fill="none" stroke="#1A1817" stroke-width="5"/>
+  <path d="M1100 1075 L1100 1200" fill="none" stroke="#1A1817" stroke-width="5" stroke-linecap="round"/>
+  <!-- Small flower 2 -->
+  <circle cx="1400" cy="1000" r="20" fill="none" stroke="#1A1817" stroke-width="5"/>
+  <ellipse cx="1400" cy="968" rx="14" ry="20" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <ellipse cx="1400" cy="1032" rx="14" ry="20" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <ellipse cx="1368" cy="1000" rx="20" ry="14" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <ellipse cx="1432" cy="1000" rx="20" ry="14" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <path d="M1400 1020 L1400 1200" fill="none" stroke="#1A1817" stroke-width="5" stroke-linecap="round"/>
+  <!-- Grass tufts -->
+  <path d="M200 1200 L210 1140 L220 1200" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <path d="M800 1200 L810 1150 L820 1200" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1550 1200 L1560 1160 L1570 1200" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1750 1200 L1760 1130 L1770 1200" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
+  <!-- Cloud -->
+  <ellipse cx="300" cy="200" rx="120" ry="60" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <ellipse cx="400" cy="180" rx="100" ry="50" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <ellipse cx="200" cy="200" rx="80" ry="45" fill="none" stroke="#1A1817" stroke-width="6"/>
+</svg>
