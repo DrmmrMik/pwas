@@ -134,9 +134,10 @@ void main() {
   // The caller sets blendFuncSeparate to achieve true subtractive behavior:
   //   gl.blendFuncSeparate(gl.ZERO, gl.ONE_MINUS_SRC_COLOR, gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
   //
-  // fragColor output in Display P3 primaries (the rendering pipeline handles
-  // the colour space via drawingBufferColorSpace = 'display-p3').
-  fragColor = vec4(v_color * alpha, alpha);
+  // fragColor output for gl.ONE_MINUS_SRC_COLOR blending:
+  // With dst * (1.0 - src.rgb), setting src.rgb = (1.0 - v_color) * alpha
+  // yields dst * ((1.0 - alpha) + v_color * alpha), leaving target crayon color on paper.
+  fragColor = vec4((vec3(1.0) - v_color) * alpha, alpha);
 }
 `;
 

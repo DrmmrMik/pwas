@@ -201,18 +201,24 @@
   App.prototype._renderSpread = function () {
     var self = this;
     var page = this.currentPage;
-    var leftIdx  = page === 1 ? PAGE_COUNT : page - 1;
     var rightIdx = page;
+    var leftIdx = page > 1 ? page - 1 : PAGE_COUNT;
 
-    // Check for stored thumbnails first — show them instead of raw SVG
+    // Reset backgrounds before applying
+    this.pageLeft.style.backgroundImage = '';
+    this.pageRight.style.backgroundImage = '';
+
+    // Apply stored thumbnails or load SVG content
     this._applyThumbnailToPage(leftIdx, this.pageLeft);
     this._applyThumbnailToPage(rightIdx, this.pageRight);
 
-    // Always load SVG content (hidden behind thumbnail if present)
     this._loadSvgInto(leftIdx, this.pageLeft);
     this._loadSvgInto(rightIdx, this.pageRight);
 
     // Click fallback for non-touch devices
+    if (this._onPageClick) {
+      this.pageRight.removeEventListener('click', this._onPageClick);
+    }
     this._onPageClick = function (e) { self._handleBookTap(e); };
     this.pageRight.addEventListener('click', this._onPageClick);
   };
@@ -222,17 +228,21 @@
     var key = 'page_' + String(pageNum).padStart(3, '0');
 
     this.storage.getPageMeta(key).then(function (meta) {
+      var svg = container.querySelector('svg');
       if (meta && meta.thumbnail) {
         var url = URL.createObjectURL(meta.thumbnail);
         container.style.backgroundImage = 'url(' + url + ')';
         container.style.backgroundSize = 'cover';
         container.style.backgroundPosition = 'center';
-        // Hide the SVG overlay so the thumbnail shows
-        var svg = container.querySelector('svg');
         if (svg) svg.style.opacity = '0';
+      } else {
+        container.style.backgroundImage = '';
+        if (svg) svg.style.opacity = '1';
       }
-    }).catch(function (err) {
-      console.warn('[App] Failed to load thumbnail for', key, err);
+    }).catch(function () {
+      container.style.backgroundImage = '';
+      var svg = container.querySelector('svg');
+      if (svg) svg.style.opacity = '1';
     });
   };
 
@@ -240,13 +250,21 @@
     var self = this;
     var key = 'page_' + String(pageNum).padStart(3, '0');
 
-    // Reuse cached SVG
-    if (this._svgCache[key]) {
-      // Check if container already has this SVG
-      var existing = container.querySelector('svg');
-      if (existing && existing.innerHTML === '') {
-        existing.innerHTML = this._svgCache[key];
+    var applySvg = function (svgText) {
+      container.innerHTML = svgText;
+      var svg = container.querySelector('svg');
+      if (svg) {
+        svg.style.width = '100%';
+        svg.style.height = '100%';
+        svg.style.display = 'block';
+        if (!container.style.backgroundImage || container.style.backgroundImage === '' || container.style.backgroundImage === 'none') {
+          svg.style.opacity = '1';
+        }
       }
+    };
+
+    if (this._svgCache[key]) {
+      applySvg(this._svgCache[key]);
       return;
     }
 
@@ -256,17 +274,8 @@
     xhr.onload = function () {
       if (xhr.status >= 200 && xhr.status < 300) {
         self._svgCache[key] = xhr.responseText;
-        // Put SVG into the container's svg element
-        var svg = container.querySelector('svg');
-        if (svg) {
-          svg.innerHTML = xhr.responseText;
-        }
-      } else {
-        console.warn('[App] Failed to load', url, xhr.status);
+        applySvg(xhr.responseText);
       }
-    };
-    xhr.onerror = function () {
-      console.warn('[App] Network error loading', url);
     };
     xhr.send();
   };
@@ -280,28 +289,26 @@
   App.prototype._loadThumbnails = function () {
     var self = this;
     this.storage.getAllPageMeta().then(function (metas) {
+      var leftIdx  = self.currentPage > 1 ? self.currentPage - 1 : PAGE_COUNT;
+      var rightIdx = self.currentPage;
+      var leftKey  = 'page_' + String(leftIdx).padStart(3, '0');
+      var rightKey = 'page_' + String(rightIdx).padStart(3, '0');
+
       metas.forEach(function (meta) {
         if (meta.thumbnail) {
-          // Find the page element by page_id and set the thumbnail as a background image
-          var pageNum = parseInt(meta.page_id.replace('page_', ''), 10);
           var url = URL.createObjectURL(meta.thumbnail);
-          // Set thumbnail on the correct page element
-          var leftPage  = self.pageLeft;
-          var rightPage = self.pageRight;
-          var leftIdx  = self.currentPage === 1 ? PAGE_COUNT : self.currentPage - 1;
-          var rightIdx = self.currentPage;
-
-          var leftKey  = 'page_' + String(leftIdx).padStart(3, '0');
-          var rightKey = 'page_' + String(rightIdx).padStart(3, '0');
-
           if (meta.page_id === leftKey) {
-            leftPage.style.backgroundImage = 'url(' + url + ')';
-            leftPage.style.backgroundSize = 'cover';
-            leftPage.style.backgroundPosition = 'center';
+            self.pageLeft.style.backgroundImage = 'url(' + url + ')';
+            self.pageLeft.style.backgroundSize = 'cover';
+            self.pageLeft.style.backgroundPosition = 'center';
+            var lSvg = self.pageLeft.querySelector('svg');
+            if (lSvg) lSvg.style.opacity = '0';
           } else if (meta.page_id === rightKey) {
-            rightPage.style.backgroundImage = 'url(' + url + ')';
-            rightPage.style.backgroundSize = 'cover';
-            rightPage.style.backgroundPosition = 'center';
+            self.pageRight.style.backgroundImage = 'url(' + url + ')';
+            self.pageRight.style.backgroundSize = 'cover';
+            self.pageRight.style.backgroundPosition = 'center';
+            var rSvg = self.pageRight.querySelector('svg');
+            if (rSvg) rSvg.style.opacity = '0';
           }
         }
       });
@@ -311,38 +318,71 @@
   };
 
   App.prototype._goToNextPage = function () {
-    this.currentPage = this.currentPage >= PAGE_COUNT ? 1 : this.currentPage + 1;
-    this._renderSpread();
-    this._updatePageIndicator();
-    this._loadThumbnails();
+    var self = this;
+    if (this._animatingPage) return;
+    this._animatingPage = true;
 
-    // Audio: page turn sound
+    if (this.pageRight) {
+      this.pageRight.classList.add('flipping', 'flipping-right');
+    }
+
     if (this.soundEngine && typeof this.soundEngine.playPageTurn === 'function') {
       this.soundEngine.playPageTurn();
     }
+
+    setTimeout(function () {
+      self.currentPage = self.currentPage >= PAGE_COUNT ? 1 : self.currentPage + 1;
+      self._renderSpread();
+      self._updatePageIndicator();
+      self._loadThumbnails();
+      if (self.pageRight) {
+        self.pageRight.classList.remove('flipping', 'flipping-right');
+      }
+      self._animatingPage = false;
+    }, 350);
   };
 
   App.prototype._goToPrevPage = function () {
-    this.currentPage = this.currentPage <= 1 ? PAGE_COUNT : this.currentPage - 1;
-    this._renderSpread();
-    this._updatePageIndicator();
-    this._loadThumbnails();
+    var self = this;
+    if (this._animatingPage) return;
+    this._animatingPage = true;
 
-    // Audio: page turn sound
+    if (this.pageLeft) {
+      this.pageLeft.classList.add('flipping', 'flipping-left');
+    }
+
     if (this.soundEngine && typeof this.soundEngine.playPageTurn === 'function') {
       this.soundEngine.playPageTurn();
     }
+
+    setTimeout(function () {
+      self.currentPage = self.currentPage <= 1 ? PAGE_COUNT : self.currentPage - 1;
+      self._renderSpread();
+      self._updatePageIndicator();
+      self._loadThumbnails();
+      if (self.pageLeft) {
+        self.pageLeft.classList.remove('flipping', 'flipping-left');
+      }
+      self._animatingPage = false;
+    }, 350);
   };
 
   App.prototype._handleBookTap = function (e) {
-    // Determine if the tap was on the right page
+    var self = this;
     var rect = this.bookScreen.getBoundingClientRect();
     var x = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
     var midX = rect.left + rect.width / 2;
 
     if (x >= midX) {
-      // Tapped on the right page — transition to workspace
-      this._enterWorkspace();
+      if (this.pageRight) {
+        this.pageRight.classList.add('zooming');
+      }
+      setTimeout(function () {
+        if (self.pageRight) {
+          self.pageRight.classList.remove('zooming');
+        }
+        self._enterWorkspace();
+      }, 250);
     }
   };
 
@@ -372,7 +412,17 @@
     // ── Canvas setup ────────────────────────────────────────────────
     this._setupCanvas();
 
-    // ── Init WebGL engine BEFORE loading SVG ────────────────────────
+    // ── Load the SVG overlay ───────────────────────────────────────
+    var key = 'page_' + String(this.currentPage).padStart(3, '0');
+    var svgContent = this._svgCache[key];
+    if (svgContent) {
+      this.coloringSvg.innerHTML = svgContent;
+    } else {
+      // SVG not yet cached — load it directly for the overlay
+      this._loadSvgInto(this.currentPage, this.coloringSvg);
+    }
+
+    // ── Init WebGL engine ──────────────────────────────────────────
     if (typeof CrayonEngine !== 'undefined') {
       this.engine = new CrayonEngine();
       var initOk = this.engine.init(this.canvas);
@@ -386,46 +436,40 @@
       console.warn('[App] CrayonEngine not loaded');
     }
 
-    // ── Load the SVG overlay ───────────────────────────────────────
-    var key = 'page_' + String(this.currentPage).padStart(3, '0');
-    var svgContent = this._svgCache[key];
-    if (svgContent) {
-      this.coloringSvg.innerHTML = svgContent;
-    } else {
-      // SVG not yet cached — load it directly for the overlay
-      this._loadSvgInto(this.currentPage, this.coloringSvg);
-    }
-
     // ── Init PointerHandler ────────────────────────────────────────
     if (typeof PointerHandler !== 'undefined') {
       this.pointerHandler = new PointerHandler({
         canvas: this.canvas,
-        onStrokeStart: function (data) {
-          // Start friction sound
+        onStrokeStart: function (data, y, pressure, tilt) {
           if (self.soundEngine && typeof self.soundEngine.startFriction === 'function') {
             self.soundEngine.startFriction();
           }
-          // Begin a new stroke on the engine
           if (self.engine) {
-            self.engine.startStroke(data.x, data.y, self._selectedColor, data.pressure, data.tilt);
+            var px = (typeof data === 'object' && data !== null) ? data.x : data;
+            var py = (typeof data === 'object' && data !== null) ? data.y : y;
+            var pPress = (typeof data === 'object' && data !== null) ? data.pressure : pressure;
+            var pTilt = (typeof data === 'object' && data !== null) ? data.tilt : tilt;
+            self.engine.startStroke(px, py, self._selectedColor, pPress, pTilt);
           }
         },
-        onStrokePoint: function (data) {
-          // Feed each interpolated / wobbled point to the engine incrementally
+        onStrokePoint: function (data, y, pressure, tilt) {
           if (self.engine) {
-            self.engine.renderPoint(data.x, data.y, self._selectedColor, data.pressure, data.tilt);
+            var px = (typeof data === 'object' && data !== null) ? data.x : data;
+            var py = (typeof data === 'object' && data !== null) ? data.y : y;
+            var pPress = (typeof data === 'object' && data !== null) ? data.pressure : pressure;
+            var pTilt = (typeof data === 'object' && data !== null) ? data.tilt : tilt;
+            self.engine.renderPoint(px, py, self._selectedColor, pPress, pTilt);
           }
-          // Update friction sound with velocity
           if (self.soundEngine && typeof self.soundEngine.updateFriction === 'function') {
-            self.soundEngine.updateFriction(data.pressure || 0.5, data.velocity || 0);
+            var pVel = (typeof data === 'object' && data !== null) ? data.velocity : 0;
+            var pPress = (typeof data === 'object' && data !== null) ? data.pressure : pressure;
+            self.soundEngine.updateFriction(pPress || 0.5, pVel || 0);
           }
         },
         onStrokeEnd: function () {
-          // Finalize the stroke (saves to history for undo)
           if (self.engine) {
             self.engine.endStroke();
           }
-          // Stop friction sound
           if (self.soundEngine && typeof self.soundEngine.stopFriction === 'function') {
             self.soundEngine.stopFriction();
           }
@@ -695,8 +739,18 @@
       this.clearProgress.classList.add('active');
     }
 
+    if (this.soundEngine && typeof this.soundEngine.startClearTone === 'function') {
+      this.soundEngine.startClearTone();
+    }
+
     this._clearHoldTimer = setTimeout(function () {
       self._clearHoldActive = true;
+      if (self.soundEngine && typeof this.soundEngine.stopClearTone === 'function') {
+        self.soundEngine.stopClearTone();
+      }
+      if (self.soundEngine && typeof this.soundEngine.playClear === 'function') {
+        self.soundEngine.playClear();
+      }
       self._clearCanvas();
 
       // Clean up
@@ -714,6 +768,9 @@
     }
     if (this.clearProgress) {
       this.clearProgress.classList.remove('active');
+    }
+    if (this.soundEngine && typeof this.soundEngine.stopClearTone === 'function') {
+      this.soundEngine.stopClearTone();
     }
     this._clearHoldActive = false;
   };

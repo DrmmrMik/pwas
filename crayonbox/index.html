@@ -25,13 +25,9 @@
   <div id="screen-book-carousel" class="screen active">
     <div class="book-container" id="bookContainer">
       <div class="book-spread" id="bookSpread">
-        <div class="book-page book-page-left" id="pageLeft">
-          <svg viewBox="0 0 2048 1536" style="width:100%;height:100%"></svg>
-        </div>
+        <div class="book-page book-page-left" id="pageLeft"></div>
         <div class="book-spine"></div>
-        <div class="book-page book-page-right" id="pageRight">
-          <svg viewBox="0 0 2048 1536" id="pageSvg" style="width:100%;height:100%"></svg>
-        </div>
+        <div class="book-page book-page-right" id="pageRight"></div>
       </div>
     </div>
     <div class="page-nav">
@@ -66,9 +62,37 @@
       </button>
     </div>
     <div class="canvas-container">
-      <canvas id="crayon-canvas"></canvas>
-      <svg class="coloring-svg-overlay" id="coloringSvg" viewBox="0 0 2048 1536" preserveAspectRatio="xMidYMid meet"></svg>
-      <div class="color-swatch" id="colorSwatch" style="background:#EF4444"></div>
+      <div class="canvas-wrapper" id="canvasWrapper">
+        <canvas id="crayon-canvas"></canvas>
+        <div class="coloring-svg-overlay" id="coloringSvg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1536">
+            <!-- Butterfly body -->
+            <ellipse cx="1024" cy="768" rx="20" ry="80" fill="none" stroke="#1A1817" stroke-width="8" stroke-linecap="round"/>
+            <!-- Antennae -->
+            <path d="M1010 700 Q980 620 960 580" fill="none" stroke="#1A1817" stroke-width="6" stroke-linecap="round"/>
+            <path d="M1038 700 Q1068 620 1088 580" fill="none" stroke="#1A1817" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="958" cy="576" r="8" fill="none" stroke="#1A1817" stroke-width="5"/>
+            <circle cx="1090" cy="576" r="8" fill="none" stroke="#1A1817" stroke-width="5"/>
+            <!-- Upper left wing -->
+            <path d="M1000 720 Q800 500 600 600 Q550 650 650 750 Q800 780 1000 760 Z" fill="none" stroke="#1A1817" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="800" cy="650" r="40" fill="none" stroke="#1A1817" stroke-width="5"/>
+            <circle cx="750" cy="700" r="25" fill="none" stroke="#1A1817" stroke-width="4"/>
+            <circle cx="850" cy="620" r="20" fill="none" stroke="#1A1817" stroke-width="4"/>
+            <!-- Upper right wing -->
+            <path d="M1048 720 Q1248 500 1448 600 Q1498 650 1398 750 Q1248 780 1048 760 Z" fill="none" stroke="#1A1817" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="1250" cy="650" r="40" fill="none" stroke="#1A1817" stroke-width="5"/>
+            <circle cx="1300" cy="700" r="25" fill="none" stroke="#1A1817" stroke-width="4"/>
+            <circle cx="1200" cy="620" r="20" fill="none" stroke="#1A1817" stroke-width="4"/>
+            <!-- Lower-left wing -->
+            <path d="M1000 800 Q850 950 700 900 Q620 850 700 800 Q850 840 1000 820 Z" fill="none" stroke="#1A1817" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="820" cy="850" r="18" fill="none" stroke="#1A1817" stroke-width="4"/>
+            <!-- Lower-right wing -->
+            <path d="M1048 800 Q1198 950 1348 900 Q1428 850 1348 800 Q1198 840 1048 820 Z" fill="none" stroke="#1A1817" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="1230" cy="850" r="18" fill="none" stroke="#1A1817" stroke-width="4"/>
+          </svg>
+        </div>
+        <div class="color-swatch" id="colorSwatch" style="background:#EF4444"></div>
+      </div>
     </div>
     <div class="crayon-palette" id="crayonPalette"></div>
   </div>

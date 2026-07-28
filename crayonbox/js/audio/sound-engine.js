@@ -160,36 +160,96 @@
     if (!this._frictionRunning) return;
 
     var ctx = this.ctx;
-
-    // Quick fade-out to avoid click
-    if (this._frictionGain) {
-      this._frictionGain.gain.setTargetAtTime(0, ctx.currentTime, 0.02);
+    if (this._frictionGain && ctx) {
+      try {
+        this._frictionGain.gain.setTargetAtTime(0, ctx.currentTime, 0.02);
+      } catch (e) {}
     }
-
-    // Stop the source after fade-out
-    var self = this;
-    if (this._frictionSource) {
+    if (this._frictionSource && ctx) {
       try {
         this._frictionSource.stop(ctx.currentTime + 0.1);
-      } catch (e) {
-        // May throw if already stopped
-      }
+      } catch (e) {}
     }
 
-    // Clean up
-    setTimeout(function () {
+    this._frictionSource = null;
+    this._frictionFilter = null;
+    this._frictionGain = null;
+    this._frictionRunning = false;
+  };
+
+  // ─── Clear Hold Tone (220Hz → 440Hz) ───
+
+  SoundEngine.prototype.startClearTone = function () {
+    if (!this._ensureInit()) return;
+    this.stopClearTone();
+
+    var ctx = this.ctx;
+    var now = ctx.currentTime;
+
+    this._clearOsc = ctx.createOscillator();
+    this._clearGain = ctx.createGain();
+
+    this._clearOsc.type = 'triangle';
+    this._clearOsc.frequency.setValueAtTime(220, now);
+    this._clearOsc.frequency.linearRampToValueAtTime(440, now + 1.5);
+
+    this._clearGain.gain.setValueAtTime(0, now);
+    this._clearGain.gain.linearRampToValueAtTime(0.3, now + 0.1);
+
+    this._clearOsc.connect(this._clearGain);
+    this._clearGain.connect(ctx.destination);
+
+    this._clearOsc.start(now);
+  };
+
+  SoundEngine.prototype.updateClearTone = function (progress) {
+    if (!this.ctx || !this._clearOsc) return;
+    var freq = 220 + (440 - 220) * Math.max(0, Math.min(1, progress || 0));
+    try {
+      this._clearOsc.frequency.setTargetAtTime(freq, this.ctx.currentTime, 0.03);
+    } catch (e) {}
+  };
+
+  SoundEngine.prototype.stopClearTone = function () {
+    if (!this.ctx) return;
+    var ctx = this.ctx;
+    if (this._clearGain) {
       try {
-        if (self._frictionSource) self._frictionSource.disconnect();
-        if (self._frictionFilter) self._frictionFilter.disconnect();
-        if (self._frictionGain) self._frictionGain.disconnect();
-      } catch (e) {
-        // Ignore disconnect errors
-      }
-      self._frictionSource = null;
-      self._frictionFilter = null;
-      self._frictionGain = null;
-      self._frictionRunning = false;
-    }, 150);
+        this._clearGain.gain.setTargetAtTime(0, ctx.currentTime, 0.03);
+      } catch (e) {}
+    }
+    if (this._clearOsc) {
+      try {
+        this._clearOsc.stop(ctx.currentTime + 0.05);
+      } catch (e) {}
+    }
+    this._clearOsc = null;
+    this._clearGain = null;
+  };
+
+  SoundEngine.prototype.playClear = function () {
+    if (!this._ensureInit()) return;
+
+    var ctx = this.ctx;
+    var now = ctx.currentTime;
+    var duration = 0.25;
+
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(440, now);
+    osc.frequency.exponentialRampToValueAtTime(880, now + duration);
+
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.3, now + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(now);
+    osc.stop(now + duration);
   };
 
   // ─── Crayon "Clack" Sound ───

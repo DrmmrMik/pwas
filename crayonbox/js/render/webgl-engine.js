@@ -143,6 +143,7 @@
       antialias: true,
       desynchronized: true,
       premultipliedAlpha: true,
+      preserveDrawingBuffer: true,
       depth: false,
       stencil: false
     });
@@ -173,6 +174,10 @@
     this._createPaperTexture();
     this._createWaxGrainTexture();
     this.compileShaders();
+
+    if (this.program) {
+      gl.useProgram(this.program);
+    }
 
     // Clear to warm paper colour (#F4EAD5) so the canvas isn't black
     gl.clearColor(0.957, 0.918, 0.835, 1.0);
@@ -535,6 +540,7 @@
    */
   CrayonEngine.prototype._applyWobble = function (points, pressure) {
     if (!points || points.length === 0) return points;
+    if (points[0] && points[0]._wobbled) return points;
 
     var A_base = 1.5;
     var f = 0.08;
@@ -542,6 +548,10 @@
     var result = [];
     for (var i = 0; i < points.length; i++) {
       var p = points[i];
+      if (p._wobbled) {
+        result.push(p);
+        continue;
+      }
       var noiseVal = _perlin2D(p.x * f, p.y * f);
       var displacement = A_base * noiseVal * (1.0 - 0.4 * (pressure || 0.5));
       // n(t) for temporal noise — use a hash of the point index
@@ -550,7 +560,8 @@
       result.push({
         x: p.x + displacement * temporalNoise,
         y: p.y + displacement * temporalNoise,
-        pressure: p.pressure
+        pressure: p.pressure,
+        _wobbled: true
       });
     }
 
@@ -681,7 +692,11 @@
     var gl = this.gl;
     if (!gl) return;
 
-    // Warm paper colour in linear sRGB
+    if (this.program) {
+      gl.useProgram(this.program);
+    }
+
+    // Warm paper colour in linear sRGB (#F4EAD5)
     gl.clearColor(0.957, 0.918, 0.835, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
   };
@@ -886,6 +901,7 @@
    */
   CrayonEngine.prototype.setColor = function (color) {
     this._currentColor = color;
+    this._currentColorRGB = this._parseColor(color);
   };
 
   /**
@@ -898,17 +914,12 @@
    * @param {number} [tilt=0] — tilt angle in radians
    */
   CrayonEngine.prototype.startStroke = function (x, y, color, pressure, tilt) {
+    if (color) {
+      this.setColor(color);
+    }
     this._currentStroke = [];
-    this._currentColor = color;
-    // Render the first point immediately
-    this.renderPoint(x, y, color, pressure, tilt);
-    // Record the point in the stroke buffer
-    this._currentStroke.push({
-      x: x,
-      y: y,
-      pressure: pressure !== undefined && pressure !== null ? pressure : 0.5,
-      tilt: tilt || 0
-    });
+    var strokeColor = this._currentColor || color || '#EF4444';
+    this.renderPoint(x, y, strokeColor, pressure, tilt);
   };
 
   /**
@@ -923,7 +934,7 @@
     // Store the completed stroke in history
     this._strokeHistory.push({
       points: this._currentStroke.slice(),
-      color: this._currentColor,
+      color: this._currentColor || '#EF4444',
       pressure: 0.5,
       tilt: 0
     });
@@ -964,8 +975,6 @@
    * clearLastStroke()
    * Removes the last stroke from history, re-renders all remaining strokes
    * by clearing the canvas and re-drawing everything that's left.
-   * Uses toBlob to get a snapshot for the restore — stores a "state image"
-   * before each new stroke so undo can restore the previous state.
    */
   CrayonEngine.prototype.clearLastStroke = function () {
     if (!this._strokeHistory || this._strokeHistory.length === 0) return;
@@ -973,14 +982,19 @@
     // Remove the last stroke from history
     this._strokeHistory.pop();
 
-    // Clear and re-render everything that remains
+    // Clear to paper color
     this.clear();
 
     // Re-render each stored stroke
     for (var i = 0; i < this._strokeHistory.length; i++) {
       var s = this._strokeHistory[i];
-      if (s.points && s.points.length >= 2) {
-        this.renderStroke(s.points, s.color, s.pressure, s.tilt);
+      if (s.points) {
+        if (s.points.length >= 2) {
+          this.renderStroke(s.points, s.color, s.pressure, s.tilt);
+        } else if (s.points.length === 1) {
+          var pt = s.points[0];
+          this.renderPoint(pt.x, pt.y, s.color, pt.pressure, pt.tilt);
+        }
       }
     }
   };
