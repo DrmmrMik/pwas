@@ -567,6 +567,86 @@
   };
 
   /**
+   * renderPoint(x, y, color, pressure, tilt)
+   * Renders a single crayon point as a WebGL2 point sprite.
+   * Used by the pointer handler for incremental stroke rendering.
+   *
+   * @param {number} x — canvas-relative x coordinate
+   * @param {number} y — canvas-relative y coordinate
+   * @param {number[]|string} color — RGB array [0-1] or hex string
+   * @param {number} [pressure=0.5] — pressure [0, 1]
+   * @param {number} [tilt=0] — tilt angle in radians
+   */
+  CrayonEngine.prototype.renderPoint = function (x, y, color, pressure, tilt) {
+    var gl = this.gl;
+    if (!gl || !this.program) return;
+
+    pressure = (pressure !== undefined && pressure !== null) ? pressure : 0.5;
+    tilt = tilt || 0;
+
+    var colorVec = this._parseColor(color);
+
+    var baseSize = 12 + pressure * 28;
+    var tiltWiden = 1 + Math.sin(tilt) * 0.4;
+    var pointSize = baseSize * tiltWiden * this.dpr;
+    pointSize = Math.max(4, Math.min(120, pointSize));
+
+    var w = this.canvas.width / this.dpr;
+    var h = this.canvas.height / this.dpr;
+    var projection = new Float32Array([
+      2 / w, 0, 0,
+      0, -2 / h, 0,
+      -1, 1, 1
+    ]);
+
+    var positions = new Float32Array([x, y]);
+    var pressures = new Float32Array([pressure]);
+    var texCoords = new Float32Array([x / w, y / h]);
+    var colors = new Float32Array([colorVec[0], colorVec[1], colorVec[2]]);
+
+    gl.useProgram(this.program);
+
+    gl.uniformMatrix3fv(this.uProjection, false, projection);
+    gl.uniform1f(this.uPointSize, pointSize);
+    gl.uniform2f(this.uResolution, this.canvas.width, this.canvas.height);
+
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, this.paperTexture);
+    gl.uniform1i(this.uPaperHeightmap, 0);
+
+    gl.activeTexture(gl.TEXTURE1);
+    gl.bindTexture(gl.TEXTURE_2D, this.waxGrainTexture);
+    gl.uniform1i(this.uWaxGrain, 1);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.positionBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, positions, gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(this.aPosition);
+    gl.vertexAttribPointer(this.aPosition, 2, gl.FLOAT, false, 0, 0);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.pressureBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, pressures, gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(this.aPressure);
+    gl.vertexAttribPointer(this.aPressure, 1, gl.FLOAT, false, 0, 0);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.texCoordBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, texCoords, gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(this.aTexCoord);
+    gl.vertexAttribPointer(this.aTexCoord, 2, gl.FLOAT, false, 0, 0);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.colorBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, colors, gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(this.aColor);
+    gl.vertexAttribPointer(this.aColor, 3, gl.FLOAT, false, 0, 0);
+
+    gl.drawArrays(gl.POINTS, 0, 1);
+
+    gl.disableVertexAttribArray(this.aPosition);
+    gl.disableVertexAttribArray(this.aPressure);
+    gl.disableVertexAttribArray(this.aTexCoord);
+    gl.disableVertexAttribArray(this.aColor);
+  };
+
+  /**
    * clear()
    * Clears the WebGL canvas to the paper background colour (#F4EAD5).
    */

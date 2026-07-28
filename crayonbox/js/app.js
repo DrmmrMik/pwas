@@ -53,6 +53,7 @@
     this.nextBtn        = document.getElementById('nextPageBtn');
     this.canvas         = document.getElementById('crayon-canvas');
     this.coloringSvg    = document.getElementById('coloringSvg');
+    this.canvasContainer = document.querySelector('.canvas-container');
     this.backBtn        = document.getElementById('backBtn');
     this.clearBtn       = document.getElementById('clearBtn');
     this.clearProgress  = document.getElementById('clearProgress');
@@ -147,6 +148,17 @@
 
     // Destroy workspace engine if it exists
     this._destroyWorkspace();
+
+    // Re-create gesture detector for the book screen if it was destroyed
+    // by a previous trip to the workspace
+    if (!this.gestureDetector) {
+      this.gestureDetector = new GestureDetector({
+        element: self.bookScreen,
+        onSwipeLeft: function () { self._goToNextPage(); },
+        onSwipeRight: function () { self._goToPrevPage(); },
+        onTap: function (e) { self._handleBookTap(e); }
+      });
+    }
 
     // Render the current spread
     this._renderSpread();
@@ -301,6 +313,18 @@
     if (typeof PointerHandler !== 'undefined') {
       this.pointerHandler = new PointerHandler({
         canvas: this.canvas,
+        onStrokeStart: function (data) {
+          // Draw the initial point on the engine
+          if (self.engine) {
+            self.engine.renderPoint(data.x, data.y, self._selectedColor, data.pressure, data.tilt);
+          }
+        },
+        onStrokePoint: function (data) {
+          // Feed each interpolated / wobbled point to the engine incrementally
+          if (self.engine) {
+            self.engine.renderPoint(data.x, data.y, self._selectedColor, data.pressure, data.tilt);
+          }
+        },
         onStrokeEnd: function () {
           self._autoSaveStroke();
         }
@@ -317,6 +341,9 @@
 
     // ── Bind workspace events ──────────────────────────────────────
     this._bindWorkspaceEvents();
+
+    // ── Init pinch-to-zoom on canvas container ──────────────────
+    this._initPinchZoom();
   };
 
   App.prototype._setupCanvas = function () {
@@ -612,6 +639,86 @@
     }
   };
 
+  // ── pinch-to-zoom ────────────────────────────────────────────────
+
+  App.prototype._initPinchZoom = function () {
+    var self = this;
+    var container = this.canvasContainer;
+    if (!container) return;
+
+    // Reset any previous state
+    this._zoomLevel = 1;
+    this._lastPinchDist = 0;
+    this._lastTapTime = 0;
+    this._zoomPinchActive = false;
+
+    // Remove any previous listeners to avoid duplicates on re-entry
+    this._removePinchZoomListeners();
+
+    this._onTouchStart = function (e) {
+      if (e.touches.length === 2) {
+        // Two-finger pinch start
+        var dx = e.touches[0].clientX - e.touches[1].clientX;
+        var dy = e.touches[0].clientY - e.touches[1].clientY;
+        self._lastPinchDist = Math.sqrt(dx * dx + dy * dy);
+        self._zoomPinchActive = true;
+      }
+    };
+
+    this._onTouchMove = function (e) {
+      if (e.touches.length === 2 && self._zoomPinchActive) {
+        e.preventDefault();
+        var dx = e.touches[0].clientX - e.touches[1].clientX;
+        var dy = e.touches[0].clientY - e.touches[1].clientY;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (self._lastPinchDist > 0) {
+          var scale = dist / self._lastPinchDist;
+          self._zoomLevel = Math.max(1, Math.min(4, self._zoomLevel * scale));
+          container.style.transform = 'scale(' + self._zoomLevel + ')';
+          container.style.transformOrigin = 'center center';
+        }
+
+        self._lastPinchDist = dist;
+      }
+    };
+
+    this._onTouchEnd = function (e) {
+      if (e.touches.length < 2) {
+        self._zoomPinchActive = false;
+        self._lastPinchDist = 0;
+      }
+    };
+
+    this._onDoubleTap = function (e) {
+      var now = Date.now();
+      if (now - self._lastTapTime < 300) {
+        // Double-tap: reset zoom to 1x
+        self._zoomLevel = 1;
+        if (container) {
+          container.style.transform = 'scale(1)';
+        }
+        self._lastTapTime = 0;
+      } else {
+        self._lastTapTime = now;
+      }
+    };
+
+    container.addEventListener('touchstart', this._onTouchStart, { passive: true });
+    container.addEventListener('touchmove', this._onTouchMove, { passive: false });
+    container.addEventListener('touchend', this._onTouchEnd, { passive: true });
+    container.addEventListener('touchstart', this._onDoubleTap, { passive: true });
+  };
+
+  App.prototype._removePinchZoomListeners = function () {
+    var container = this.canvasContainer;
+    if (!container) return;
+    if (this._onTouchStart) container.removeEventListener('touchstart', this._onTouchStart);
+    if (this._onTouchMove) container.removeEventListener('touchmove', this._onTouchMove);
+    if (this._onTouchEnd) container.removeEventListener('touchend', this._onTouchEnd);
+    if (this._onDoubleTap) container.removeEventListener('touchstart', this._onDoubleTap);
+  };
+
   // ── cleanup ───────────────────────────────────────────────────────
 
   App.prototype._destroyWorkspace = function () {
@@ -630,6 +737,16 @@
       }
       this.engine = null;
     }
+
+    // Clean up pinch-to-zoom listeners
+    this._removePinchZoomListeners();
+
+    // Reset canvas container transform
+    if (this.canvasContainer) {
+      this.canvasContainer.style.transform = '';
+      this.canvasContainer.style.transformOrigin = '';
+    }
+    this._zoomLevel = 1;
 
     // Clean up palette
     this.paletteEl.innerHTML = '';
