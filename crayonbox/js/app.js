@@ -177,6 +177,10 @@
 
     this._loadSvgInto(leftIdx, this.pageLeft);
     this._loadSvgInto(rightIdx, this.pageRight);
+
+    // Click fallback for non-touch devices
+    this._onPageClick = function (e) { self._handleBookTap(e); };
+    this.pageRight.addEventListener('click', this._onPageClick);
   };
 
   App.prototype._loadSvgInto = function (pageNum, container) {
@@ -275,6 +279,12 @@
 
   App.prototype._enterWorkspace = function () {
     var self = this;
+
+    // Remove page click listener (added in book carousel)
+    if (this._onPageClick) {
+      this.pageRight.removeEventListener('click', this._onPageClick);
+      this._onPageClick = null;
+    }
 
     this._setState('WORKSPACE');
 
