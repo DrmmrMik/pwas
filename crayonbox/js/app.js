@@ -1,7 +1,7 @@
 /**
  * App — main application orchestrator for CrayonBox.
  *
- * State machine: BOOK_CAROUSEL ⇄ WORKSPACE
+ * State machine: BOOK_CAROUSEL ⇄ WORKSPACE ⇄ GALLERY
  *
  * Dependencies (loaded globally via script tags):
  *   PaperTexture, Shaders, WebGLEngine (js/render/)
@@ -45,6 +45,7 @@
     this.loadingEl      = document.getElementById('loading');
     this.bookScreen     = document.getElementById('screen-book-carousel');
     this.workspaceScreen = document.getElementById('screen-workspace');
+    this.galleryScreen  = document.getElementById('screen-gallery');
     this.pageLeft       = document.getElementById('pageLeft');
     this.pageRight      = document.getElementById('pageRight');
     this.spineEl        = document.querySelector('.book-spine');
@@ -55,11 +56,17 @@
     this.coloringSvg    = document.getElementById('coloringSvg');
     this.canvasContainer = document.querySelector('.canvas-container');
     this.backBtn        = document.getElementById('backBtn');
+    this.undoBtn        = document.getElementById('undoBtn');
     this.clearBtn       = document.getElementById('clearBtn');
     this.clearProgress  = document.getElementById('clearProgress');
     this.paletteEl      = document.getElementById('crayonPalette');
+    this.colorSwatch    = document.getElementById('colorSwatch');
     this.bookSpread     = document.getElementById('bookSpread');
     this.bookContainer  = document.getElementById('bookContainer');
+    this.galleryBtn     = document.getElementById('galleryBtn');
+    this.galleryBackBtn = document.getElementById('galleryBackBtn');
+    this.galleryGrid    = document.getElementById('galleryGrid');
+    this.rotateOverlay  = document.getElementById('rotateOverlay');
     this.engine         = null;
     this.pointerHandler = null;
     this.storage        = null;
@@ -70,6 +77,7 @@
     this._selectedColor   = CRAYON_COLORS[0];
     this._svgCache = {};
     this._onResize = this._handleResize.bind(this);
+    this._onOrientationChange = this._handleOrientation.bind(this);
     // Kick off initialization
     var self = this;
     if (document.readyState === 'loading') {
@@ -113,6 +121,7 @@
 
       // 8. Handle resize
       window.addEventListener('resize', self._onResize);
+      window.addEventListener('orientationchange', self._onOrientationChange);
 
     }).catch(function (err) {
       console.error('[App] Failed to init IndexedDB:', err);
@@ -135,6 +144,21 @@
     this.state = newState;
   };
 
+  // ── Orientation ──────────────────────────────────────────────────
+
+  App.prototype._handleOrientation = function () {
+    if (this.state === 'WORKSPACE' && window.innerHeight > window.innerWidth) {
+      // Portrait mode in workspace — show rotate overlay
+      if (this.rotateOverlay) {
+        this.rotateOverlay.classList.add('active');
+      }
+    } else {
+      if (this.rotateOverlay) {
+        this.rotateOverlay.classList.remove('active');
+      }
+    }
+  };
+
   // ── BOOK CAROUSEL ─────────────────────────────────────────────────
 
   App.prototype._enterBookCarousel = function () {
@@ -142,9 +166,13 @@
 
     this._setState('BOOK_CAROUSEL');
 
-    // Show book screen, hide workspace
+    // Show book screen, hide workspace and gallery
     this.bookScreen.classList.add('active');
     this.workspaceScreen.classList.remove('active');
+    if (this.galleryScreen) this.galleryScreen.classList.remove('active');
+
+    // Hide rotate overlay
+    if (this.rotateOverlay) this.rotateOverlay.classList.remove('active');
 
     // Destroy workspace engine if it exists
     this._destroyWorkspace();
@@ -171,10 +199,16 @@
   };
 
   App.prototype._renderSpread = function () {
+    var self = this;
     var page = this.currentPage;
     var leftIdx  = page === 1 ? PAGE_COUNT : page - 1;
     var rightIdx = page;
 
+    // Check for stored thumbnails first — show them instead of raw SVG
+    this._applyThumbnailToPage(leftIdx, this.pageLeft);
+    this._applyThumbnailToPage(rightIdx, this.pageRight);
+
+    // Always load SVG content (hidden behind thumbnail if present)
     this._loadSvgInto(leftIdx, this.pageLeft);
     this._loadSvgInto(rightIdx, this.pageRight);
 
@@ -183,13 +217,36 @@
     this.pageRight.addEventListener('click', this._onPageClick);
   };
 
+  App.prototype._applyThumbnailToPage = function (pageNum, container) {
+    var self = this;
+    var key = 'page_' + String(pageNum).padStart(3, '0');
+
+    this.storage.getPageMeta(key).then(function (meta) {
+      if (meta && meta.thumbnail) {
+        var url = URL.createObjectURL(meta.thumbnail);
+        container.style.backgroundImage = 'url(' + url + ')';
+        container.style.backgroundSize = 'cover';
+        container.style.backgroundPosition = 'center';
+        // Hide the SVG overlay so the thumbnail shows
+        var svg = container.querySelector('svg');
+        if (svg) svg.style.opacity = '0';
+      }
+    }).catch(function (err) {
+      console.warn('[App] Failed to load thumbnail for', key, err);
+    });
+  };
+
   App.prototype._loadSvgInto = function (pageNum, container) {
     var self = this;
     var key = 'page_' + String(pageNum).padStart(3, '0');
 
     // Reuse cached SVG
     if (this._svgCache[key]) {
-      container.innerHTML = this._svgCache[key];
+      // Check if container already has this SVG
+      var existing = container.querySelector('svg');
+      if (existing && existing.innerHTML === '') {
+        existing.innerHTML = this._svgCache[key];
+      }
       return;
     }
 
@@ -199,7 +256,11 @@
     xhr.onload = function () {
       if (xhr.status >= 200 && xhr.status < 300) {
         self._svgCache[key] = xhr.responseText;
-        container.innerHTML = xhr.responseText;
+        // Put SVG into the container's svg element
+        var svg = container.querySelector('svg');
+        if (svg) {
+          svg.innerHTML = xhr.responseText;
+        }
       } else {
         console.warn('[App] Failed to load', url, xhr.status);
       }
@@ -254,6 +315,11 @@
     this._renderSpread();
     this._updatePageIndicator();
     this._loadThumbnails();
+
+    // Audio: page turn sound
+    if (this.soundEngine && typeof this.soundEngine.playPageTurn === 'function') {
+      this.soundEngine.playPageTurn();
+    }
   };
 
   App.prototype._goToPrevPage = function () {
@@ -261,6 +327,11 @@
     this._renderSpread();
     this._updatePageIndicator();
     this._loadThumbnails();
+
+    // Audio: page turn sound
+    if (this.soundEngine && typeof this.soundEngine.playPageTurn === 'function') {
+      this.soundEngine.playPageTurn();
+    }
   };
 
   App.prototype._handleBookTap = function (e) {
@@ -301,6 +372,20 @@
     // ── Canvas setup ────────────────────────────────────────────────
     this._setupCanvas();
 
+    // ── Init WebGL engine BEFORE loading SVG ────────────────────────
+    if (typeof CrayonEngine !== 'undefined') {
+      this.engine = new CrayonEngine();
+      var initOk = this.engine.init(this.canvas);
+      if (initOk) {
+        // Clear to paper color immediately so the canvas isn't black
+        if (typeof this.engine.clear === 'function') {
+          this.engine.clear();
+        }
+      }
+    } else {
+      console.warn('[App] CrayonEngine not loaded');
+    }
+
     // ── Load the SVG overlay ───────────────────────────────────────
     var key = 'page_' + String(this.currentPage).padStart(3, '0');
     var svgContent = this._svgCache[key];
@@ -311,19 +396,15 @@
       this._loadSvgInto(this.currentPage, this.coloringSvg);
     }
 
-    // ── Init WebGL engine ──────────────────────────────────────────
-    if (typeof CrayonEngine !== 'undefined') {
-      this.engine = new CrayonEngine();
-      this.engine.init(this.canvas);
-    } else {
-      console.warn('[App] CrayonEngine not loaded');
-    }
-
     // ── Init PointerHandler ────────────────────────────────────────
     if (typeof PointerHandler !== 'undefined') {
       this.pointerHandler = new PointerHandler({
         canvas: this.canvas,
         onStrokeStart: function (data) {
+          // Start friction sound
+          if (self.soundEngine && typeof self.soundEngine.startFriction === 'function') {
+            self.soundEngine.startFriction();
+          }
           // Draw the initial point on the engine
           if (self.engine) {
             self.engine.renderPoint(data.x, data.y, self._selectedColor, data.pressure, data.tilt);
@@ -334,8 +415,16 @@
           if (self.engine) {
             self.engine.renderPoint(data.x, data.y, self._selectedColor, data.pressure, data.tilt);
           }
+          // Update friction sound with velocity
+          if (self.soundEngine && typeof self.soundEngine.updateFriction === 'function') {
+            self.soundEngine.updateFriction(data.pressure || 0.5, data.velocity || 0);
+          }
         },
         onStrokeEnd: function () {
+          // Stop friction sound
+          if (self.soundEngine && typeof self.soundEngine.stopFriction === 'function') {
+            self.soundEngine.stopFriction();
+          }
           self._autoSaveStroke();
         }
       });
@@ -354,6 +443,9 @@
 
     // ── Init pinch-to-zoom on canvas container ──────────────────
     this._initPinchZoom();
+
+    // ── Check orientation ──────────────────────────────────────────
+    this._handleOrientation();
   };
 
   App.prototype._setupCanvas = function () {
@@ -427,8 +519,13 @@
     }
 
     // Play sound
-    if (this.soundEngine && typeof this.soundEngine.playCrayonSelect === 'function') {
-      this.soundEngine.playCrayonSelect();
+    if (this.soundEngine && typeof this.soundEngine.playClack === 'function') {
+      this.soundEngine.playClack();
+    }
+
+    // Update color swatch
+    if (this.colorSwatch) {
+      this.colorSwatch.style.background = color;
     }
   };
 
@@ -540,6 +637,20 @@
     }, 'image/png');
   };
 
+  App.prototype._undoLastStroke = function () {
+    if (this.engine && typeof this.engine.clearLastStroke === 'function') {
+      this.engine.clearLastStroke();
+    }
+
+    // Auto-save after undo
+    this._autoSaveStroke();
+
+    // Play pop sound
+    if (this.soundEngine && typeof this.soundEngine.playPop === 'function') {
+      this.soundEngine.playPop();
+    }
+  };
+
   App.prototype._clearCanvas = function () {
     var self = this;
 
@@ -600,6 +711,68 @@
     this._clearHoldActive = false;
   };
 
+  // ── Gallery ────────────────────────────────────────────────────────
+
+  App.prototype._openGallery = function () {
+    var self = this;
+
+    this._setState('GALLERY');
+
+    this.galleryScreen.classList.add('active');
+    this.bookScreen.classList.remove('active');
+
+    // Destroy gesture detector
+    if (this.gestureDetector) {
+      this.gestureDetector.destroy();
+      this.gestureDetector = null;
+    }
+
+    // Load gallery items
+    this._renderGallery();
+  };
+
+  App.prototype._renderGallery = function () {
+    var self = this;
+    this.galleryGrid.innerHTML = '<div class="gallery-empty">No artwork saved yet — start coloring!</div>';
+
+    this.storage.getAllPageMeta().then(function (metas) {
+      // Filter to only metas that have thumbnails
+      var withThumbs = metas.filter(function (m) { return m.thumbnail; });
+
+      if (withThumbs.length === 0) return;
+
+      self.galleryGrid.innerHTML = '';
+
+      withThumbs.forEach(function (meta) {
+        var item = document.createElement('div');
+        item.className = 'gallery-item';
+
+        var img = document.createElement('img');
+        img.src = URL.createObjectURL(meta.thumbnail);
+        img.alt = meta.title || meta.page_id;
+        item.appendChild(img);
+
+        var label = document.createElement('div');
+        label.className = 'gallery-item-label';
+        label.textContent = meta.title || meta.page_id;
+        item.appendChild(label);
+
+        // Click to open that page in workspace
+        item.addEventListener('click', function () {
+          var pageNum = parseInt(meta.page_id.replace('page_', ''), 10);
+          if (pageNum >= 1 && pageNum <= PAGE_COUNT) {
+            self.currentPage = pageNum;
+            self._enterWorkspace();
+          }
+        });
+
+        self.galleryGrid.appendChild(item);
+      });
+    }).catch(function (err) {
+      console.warn('[App] Failed to load gallery:', err);
+    });
+  };
+
   // ── event binding ─────────────────────────────────────────────────
 
   App.prototype._bindEvents = function () {
@@ -614,6 +787,20 @@
       if (e.key === 'ArrowLeft') { self._goToPrevPage(); e.preventDefault(); }
       if (e.key === 'ArrowRight') { self._goToNextPage(); e.preventDefault(); }
     });
+
+    // Gallery button
+    if (this.galleryBtn) {
+      this.galleryBtn.addEventListener('click', function () {
+        self._openGallery();
+      });
+    }
+
+    // Gallery back button
+    if (this.galleryBackBtn) {
+      this.galleryBackBtn.addEventListener('click', function () {
+        self._enterBookCarousel();
+      });
+    }
   };
 
   App.prototype._bindWorkspaceEvents = function () {
@@ -623,6 +810,13 @@
     this.backBtn.addEventListener('click', function () {
       self._backToBook();
     });
+
+    // Undo button
+    if (this.undoBtn) {
+      this.undoBtn.addEventListener('click', function () {
+        self._undoLastStroke();
+      });
+    }
 
     // Clear button — hold for 1.5s
     this.clearBtn.addEventListener('mousedown', function () { self._startClearHold(); });

@@ -13,8 +13,8 @@
 <link rel="stylesheet" href="css/main.css">
 <title>CrayonBox</title>
 <style>
-  #screen-book-carousel.active { display: flex; }
-  #screen-workspace.active { display: flex; }
+#screen-book-carousel.active { display: flex; }
+#screen-workspace.active { display: flex; }
 </style>
 </head>
 <body>
@@ -39,12 +39,25 @@
       <button class="page-nav-btn" id="nextPageBtn">▶</button>
     </div>
     <div class="page-indicator" id="pageIndicator">Page 1 of 8</div>
+    <div class="book-buttons">
+      <button class="gallery-btn" id="galleryBtn" aria-label="My Artwork">♥</button>
+    </div>
+  </div>
+
+  <!-- Gallery View -->
+  <div id="screen-gallery" class="screen">
+    <div class="gallery-header">
+      <button id="galleryBackBtn" aria-label="Back to book">◀</button>
+      <span>My Artwork</span>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
   </div>
 
   <!-- Workspace Canvas -->
   <div id="screen-workspace" class="screen">
     <div class="workspace-header">
       <button id="backBtn" aria-label="Back to book">📖</button>
+      <button id="undoBtn" class="undo-icon" aria-label="Undo last stroke">↶</button>
       <button id="clearBtn" class="trash-icon" aria-label="Clear page">
         <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#F4EAD5" stroke-width="2">
           <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/>
@@ -55,8 +68,16 @@
     <div class="canvas-container">
       <canvas id="crayon-canvas"></canvas>
       <svg class="coloring-svg-overlay" id="coloringSvg" viewBox="0 0 2048 1536" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="color-swatch" id="colorSwatch" style="background:#EF4444"></div>
     </div>
     <div class="crayon-palette" id="crayonPalette"></div>
+  </div>
+
+  <!-- Rotate Device Overlay -->
+  <div id="rotateOverlay" class="rotate-overlay">
+    <div class="rotate-icon">📱</div>
+    <div class="rotate-text">Rotate your device</div>
+    <div class="rotate-sub">Landscape mode is best for coloring</div>
   </div>
 </div>
 

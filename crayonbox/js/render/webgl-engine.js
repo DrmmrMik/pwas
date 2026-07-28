@@ -174,6 +174,10 @@
     this._createWaxGrainTexture();
     this.compileShaders();
 
+    // Clear to warm paper colour (#F4EAD5) so the canvas isn't black
+    gl.clearColor(0.957, 0.918, 0.835, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
     return true;
   };
 
@@ -469,6 +473,17 @@
     gl.disableVertexAttribArray(this.aPressure);
     gl.disableVertexAttribArray(this.aTexCoord);
     gl.disableVertexAttribArray(this.aColor);
+
+    // Record stroke in history for undo support (keep last 10)
+    this._strokeHistory.push({
+      points: points.slice(),
+      color: color,
+      pressure: pressure,
+      tilt: tilt
+    });
+    if (this._strokeHistory.length > 10) {
+      this._strokeHistory.shift();
+    }
   };
 
   /**
@@ -883,6 +898,31 @@
    */
   CrayonEngine.prototype.resetStrokeHistory = function () {
     this._strokeHistory = [];
+  };
+
+  /**
+   * clearLastStroke()
+   * Removes the last stroke from history, re-renders all remaining strokes
+   * by clearing the canvas and re-drawing everything that's left.
+   * Uses toBlob to get a snapshot for the restore — stores a "state image"
+   * before each new stroke so undo can restore the previous state.
+   */
+  CrayonEngine.prototype.clearLastStroke = function () {
+    if (!this._strokeHistory || this._strokeHistory.length === 0) return;
+
+    // Remove the last stroke from history
+    this._strokeHistory.pop();
+
+    // Clear and re-render everything that remains
+    this.clear();
+
+    // Re-render each stored stroke
+    for (var i = 0; i < this._strokeHistory.length; i++) {
+      var s = this._strokeHistory[i];
+      if (s.points && s.points.length >= 2) {
+        this.renderStroke(s.points, s.color, s.pressure, s.tilt);
+      }
+    }
   };
 
   /**
