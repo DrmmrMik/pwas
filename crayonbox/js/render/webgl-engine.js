@@ -220,7 +220,7 @@
 
     this.paperTexture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, this.paperTexture);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, paperCanvas);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, paperCanvas);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
@@ -266,7 +266,7 @@
 
     this.waxGrainTexture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, this.waxGrainTexture);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, canvas);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
@@ -396,8 +396,8 @@
 
     // Build projection matrix (orthographic, NDC)
     // Canvas coords → NDC: x: [0, w] → [-1, 1], y: [0, h] → [-1, 1]
-    var w = this.canvas.width / this.dpr;
-    var h = this.canvas.height / this.dpr;
+    var w = this.canvas.width;
+    var h = this.canvas.height;
     var projection = new Float32Array([
       2 / w, 0, 0,
       0, -2 / h, 0,
@@ -415,8 +415,10 @@
       pressures[i] = p.pressure !== undefined ? p.pressure : pressure;
 
       // Texture coordinates — map canvas position to [0,1] for noise sampling
-      texCoords[idx2] = p.x / w;
-      texCoords[idx2 + 1] = p.y / h;
+      var tw = this.canvas.width;
+      var th = this.canvas.height;
+      texCoords[idx2] = p.x / tw;
+      texCoords[idx2 + 1] = p.y / th;
 
       // Color per-vertex (constant for the stroke)
       colors[idx2] = colorVec[0];
@@ -606,8 +608,8 @@
     var pointSize = baseSize * tiltWiden * this.dpr;
     pointSize = Math.max(4, Math.min(120, pointSize));
 
-    var w = this.canvas.width / this.dpr;
-    var h = this.canvas.height / this.dpr;
+    var w = this.canvas.width;
+    var h = this.canvas.height;
     var projection = new Float32Array([
       2 / w, 0, 0,
       0, -2 / h, 0,
@@ -659,6 +661,16 @@
     gl.disableVertexAttribArray(this.aPressure);
     gl.disableVertexAttribArray(this.aTexCoord);
     gl.disableVertexAttribArray(this.aColor);
+
+    // Accumulate point in current stroke for history tracking
+    if (this._currentStroke) {
+      this._currentStroke.push({
+        x: x,
+        y: y,
+        pressure: pressure,
+        tilt: tilt
+      });
+    }
   };
 
   /**
@@ -840,8 +852,10 @@
 
     gl.viewport(0, 0, this.canvas.width, this.canvas.height);
 
-    // Re-create paper texture at the new resolution if needed
-    // (For performance we keep the existing 1024x1024 texture, it tiles)
+    // Re-clear to paper color after resize (setting canvas dimensions
+    // resets the WebGL drawing buffer to black)
+    gl.clearColor(0.957, 0.918, 0.835, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
   };
 
   /**
@@ -872,6 +886,52 @@
    */
   CrayonEngine.prototype.setColor = function (color) {
     this._currentColor = color;
+  };
+
+  /**
+   * startStroke(x, y, color, pressure, tilt)
+   * Begins a new stroke, initializing the point buffer for history tracking.
+   * @param {number} x — canvas-relative x coordinate
+   * @param {number} y — canvas-relative y coordinate
+   * @param {number[]|string} color — RGB array [0-1] or hex string
+   * @param {number} [pressure=0.5] — pressure [0, 1]
+   * @param {number} [tilt=0] — tilt angle in radians
+   */
+  CrayonEngine.prototype.startStroke = function (x, y, color, pressure, tilt) {
+    this._currentStroke = [];
+    this._currentColor = color;
+    // Render the first point immediately
+    this.renderPoint(x, y, color, pressure, tilt);
+    // Record the point in the stroke buffer
+    this._currentStroke.push({
+      x: x,
+      y: y,
+      pressure: pressure !== undefined && pressure !== null ? pressure : 0.5,
+      tilt: tilt || 0
+    });
+  };
+
+  /**
+   * endStroke()
+   * Finalizes the current stroke, pushing it into the stroke history for undo support.
+   */
+  CrayonEngine.prototype.endStroke = function () {
+    if (!this._currentStroke || this._currentStroke.length === 0) {
+      this._currentStroke = null;
+      return;
+    }
+    // Store the completed stroke in history
+    this._strokeHistory.push({
+      points: this._currentStroke.slice(),
+      color: this._currentColor,
+      pressure: 0.5,
+      tilt: 0
+    });
+    // Keep only the last 50 strokes
+    if (this._strokeHistory.length > 50) {
+      this._strokeHistory.splice(0, this._strokeHistory.length - 50);
+    }
+    this._currentStroke = null;
   };
 
   /**

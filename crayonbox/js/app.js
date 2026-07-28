@@ -405,9 +405,9 @@
           if (self.soundEngine && typeof self.soundEngine.startFriction === 'function') {
             self.soundEngine.startFriction();
           }
-          // Draw the initial point on the engine
+          // Begin a new stroke on the engine
           if (self.engine) {
-            self.engine.renderPoint(data.x, data.y, self._selectedColor, data.pressure, data.tilt);
+            self.engine.startStroke(data.x, data.y, self._selectedColor, data.pressure, data.tilt);
           }
         },
         onStrokePoint: function (data) {
@@ -421,6 +421,10 @@
           }
         },
         onStrokeEnd: function () {
+          // Finalize the stroke (saves to history for undo)
+          if (self.engine) {
+            self.engine.endStroke();
+          }
           // Stop friction sound
           if (self.soundEngine && typeof self.soundEngine.stopFriction === 'function') {
             self.soundEngine.stopFriction();
@@ -434,6 +438,9 @@
 
     // ── Build palette ──────────────────────────────────────────────
     this._buildPalette();
+
+    // Ensure the initial selected color is applied to the engine
+    this._selectCrayon(this._selectedColor);
 
     // ── Load saved strokes from DB ─────────────────────────────────
     this._loadStrokes();

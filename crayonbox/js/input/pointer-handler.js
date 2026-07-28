@@ -347,8 +347,10 @@
    */
   PointerHandler.prototype._extractPoint = function (e) {
     var rect = this.canvas.getBoundingClientRect();
-    var x = (e.clientX - rect.left) * this._dpr;
-    var y = (e.clientY - rect.top) * this._dpr;
+    // Map CSS-pixel coordinates to canvas internal pixel space.
+    // Normalize by the CSS-rendered size, then scale by the canvas buffer dimensions.
+    var x = (e.clientX - rect.left) / rect.width * this.canvas.width;
+    var y = (e.clientY - rect.top) / rect.height * this.canvas.height;
 
     // Pressure: Apple Pencil reports [0, 1]; normalise
     var pressure = e.pressure || 0;
