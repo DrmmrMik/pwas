@@ -1,98 +1,287 @@
-const CACHE_NAME = 'nova-portal-v1';
-const ASSETS_TO_CACHE = [
+/**
+ * Nova Portal Service Worker - Modern PWA Service Worker
+ * Compatible with Android 14+, iOS 17+, Samsung S24 Ultra
+ * Uses modern caching strategies with versioned caches
+ */
+
+const CACHE_VERSION = 'v2';
+const CACHE_NAME = `nova-portal-${CACHE_VERSION}`;
+const STATIC_CACHE = `nova-static-${CACHE_VERSION}`;
+const DYNAMIC_CACHE = `nova-dynamic-${CACHE_VERSION}`;
+const FONT_CACHE = `nova-fonts-${CACHE_VERSION}`;
+const IMAGE_CACHE = `nova-images-${CACHE_VERSION}`;
+
+// Assets to cache on install (core app shell)
+const STATIC_ASSETS = [
   './',
-  'index.html',
-  'style.css',
-  'app.js',
-  'manifest.json',
-  'projects.json',
-  'icons/icon.svg',
-  'icons/icon-192.png',
-  'icons/icon-512.png',
-  'icons/icon-192-maskable.png',
-  'icons/icon-512-maskable.png',
+  './index.html',
+  './manifest.json',
+  './style.css',
+  './app.js',
+  './icons/icon.svg',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './icons/icon-192-maskable.png',
+  './icons/icon-512-maskable.png'
+];
+
+// External resources to cache
+const EXTERNAL_RESOURCES = [
   'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];
 
-const CACHED_URLS = ASSETS_TO_CACHE.map(asset => new URL(asset, self.location.href).href);
+// Cache strategies
+const CACHE_STRATEGIES = {
+  // Network first, fallback to cache - for HTML and API
+  networkFirst: async (request) => {
+    try {
+      const networkResponse = await fetch(request);
+      if (networkResponse.ok) {
+        const cache = await caches.open(DYNAMIC_CACHE);
+        cache.put(request, networkResponse.clone());
+      }
+      return networkResponse;
+    } catch (error) {
+      const cachedResponse = await caches.match(request);
+      if (cachedResponse) return cachedResponse;
+      return new Response('Offline', { status: 503, statusText: 'Offline' });
+    }
+  },
 
-// Install
+  // Cache first, fallback to network - for static assets
+  cacheFirst: async (request) => {
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) {
+      // Update in background
+      fetch(request).then(networkResponse => {
+        if (networkResponse.ok) {
+          caches.open(STATIC_CACHE).then(cache => cache.put(request, networkResponse));
+        }
+      }).catch(() => {});
+      return cachedResponse;
+    }
+    
+    try {
+      const networkResponse = await fetch(request);
+      if (networkResponse.ok) {
+        const cache = await caches.open(STATIC_CACHE);
+        cache.put(request, networkResponse.clone());
+      }
+      return networkResponse;
+    } catch (error) {
+      return new Response('Asset not available offline', { status: 503 });
+    }
+  },
+
+  // Stale while revalidate - for fonts and images
+  staleWhileRevalidate: async (request) => {
+    const cachedResponse = await caches.match(request);
+    const networkFetch = fetch(request).then(async (networkResponse) => {
+      if (networkResponse.ok) {
+        const cache = await caches.open(getCacheForRequest(request));
+        cache.put(request, networkResponse.clone());
+      }
+      return networkResponse;
+    }).catch(() => cachedResponse);
+    
+    return cachedResponse || networkFetch;
+  }
+};
+
+function getCacheForRequest(request) {
+  const url = new URL(request.url);
+  if (url.hostname.includes('fonts.googleapis.com') || url.hostname.includes('fonts.gstatic.com')) {
+    return FONT_CACHE;
+  }
+  if (url.hostname.includes('cdnjs.cloudflare.com')) {
+    return STATIC_CACHE;
+  }
+  if (request.destination === 'image') {
+    return IMAGE_CACHE;
+  }
+  return DYNAMIC_CACHE;
+}
+
+function isExternalResource(request) {
+  return EXTERNAL_RESOURCES.some(ext => request.url.startsWith(ext));
+}
+
+function shouldCacheFirst(request) {
+  return request.destination === 'style' || 
+         request.destination === 'script' ||
+         request.destination === 'font' ||
+         isExternalResource(request);
+}
+
+function shouldStaleWhileRevalidate(request) {
+  return request.destination === 'font' || request.destination === 'image';
+}
+
+// Install event - cache core assets
+// Resilient: cache each asset individually so one failed fetch (404 / blocked
+// CDN) cannot abort the whole install, which would leave the SW uninstalled and
+// make Chrome refuse install ("Unsafe app blocked").
 self.addEventListener('install', (event) => {
+  const cacheListSafely = (cacheName, urls) =>
+    caches.open(cacheName).then(cache =>
+      Promise.all(urls.map(u =>
+        cache.add(u).catch(err => console.warn(`[Nova Portal SW] skip ${u}:`, err.message))
+      ))
+    );
+
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('[Portal Service Worker] Pre-caching assets');
-      return cache.addAll(ASSETS_TO_CACHE);
+    Promise.all([
+      cacheListSafely(STATIC_CACHE, STATIC_ASSETS),
+      cacheListSafely(FONT_CACHE, EXTERNAL_RESOURCES.filter(r => r.includes('fonts.googleapis.com'))),
+      cacheListSafely(STATIC_CACHE, EXTERNAL_RESOURCES.filter(r => r.includes('cdnjs.cloudflare.com'))),
+    ]).then(() => {
+      console.log('[Nova Portal SW] Install complete');
+      self.skipWaiting();
+    }).catch(error => {
+      console.error('[Nova Portal SW] Install failed:', error);
     })
   );
-  self.skipWaiting();
 });
 
-// Activate
+// Activate event - clean old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
+    caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            console.log('[Portal Service Worker] Clearing old cache', cache);
-            return caches.delete(cache);
-          }
-        })
+        cacheNames
+          .filter(name => name.startsWith('nova-') && 
+            ![CACHE_NAME, STATIC_CACHE, DYNAMIC_CACHE, FONT_CACHE, IMAGE_CACHE].includes(name))
+          .map(name => {
+            console.log('[Nova Portal SW] Deleting old cache:', name);
+            return caches.delete(name);
+          })
       );
+    }).then(() => {
+      console.log('[Nova Portal SW] Activated');
+      return self.clients.claim();
     })
   );
-  self.clients.claim();
 });
 
-// Fetch
+// Fetch event - route to appropriate strategy
 self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') {
-    return;
-  }
+  const { request } = event;
+  
+  // Skip non-GET requests
+  if (request.method !== 'GET') return;
+  
+  // Skip chrome-extension and other non-http(s) schemes
+  if (!request.url.startsWith('http')) return;
+  
+  // Skip if it's a range request (video/audio streaming)
+  if (request.headers.has('Range')) return;
 
-  const url = new URL(event.request.url);
-
-  // Stale-While-Revalidate for cached assets
-  if (
-    CACHED_URLS.includes(event.request.url) ||
-    url.hostname.includes('fonts.googleapis.com') ||
-    url.hostname.includes('fonts.gstatic.com') ||
-    url.hostname.includes('cdnjs.cloudflare.com')
-  ) {
-    event.respondWith(
-      caches.match(event.request).then((cachedResponse) => {
-        if (cachedResponse) {
-          fetch(event.request).then((networkResponse) => {
-            if (networkResponse.status === 200) {
-              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
-            }
-          }).catch(() => {});
-          return cachedResponse;
-        }
-
-        return fetch(event.request).then((networkResponse) => {
-          if (networkResponse.status === 200) {
-            const responseToCache = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
-          }
-          return networkResponse;
-        });
-      })
-    );
+  const url = new URL(request.url);
+  
+  // Handle different strategies based on request type
+  if (shouldStaleWhileRevalidate(request)) {
+    event.respondWith(CACHE_STRATEGIES.staleWhileRevalidate(request));
+  } else if (shouldCacheFirst(request)) {
+    event.respondWith(CACHE_STRATEGIES.cacheFirst(request));
   } else {
-    // Network first or fallback
-    event.respondWith(
-      caches.match(event.request).then((response) => {
-        return response || fetch(event.request);
-      })
-    );
+    event.respondWith(CACHE_STRATEGIES.networkFirst(request));
   }
 });
 
-// Message listener to trigger skipWaiting on demand
+// Background sync for offline actions
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'sync-portal-data') {
+    event.waitUntil(syncPortalData());
+  }
+});
+
+async function syncPortalData() {
+  // Implement background sync for any queued actions
+  console.log('[Nova Portal SW] Background sync triggered');
+}
+
+// Handle messages from clients
 self.addEventListener('message', (event) => {
   if (event.data && event.data.action === 'skipWaiting') {
     self.skipWaiting();
   }
+  
+  if (event.data && event.data.action === 'clearCache') {
+      event.waitUntil(
+        caches.keys().then(names => 
+          Promise.all(names.map(name => caches.delete(name)))
+        ).then(() => {
+          event.ports[0].postMessage({ success: true });
+        })
+      );
+    }
+  
+  if (event.data && event.data.action === 'getCacheInfo') {
+    event.waitUntil(
+      Promise.all([
+        caches.open(STATIC_CACHE).then(c => c.keys().then(k => k.length)),
+        caches.open(DYNAMIC_CACHE).then(c => c.keys().then(k => k.length)),
+        caches.open(FONT_CACHE).then(c => c.keys().then(k => k.length)),
+        caches.open(IMAGE_CACHE).then(c => c.keys().then(k => k.length))
+      ]).then(([staticCount, dynamicCount, fontCount, imageCount]) => {
+        event.ports[0].postMessage({
+          static: staticCount,
+          dynamic: dynamicCount,
+          fonts: fontCount,
+          images: imageCount
+        });
+      }));
+  }
 });
+
+// Periodic background sync (if supported)
+self.addEventListener('periodicsync', (event) => {
+  if (event.tag === 'refresh-portal-cache') {
+    event.waitUntil(refreshCriticalCaches());
+  }
+});
+
+async function refreshCriticalCaches() {
+  try {
+    const cache = await caches.open(STATIC_CACHE);
+    await Promise.all(STATIC_ASSETS.map(asset => 
+      fetch(asset).then(r => r.ok && cache.put(asset, r))
+    ));
+    console.log('[Nova Portal SW] Critical caches refreshed');
+  } catch (error) {
+    console.error('[Nova Portal SW] Cache refresh failed:', error);
+  }
+}
+
+// Handle push notifications (if enabled in future)
+self.addEventListener('push', (event) => {
+  if (!event.data) return;
+  
+  const data = event.data.json();
+  const options = {
+    body: data.body,
+    icon: './icons/icon-192.png',
+    badge: './icons/icon-192-maskable.png',
+    vibrate: [100, 50, 100],
+    data: data.url ? { url: data.url } : {},
+    actions: [
+      { action: 'open', title: 'Open' },
+      { action: 'close', title: 'Dismiss' }
+    ]
+  };
+  
+  event.waitUntil(
+    self.registration.showNotification(data.title, options)
+  );
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  
+  if (event.action === 'open' && event.notification.data?.url) {
+    event.waitUntil(clients.openWindow(event.notification.data.url));
+  }
+});
+
+console.log('[Nova Portal SW] Service Worker loaded - Modern PWA ready');
