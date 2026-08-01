@@ -1,35 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1536">
-  <!-- Dinosaur body -->
-  <ellipse cx="950" cy="900" rx="280" ry="150" fill="none" stroke="#1A1817" stroke-width="8"/>
+  <!-- Volcano Background (Right) -->
+  <path d="M1500 1350 L1680 750 L1880 750 L2048 1350 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M1680 750 Q1780 820 1880 750" fill="none" stroke="#2C2523" stroke-width="7"/>
+  <!-- Smoke plume -->
+  <path d="M1730 750 Q1680 600 1740 500 Q1800 400 1720 300" fill="none" stroke="#2C2523" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Prehistoric Ground -->
+  <path d="M0 1350 Q500 1280 1024 1320 Q1550 1360 2048 1280 L2048 1536 L0 1536 Z" fill="none" stroke="#2C2523" stroke-width="8"/>
+
+  <!-- Cute Friendly Dino (Brachiosaurus / Long-neck) -->
+  <!-- Body -->
+  <path d="M600 1320 Q400 1150 450 950 Q600 850 850 900 Q1050 950 1150 1100 Q1200 1250 1100 1320 Z" fill="none" stroke="#2C2523" stroke-width="9" stroke-linejoin="round"/>
+
+  <!-- Long Neck & Cute Head -->
+  <path d="M500 950 Q480 600 600 400 Q720 300 850 350 Q920 400 880 480 Q780 500 700 620 Q650 780 600 950" fill="none" stroke="#2C2523" stroke-width="9" stroke-linejoin="round"/>
+
+  <!-- Eye & Smile -->
+  <circle cx="800" cy="390" r="14" fill="#2C2523"/>
+  <path d="M830 430 Q850 445 870 430" fill="none" stroke="#2C2523" stroke-width="5" stroke-linecap="round"/>
+
   <!-- Tail -->
-  <path d="M670 900 Q500 800 400 600 Q450 700 600 850" fill="none" stroke="#1A1817" stroke-width="8" stroke-linecap="round"/>
-  <!-- Neck -->
-  <path d="M1150 850 Q1300 600 1350 450" fill="none" stroke="#1A1817" stroke-width="10" stroke-linecap="round"/>
-  <!-- Head -->
-  <ellipse cx="1400" cy="420" rx="80" ry="60" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <!-- Jaw -->
-  <path d="M1400 460 Q1450 500 1480 480" fill="none" stroke="#1A1817" stroke-width="6" stroke-linecap="round"/>
-  <!-- Eye -->
-  <circle cx="1420" cy="405" r="10" fill="none" stroke="#1A1817" stroke-width="5"/>
-  <!-- Nostril -->
-  <circle cx="1460" cy="415" r="4" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <!-- Smile -->
-  <path d="M1440 440 Q1460 455 1470 445" fill="none" stroke="#1A1817" stroke-width="4" stroke-linecap="round"/>
-  <!-- Legs -->
-  <rect x="750" y="1020" width="70" height="120" rx="20" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <rect x="1050" y="1020" width="70" height="120" rx="20" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <!-- Feet -->
-  <ellipse cx="785" cy="1140" rx="50" ry="15" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <ellipse cx="1085" cy="1140" rx="50" ry="15" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Spikes on back -->
-  <path d="M800 780 L780 700 L830 770" fill="none" stroke="#1A1817" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M900 770 L890 680 L940 760" fill="none" stroke="#1A1817" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M1000 770 L1000 680 L1050 760" fill="none" stroke="#1A1817" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M1100 780 L1110 700 L1150 770" fill="none" stroke="#1A1817" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M700 850 L660 770 L720 840" fill="none" stroke="#1A1817" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M1180 810 L1200 740 L1220 805" fill="none" stroke="#1A1817" stroke-width="5" stroke-linejoin="round"/>
-  <!-- Belly line -->
-  <path d="M750 950 Q950 1020 1150 950" fill="none" stroke="#1A1817" stroke-width="5"/>
-  <!-- Ground line -->
-  <path d="M300 1150 L1700 1150" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <path d="M1120 1180 Q1450 1100 1600 1000 Q1500 1180 1100 1320" fill="none" stroke="#2C2523" stroke-width="9" stroke-linejoin="round"/>
+
+  <!-- Front Leg Left -->
+  <path d="M550 1150 L530 1360 L620 1360 L630 1180" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Front Leg Right -->
+  <path d="M660 1180 L650 1360 L730 1360 L740 1200" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Back Leg -->
+  <path d="M1000 1220 L980 1360 L1070 1360 L1080 1250" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+
+  <!-- Spots on Dino Back -->
+  <circle cx="700" cy="940" r="30" fill="none" stroke="#2C2523" stroke-width="6"/>
+  <circle cx="820" cy="960" r="22" fill="none" stroke="#2C2523" stroke-width="5"/>
+  <circle cx="940" cy="1020" r="28" fill="none" stroke="#2C2523" stroke-width="6"/>
 </svg>

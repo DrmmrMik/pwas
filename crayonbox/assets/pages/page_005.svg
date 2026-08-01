@@ -1,31 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1536">
-  <!-- Stars -->
-  <path d="M200 300 L210 330 L240 330 L215 350 L225 380 L200 360 L175 380 L185 350 L160 330 L190 330 Z" fill="none" stroke="#1A1817" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M1700 200 L1708 222 L1730 222 L1712 236 L1720 258 L1700 244 L1680 258 L1688 236 L1670 222 L1692 222 Z" fill="none" stroke="#1A1817" stroke-width="4" stroke-linejoin="round"/>
-  <circle cx="400" cy="500" r="5" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <circle cx="1500" cy="400" r="4" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <circle cx="1800" cy="600" r="6" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <circle cx="300" cy="800" r="4" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <circle cx="200" cy="600" r="5" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <circle cx="1600" cy="800" r="4" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <!-- Moon -->
-  <circle cx="1700" cy="350" r="80" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <circle cx="1720" cy="330" r="70" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Rocket body -->
-  <path d="M1024 1300 L1024 400" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <ellipse cx="1024" cy="700" rx="100" ry="300" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <!-- Rocket nose -->
-  <path d="M924 400 Q1024 200 1124 400 Z" fill="none" stroke="#1A1817" stroke-width="8" stroke-linejoin="round"/>
-  <!-- Rocket window -->
-  <circle cx="1024" cy="550" r="40" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <!-- Rocket fins -->
-  <path d="M924 900 L800 1100 L924 1000 Z" fill="none" stroke="#1A1817" stroke-width="7" stroke-linejoin="round"/>
-  <path d="M1124 900 L1248 1100 L1124 1000 Z" fill="none" stroke="#1A1817" stroke-width="7" stroke-linejoin="round"/>
-  <!-- Rocket bottom -->
-  <path d="M940 1250 Q1024 1300 1108 1250" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Flames -->
-  <path d="M960 1300 Q924 1400 900 1450 Q960 1420 1024 1450 Q1088 1420 1148 1450 Q1124 1400 1088 1300 Z" fill="none" stroke="#1A1817" stroke-width="7" stroke-linejoin="round"/>
-  <path d="M980 1320 Q960 1400 950 1450" fill="none" stroke="#1A1817" stroke-width="4"/>
-  <path d="M1068 1320 Q1088 1400 1098 1450" fill="none" stroke="#1A1817" stroke-width="4"/>
-  <path d="M1024 1300 L1024 1450" fill="none" stroke="#1A1817" stroke-width="4"/>
+  <!-- Stars in Space -->
+  <path d="M300 300 L310 330 L340 330 L315 350 L325 380 L300 360 L275 380 L285 350 L260 330 L290 330 Z" fill="none" stroke="#2C2523" stroke-width="6"/>
+  <path d="M1650 300 L1660 330 L1690 330 L1665 350 L1675 380 L1650 360 L1625 380 L1635 350 L1610 330 L1640 330 Z" fill="none" stroke="#2C2523" stroke-width="6"/>
+  <path d="M1400 900 L1408 920 L1430 920 L1412 935 L1420 955 L1400 940 L1380 955 L1388 935 L1370 920 L1392 920 Z" fill="none" stroke="#2C2523" stroke-width="5"/>
+  <path d="M400 1100 L408 1120 L430 1120 L412 1135 L420 1155 L400 1140 L380 1155 L388 1135 L370 1120 L392 1120 Z" fill="none" stroke="#2C2523" stroke-width="5"/>
+
+  <!-- Moon Planet (Right) -->
+  <circle cx="1600" cy="1150" r="140" fill="none" stroke="#2C2523" stroke-width="9"/>
+  <circle cx="1550" cy="1100" r="30" fill="none" stroke="#2C2523" stroke-width="6"/>
+  <circle cx="1650" cy="1200" r="22" fill="none" stroke="#2C2523" stroke-width="5"/>
+  <circle cx="1640" cy="1080" r="18" fill="none" stroke="#2C2523" stroke-width="5"/>
+
+  <!-- Saturn Planet with Ring (Left) -->
+  <circle cx="400" cy="600" r="90" fill="none" stroke="#2C2523" stroke-width="8"/>
+  <ellipse cx="400" cy="600" rx="160" ry="40" fill="none" stroke="#2C2523" stroke-width="7"/>
+
+  <!-- Space Rocket (Center angled) -->
+  <!-- Rocket Body Nose -->
+  <path d="M1024 250 Q1120 400 1140 600 L908 600 Q928 400 1024 250 Z" fill="none" stroke="#2C2523" stroke-width="9" stroke-linejoin="round"/>
+  <!-- Rocket Cylinder Body -->
+  <path d="M908 600 L1140 600 L1140 1050 L908 1050 Z" fill="none" stroke="#2C2523" stroke-width="9" stroke-linejoin="round"/>
+  <!-- Porthole Window -->
+  <circle cx="1024" cy="750" r="60" fill="none" stroke="#2C2523" stroke-width="8"/>
+  <circle cx="1024" cy="750" r="42" fill="none" stroke="#2C2523" stroke-width="6"/>
+
+  <!-- Left Wing Fin -->
+  <path d="M908 850 L750 1100 L908 1080 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Right Wing Fin -->
+  <path d="M1140 850 L1298 1100 L1140 1080 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+
+  <!-- Thruster Nozzle -->
+  <path d="M948 1050 L928 1120 L1120 1120 L1100 1050 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Flame Blast -->
+  <path d="M948 1120 Q1024 1380 1024 1450 Q1024 1380 1100 1120" fill="none" stroke="#2C2523" stroke-width="8" stroke-linecap="round"/>
+  <path d="M978 1120 Q1024 1300 1024 1350 Q1024 1300 1070 1120" fill="none" stroke="#2C2523" stroke-width="6"/>
 </svg>

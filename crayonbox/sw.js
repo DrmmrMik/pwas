@@ -1,4 +1,4 @@
-const CACHE_NAME = 'crayonbox-v3';
+const CACHE_NAME = 'crayonbox-v4';
 const ASSETS = [
   './',
   './index.html',
@@ -26,7 +26,14 @@ const ASSETS = [
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS);
+      // Cache each asset individually so a single 404 doesn't abort install
+      return Promise.allSettled(
+        ASSETS.map(url =>
+          cache.add(url).catch(err =>
+            console.warn(`[SW] Failed to cache ${url}:`, err.message)
+          )
+        )
+      );
     }).then(() => self.skipWaiting())
   );
 });

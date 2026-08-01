@@ -1,40 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1536">
-  <!-- Ground -->
-  <path d="M100 1300 L1948 1300 L1948 1536 L100 1536 Z" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Main castle body -->
-  <rect x="600" y="700" width="848" height="600" rx="10" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <!-- Left tower -->
-  <rect x="520" y="500" width="180" height="800" rx="8" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <!-- Left tower top/crenellations -->
-  <rect x="510" y="470" width="200" height="40" rx="4" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <rect x="520" y="430" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="590" y="430" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="660" y="430" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Right tower -->
-  <rect x="1348" y="500" width="180" height="800" rx="8" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <rect x="1338" y="470" width="200" height="40" rx="4" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <rect x="1348" y="430" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="1418" y="430" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="1488" y="430" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Center tower -->
-  <rect x="900" y="400" width="248" height="300" rx="8" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <rect x="890" y="370" width="268" height="40" rx="4" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <rect x="900" y="330" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="980" y="330" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="1060" y="330" width="40" height="40" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <!-- Sky Stars and Moon -->
+  <path d="M1750 200 A 45 45 0 1 1 1710 270 A 55 55 0 1 0 1750 200 Z" fill="none" stroke="#2C2523" stroke-width="7"/>
+  <path d="M300 200 L310 230 L340 230 L315 250 L325 280 L300 260 L275 280 L285 250 L260 230 L290 230 Z" fill="none" stroke="#2C2523" stroke-width="5"/>
+  <path d="M550 150 L558 170 L580 170 L562 185 L570 205 L550 190 L530 205 L538 185 L520 170 L542 170 Z" fill="none" stroke="#2C2523" stroke-width="5"/>
+
+  <!-- Rolling Hills -->
+  <path d="M0 1350 Q400 1200 900 1300 Q1400 1400 2048 1280 L2048 1536 L0 1536 Z" fill="none" stroke="#2C2523" stroke-width="8"/>
+
+  <!-- Main Castle Base -->
+  <path d="M600 700 L1448 700 L1448 1300 L600 1300 Z" fill="none" stroke="#2C2523" stroke-width="9" stroke-linejoin="round"/>
+
+  <!-- Left Tower -->
+  <path d="M480 500 L640 500 L640 1320 L480 1320 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Left Cone Roof -->
+  <path d="M460 500 L560 320 L660 500 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M560 320 L560 250 L630 275 L560 300" fill="none" stroke="#2C2523" stroke-width="6"/>
+
+  <!-- Right Tower -->
+  <path d="M1408 500 L1568 500 L1568 1320 L1408 1320 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Right Cone Roof -->
+  <path d="M1388 500 L1488 320 L1588 500 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M1488 320 L1488 250 L1558 275 L1488 300" fill="none" stroke="#2C2523" stroke-width="6"/>
+
+  <!-- Center Grand Tower -->
+  <path d="M880 380 L1168 380 L1168 700 L880 700 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M850 380 L1024 180 L1198 380 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+
   <!-- Windows -->
-  <rect x="640" y="600" width="60" height="100" rx="30" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="1348" y="600" width="60" height="100" rx="30" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="700" y="800" width="80" height="120" rx="6" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="1268" y="800" width="80" height="120" rx="6" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <rect x="940" y="480" width="50" height="80" rx="25" fill="none" stroke="#1A1817" stroke-width="5"/>
-  <rect x="1058" y="480" width="50" height="80" rx="25" fill="none" stroke="#1A1817" stroke-width="5"/>
-  <!-- Door -->
-  <rect x="940" y="1050" width="168" height="250" rx="84" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <circle cx="1080" cy="1170" r="8" fill="none" stroke="#1A1817" stroke-width="5"/>
-  <!-- Drawbridge -->
-  <path d="M900 1300 L900 1400 L1148 1400 L1148 1300" fill="none" stroke="#1A1817" stroke-width="6" stroke-linejoin="round"/>
-  <!-- Flag -->
-  <path d="M1024 330 L1024 250" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <path d="M1024 250 L1100 270 L1024 290 Z" fill="none" stroke="#1A1817" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M530 650 A 25 25 0 0 1 590 650 L590 730 L530 730 Z" fill="none" stroke="#2C2523" stroke-width="6"/>
+  <path d="M1458 650 A 25 25 0 0 1 1518 650 L1518 730 L1458 730 Z" fill="none" stroke="#2C2523" stroke-width="6"/>
+  <path d="M974 460 A 30 30 0 0 1 1074 460 L1074 560 L974 560 Z" fill="none" stroke="#2C2523" stroke-width="7"/>
+
+  <!-- Arched Gate Door -->
+  <path d="M924 1300 L924 1050 A 100 100 0 0 1 1124 1050 L1124 1300 Z" fill="none" stroke="#2C2523" stroke-width="9"/>
+  <path d="M1024 1000 L1024 1300" fill="none" stroke="#2C2523" stroke-width="6"/>
+  <circle cx="1000" cy="1160" r="7" fill="#2C2523"/>
+  <circle cx="1048" cy="1160" r="7" fill="#2C2523"/>
 </svg>

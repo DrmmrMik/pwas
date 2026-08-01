@@ -88,55 +88,26 @@ uniform vec2 u_resolution;
 out vec4 fragColor;
 
 void main() {
-  // ─── Sample paper heightmap ───
-  // Paper grain gives the texture "tooth" for the wax to catch on
-  float paperHeight = texture(u_paperHeightmap, v_texCoord).r;
-
-  // ─── Sample wax grain noise ───
-  // Adds pigment particle variation so the stroke looks like real wax
-  float waxNoise = texture(u_waxGrain, v_texCoord * 4.0).r;
+  // ─── World-space coordinate sampling via gl_FragCoord ───
+  // Locks the paper grain to the canvas coordinate space so wax catches naturally on paper peaks
+  vec2 screenTexCoord = gl_FragCoord.xy / u_resolution;
+  float paperHeight = texture(u_paperHeightmap, screenTexCoord * 3.0).r;
+  float waxNoise = texture(u_waxGrain, screenTexCoord * 6.0).r;
 
   // ─── Wax coverage ───
-  // Higher pressure = more wax deposited. Paper valleys catch more wax
-  // than peaks (simulating how real crayon fills the paper grain).
-  float threshold = 1.0 - (v_pressure * 0.85 + 0.10);
-  float coverage = smoothstep(threshold, threshold + 0.25, paperHeight + waxNoise * 0.15);
+  // Higher pressure = more wax deposited into valleys and peaks alike
+  float targetCoverage = v_pressure * 0.75 + 0.25;
+  float toothMask = smoothstep(1.0 - targetCoverage, 1.0 - targetCoverage + 0.35, paperHeight * 0.7 + waxNoise * 0.3);
 
-  // ─── Edge falloff (crayon tip roundness) ───
-  // gl_PointCoord gives [0,1] within the point sprite.
-  // Distance from center creates a soft circular falloff at the edges,
-  // simulating the rounded tip of a wax crayon.
+  // ─── Edge falloff (rounded crayon tip) ───
   vec2 center = gl_PointCoord - vec2(0.5);
   float dist = length(center);
-  float edgeFalloff = 1.0 - smoothstep(0.2, 0.5, dist);
+  float edgeFalloff = smoothstep(0.5, 0.2, dist);
 
-  // ─── Final alpha ───
-  float alpha = coverage * edgeFalloff;
+  // ─── Final Alpha ───
+  float alpha = clamp(toothMask * edgeFalloff * (0.7 + v_pressure * 0.3), 0.0, 1.0);
 
-  // ─── Clamp alpha ───
-  alpha = clamp(alpha, 0.0, 1.0);
-
-  // ─── Subtractive (wax) blending formula ───
-  // Simulates how wax crayons work: wax layers absorb light.
-  // In the engine this is applied via blendFunc, but we pre-multiply here
-  // for correct composition.
-  //
-  // The actual subtractive blend is achieved in WebGL by:
-  //   gl.blendFuncSeparate(GL.ZERO, GL.ONE_MINUS_SRC_COLOR, GL.ONE, GL.ONE_MINUS_SRC_ALPHA)
-  // combined with src.rgb = dst.rgb * (1 - src.a) + src.rgb * 0? No.
-  //
-  // Real wax blending: each layer subtracts from white.
-  // We output premultiplied color so the compositor handles it:
-  //   result = dst * (1 - src.a) + src.rgb   (but src.rgb is already * alpha)
-  //
-  // fragColor = vec4(v_color * alpha, alpha);
-  //
-  // The caller sets blendFuncSeparate to achieve true subtractive behavior:
-  //   gl.blendFuncSeparate(gl.ZERO, gl.ONE_MINUS_SRC_COLOR, gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
-  //
-  // fragColor output for gl.ONE_MINUS_SRC_COLOR blending:
-  // With dst * (1.0 - src.rgb), setting src.rgb = (1.0 - v_color) * alpha
-  // yields dst * ((1.0 - alpha) + v_color * alpha), leaving target crayon color on paper.
+  // Output with pre-multiplied subtractive wax color
   fragColor = vec4((vec3(1.0) - v_color) * alpha, alpha);
 }
 `;

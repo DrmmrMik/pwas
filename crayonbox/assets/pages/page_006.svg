@@ -1,61 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1536">
-  <!-- Ground -->
-  <path d="M0 1200 L2048 1200 L2048 1536 L0 1536 Z" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Bear body -->
-  <ellipse cx="500" cy="900" rx="100" ry="120" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <!-- Bear head -->
-  <circle cx="500" cy="760" r="80" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <!-- Bear ears -->
-  <circle cx="440" cy="700" r="25" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <circle cx="560" cy="700" r="25" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Bear face -->
-  <ellipse cx="500" cy="780" rx="30" ry="20" fill="none" stroke="#1A1817" stroke-width="4"/>
-  <circle cx="475" cy="750" r="6" fill="none" stroke="#1A1817" stroke-width="4"/>
-  <circle cx="525" cy="750" r="6" fill="none" stroke="#1A1817" stroke-width="4"/>
-  <circle cx="500" cy="770" r="5" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <!-- Bear legs -->
-  <ellipse cx="430" cy="1060" rx="35" ry="50" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <ellipse cx="570" cy="1060" rx="35" ry="50" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <!-- Bear arms -->
-  <path d="M400 850 Q350 900 360 950" fill="none" stroke="#1A1817" stroke-width="7" stroke-linecap="round"/>
-  <path d="M600 850 Q650 900 640 950" fill="none" stroke="#1A1817" stroke-width="7" stroke-linecap="round"/>
-  <!-- Rabbit body -->
-  <ellipse cx="1050" cy="940" rx="70" ry="80" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <!-- Rabbit head -->
-  <circle cx="1050" cy="840" r="50" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <!-- Rabbit ears -->
-  <ellipse cx="1020" cy="760" rx="15" ry="50" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <ellipse cx="1080" cy="760" rx="15" ry="50" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Rabbit face -->
-  <circle cx="1035" cy="835" r="5" fill="none" stroke="#1A1817" stroke-width="4"/>
-  <circle cx="1065" cy="835" r="5" fill="none" stroke="#1A1817" stroke-width="4"/>
-  <ellipse cx="1050" cy="855" rx="8" ry="5" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <!-- Rabbit legs -->
-  <ellipse cx="1010" cy="1040" rx="25" ry="35" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <ellipse cx="1090" cy="1040" rx="25" ry="35" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Rabbit tail -->
-  <circle cx="1120" cy="920" r="15" fill="none" stroke="#1A1817" stroke-width="5"/>
-  <!-- Fox body -->
-  <ellipse cx="1550" cy="950" rx="80" ry="70" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <!-- Fox head -->
-  <ellipse cx="1550" cy="870" rx="45" ry="40" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <!-- Fox ears -->
-  <path d="M1520 840 L1500 780 L1540 830 Z" fill="none" stroke="#1A1817" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M1580 840 L1600 780 L1560 830 Z" fill="none" stroke="#1A1817" stroke-width="6" stroke-linejoin="round"/>
-  <!-- Fox face -->
-  <circle cx="1538" cy="865" r="4" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <circle cx="1562" cy="865" r="4" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <ellipse cx="1550" cy="880" rx="6" ry="4" fill="none" stroke="#1A1817" stroke-width="3"/>
-  <!-- Fox tail -->
-  <path d="M1630 950 Q1700 900 1680 820 Q1670 850 1630 920" fill="none" stroke="#1A1817" stroke-width="7" stroke-linecap="round"/>
-  <!-- Fox legs -->
-  <ellipse cx="1510" cy="1040" rx="22" ry="30" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <ellipse cx="1590" cy="1040" rx="22" ry="30" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <!-- Trees -->
-  <path d="M100 1200 L100 600" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <ellipse cx="100" cy="550" rx="80" ry="100" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <ellipse cx="100" cy="650" rx="60" ry="80" fill="none" stroke="#1A1817" stroke-width="6"/>
-  <path d="M1900 1200 L1900 500" fill="none" stroke="#1A1817" stroke-width="8"/>
-  <ellipse cx="1900" cy="450" rx="90" ry="110" fill="none" stroke="#1A1817" stroke-width="7"/>
-  <ellipse cx="1900" cy="580" rx="70" ry="90" fill="none" stroke="#1A1817" stroke-width="6"/>
+  <!-- Trees in Background -->
+  <!-- Tree Left -->
+  <path d="M250 1350 L250 1100 L120 1100 L250 850 L160 850 L300 600 L440 850 L350 850 L480 1100 L350 1100 L350 1350 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Tree Right -->
+  <path d="M1750 1350 L1750 1050 L1620 1050 L1750 800 L1660 800 L1800 550 L1940 800 L1850 800 L1980 1050 L1850 1050 L1850 1350 Z" fill="none" stroke="#2C2523" stroke-width="8" stroke-linejoin="round"/>
+
+  <!-- Forest Ground -->
+  <path d="M0 1350 Q500 1280 1024 1320 Q1550 1360 2048 1280 L2048 1536 L0 1536 Z" fill="none" stroke="#2C2523" stroke-width="8"/>
+
+  <!-- Cute Bear (Center) -->
+  <!-- Bear Body -->
+  <path d="M850 1320 C820 1000 850 950 1024 950 C1200 950 1230 1000 1200 1320 Z" fill="none" stroke="#2C2523" stroke-width="9" stroke-linejoin="round"/>
+  <!-- Bear Tummy Patch -->
+  <ellipse cx="1024" cy="1150" rx="100" ry="110" fill="none" stroke="#2C2523" stroke-width="7"/>
+
+  <!-- Bear Head -->
+  <circle cx="1024" cy="760" r="160" fill="none" stroke="#2C2523" stroke-width="9"/>
+  <!-- Bear Left Ear -->
+  <circle cx="890" cy="640" r="55" fill="none" stroke="#2C2523" stroke-width="8"/>
+  <circle cx="890" cy="640" r="30" fill="none" stroke="#2C2523" stroke-width="6"/>
+  <!-- Bear Right Ear -->
+  <circle cx="1158" cy="640" r="55" fill="none" stroke="#2C2523" stroke-width="8"/>
+  <circle cx="1158" cy="640" r="30" fill="none" stroke="#2C2523" stroke-width="6"/>
+
+  <!-- Bear Snout & Nose -->
+  <ellipse cx="1024" cy="800" rx="60" ry="45" fill="none" stroke="#2C2523" stroke-width="7"/>
+  <ellipse cx="1024" cy="780" rx="25" ry="16" fill="#2C2523"/>
+  <path d="M1024 796 L1024 815 Q1010 830 995 820 M1024 815 Q1038 830 1053 820" fill="none" stroke="#2C2523" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Bear Eyes -->
+  <circle cx="950" cy="730" r="14" fill="#2C2523"/>
+  <circle cx="1098" cy="730" r="14" fill="#2C2523"/>
+
+  <!-- Cute Rabbit (Left) -->
+  <ellipse cx="600" cy="1200" rx="70" ry="90" fill="none" stroke="#2C2523" stroke-width="8"/>
+  <circle cx="600" cy="1050" r="60" fill="none" stroke="#2C2523" stroke-width="8"/>
+  <!-- Rabbit Ears -->
+  <path d="M570 1000 Q530 800 560 780 Q590 800 580 1000" fill="none" stroke="#2C2523" stroke-width="7"/>
+  <path d="M620 1000 Q600 800 630 780 Q660 800 630 1000" fill="none" stroke="#2C2523" stroke-width="7"/>
+  <!-- Rabbit Face -->
+  <circle cx="580" cy="1040" r="6" fill="#2C2523"/>
+  <circle cx="620" cy="1040" r="6" fill="#2C2523"/>
 </svg>
