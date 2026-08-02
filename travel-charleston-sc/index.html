@@ -112,8 +112,6 @@
   </div>
   <label class="toggle-label"><input type="checkbox" id="kidPickOnly"> Kid picks ⭐</label>
   <label class="toggle-label"><input type="checkbox" id="interestOnly"> Saved ★</label>
-  <label class="toggle-label"><input type="checkbox" id="unitToggle" checked> mi</label>
-  <label class="toggle-label"><input type="checkbox" id="noLocationOnly"> No map loc.</label>
   <button class="btn-action" id="copyBtn" style="display:none">📋 Copy saved</button>
   <span class="saved-count" id="savedCount"></span>
 </div>
@@ -1324,12 +1322,93 @@ const TRIP_DATA = [
       "time": "N/A",
       "neighborhood": "All areas"
     }
+  },
+  {
+    "name": "Zac Brown Band at Credit One Stadium",
+    "category": "event",
+    "blurb": "Country concert at Credit One Stadium on Daniel Island.",
+    "why": "Major concert during your stay. 15-min drive from hotel on Daniel Island.",
+    "kidPick": false,
+    "sources": [{ "label": "Official venue", "url": "https://creditonestadium.com/event/zac-brown-band/" }],
+    "lat": 32.8617, "lng": -79.9154,
+    "meta": { "price_detail": "1555049", "time": "Thu Sep 17, 7:00 PM", "neighborhood": "Daniel Island", "distance_from_hotel_mi": 6.2 }
+  },
+  {
+    "name": "Zach Brown Pre-Party at New Realm Brewing",
+    "category": "event",
+    "blurb": "Free pre-concert party at New Realm Brewing with live music, food trucks, craft beer. Walking distance from hotel.",
+    "why": "Free, family-friendly, easy walk from Charleston Harbor Resort — right next door.",
+    "kidPick": true,
+    "sources": [{ "label": "AllEvents", "url": "https://allevents.in/charleston/zach-brown-pre-party/100001988127237085" }],
+    "lat": 32.7930, "lng": -79.9049,
+    "meta": { "price_detail": "Free", "time": "Thu Sep 17, 4:00 PM", "neighborhood": "Mount Pleasant (Patriots Point)", "distance_from_hotel_mi": 0.3 }
+  },
+  {
+    "name": "Isle of Palms Farmers Market",
+    "category": "event",
+    "blurb": "Weekly farmers market with fresh produce, food vendors, live music.",
+    "why": "10-min drive from hotel. Great Thursday afternoon outing for the family.",
+    "kidPick": true,
+    "sources": [{ "label": "IOP Official", "url": "https://www.iop.net/iop-farmers-market" }],
+    "lat": 32.7861, "lng": -79.7966,
+    "meta": { "price_detail": "Free entry", "time": "Thu Sep 17, afternoon", "neighborhood": "Isle of Palms", "distance_from_hotel_mi": 8.5 }
+  },
+  {
+    "name": "Jet at Music Farm",
+    "category": "event",
+    "blurb": "Australian rock band Jet live at Music Farm in downtown Charleston.",
+    "why": "Nostalgic rock show downtown — fun adults-only evening.",
+    "kidPick": false,
+    "sources": [{ "label": "Music Farm", "url": "https://musicfarm.com/event/jet/" }],
+    "lat": 32.7895, "lng": -79.9373,
+    "meta": { "price_detail": "1555049", "time": "Fri Sep 18, 8:00 PM", "neighborhood": "Downtown Charleston", "distance_from_hotel_mi": 3.2 }
+  },
+  {
+    "name": "Moonlight Mixers at Folly Beach Pier",
+    "category": "event",
+    "blurb": "Monthly summer music and dancing under the stars at Folly Beach Pier.",
+    "why": "20-min drive. Beautiful beachside evening — kids can play on the beach during music.",
+    "kidPick": true,
+    "sources": [{ "label": "CCPRC", "url": "https://ccprc.com/1618/Moonlight-Mixers" }],
+    "lat": 32.6554, "lng": -79.9405,
+    "meta": { "price_detail": "$", "time": "Fri Sep 18, 6:30 PM", "neighborhood": "Folly Beach", "distance_from_hotel_mi": 14.0 }
+  },
+  {
+    "name": "James Taylor & His All-Star Band at Credit One Stadium",
+    "category": "event",
+    "blurb": "James Taylor live at Credit One Stadium — perfect sunset concert.",
+    "why": "Huge draw, Sunday show on Daniel Island. Great for all ages.",
+    "kidPick": true,
+    "sources": [{ "label": "Official venue", "url": "https://creditonestadium.com/event/james-taylor-and-his-all-star-band/" }],
+    "lat": 32.8617, "lng": -79.9154,
+    "meta": { "price_detail": "1555049$", "time": "Sun Sep 20, 7:30 PM", "neighborhood": "Daniel Island", "distance_from_hotel_mi": 6.2 }
+  },
+  {
+    "name": "Charleston Punk Flea Market",
+    "category": "event",
+    "blurb": "Underground art and alternative fashion market at Omar Shriners Event Center, Mount Pleasant.",
+    "why": "Sep 19-20 in Mount Pleasant, close to hotel. Fun for unique souvenirs.",
+    "kidPick": true,
+    "sources": [{ "label": "Event page", "url": "https://www.southeastpfm.com/" }],
+    "lat": 32.8345, "lng": -79.8700,
+    "meta": { "price_detail": "Free entry", "time": "Sat-Sun Sep 19-20, 10am-5pm", "neighborhood": "Mount Pleasant", "distance_from_hotel_mi": 3.1 }
+  },
+  {
+    "name": "The Wizard of Oz at Dock Street Theatre",
+    "category": "event",
+    "blurb": "Musical production of The Wizard of Oz at the historic Dock Street Theatre.",
+    "why": "Historic venue, family-friendly. Your 7yo will love it. Runs through your stay dates.",
+    "kidPick": true,
+    "sources": [{ "label": "Charleston Stage", "url": "https://charlestonstage.com/shows-and-tickets/oz" }],
+    "lat": 32.7728, "lng": -79.9311,
+    "meta": { "price_detail": "1555049", "time": "Various — check schedule", "neighborhood": "Downtown Charleston (French Quarter)", "distance_from_hotel_mi": 4.5 }
   }
 ];
 const HOTEL = {"name": "Charleston Harbor Resort & Marina", "address": "20 Patriots Point Road, Mount Pleasant, SC 29464", "lat": 32.7965, "lng": -79.9024};
 
 const CONF_LABEL = { strong: "Strong", popular: "Popular, verify", secret: "Local secret" };
-const CAT_LABEL = { eat: "Eat", see: "See & Do", playground: "Playground / Kid Spot", neighborhood: "Neighborhood", practical: "Practical" };
+const CAT_LABEL = { eat: "Eat", see: "See & Do", playground: "Playground / Kid Spot", neighborhood: "Neighborhood", practical: "Practical", event: "Events 🎭" };
+const CATS = ["all", "eat", "see", "playground", "event", "neighborhood", "practical"];
 
 const SOURCE_BADGE_MAP = [
   { keys: ['reddit', 'r/'], short: 'Reddit', color: '#ff4500' },
@@ -1369,8 +1448,6 @@ let query = "";
 let viewMode = "list";
 let kidPickOnly = false;
 let interestOnly = false;
-let noLocationOnly = false;
-let useMiles = true;
 let leafletMap = null;
 let markersLayer = null;
 
@@ -1384,19 +1461,16 @@ function getFiltered() {
     if (activeCat !== "all" && item.category !== activeCat) return false;
     if (kidPickOnly && !item.kidPick) return false;
     if (interestOnly && !isInterested(item.name)) return false;
-    if (noLocationOnly && hasLocation(item)) return false;
-    if (!noLocationOnly && viewMode === "map" && !hasLocation(item)) return false;
+    if (viewMode === "map" && !hasLocation(item)) return false;
     if (q && !((item.name + " " + item.blurb + " " + (item.meta?.neighborhood || "")).toLowerCase().includes(q))) return false;
     return true;
   });
 }
 
 function distanceHtml(item) {
-  const unit = useMiles ? 'mi' : 'km';
-  const distKey = 'distance_from_hotel_' + unit;
-  const d = item.meta && item.meta[distKey];
+  const d = item.meta && item.meta.distance_from_hotel_mi;
   if (d == null) return '';
-  return `<span>${d} ${unit} from hotel</span>`;
+  return `<span>${d} mi from hotel</span>`;
 }
 
 function escapeAttr(s) {
@@ -1516,8 +1590,8 @@ function showToast(msg) {
 function updateHint() {
   const noLocCount = TRIP_DATA.filter(i => !hasLocation(i)).length;
   const hint = document.getElementById("hint");
-  if (viewMode === "map" && !noLocationOnly && noLocCount > 0) {
-    hint.textContent = `${noLocCount} item(s) have no map location — check "No map loc." to see them in list view.`;
+  if (viewMode === "map" && noLocCount > 0) {
+    hint.textContent = `${noLocCount} item(s) have no map location — switch to list view to see them.`;
   } else {
     hint.textContent = "";
   }
@@ -1595,36 +1669,11 @@ document.getElementById("interestOnly").addEventListener("change", (e) => {
   render();
 });
 
-document.getElementById("unitToggle").addEventListener("change", (e) => {
-  useMiles = e.target.checked;
-  render();
-});
-
-document.getElementById("noLocationOnly").addEventListener("change", (e) => {
-  noLocationOnly = e.target.checked;
-  const mapBtn = document.getElementById("mapViewBtn");
-  if (noLocationOnly) {
-    mapBtn.disabled = true;
-    mapBtn.style.opacity = "0.4";
-    if (viewMode === "map") {
-      viewMode = "list";
-      document.querySelectorAll("#viewToggle .tab").forEach(t => t.classList.remove("active"));
-      document.querySelector('#viewToggle .tab[data-view="list"]').classList.add("active");
-    }
-  } else {
-    mapBtn.disabled = false;
-    mapBtn.style.opacity = "1";
-  }
-  render();
-});
-
 document.getElementById("copyBtn").addEventListener("click", () => {
   const items = TRIP_DATA.filter(i => isInterested(i.name));
-  const unit = useMiles ? 'mi' : 'km';
-  const distKey = 'distance_from_hotel_' + unit;
   const lines = items.map(i => {
-    const d = i.meta && i.meta[distKey];
-    const dist = d != null ? ` (${d} ${unit} from hotel)` : '';
+    const d = i.meta && i.meta.distance_from_hotel_mi;
+    const dist = d != null ? ` (${d} mi from hotel)` : '';
     const price = i.meta?.price || '';
     const priceTag = price ? ` [${price}]` : '';
     const cat = CAT_LABEL[i.category] || i.category;
