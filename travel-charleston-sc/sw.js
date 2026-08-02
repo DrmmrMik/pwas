@@ -1,4 +1,4 @@
-const CACHE_NAME = "travel-guide-charleston-sc-20260802-181907";
+const CACHE_NAME = "travel-guide-charleston-sc-20260802-182143";
 const ASSETS = [
   "./",
   "./index.html",
