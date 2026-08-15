@@ -1,0 +1,64 @@
+{
+  "name": "Charleston Trip (E-Ink)",
+  "short_name": "Charleston E-Ink",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "lang": "en",
+  "scope": "./",
+  "description": "Offline-first PWA for Charleston family trip",
+  "display_override": [
+    "standalone"
+  ],
+  "theme_color": "#0f172a",
+  "categories": [
+    "travel",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Today's Schedule",
+      "short_name": "Today",
+      "url": "./index.html#today"
+    },
+    {
+      "name": "Settings",
+      "short_name": "Settings",
+      "url": "./index.html#settings"
+    }
+  ],
+  "version": "0.1.0",
+  "x-build-stamp": "20260815173722"
+}
