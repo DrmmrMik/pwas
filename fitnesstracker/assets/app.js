@@ -1158,7 +1158,7 @@ function renderBBSTable() {
   if (state.bbsLogs.length === 0) {
     tbody.innerHTML = `
       <tr>
-        <td colspan="6" class="text-center text-secondary">No lifts recorded yet. Run a session above!</td>
+        <td colspan="7" class="text-center text-secondary">No lifts recorded yet. Run a session above!</td>
       </tr>
     `;
     return;
@@ -1178,6 +1178,7 @@ function renderBBSTable() {
       <td><strong>${log.exercise}</strong>${feelingStr}</td>
       <td>${log.weight} lbs</td>
       <td>${log.tul}s${repsStr}</td>
+      <td><strong>${Math.round(log.weight * log.tul)}</strong></td>
       <td>
         <span class="text-secondary text-sm">${log.recommendation || '-'}</span>
         ${notesStr}
@@ -1767,28 +1768,19 @@ function renderBBSChart() {
   }
   
   const dates = logs.map(l => l.date);
-  const weights = logs.map(l => l.weight);
-  const tuls = logs.map(l => l.tul);
+  const effortScores = logs.map(l => Math.round(l.weight * l.tul));
   
   charts.bbs = new Chart(canvas, {
-    type: 'bar',
+    type: 'line',
     data: {
       labels: dates,
       datasets: [
         {
-          label: 'Time Under Load (seconds)',
-          data: tuls,
-          type: 'bar',
-          backgroundColor: 'rgba(6, 182, 212, 0.4)',
-          borderColor: 'rgba(6, 182, 212, 0.8)',
-          borderWidth: 1.5,
-          yAxisID: 'y1',
-        },
-        {
-          label: 'Weight (lbs)',
-          data: weights,
+          label: 'Effort Score (TUL × Weight)',
+          data: effortScores,
           type: 'line',
-          backgroundColor: 'transparent',
+          backgroundColor: 'rgba(6, 182, 212, 0.1)',
+          fill: true,
           borderColor: '#06b6d4',
           borderWidth: 3,
           pointBackgroundColor: '#06b6d4',
@@ -1809,18 +1801,10 @@ function renderBBSChart() {
         y: {
           type: 'linear',
           position: 'left',
-          title: { display: true, text: 'Weight (lbs)', color: '#06b6d4' },
+          title: { display: true, text: 'Effort Score (TUL × Weight)', color: '#06b6d4' },
           grid: { color: 'rgba(255, 255, 255, 0.05)' },
-          ticks: { color: '#94a3b8' }
-        },
-        y1: {
-          type: 'linear',
-          position: 'right',
-          title: { display: true, text: 'TUL (sec)', color: 'rgba(6, 182, 212, 0.8)' },
-          grid: { drawOnChartArea: false },
           ticks: { color: '#94a3b8' },
-          min: 0,
-          max: Math.max(100, Math.max(...tuls) + 10)
+          min: 0
         }
       },
       plugins: {

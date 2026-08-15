@@ -40,9 +40,9 @@
     }
   </script>
 
-<script>window.__BUILD_INFO__={stamp:"20260815-165430",ver:"1.0.20260815"};</script>
+<script>window.__BUILD_INFO__={stamp:"20260815-194703",ver:"1.0.20260815"};</script>
 </head>
-<body data-build="20260815-165430" data-version="1.0.20260815">
+<body data-build="20260815-194703" data-version="1.0.20260815">
 
   <!-- App Wrapper -->
   <div class="app-container">
@@ -309,6 +309,7 @@
                     <th>Exercise</th>
                     <th>Weight</th>
                     <th>TUL</th>
+                    <th>Effort Score</th>
                     <th>Progression Info</th>
                     <th>Actions</th>
                   </tr>
@@ -316,7 +317,7 @@
                 <tbody id="bbs-history-tbody">
                   <!-- Dynamically populated -->
                   <tr>
-                    <td colspan="6" class="text-center text-secondary">No lifts recorded yet. Run a session above!</td>
+                    <td colspan="7" class="text-center text-secondary">No lifts recorded yet. Run a session above!</td>
                   </tr>
                 </tbody>
               </table>
@@ -568,7 +569,7 @@
         <!-- Chart Panels -->
         <div class="glass-panel chart-container-panel" id="chart-panel-bbs">
           <div class="panel-header">
-            <h2 class="panel-title"><i data-lucide="bar-chart-2"></i> Time Under Load & Weight Progression</h2>
+            <h2 class="panel-title"><i data-lucide="bar-chart-2"></i> Effort Score & Strength Progression</h2>
             <div class="input-group-inline">
               <label for="chart-bbs-exercise">Filter Exercise:</label>
               <select id="chart-bbs-exercise" class="form-select select-xs">
@@ -585,7 +586,7 @@
           </div>
           <div class="chart-legend-info">
             <p class="text-secondary text-sm">
-              <i data-lucide="info" class="icon-inline"></i> Solid line represents <strong>Weight (lbs)</strong> (left axis), and bars represent <strong>Time Under Load (seconds)</strong> (right axis). TUL is a failure signal, not the target -- overload only when you reached failure in the 40-90s window. We never deload just because TUL was under 80s.
+              <i data-lucide="info" class="icon-inline"></i> Effort Score = TUL × Weight — your best single measure of total strength for the lift. Rising effort score over time = rising total strength. Weight and TUL are shown below in the table. TUL is a failure signal, not the target -- overload only when you reached failure in the 40-90s window. We never deload just because TUL was under 80s.
             </p>
           </div>
         </div>
