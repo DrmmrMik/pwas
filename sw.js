@@ -4,7 +4,7 @@
  * Uses modern caching strategies with versioned caches
  */
 
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const CACHE_NAME = `nova-portal-${CACHE_VERSION}`;
 const STATIC_CACHE = `nova-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `nova-dynamic-${CACHE_VERSION}`;

@@ -30,7 +30,7 @@
   <!-- Local Stylesheet -->
   <link rel="stylesheet" href="style.css">
   
-  <!-- Service Worker Registration -->
+  <!-- Service Worker Registration + Update Banner -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -48,8 +48,27 @@
             });
           })
           .catch(err => console.error('[Nova Portal] SW registration failed:', err));
+
+        // Apply the update: ask the waiting worker to skipWaiting, then reload.
+        document.getElementById('sw-update-btn').addEventListener('click', () => {
+          navigator.serviceWorker.getRegistration().then(reg => {
+            if (reg && reg.waiting) {
+              reg.waiting.postMessage({ action: 'skipWaiting' });
+            } else {
+              window.location.reload();
+            }
+          });
+        });
+
+        // Once the new worker takes control, reload to serve the fresh build.
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (refreshing) return;
+          refreshing = true;
+          window.location.reload();
+        });
       });
-  
+
       function showUpdateNotification() {
         const banner = document.getElementById('sw-update-banner');
         if (banner) banner.classList.remove('hidden');

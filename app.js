@@ -65,65 +65,9 @@ window.clearGhosting = clearGhosting;
 // the monochrome border/background rules (cards are appended by loadProjects).
 // (No extra work needed - the CSS class selectors cover the injected cards.)
 
-// Register Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then((reg) => {
-        console.log('[Portal] Service Worker registered successfully scope:', reg.scope);
-        
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing;
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              showUpdateNotification();
-            }
-          });
-        });
-      })
-      .catch((err) => console.error('[Portal] Service Worker registration failed:', err));
-  });
-
-  let refreshing = false;
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (!refreshing) {
-      window.location.reload();
-      refreshing = true;
-    }
-  });
-}
-
-function showUpdateNotification() {
-  const updateAlert = document.createElement('div');
-  updateAlert.style.position = 'fixed';
-  updateAlert.style.bottom = '20px';
-  updateAlert.style.right = '20px';
-  updateAlert.style.background = 'var(--bg-card)';
-  updateAlert.style.border = '1px solid var(--neon-cyan)';
-  updateAlert.style.boxShadow = '0 0 15px var(--neon-cyan-glow)';
-  updateAlert.style.padding = '16px';
-  updateAlert.style.borderRadius = 'var(--radius-lg)';
-  updateAlert.style.zIndex = '3000';
-  updateAlert.style.display = 'flex';
-  updateAlert.style.alignItems = 'center';
-  updateAlert.style.gap = '12px';
-  
-  updateAlert.innerHTML = `
-    <span style="font-size: 0.85rem; font-weight:600;">Update Available!</span>
-    <button id="btn-update-refresh" class="btn-install" style="height:32px; padding:0 12px;">Refresh</button>
-  `;
-  document.body.appendChild(updateAlert);
-  
-  document.getElementById('btn-update-refresh').addEventListener('click', () => {
-    navigator.serviceWorker.getRegistration().then((reg) => {
-      if (reg.waiting) {
-        reg.waiting.postMessage({ action: 'skipWaiting' });
-      } else {
-        window.location.reload();
-      }
-    });
-  });
-}
+// Service Worker registration + "New version available" update flow is handled
+// in index.html (inline script) to avoid a duplicate registration and a second
+// competing update banner. Do not register the SW again here.
 
 // Connection Monitor
 const offlineIndicator = document.getElementById('offline-indicator');
