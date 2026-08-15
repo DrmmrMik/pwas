@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Charleston Travel Companion</title>
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+  <link rel="alternate icon" type="image/png" href="./icon-192.png" />
+  <script type="module" crossorigin src="./assets/main-C32XNOjd.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/settingsView-D3erhx08.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-Cf3W6uVb.css">
+<link rel="manifest" href="./manifest.webmanifest"></head>
+<body data-build="2026.08.15-001" data-version="0.1.0" class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+  <div id="app" class="flex-1 flex flex-col max-w-2xl mx-auto w-full min-h-screen"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js').catch(function (e) {
+          console.error('SW registration failed', e);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
