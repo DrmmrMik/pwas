@@ -244,8 +244,16 @@ try {
   // is exactly why installs failed: files were pushed but Pages was off, so the
   // URL 404'd). We force-trigger a Pages rebuild via API, then HTTP-check the
   // live URL and FAIL the publish if it's dead.
-  const liveBase = `https://drmrmik.github.io/${repoName}/`;
-  log(`Verifying live deployment at ${liveBase} ...`);
+  //
+  // SOURCE OF TRUTH: the monorepo URL (https://drmmrmik.github.io/pwas/<repo>/)
+  // is what the Nova Portal actually serves, and it comes up even when the
+  // individual repo's Pages build is still spinning up (or off on a brand-new
+  // repo). So we verify the monorepo URL FIRST — if it returns 200 the app is
+  // live, period. The individual-repo URL is checked as a secondary signal, but
+  // a 404 there on a newly-created repo is a non-fatal warning, NOT a hard fail.
+  const monoBase = `https://drmmrmik.github.io/pwas/${targetFolder}/`;
+  const indvBase = `https://drmmrmik.github.io/${repoName}/`;
+  log(`Verifying live deployment (monorepo ${monoBase}, individual ${indvBase}) ...`);
   
   // Force-trigger Pages rebuild (much faster than waiting for the automatic one)
   if (token && token !== 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE') {
@@ -259,28 +267,41 @@ try {
   } else {
     log('No token available, waiting for automatic Pages rebuild...');
   }
-  
-  let deployOk = false;
-  for (let attempt = 1; attempt <= 18 && !deployOk; attempt++) {
+
+  const urlOk = (url) => {
     try {
-      const res = execSync(`curl -s -o /dev/null -w "%{http_code}" --max-time 15 "${liveBase}"`, { stdio: 'pipe' }).toString().trim();
-      if (res === '200') {
-        deployOk = true;
-        log(`Live check (attempt ${attempt}): HTTP 200 — app is served.`);
-      } else {
-        log(`Live check (attempt ${attempt}): HTTP ${res} — not served yet (Pages may be rebuilding), waiting 10s...`);
-        execSync('sleep 10');
-      }
+      return execSync(`curl -s -o /dev/null -w "%{http_code}" --max-time 15 "${url}"`, { stdio: 'pipe' }).toString().trim() === '200';
     } catch (e) {
-      log(`Live check (attempt ${attempt}): fetch error, waiting 10s...`);
+      return false;
+    }
+  };
+
+  // 6a. Monorepo URL — the source of truth. Retry through the rebuild window.
+  let monoOk = false;
+  for (let attempt = 1; attempt <= 18 && !monoOk; attempt++) {
+    if (urlOk(monoBase)) {
+      monoOk = true;
+      log(`Monorepo live check (attempt ${attempt}): HTTP 200 — app is served at ${monoBase}`);
+    } else {
+      log(`Monorepo live check (attempt ${attempt}): not 200 yet (Pages may be rebuilding), waiting 10s...`);
       execSync('sleep 10');
     }
   }
-  if (!deployOk) {
+
+  // 6b. Individual-repo URL — secondary signal; 404 on a new repo is non-fatal.
+  const indvOk = urlOk(indvBase);
+  if (indvOk) {
+    log(`Individual repo live check: HTTP 200 — app also served at ${indvBase}`);
+  } else {
+    log(`Individual repo live check: HTTP 404 — not served at ${indvBase}. ` +
+        (monoOk ? 'This is expected on a newly-created repo (Pages build still spinning up); the app is live at the monorepo URL, so this is a non-fatal warning.' : ''));
+  }
+
+  if (!monoOk) {
     throw new Error(
-      `DEPLOY VERIFICATION FAILED: ${liveBase} did not return HTTP 200 after 18 attempts (~3 min).\n` +
-      `The files were pushed to git but the app is NOT being served by GitHub Pages.\n` +
-      `Likely cause: GitHub Pages is disabled/turned off for the "${repoName}" repo.\n` +
+      `DEPLOY VERIFICATION FAILED: ${monoBase} did not return HTTP 200 after 18 attempts (~3 min).\n` +
+      `The files were pushed to git but the app is NOT being served.\n` +
+      `Likely cause: GitHub Pages is disabled/turned off for the "pwas" monorepo.\n` +
       `Fix: GitHub repo → Settings → Pages → Source = "Deploy from a branch" → branch "main" → /root.\n` +
       `Then re-run publish. Do NOT tell the user it's live until this passes.`
     );
