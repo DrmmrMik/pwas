@@ -7,7 +7,7 @@
 // BUILD INDICATOR: cache version is derived from the build stamp written into
 // manifest.json (x-build-stamp) by build.js. A new build => new cache => the SW
 // self-reports its version and force-refreshes assets. Falls back to 'v2'.
-let CACHE_VERSION = 'v20260815194703';
+let CACHE_VERSION = 'v20260815203139';
 try {
   // Synchronous XHR at SW top-level is allowed during install/startup.
   const manifestText = (function () {

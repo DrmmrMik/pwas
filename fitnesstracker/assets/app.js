@@ -1768,51 +1768,70 @@ function renderBBSChart() {
   }
   
   const dates = logs.map(l => l.date);
-  const effortScores = logs.map(l => Math.round(l.weight * l.tul));
-  
-  charts.bbs = new Chart(canvas, {
-    type: 'line',
-    data: {
-      labels: dates,
-      datasets: [
-        {
-          label: 'Effort Score (TUL × Weight)',
-          data: effortScores,
-          type: 'line',
-          backgroundColor: 'rgba(6, 182, 212, 0.1)',
-          fill: true,
-          borderColor: '#06b6d4',
-          borderWidth: 3,
-          pointBackgroundColor: '#06b6d4',
-          pointHoverRadius: 6,
-          yAxisID: 'y',
-          tension: 0.15
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: {
-          grid: { color: 'rgba(255, 255, 255, 0.05)' },
-          ticks: { color: '#94a3b8' }
-        },
-        y: {
-          type: 'linear',
-          position: 'left',
-          title: { display: true, text: 'Effort Score (TUL × Weight)', color: '#06b6d4' },
-          grid: { color: 'rgba(255, 255, 255, 0.05)' },
-          ticks: { color: '#94a3b8' },
-          min: 0
-        }
+    const effortScores = logs.map(l => Math.round(l.weight * l.tul));
+    const weights = logs.map(l => l.weight);
+
+    charts.bbs = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [
+          {
+            label: 'Effort Score (TUL × Weight)',
+            data: effortScores,
+            type: 'line',
+            backgroundColor: 'rgba(6, 182, 212, 0.1)',
+            fill: true,
+            borderColor: '#06b6d4',
+            borderWidth: 3,
+            pointBackgroundColor: '#06b6d4',
+            pointHoverRadius: 6,
+            yAxisID: 'y',
+            tension: 0.15
+          },
+          {
+            label: 'Weight (lbs)',
+            data: weights,
+            type: 'bar',
+            backgroundColor: 'rgba(244, 63, 94, 0.35)',
+            borderColor: 'rgba(244, 63, 94, 0.8)',
+            borderWidth: 1.5,
+            yAxisID: 'y1',
+            barPercentage: 0.55
+          }
+        ]
       },
-      plugins: {
-        legend: { labels: { color: '#f8fafc' } }
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+            ticks: { color: '#94a3b8' }
+          },
+          y: {
+            type: 'linear',
+            position: 'left',
+            title: { display: true, text: 'Effort Score (TUL × Weight)', color: '#06b6d4' },
+            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+            ticks: { color: '#94a3b8' },
+            min: 0
+          },
+          y1: {
+            type: 'linear',
+            position: 'right',
+            title: { display: true, text: 'Weight (lbs)', color: 'rgba(244, 63, 94, 0.8)' },
+            grid: { drawOnChartArea: false },
+            ticks: { color: '#94a3b8' },
+            min: 0
+          }
+        },
+        plugins: {
+          legend: { labels: { color: '#f8fafc' } }
+        }
       }
-    }
-  });
-}
+    });
+  }
 
 function renderPelotonChart() {
   const canvas = document.getElementById("pelotonChart");
