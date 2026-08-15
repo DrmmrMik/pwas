@@ -6,6 +6,8 @@
   "background_color": "#ffffff",
   "lang": "en",
   "scope": "./",
+  "version": "0.2.0",
+  "x-build-stamp": "20260815180358",
   "description": "Offline-first PWA for Charleston family trip",
   "display_override": [
     "standalone"
@@ -58,7 +60,5 @@
       "short_name": "Settings",
       "url": "./index.html#settings"
     }
-  ],
-  "version": "0.1.0",
-  "x-build-stamp": "20260815170658"
+  ]
 }
