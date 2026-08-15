@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
   <title>AuraFit - Quantum Fitness & Mind Tracker</title>
   <!-- SEO Meta Tags -->
   <meta name="description" content="A premium, simple, and quantified fitness tracker for Heavy Duty weightlifting, meditation, and Peloton metrics.">
@@ -39,9 +40,9 @@
     }
   </script>
 
-<script>window.__BUILD_INFO__={stamp:"20260725-153122",ver:"1.0.20260725"};</script>
+<script>window.__BUILD_INFO__={stamp:"20260815-165430",ver:"1.0.20260815"};</script>
 </head>
-<body data-build="20260725-153122" data-version="1.0.20260725">
+<body data-build="20260815-165430" data-version="1.0.20260815">
 
   <!-- App Wrapper -->
   <div class="app-container">
@@ -221,14 +222,10 @@
                   <option value="Leg Press">Leg Press (Big 5)</option>
                 </select>
               </div>
-              <div class="timer-quick-info">
-                <span class="recommendation-pill" id="bbs-timer-rec-weight">Target: -- lbs</span>
-                <span class="recommendation-pill" id="bbs-timer-rec-tul">Train to failure</span>
-              </div>
-              <!-- Effort Score Gauge (gamified PR indicator) -->
-              <div class="effort-gauge" id="effort-gauge" style="display:none; text-align:center; margin: 8px 0; font-size: 13px;">
-                <span id="effort-score-label">Effort: <strong id="effort-score-val">0</strong></span>
-                <span id="effort-pr-indicator" style="margin-left:8px; padding:2px 8px; border-radius:12px; font-weight:700; font-size:12px;">—</span>
+              <div class="timer-quick-info" id="bbs-timer-rec-area">
+                <span class="recommendation-pill" id="bbs-timer-rec-last">Last: -- lbs</span>
+                <span class="recommendation-pill" id="bbs-timer-rec-advice">--</span>
+                <span class="recommendation-pill" id="bbs-timer-rec-tul">Aim TUL: 40-90s</span>
               </div>
             </div>
 
@@ -280,20 +277,10 @@
                   <input type="number" id="bbs-log-tul" class="form-input" placeholder="e.g. 60" step="0.1" min="0">
                 </div>
               </div>
-              <div class="form-row three-cols">
+              <div class="form-row">
                 <div class="input-group">
                   <label for="bbs-log-reps">Reps</label>
                   <input type="number" id="bbs-log-reps" class="form-input" placeholder="e.g. 6" min="0">
-                </div>
-                <div class="input-group">
-                  <label for="bbs-log-feeling">Feeling</label>
-                  <select id="bbs-log-feeling" class="form-select">
-                    <option value="">Select mood</option>
-                    <option value="😀">😀 Great</option>
-                    <option value="🙂">🙂 Good</option>
-                    <option value="😐">😐 Neutral</option>
-                    <option value="🙁">🙁 Fatigued</option>
-                  </select>
                 </div>
                 <div class="input-group">
                   <label for="bbs-log-notes">Notes</label>
@@ -322,7 +309,6 @@
                     <th>Exercise</th>
                     <th>Weight</th>
                     <th>TUL</th>
-                    <th>Effort Score</th>
                     <th>Progression Info</th>
                     <th>Actions</th>
                   </tr>
