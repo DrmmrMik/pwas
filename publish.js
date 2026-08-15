@@ -89,11 +89,31 @@ try {
   fs.cpSync(resolvedSrcDir, targetDir, { recursive: true });
   log("Assets copied successfully.");
 
+  // 4a. BUILD STAMP the manifest (per modern-pwa-android16 guideline): stamp a
+  // deterministic version + x-build-stamp so the installed app shows which
+  // build it runs, and the SW cache can be derived from it. Preserve any
+  // existing version; always refresh the timestamp on this publish.
+  const manifestPath = path.join(targetDir, 'manifest.json');
+  if (fs.existsSync(manifestPath)) {
+    try {
+      const stamp = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 14); // YYYYMMDDHHMMSS
+      const pkg = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+      pkg.version = pkg.version || '0.1.0';
+      pkg['x-build-stamp'] = stamp;
+      fs.writeFileSync(manifestPath, JSON.stringify(pkg, null, 2) + '\n', 'utf8');
+      log(`Stamped manifest.json: version=${pkg.version} x-build-stamp=${stamp}`);
+    } catch (se) {
+      logError(`Could not stamp manifest.json: ${se.message}`);
+    }
+  }
+
   // 4b. PWA COMPLIANCE GATE — validate before publish. Blocks deploy if the
   // built PWA would fail modern Android install (e.g. missing maskable icon,
-  // broken SW precache, no SW registration).
+  // broken SW precache, no SW registration). Runs for EVERY target folder —
+  // every publication here is a PWA, so a hardcoded allow-list only created
+  // silent bypasses for newer apps (travel-charleston, travel-charleston-sc).
   const validator = path.join(repoDir, 'validate_pwa.py');
-  if (fs.existsSync(validator) && /pwa|nova|fitnesstracker|climascape|penandpaper|ginnycrunchers/.test(targetFolder)) {
+  if (fs.existsSync(validator)) {
     log("Running PWA compliance gate (validate_pwa.py)...");
     try {
       const vr = execSync(`python3 ${JSON.stringify(validator)} ${JSON.stringify(targetDir)}`, { cwd: repoDir, stdio: 'pipe' });
@@ -165,6 +185,7 @@ try {
   // Determine matching repository name for the individual project
   const repoMapping = {
     'climascape': 'climascape',
+    'crayonbox': 'crayonbox',
     'penandpaper': 'penandpaper',
     'fitnesstracker': 'fitness_tracker',
     'photoscavengerhunt': 'photo_scavenger_hunt',
