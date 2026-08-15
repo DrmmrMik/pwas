@@ -1,17 +1,17 @@
 // Charleston Travel Companion Service Worker (Offline-First)
-const BUILD_STAMP = '2026.08.15-002';
-const CACHE_NAME = 'travel-charleston-v0.2.0';
+const BUILD_STAMP = '2026.08.15-003';
+const CACHE_NAME = 'travel-charleston-v0.2.1';
 
 const PRECACHE_ASSETS = [
   "./",
   "./index.html",
   "./eink/index.html",
   "./index.eink.html",
+  "./assets/eink-CpbevR8t.js",
   "./assets/eink-DvpIjE8q.css",
-  "./assets/eink-HNLSUKlN.js",
   "./assets/main-BMnE91H8.css",
-  "./assets/main-lF6qn7ko.js",
-  "./assets/settingsView-BBq9wn9R.js",
+  "./assets/main-BwW8y9Li.js",
+  "./assets/settingsView-B_JnxEOQ.js",
   "./assets/settingsView-Dgihpmma.css",
   "./eink/manifest.json",
   "./eink/manifest.webmanifest",
