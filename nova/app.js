@@ -1,3 +1,70 @@
+// =========================================================================
+// E-INK / E-READER COMPATIBILITY
+// Single-version: auto-detect real e-ink panels (viwoods AiPaper, KOReader,
+// Kindle) via standard media features and add `.eink-mode` to <html>. Also
+// provides a manual header toggle and a "clear ghosting" full-repaint helper,
+// all without a separate e-ink build.
+// =========================================================================
+const einkButton = document.getElementById('btn-eink-mode');
+
+function isEinkDevice() {
+  return (
+    (window.matchMedia && (
+      window.matchMedia('(monochrome)').matches ||
+      window.matchMedia('(monochrome: 1)').matches ||
+      window.matchMedia('(update: slow)').matches ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    )) || false
+  );
+}
+
+// 1) Auto-apply on a real e-ink panel (unless the user explicitly forced it off).
+function applyEink() {
+  document.documentElement.classList.add('eink-mode');
+  try { localStorage.setItem('nova-eink', 'on'); } catch (e) {}
+  if (einkButton) {
+    einkButton.setAttribute('aria-pressed', 'true');
+    einkButton.classList.add('active');
+  }
+}
+
+function clearEink() {
+  document.documentElement.classList.remove('eink-mode');
+  try { localStorage.setItem('nova-eink', 'off'); } catch (e) {}
+  if (einkButton) {
+    einkButton.setAttribute('aria-pressed', 'false');
+    einkButton.classList.remove('active');
+  }
+}
+
+const storedEinkPref = (function () { try { return localStorage.getItem('nova-eink'); } catch (e) { return null; } })();
+
+if (storedEinkPref === 'off') {
+  // user turned it off - respect that (no auto-apply even on e-ink)
+} else if (storedEinkPref === 'on' || isEinkDevice()) {
+  applyEink();
+}
+
+// Manual toggle (works on any device).
+if (einkButton) {
+  einkButton.addEventListener('click', () => {
+    const isOn = document.documentElement.classList.contains('eink-mode');
+    if (isOn) { clearEink(); } else { applyEink(); }
+  });
+}
+
+// "Clear ghosting": force a full-page repaint by flashing black then white.
+// Wired to a header key (Alt+Shift+E) and exposed on window for the button.
+function clearGhosting() {
+  const html = document.documentElement;
+  html.classList.add('eink-flash');
+  window.setTimeout(() => html.classList.remove('eink-flash'), 1300);
+}
+window.clearGhosting = clearGhosting;
+// Also re-apply e-ink styling after dynamically rendered cards so they inherit
+// the monochrome border/background rules (cards are appended by loadProjects).
+// (No extra work needed - the CSS class selectors cover the injected cards.)
+
 // Register Service Worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

@@ -198,6 +198,14 @@ header {
   box-shadow: 0 0 10px var(--neon-cyan-glow);
 }
 
+/* Active state for the E-Ink mode toggle button */
+.btn-icon.active {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  background: var(--border-glass);
+  box-shadow: 0 0 10px var(--neon-cyan-glow);
+}
+
 .btn-install {
   display: flex;
   align-items: center;
@@ -548,4 +556,121 @@ button, a, .btn-icon, .pwa-card, .btn-open {
   .pwa-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================================================================
+   E-INK / E-READER COMPATIBILITY  (single-version, additive)
+   Auto-applies on real e-ink panels (viwoods AiPaper, KOReader, Kindle) via
+   standard media features, and can be forced manually via the `.eink-mode`
+   class on <html> (header toggle button). Harmless no-ops on normal screens.
+   Strict black-on-white, no glass/blur/shadows/gradients, no animation or
+   transition, larger tap targets, readable type. One codebase, no fork.
+   ========================================================================= */
+
+/* --- E-ink palette (pure black on white), applied in BOTH modes --- */
+@media (monochrome), (monochrome: 1), (update: slow), (prefers-reduced-motion: reduce) {
+  :root {
+    --bg-dark: #ffffff; --bg-card: #ffffff; --bg-header: #ffffff;
+    --border-glass: #000000; --border-hover: #000000;
+    --text-primary: #000000; --text-secondary: #222222; --text-muted: #333333;
+    --neon-purple: #000000; --neon-purple-glow: transparent;
+    --neon-cyan: #000000; --neon-cyan-glow: transparent;
+    --neon-emerald: #000000; --neon-emerald-glow: transparent;
+    --neon-violet: #000000; --neon-violet-glow: transparent;
+    --neon-rose: #000000; --neon-rose-glow: transparent;
+    --transition-smooth: none;
+  }
+  html { background: #fff; color: #000; color-scheme: light; }
+  body { background: #fff; color: #000; }
+}
+
+/* --- Auto-detect de-chrome (real e-ink panels) --- */
+@media (monochrome), (monochrome: 1), (update: slow), (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-image: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .bg-gradients, .gradient-blob { display: none !important; }
+  .brand-text h1 {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: #000 !important;
+    color: #000 !important;
+  }
+  .logo-wrapper { background: #fff !important; box-shadow: none; }
+  header, nav, .pwa-card, .drawer, .info-item, .search-input {
+    background: #fff !important; border: 1.5px solid #000 !important;
+  }
+  .app-icon-wrapper { border: 1.5px solid #000; }
+  .pwa-card::before { display: none; }
+  button, .btn-install, .btn-open, .btn-secondary-card, .btn-action-block, .btn-icon {
+    border: 1.5px solid #000 !important; color: #000 !important; background: #fff !important;
+  }
+  .btn-open, .btn-install { height: 48px; font-size: 1rem; }
+  .search-input { color: #000; }
+  .search-input::placeholder { color: #333; }
+  .app-category { border: 1px solid #000; color: #000; background: #fff; }
+  .tech-tag { background: #fff; color: #000; border: 1px solid #000; }
+  .drawer { max-width: 640px; box-shadow: none; right: 0; border-left: 1.5px solid #000; }
+  .info-val, .drawer-header h2, .app-title-group h2, .app-desc { color: #000; }
+  .offline-banner { background: #222; color: #fff; }
+}
+
+/* --- Manual `.eink-mode` class toggle (any device) --- */
+html.eink-mode {
+  --bg-dark: #ffffff; --bg-card: #ffffff; --bg-header: #ffffff;
+  --border-glass: #000000; --border-hover: #000000;
+  --text-primary: #000000; --text-secondary: #222222; --text-muted: #333333;
+  --neon-purple: #000000; --neon-purple-glow: transparent;
+  --neon-cyan: #000000; --neon-cyan-glow: transparent;
+  --neon-emerald: #000000; --neon-emerald-glow: transparent;
+  --neon-violet: #000000; --neon-violet-glow: transparent;
+  --neon-rose: #000000; --neon-rose-glow: transparent;
+  --transition-smooth: none;
+  background: #fff; color: #000; color-scheme: light;
+}
+html.eink-mode body { background: #fff; color: #000; }
+html.eink-mode *, html.eink-mode *::before, html.eink-mode *::after {
+  box-shadow: none !important; text-shadow: none !important;
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+  background-image: none !important; animation: none !important;
+  transition: none !important; scroll-behavior: auto !important;
+}
+html.eink-mode .bg-gradients, html.eink-mode .gradient-blob { display: none !important; }
+html.eink-mode .brand-text h1 {
+  background: none !important; -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: #000 !important; color: #000 !important;
+}
+html.eink-mode header, html.eink-mode nav, html.eink-mode .pwa-card,
+html.eink-mode .drawer, html.eink-mode .info-item, html.eink-mode .search-input,
+html.eink-mode .logo-wrapper {
+  background: #fff !important; color: #000 !important;
+  border: 1.5px solid #000 !important; box-shadow: none !important;
+}
+html.eink-mode .pwa-card::before { display: none; }
+html.eink-mode button, html.eink-mode .btn-install, html.eink-mode .btn-open,
+html.eink-mode .btn-secondary-card, html.eink-mode .btn-action-block,
+html.eink-mode .btn-icon {
+  border: 1.5px solid #000 !important; color: #000 !important;
+  background: #fff !important; box-shadow: none !important;
+}
+html.eink-mode .btn-open, html.eink-mode .btn-install { height: 48px; font-size: 1rem; }
+html.eink-mode .search-input { color: #000; }
+html.eink-mode .app-category { border: 1px solid #000; color: #000; background: #fff; }
+html.eink-mode .tech-tag { background: #fff; color: #000; border: 1px solid #000; }
+html.eink-mode .offline-banner { background: #222; color: #fff; }
+
+/* E-ink ghosting-clear helper: brief full-page black flip to wash ghosting. */
+.eink-flash { animation: einkClearing 1.2s ease-out; }
+@keyframes einkClearing {
+  0% { background: #000; color: #fff; }
+  100% { background: #fff; color: #000; }
 }

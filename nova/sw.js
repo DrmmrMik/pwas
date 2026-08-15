@@ -4,7 +4,7 @@
  * Uses modern caching strategies with versioned caches
  */
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const CACHE_NAME = `nova-portal-${CACHE_VERSION}`;
 const STATIC_CACHE = `nova-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `nova-dynamic-${CACHE_VERSION}`;
@@ -119,20 +119,22 @@ function shouldStaleWhileRevalidate(request) {
 }
 
 // Install event - cache core assets
+// Resilient: cache each asset individually so one failed fetch (404 / blocked
+// CDN) cannot abort the whole install, which would leave the SW uninstalled and
+// make Chrome refuse install ("Unsafe app blocked").
 self.addEventListener('install', (event) => {
+  const cacheListSafely = (cacheName, urls) =>
+    caches.open(cacheName).then(cache =>
+      Promise.all(urls.map(u =>
+        cache.add(u).catch(err => console.warn(`[Nova Portal SW] skip ${u}:`, err.message))
+      ))
+    );
+
   event.waitUntil(
     Promise.all([
-      caches.open(STATIC_CACHE).then(cache => {
-        console.log('[Nova Portal SW] Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
-      }),
-      caches.open(FONT_CACHE).then(cache => {
-        console.log('[Nova Portal SW] Caching external fonts');
-        return cache.addAll(EXTERNAL_RESOURCES.filter(r => r.includes('fonts.googleapis.com')));
-      }),
-      caches.open(STATIC_CACHE).then(cache => {
-        return cache.addAll(EXTERNAL_RESOURCES.filter(r => r.includes('cdnjs.cloudflare.com')));
-      })
+      cacheListSafely(STATIC_CACHE, STATIC_ASSETS),
+      cacheListSafely(FONT_CACHE, EXTERNAL_RESOURCES.filter(r => r.includes('fonts.googleapis.com'))),
+      cacheListSafely(STATIC_CACHE, EXTERNAL_RESOURCES.filter(r => r.includes('cdnjs.cloudflare.com'))),
     ]).then(() => {
       console.log('[Nova Portal SW] Install complete');
       self.skipWaiting();

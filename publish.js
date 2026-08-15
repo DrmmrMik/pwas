@@ -167,7 +167,8 @@ try {
     'climascape': 'climascape',
     'penandpaper': 'penandpaper',
     'fitnesstracker': 'fitness_tracker',
-    'photoscavengerhunt': 'photo_scavenger_hunt'
+    'photoscavengerhunt': 'photo_scavenger_hunt',
+    'travel-charleston': 'travel-charleston'
   };
   const repoName = repoMapping[targetFolder] || targetFolder;
   log(`Target repository name mapped to: "${repoName}"`);
