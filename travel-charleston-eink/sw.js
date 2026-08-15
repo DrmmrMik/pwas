@@ -1,5 +1,5 @@
-const CACHE_NAME='chs-eink-v0.2.2';
-const PRECACHE_ASSETS=["./", "./index.html", "./assets/eink-BrBwf9fz.js", "./assets/eink-DvpIjE8q.css", "./assets/main-BMnE91H8.css", "./assets/main-BsklTs2z.js", "./assets/settingsView-Bd6cq3Wd.js", "./assets/settingsView-Dgihpmma.css", "./icon-192.png", "./icon-192-maskable.png", "./icon-512.png", "./icon-512-maskable.png", "./icon.svg", "./manifest.json", "./manifest.webmanifest"];
+const CACHE_NAME='chs-eink-v0.2.3';
+const PRECACHE_ASSETS=["./", "./index.html", "./assets/eink-Bj7I5gD3.css", "./assets/eink-C1711WqB.js", "./assets/main-CgyWIacB.css", "./assets/main-D0z47Bkd.js", "./assets/settingsView-Dgihpmma.css", "./assets/settingsView-epUYkGQg.js", "./icon-192.png", "./icon-192-maskable.png", "./icon-512.png", "./icon-512-maskable.png", "./icon.svg", "./manifest.json", "./manifest.webmanifest"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE_NAME).then(c=>Promise.allSettled(PRECACHE_ASSETS.map(u=>c.add(u).catch(x=>console.warn('sw',u,x))))).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request).then(r=>{const cl=r.clone();caches.open(CACHE_NAME).then(ca=>ca.put(e.request,cl));return r;}).catch(()=>new Response('Offline',{status:503,statusText:'Offline'}))));});
