@@ -498,7 +498,7 @@ button, a, .btn-icon, .pwa-card, .btn-open {
   -webkit-backdrop-filter: blur(20px);
   border-left: 1px solid var(--border-glass);
   z-index: 2000;
-  display: flex;
+  display: none; /* HIDDEN by default — never leak the raw drawer text on JS-limited e-ink browsers */
   flex-direction: column;
   padding: calc(24px + env(safe-area-inset-top, 0px)) 24px calc(24px + env(safe-area-inset-bottom, 0px)) 24px;
   transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -507,6 +507,7 @@ button, a, .btn-icon, .pwa-card, .btn-open {
 
 .drawer.open {
   right: 0;
+  display: flex; /* only visible when JS adds the .open class */
 }
 
 .drawer-header {

@@ -124,6 +124,28 @@
           <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 16px;"></i>
           <p>Scanning registry...</p>
         </div>
+        <!-- Static fallback for browsers with JavaScript disabled/limited (e.g. e-ink
+             browsers like Ink bro): show a simple clickable list so the portal is usable
+             even when app.js can't run. Always present in the DOM; JS rebuils the grid. -->
+        <noscript>
+          <style>
+            #pwa-grid .noscript-title { grid-column: 1/-1; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.7; margin-bottom: 4px; }
+            .app-list { grid-column: 1/-1; display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0; list-style: none; }
+            .app-list a.app-link { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 14px; background: var(--bg-tertiary, rgba(255,255,255,0.04)); border: 1px solid var(--border-glass, rgba(255,255,255,0.1)); color: inherit; text-decoration: none; }
+            .app-list a.app-link:hover { background: rgba(255,255,255,0.08); }
+          </style>
+          <h3 class="noscript-title">Applications</h3>
+          <ul class="app-list">
+            <li><a class="app-link" href="./climascape/">🌳 Climascape</a></li>
+            <li><a class="app-link" href="./crayonbox/">🎨 Crayon Box</a></li>
+            <li><a class="app-link" href="./fitnesstracker/">🏋️ AuraFit</a></li>
+            <li><a class="app-link" href="./ginnycrunchers/">🧁 Ginny Crunchers</a></li>
+            <li><a class="app-link" href="./penandpaper/">✍️ Pen &amp; Paper</a></li>
+            <li><a class="app-link" href="./photoscavengerhunt/">📸 Photo Scavenger Hunt</a></li>
+            <li><a class="app-link" href="./travel-charleston/">🗺️ Charleston Trip</a></li>
+            <li><a class="app-link" href="./travel-charleston-eink/">🗺️ Charleston E-Ink</a></li>
+          </ul>
+        </noscript>
       </div>
     </main>
   </div>
