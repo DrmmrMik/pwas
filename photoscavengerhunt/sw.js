@@ -2,7 +2,7 @@ const CACHE_NAME = 'psh-v2';
 const ASSETS = [
   '.',
   './index.html',
-  './manifest.webmanifest',
+  './manifest.json',
   './icon-192.png',
   './icon-512.png',
   './icon-192-maskable.png',
