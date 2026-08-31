@@ -1,18 +1,18 @@
 {
-  "name": "Charleston Trip (E-Ink)",
-  "short_name": "Charleston E-Ink",
+  "name": "Charleston Travel Companion",
+  "short_name": "CHS Travel",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "lang": "en",
   "scope": "./",
   "version": "0.2.3",
-  "x-build-stamp": "20260815192536",
+  "x-build-stamp": "20260831160723",
   "description": "Offline-first PWA for Charleston family trip",
   "display_override": [
     "standalone"
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#0f172a",
   "categories": [
     "travel",
     "utilities"
