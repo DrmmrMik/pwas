@@ -1,6 +1,6 @@
 {
-  "name": "Charleston Travel Companion",
-  "short_name": "CHS Travel",
+  "name": "Charleston Travel Companion (E-Ink)",
+  "short_name": "CHS E-Ink",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -12,7 +12,7 @@
   "display_override": [
     "standalone"
   ],
-  "theme_color": "#0f172a",
+  "theme_color": "#ffffff",
   "categories": [
     "travel",
     "utilities"
