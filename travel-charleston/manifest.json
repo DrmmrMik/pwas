@@ -7,7 +7,7 @@
   "lang": "en",
   "scope": "./",
   "version": "0.2.3",
-  "x-build-stamp": "20260815192457",
+  "x-build-stamp": "20260831160712",
   "description": "Offline-first PWA for Charleston family trip",
   "display_override": [
     "standalone"
