@@ -1,18 +1,25 @@
-const CACHE_NAME = 'pnp-engine-v1';
+const CACHE_NAME = 'pnp-studio-v2';
 const ASSETS = [
   './',
   'index.html',
   'manifest.json',
+  'pixi.min.js',
+  'jszip.min.js',
   'icon-192.png',
-  'icon-512.png',
-  'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'
+  'icon-512.png'
 ];
 
-// Install Event: Cache app shell & dependencies
+// Install Event: Pre-cache local app shell & libraries resiliently
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(ASSETS);
+      return Promise.allSettled(
+        ASSETS.map(asset => 
+          cache.add(asset).catch(err => {
+            console.warn('[SW Precache] Failed to cache asset:', asset, err);
+          })
+        )
+      );
     })
   );
   self.skipWaiting();
@@ -36,7 +43,6 @@ self.addEventListener('activate', event => {
 
 // Fetch Event: Stale-While-Revalidate caching strategy
 self.addEventListener('fetch', event => {
-  // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
@@ -52,7 +58,7 @@ self.addEventListener('fetch', event => {
           return networkResponse;
         })
         .catch(() => {
-          // Silent catch for network failure when offline
+          // Network failure while offline: rely on cache
         });
 
       return cachedResponse || fetchPromise;
