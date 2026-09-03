@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cosmobot-v2';
+const CACHE_NAME = 'cosmobot-v3';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
