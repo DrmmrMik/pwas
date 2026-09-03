@@ -2,8 +2,8 @@
   "name": "Photo Scavenger Hunt PWA",
   "short_name": "ScavengerHunt",
   "description": "Photo-based scavenger hunt assistant for kids and families",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "display_override": [
     "standalone",
@@ -44,6 +44,6 @@
   ],
   "screenshots": [],
   "prefer_related_applications": false,
-  "version": "1.0.20260731",
-  "x-build-stamp": "20260901002733"
+  "version": "1.0.20260903",
+  "x-build-stamp": "20260903115318"
 }
