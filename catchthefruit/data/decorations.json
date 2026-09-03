@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "crystal_fountain",
+      "name": "Royal Crystal Fountain",
+      "category": "outside",
+      "slotType": "centerpiece",
+      "price": 120,
+      "icon": "decor-fountain",
+      "description": "A sparkling tiered fountain crowned with glowing crystals and cool falling water."
+    },
+    {
+      "id": "rose_topiary",
+      "name": "Blooming Rose Topiary",
+      "category": "outside",
+      "slotType": "garden",
+      "price": 60,
+      "icon": "decor-topiary",
+      "description": "An ornate ceramic planter with spiral roses in shades of pink, cream, and magenta."
+    },
+    {
+      "id": "royal_banners",
+      "name": "Castle Crest Banners",
+      "category": "outside",
+      "slotType": "banners",
+      "price": 80,
+      "icon": "decor-banners",
+      "description": "Trio of gold, cobalt, and crimson silk banners bearing Princess Penelope's royal crest."
+    },
+    {
+      "id": "fairy_lantern",
+      "name": "Gilded Fairy Streetlamp",
+      "category": "outside",
+      "slotType": "gate",
+      "price": 70,
+      "icon": "decor-lantern",
+      "description": "A wrought iron curved lamppost that casts a warm, cozy amber glow at dusk."
+    },
+    {
+      "id": "golden_peacock",
+      "name": "Golden Peacock Statue",
+      "category": "outside",
+      "slotType": "garden",
+      "price": 150,
+      "icon": "decor-peacock",
+      "description": "A hand-sculpted gold statue with feathered plumage to welcome visitors to the grounds."
+    },
+    {
+      "id": "garden_swing",
+      "name": "Penelope's Flower Swing",
+      "category": "outside",
+      "slotType": "centerpiece",
+      "price": 180,
+      "icon": "decor-swing",
+      "description": "A wooden garden canopy swing entwined with climbing wild roses and soft velvet cushions."
+    },
+    {
+      "id": "royal_throne",
+      "name": "Velvet Crown Throne",
+      "category": "inside",
+      "slotType": "throne",
+      "price": 200,
+      "icon": "decor-throne",
+      "description": "A tufted ruby-red velvet throne with golden armrests and a carved royal crown headpiece."
+    },
+    {
+      "id": "royal_couch",
+      "name": "Cozy Daybed Couch",
+      "category": "inside",
+      "slotType": "seating",
+      "price": 140,
+      "icon": "decor-couch",
+      "description": "A plush cream couch with embroidered gold pillows and a draped raspberry throw blanket."
+    },
+    {
+      "id": "golden_chaise",
+      "name": "Gilded Royal Chaise",
+      "category": "inside",
+      "slotType": "seating",
+      "price": 160,
+      "icon": "decor-chaise",
+      "description": "An elegant scrolled chaise lounge lined with silk damask and cozy cushions."
+    },
+    {
+      "id": "magic_mirror",
+      "name": "Ornate Storybook Mirror",
+      "category": "inside",
+      "slotType": "wall",
+      "price": 110,
+      "icon": "decor-mirror",
+      "description": "An oval mirror with filigree gold scrolls that shimmers with soft enchanted sparkles."
+    },
+    {
+      "id": "royal_teatable",
+      "name": "Princess Teatime Table",
+      "category": "inside",
+      "slotType": "table",
+      "price": 90,
+      "icon": "decor-teatable",
+      "description": "A hand-painted rose tablecloth topped with a porcelain teapot, cups, and berry tarts."
+    },
+    {
+      "id": "fairytale_bookshelf",
+      "name": "Grand Fairytale Bookshelf",
+      "category": "inside",
+      "slotType": "table",
+      "price": 130,
+      "icon": "decor-bookshelf",
+      "description": "A polished mahogany bookcase packed with phonics tales, poetry, and spellbooks."
+    },
+    {
+      "id": "crystal_chandelier",
+      "name": "Sparkling Crystal Chandelier",
+      "category": "inside",
+      "slotType": "wall",
+      "price": 160,
+      "icon": "decor-chandelier",
+      "description": "A hanging brass and crystal chandelier with glowing candle tapers and sparkling prisms."
+    }
+  ]
+}
