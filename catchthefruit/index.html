@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Catch the Fruit - Phonics & Word Arcade</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- Theme and Status Bar Colors -->
+    <meta name="theme-color" content="#0284c7" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="CatchFruit" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512x512.png" />
+    <link rel="apple-touch-icon" href="./icons/icon-192x192.png" />
+
+    <!-- Description -->
+    <meta name="description" content="Catch the Fruit: 2nd Grade ELA educational arcade game teaching phonics, morphology, and vocabulary." />
+
+    <style>
+      @font-face {
+        font-family: 'Lexend';
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('./fonts/Lexend-Variable.woff2') format('woff2');
+      }
+
+      /* CSS Reset and Mobile Game Shell Styling */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #38bdf8;
+        font-family: 'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        touch-action: manipulation;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        position: fixed;
+      }
+
+      #game-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0;
+        position: relative;
+        background-color: #38bdf8;
+      }
+
+      canvas {
+        display: block;
+        touch-action: none;
+        outline: none;
+      }
+
+      /* Screen reader live region for accessibility announcements */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-__1HITTt.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/phaser-CTbIuaw5.js">
+    <link rel="modulepreload" crossorigin href="./assets/zod-BCLhFdZ4.js">
+    <link rel="modulepreload" crossorigin href="./assets/idb-BeCjO4UJ.js">
+  </head>
+  <body>
+    <!-- Live region for accessibility / TTS text fallback -->
+    <div id="sr-announcements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Main Phaser Game Canvas Container -->
+    <div id="game-container"></div>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then((registration) => {
+              console.log('[PWA] Service Worker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.error('[PWA] Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
+
+    <!-- Vite Application Entry Point -->
+  </body>
+</html>

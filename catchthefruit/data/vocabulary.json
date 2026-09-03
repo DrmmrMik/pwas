@@ -1,0 +1,518 @@
+{
+  "topic": "vocabulary",
+  "title": "Vocabulary: Synonyms & Antonyms",
+  "description": "Master 40+ synonym and antonym pairs contextualized in 2nd grade sentences.",
+  "levels": [
+    {
+      "id": "vocab_1",
+      "topic": "vocabulary",
+      "levelNumber": 1,
+      "name": "Synonym Seekers",
+      "description": "Find words that have the same or similar meaning.",
+      "fallSpeedDurationMs": 2800,
+      "itemsRequired": 10,
+      "masteryAccuracyThreshold": 0.85,
+      "scaffoldStage": "single_rule",
+      "targetPatterns": ["synonym"],
+      "prompt": "Catch words that mean the SAME (synonyms)!",
+      "spokenPrompt": "Catch words that mean the same as the target word!"
+    },
+    {
+      "id": "vocab_2",
+      "topic": "vocabulary",
+      "levelNumber": 2,
+      "name": "Antonym Adventurers",
+      "description": "Find words that have opposite meanings.",
+      "fallSpeedDurationMs": 2500,
+      "itemsRequired": 10,
+      "masteryAccuracyThreshold": 0.85,
+      "scaffoldStage": "single_rule",
+      "targetPatterns": ["antonym"],
+      "prompt": "Catch words that mean the OPPOSITE (antonyms)!",
+      "spokenPrompt": "Catch words that mean the opposite of the target word!"
+    },
+    {
+      "id": "vocab_3",
+      "topic": "vocabulary",
+      "levelNumber": 3,
+      "name": "Synonym vs Antonym Discrimination",
+      "description": "Listen carefully to whether you need a synonym or an antonym!",
+      "fallSpeedDurationMs": 2300,
+      "itemsRequired": 10,
+      "masteryAccuracyThreshold": 0.85,
+      "scaffoldStage": "discrimination",
+      "targetPatterns": ["synonym", "antonym"],
+      "prompt": "Check the prompt! Catch either a synonym or an antonym!",
+      "spokenPrompt": "Check the prompt! Catch either a synonym or an antonym!"
+    },
+    {
+      "id": "vocab_4",
+      "topic": "vocabulary",
+      "levelNumber": 4,
+      "name": "Context Clues Mastery",
+      "description": "Use sentence context clues to catch nuanced word meanings.",
+      "fallSpeedDurationMs": 2100,
+      "itemsRequired": 10,
+      "masteryAccuracyThreshold": 0.85,
+      "scaffoldStage": "mixed_patterns",
+      "targetPatterns": ["synonym", "antonym"],
+      "prompt": "Read the sentence context and catch the best match!",
+      "spokenPrompt": "Read the sentence and catch the matching word!"
+    },
+    {
+      "id": "vocab_5",
+      "topic": "vocabulary",
+      "levelNumber": 5,
+      "name": "Vocabulary Boss: Word Wizard",
+      "description": "Fast-paced test of all synonym and antonym relationships!",
+      "fallSpeedDurationMs": 1800,
+      "itemsRequired": 12,
+      "masteryAccuracyThreshold": 0.85,
+      "scaffoldStage": "boss_level",
+      "prompt": "Boss Level: Catch all target vocabulary matches!",
+      "spokenPrompt": "Boss Level: Catch all target vocabulary matches!"
+    }
+  ],
+  "items": [
+    {
+      "id": "vocab_syn_big_large",
+      "relationship": "synonym",
+      "targetWord": "big",
+      "matchWord": "large",
+      "sentenceContext": "The big elephant was so large!",
+      "distractorWords": ["tiny", "small"],
+      "explanation": "'large' is a synonym for 'big'.",
+      "fruitType": "watermelon"
+    },
+    {
+      "id": "vocab_syn_big_huge",
+      "relationship": "synonym",
+      "targetWord": "big",
+      "matchWord": "huge",
+      "sentenceContext": "A big tree grew into a huge oak.",
+      "distractorWords": ["little", "mini"],
+      "explanation": "'huge' is a synonym for 'big'.",
+      "fruitType": "apple"
+    },
+    {
+      "id": "vocab_syn_happy_glad",
+      "relationship": "synonym",
+      "targetWord": "happy",
+      "matchWord": "glad",
+      "sentenceContext": "She was happy and glad to see her friend.",
+      "distractorWords": ["sad", "gloomy"],
+      "explanation": "'glad' is a synonym for 'happy'.",
+      "fruitType": "peach"
+    },
+    {
+      "id": "vocab_syn_happy_joyful",
+      "relationship": "synonym",
+      "targetWord": "happy",
+      "matchWord": "joyful",
+      "sentenceContext": "The happy children sang a joyful song.",
+      "distractorWords": ["grumpy", "mad"],
+      "explanation": "'joyful' is a synonym for 'happy'.",
+      "fruitType": "strawberry"
+    },
+    {
+      "id": "vocab_syn_fast_quick",
+      "relationship": "synonym",
+      "targetWord": "fast",
+      "matchWord": "quick",
+      "sentenceContext": "The fast rabbit made a quick leap.",
+      "distractorWords": ["slow", "sluggish"],
+      "explanation": "'quick' is a synonym for 'fast'.",
+      "fruitType": "banana"
+    },
+    {
+      "id": "vocab_syn_fast_speedy",
+      "relationship": "synonym",
+      "targetWord": "fast",
+      "matchWord": "speedy",
+      "sentenceContext": "The fast car had a speedy engine.",
+      "distractorWords": ["lazy", "crawling"],
+      "explanation": "'speedy' is a synonym for 'fast'.",
+      "fruitType": "lemon"
+    },
+    {
+      "id": "vocab_syn_hot_warm",
+      "relationship": "synonym",
+      "targetWord": "hot",
+      "matchWord": "warm",
+      "sentenceContext": "The hot soup was warm and soothing.",
+      "distractorWords": ["cold", "icy"],
+      "explanation": "'warm' is a synonym for 'hot'.",
+      "fruitType": "orange"
+    },
+    {
+      "id": "vocab_syn_dark_dim",
+      "relationship": "synonym",
+      "targetWord": "dark",
+      "matchWord": "dim",
+      "sentenceContext": "In the dark cave, the candle gave dim light.",
+      "distractorWords": ["bright", "sunny"],
+      "explanation": "'dim' is a synonym for 'dark'.",
+      "fruitType": "plum"
+    },
+    {
+      "id": "vocab_syn_old_ancient",
+      "relationship": "synonym",
+      "targetWord": "old",
+      "matchWord": "ancient",
+      "sentenceContext": "The old castle had ancient stone walls.",
+      "distractorWords": ["new", "fresh"],
+      "explanation": "'ancient' is a synonym for 'old'.",
+      "fruitType": "blueberry"
+    },
+    {
+      "id": "vocab_syn_hard_difficult",
+      "relationship": "synonym",
+      "targetWord": "hard",
+      "matchWord": "difficult",
+      "sentenceContext": "The hard puzzle was difficult to finish.",
+      "distractorWords": ["easy", "simple"],
+      "explanation": "'difficult' is a synonym for 'hard'.",
+      "fruitType": "kiwi"
+    },
+    {
+      "id": "vocab_syn_hard_tough",
+      "relationship": "synonym",
+      "targetWord": "hard",
+      "matchWord": "tough",
+      "sentenceContext": "Raking all the leaves was a tough job.",
+      "distractorWords": ["soft", "gentle"],
+      "explanation": "'tough' is a synonym for 'hard'.",
+      "fruitType": "grape"
+    },
+    {
+      "id": "vocab_syn_loud_noisy",
+      "relationship": "synonym",
+      "targetWord": "loud",
+      "matchWord": "noisy",
+      "sentenceContext": "The loud playground was very noisy.",
+      "distractorWords": ["silent", "quiet"],
+      "explanation": "'noisy' is a synonym for 'loud'.",
+      "fruitType": "cherry"
+    },
+    {
+      "id": "vocab_syn_good_great",
+      "relationship": "synonym",
+      "targetWord": "good",
+      "matchWord": "great",
+      "sentenceContext": "You did a good job and made a great effort.",
+      "distractorWords": ["bad", "poor"],
+      "explanation": "'great' is a synonym for 'good'.",
+      "fruitType": "apple"
+    },
+    {
+      "id": "vocab_syn_pretty_beautiful",
+      "relationship": "synonym",
+      "targetWord": "pretty",
+      "matchWord": "beautiful",
+      "sentenceContext": "The pretty garden had beautiful blossoms.",
+      "distractorWords": ["ugly", "plain"],
+      "explanation": "'beautiful' is a synonym for 'pretty'.",
+      "fruitType": "strawberry"
+    },
+    {
+      "id": "vocab_syn_clean_tidy",
+      "relationship": "synonym",
+      "targetWord": "clean",
+      "matchWord": "tidy",
+      "sentenceContext": "She kept her clean room neat and tidy.",
+      "distractorWords": ["messy", "dirty"],
+      "explanation": "'tidy' is a synonym for 'clean'.",
+      "fruitType": "lemon"
+    },
+    {
+      "id": "vocab_syn_strong_powerful",
+      "relationship": "synonym",
+      "targetWord": "strong",
+      "matchWord": "powerful",
+      "sentenceContext": "The strong wind was very powerful.",
+      "distractorWords": ["weak", "frail"],
+      "explanation": "'powerful' is a synonym for 'strong'.",
+      "fruitType": "watermelon"
+    },
+    {
+      "id": "vocab_syn_brave_courageous",
+      "relationship": "synonym",
+      "targetWord": "brave",
+      "matchWord": "courageous",
+      "sentenceContext": "The brave pup showed a courageous spirit.",
+      "distractorWords": ["fearful", "scared"],
+      "explanation": "'courageous' is a synonym for 'brave'.",
+      "fruitType": "orange"
+    },
+    {
+      "id": "vocab_syn_smart_clever",
+      "relationship": "synonym",
+      "targetWord": "smart",
+      "matchWord": "clever",
+      "sentenceContext": "The smart student had a clever idea.",
+      "distractorWords": ["foolish", "silly"],
+      "explanation": "'clever' is a synonym for 'smart'.",
+      "fruitType": "banana"
+    },
+    {
+      "id": "vocab_syn_kind_caring",
+      "relationship": "synonym",
+      "targetWord": "kind",
+      "matchWord": "caring",
+      "sentenceContext": "Her kind helper had a caring smile.",
+      "distractorWords": ["mean", "cruel"],
+      "explanation": "'caring' is a synonym for 'kind'.",
+      "fruitType": "peach"
+    },
+    {
+      "id": "vocab_syn_calm_peaceful",
+      "relationship": "synonym",
+      "targetWord": "calm",
+      "matchWord": "peaceful",
+      "sentenceContext": "The calm morning was quiet and peaceful.",
+      "distractorWords": ["stormy", "wild"],
+      "explanation": "'peaceful' is a synonym for 'calm'.",
+      "fruitType": "blueberry"
+    },
+    {
+      "id": "vocab_syn_rich_wealthy",
+      "relationship": "synonym",
+      "targetWord": "rich",
+      "matchWord": "wealthy",
+      "sentenceContext": "The rich kingdom was prosperous and wealthy.",
+      "distractorWords": ["poor", "broke"],
+      "explanation": "'wealthy' is a synonym for 'rich'.",
+      "fruitType": "plum"
+    },
+    {
+      "id": "vocab_syn_full_packed",
+      "relationship": "synonym",
+      "targetWord": "full",
+      "matchWord": "packed",
+      "sentenceContext": "The full basket was packed with ripe fruit.",
+      "distractorWords": ["empty", "bare"],
+      "explanation": "'packed' is a synonym for 'full'.",
+      "fruitType": "cherry"
+    },
+    {
+      "id": "vocab_ant_big_small",
+      "relationship": "antonym",
+      "targetWord": "big",
+      "matchWord": "small",
+      "sentenceContext": "The bear is big, but the mouse is small.",
+      "distractorWords": ["huge", "giant"],
+      "explanation": "'small' is the opposite (antonym) of 'big'.",
+      "fruitType": "kiwi"
+    },
+    {
+      "id": "vocab_ant_big_tiny",
+      "relationship": "antonym",
+      "targetWord": "big",
+      "matchWord": "tiny",
+      "sentenceContext": "The big ship sailed near a tiny rowboat.",
+      "distractorWords": ["large", "enormous"],
+      "explanation": "'tiny' is the opposite (antonym) of 'big'.",
+      "fruitType": "grape"
+    },
+    {
+      "id": "vocab_ant_happy_sad",
+      "relationship": "antonym",
+      "targetWord": "happy",
+      "matchWord": "sad",
+      "sentenceContext": "Smiling means happy, crying means sad.",
+      "distractorWords": ["glad", "cheerful"],
+      "explanation": "'sad' is the opposite (antonym) of 'happy'.",
+      "fruitType": "plum"
+    },
+    {
+      "id": "vocab_ant_fast_slow",
+      "relationship": "antonym",
+      "targetWord": "fast",
+      "matchWord": "slow",
+      "sentenceContext": "The cheetah is fast, but the snail is slow.",
+      "distractorWords": ["quick", "rapid"],
+      "explanation": "'slow' is the opposite (antonym) of 'fast'.",
+      "fruitType": "banana"
+    },
+    {
+      "id": "vocab_ant_hot_cold",
+      "relationship": "antonym",
+      "targetWord": "hot",
+      "matchWord": "cold",
+      "sentenceContext": "Summer is hot, but winter is cold.",
+      "distractorWords": ["warm", "boiling"],
+      "explanation": "'cold' is the opposite (antonym) of 'hot'.",
+      "fruitType": "blueberry"
+    },
+    {
+      "id": "vocab_ant_dark_bright",
+      "relationship": "antonym",
+      "targetWord": "dark",
+      "matchWord": "bright",
+      "sentenceContext": "Night is dark, but the sun is bright.",
+      "distractorWords": ["dim", "shadowy"],
+      "explanation": "'bright' is the opposite (antonym) of 'dark'.",
+      "fruitType": "lemon"
+    },
+    {
+      "id": "vocab_ant_old_new",
+      "relationship": "antonym",
+      "targetWord": "old",
+      "matchWord": "new",
+      "sentenceContext": "I traded my old boots for brand new shoes.",
+      "distractorWords": ["ancient", "aged"],
+      "explanation": "'new' is the opposite (antonym) of 'old'.",
+      "fruitType": "apple"
+    },
+    {
+      "id": "vocab_ant_old_young",
+      "relationship": "antonym",
+      "targetWord": "old",
+      "matchWord": "young",
+      "sentenceContext": "The grandpa is old, but the baby is young.",
+      "distractorWords": ["elderly", "senior"],
+      "explanation": "'young' is the opposite (antonym) of 'old'.",
+      "fruitType": "peach"
+    },
+    {
+      "id": "vocab_ant_hard_easy",
+      "relationship": "antonym",
+      "targetWord": "hard",
+      "matchWord": "easy",
+      "sentenceContext": "The first riddle was hard, but this one is easy.",
+      "distractorWords": ["tough", "difficult"],
+      "explanation": "'easy' is the opposite (antonym) of 'hard'.",
+      "fruitType": "orange"
+    },
+    {
+      "id": "vocab_ant_loud_quiet",
+      "relationship": "antonym",
+      "targetWord": "loud",
+      "matchWord": "quiet",
+      "sentenceContext": "The drums were loud, but the whisper was quiet.",
+      "distractorWords": ["noisy", "booming"],
+      "explanation": "'quiet' is the opposite (antonym) of 'loud'.",
+      "fruitType": "strawberry"
+    },
+    {
+      "id": "vocab_ant_loud_silent",
+      "relationship": "antonym",
+      "targetWord": "loud",
+      "matchWord": "silent",
+      "sentenceContext": "The thunderstorm was loud, then the night became silent.",
+      "distractorWords": ["roaring", "blaring"],
+      "explanation": "'silent' is the opposite (antonym) of 'loud'.",
+      "fruitType": "watermelon"
+    },
+    {
+      "id": "vocab_ant_good_bad",
+      "relationship": "antonym",
+      "targetWord": "good",
+      "matchWord": "bad",
+      "sentenceContext": "Eating fresh fruit is good, but spoiled food is bad.",
+      "distractorWords": ["great", "super"],
+      "explanation": "'bad' is the opposite (antonym) of 'good'.",
+      "fruitType": "cherry"
+    },
+    {
+      "id": "vocab_ant_pretty_ugly",
+      "relationship": "antonym",
+      "targetWord": "pretty",
+      "matchWord": "ugly",
+      "sentenceContext": "The butterfly was pretty, but the mud was ugly.",
+      "distractorWords": ["lovely", "gorgeous"],
+      "explanation": "'ugly' is the opposite (antonym) of 'pretty'.",
+      "fruitType": "kiwi"
+    },
+    {
+      "id": "vocab_ant_clean_dirty",
+      "relationship": "antonym",
+      "targetWord": "clean",
+      "matchWord": "dirty",
+      "sentenceContext": "His shirt was clean before he jumped in the dirty puddle.",
+      "distractorWords": ["neat", "spotless"],
+      "explanation": "'dirty' is the opposite (antonym) of 'clean'.",
+      "fruitType": "grape"
+    },
+    {
+      "id": "vocab_ant_strong_weak",
+      "relationship": "antonym",
+      "targetWord": "strong",
+      "matchWord": "weak",
+      "sentenceContext": "The oak tree is strong, but a twig is weak.",
+      "distractorWords": ["mighty", "sturdy"],
+      "explanation": "'weak' is the opposite (antonym) of 'strong'.",
+      "fruitType": "plum"
+    },
+    {
+      "id": "vocab_ant_brave_afraid",
+      "relationship": "antonym",
+      "targetWord": "brave",
+      "matchWord": "afraid",
+      "sentenceContext": "The brave puppy was not afraid of thunder.",
+      "distractorWords": ["bold", "fearless"],
+      "explanation": "'afraid' is the opposite (antonym) of 'brave'.",
+      "fruitType": "orange"
+    },
+    {
+      "id": "vocab_ant_smart_foolish",
+      "relationship": "antonym",
+      "targetWord": "smart",
+      "matchWord": "foolish",
+      "sentenceContext": "Wearing a helmet is smart, not foolish.",
+      "distractorWords": ["clever", "wise"],
+      "explanation": "'foolish' is the opposite (antonym) of 'smart'.",
+      "fruitType": "banana"
+    },
+    {
+      "id": "vocab_ant_kind_mean",
+      "relationship": "antonym",
+      "targetWord": "kind",
+      "matchWord": "mean",
+      "sentenceContext": "It is nice to be kind and never mean.",
+      "distractorWords": ["gentle", "caring"],
+      "explanation": "'mean' is the opposite (antonym) of 'kind'.",
+      "fruitType": "apple"
+    },
+    {
+      "id": "vocab_ant_thin_thick",
+      "relationship": "antonym",
+      "targetWord": "thin",
+      "matchWord": "thick",
+      "sentenceContext": "A sheet of paper is thin, but a dictionary is thick.",
+      "distractorWords": ["slim", "skinny"],
+      "explanation": "'thick' is the opposite (antonym) of 'thin'.",
+      "fruitType": "watermelon"
+    },
+    {
+      "id": "vocab_ant_open_closed",
+      "relationship": "antonym",
+      "targetWord": "open",
+      "matchWord": "closed",
+      "sentenceContext": "The store was open at noon and closed at night.",
+      "distractorWords": ["unlocked", "free"],
+      "explanation": "'closed' is the opposite (antonym) of 'open'.",
+      "fruitType": "peach"
+    },
+    {
+      "id": "vocab_ant_full_empty",
+      "relationship": "antonym",
+      "targetWord": "full",
+      "matchWord": "empty",
+      "sentenceContext": "The bowl was full of cereal, but now it is empty.",
+      "distractorWords": ["brimming", "packed"],
+      "explanation": "'empty' is the opposite (antonym) of 'full'.",
+      "fruitType": "strawberry"
+    },
+    {
+      "id": "vocab_ant_calm_angry",
+      "relationship": "antonym",
+      "targetWord": "calm",
+      "matchWord": "angry",
+      "sentenceContext": "Take three deep breaths to feel calm instead of angry.",
+      "distractorWords": ["serene", "peaceful"],
+      "explanation": "'angry' is the opposite (antonym) of 'calm'.",
+      "fruitType": "lemon"
+    }
+  ]
+}
