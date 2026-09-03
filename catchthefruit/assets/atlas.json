@@ -915,7 +915,7 @@
   },
   "meta": {
     "app": "CatchTheFruit-AIAtlasPacker",
-    "version": "3.0-PrincessPants-AIRaster",
+    "version": "3.1-CleanFloodfill",
     "image": "atlas.png",
     "format": "RGBA8888",
     "size": {
