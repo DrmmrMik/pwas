@@ -1,12 +1,17 @@
 {
-  "name": "Climascape Weather Covariance",
+  "name": "Climascape",
   "short_name": "Climascape",
-  "description": "Weather covariance analysis and vacation home finder",
+  "description": "Weather covariance analysis and vacation-home finder",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#0b0e17",
-  "theme_color": "#0b0e17",
-  "orientation": "any",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "lang": "en",
+  "scope": ".",
+  "display_override": [
+    "standalone"
+  ],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -33,16 +38,6 @@
       "purpose": "maskable"
     }
   ],
-  "shortcuts": [
-    {
-      "name": "Leaderboard",
-      "url": "./#tab-leaderboard",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Analytics",
-      "url": "./#tab-analytics",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
-    }
-  ]
+  "version": "0.1.0",
+  "x-build-stamp": "20260903195901"
 }

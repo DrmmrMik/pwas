@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-09-03T16:10:42.405Z",
+  "pipelineVersion": "2.0.0",
+  "files": {
+    "weather_daily.parquet": {
+      "sha256": "43addac9efd89e40953b7cd01751d1f86fa76809463ed3a55ce6b833fa618a58",
+      "rowCount": 154972,
+      "sizeBytes": 1174584
+    },
+    "locations.parquet": {
+      "sha256": "73a26b002d2820fa5d19216c20c3326e82476e17bd13a99931c3951a528242a5",
+      "rowCount": 212,
+      "sizeBytes": 8774
+    },
+    "drive_times.parquet": {
+      "sha256": "d072c28efba21fad43159ccb57884a07136a61fb0cd6b7ae943ce5de989d59c0",
+      "rowCount": 44944,
+      "sizeBytes": 167480
+    },
+    "profiles.parquet": {
+      "sha256": "528a1bb230fa0241781542c61a92d46bc159f93c1d0955ed9dd95ece67ed402a",
+      "rowCount": 212,
+      "sizeBytes": 15254
+    }
+  },
+  "dateRange": {
+    "start": "2024-06-22",
+    "end": "2026-06-22"
+  }
+}
