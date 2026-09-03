@@ -28,8 +28,8 @@
       "masteryAccuracyThreshold": 0.85,
       "scaffoldStage": "discrimination",
       "targetPatterns": ["ea_long_e", "ea_short_e"],
-      "prompt": "Listen closely! Catch words where 'ea' says /ē/ like beach!",
-      "spokenPrompt": "Catch words with ea that say the long E sound like beach!"
+      "prompt": "Listen closely! Catch words where 'ea' says /ē/ or trickster /ĕ/!",
+      "spokenPrompt": "Listen closely! Catch words where E A says long E or trickster short E!"
     },
     {
       "id": "phonics_3",
@@ -124,10 +124,10 @@
       "ruleName": "ai",
       "sound": "/ā/",
       "word": "snail",
-      "sentence": "The little snail crawled across the leaf.",
+      "sentence": "A slow snail crawled across the garden path.",
       "distractorWords": ["snap", "spin"],
       "explanation": "'snail' has vowel team 'ai' that says /ā/!",
-      "fruitType": "grape"
+      "fruitType": "apple"
     },
     {
       "id": "phonics_ay_play",
@@ -135,7 +135,7 @@
       "ruleName": "ay",
       "sound": "/ā/",
       "word": "play",
-      "sentence": "We can play in the park after school.",
+      "sentence": "The friendly puppies love to play outside.",
       "distractorWords": ["plan", "plot"],
       "explanation": "'play' has vowel team 'ay' that says /ā/!",
       "fruitType": "banana"
@@ -146,10 +146,10 @@
       "ruleName": "ay",
       "sound": "/ā/",
       "word": "stay",
-      "sentence": "Please stay close to the sidewalk.",
+      "sentence": "Please stay close on our sunny walk.",
       "distractorWords": ["step", "stop"],
       "explanation": "'stay' has vowel team 'ay' that says /ā/!",
-      "fruitType": "lemon"
+      "fruitType": "orange"
     },
     {
       "id": "phonics_ay_gray",
@@ -157,10 +157,10 @@
       "ruleName": "ay",
       "sound": "/ā/",
       "word": "gray",
-      "sentence": "The gray cat curled up on the rug.",
+      "sentence": "A soft gray kitten purred in her lap.",
       "distractorWords": ["grab", "grin"],
       "explanation": "'gray' has vowel team 'ay' that says /ā/!",
-      "fruitType": "kiwi"
+      "fruitType": "grape"
     },
     {
       "id": "phonics_ay_spray",
@@ -168,10 +168,10 @@
       "ruleName": "ay",
       "sound": "/ā/",
       "word": "spray",
-      "sentence": "We felt the cool spray from the hose.",
+      "sentence": "The fountain began to spray sparkling water.",
       "distractorWords": ["spry", "spot"],
       "explanation": "'spray' has vowel team 'ay' that says /ā/!",
-      "fruitType": "orange"
+      "fruitType": "watermelon"
     },
     {
       "id": "phonics_ay_tray",
@@ -191,7 +191,7 @@
       "sound": "/ē/",
       "word": "beach",
       "sentence": "We built a sandcastle at the sunny beach.",
-      "distractorWords": ["bench", "batch"],
+      "distractorWords": ["bread", "head"],
       "explanation": "'beach' has 'ea' that says long /ē/ like in peach!",
       "fruitType": "peach"
     },
@@ -202,7 +202,7 @@
       "sound": "/ē/",
       "word": "teach",
       "sentence": "Our teacher will teach us a new song.",
-      "distractorWords": ["touch", "tech"],
+      "distractorWords": ["sweat", "heavy"],
       "explanation": "'teach' has 'ea' that says long /ē/!",
       "fruitType": "apple"
     },
@@ -213,7 +213,7 @@
       "sound": "/ē/",
       "word": "leaf",
       "sentence": "A red leaf floated down from the tree.",
-      "distractorWords": ["left", "lift"],
+      "distractorWords": ["thread", "spread"],
       "explanation": "'leaf' has 'ea' that says long /ē/!",
       "fruitType": "watermelon"
     },
@@ -224,7 +224,7 @@
       "sound": "/ē/",
       "word": "dream",
       "sentence": "I had a wonderful dream last night.",
-      "distractorWords": ["drum", "drip"],
+      "distractorWords": ["bread", "sweat"],
       "explanation": "'dream' has 'ea' that says long /ē/!",
       "fruitType": "strawberry"
     },
@@ -235,7 +235,7 @@
       "sound": "/ē/",
       "word": "clean",
       "sentence": "Please keep your desk neat and clean.",
-      "distractorWords": ["clam", "clown"],
+      "distractorWords": ["head", "heavy"],
       "explanation": "'clean' has 'ea' that says long /ē/!",
       "fruitType": "lemon"
     },
@@ -246,7 +246,7 @@
       "sound": "/ē/",
       "word": "peach",
       "sentence": "The ripe peach was sweet and juicy.",
-      "distractorWords": ["patch", "pitch"],
+      "distractorWords": ["thread", "spread"],
       "explanation": "'peach' has 'ea' that says long /ē/!",
       "fruitType": "peach"
     },
@@ -257,7 +257,7 @@
       "sound": "/ĕ/",
       "word": "bread",
       "sentence": "Mom baked a warm loaf of bread.",
-      "distractorWords": ["braid", "bead"],
+      "distractorWords": ["beach", "peach"],
       "explanation": "'bread' is a trickster! 'ea' says short /ĕ/ like in bed!",
       "fruitType": "banana"
     },
@@ -268,7 +268,7 @@
       "sound": "/ĕ/",
       "word": "head",
       "sentence": "Put your warm winter hat on your head.",
-      "distractorWords": ["hide", "hood"],
+      "distractorWords": ["teach", "leaf"],
       "explanation": "'head' is a trickster! 'ea' says short /ĕ/ like in red!",
       "fruitType": "apple"
     },
@@ -279,7 +279,7 @@
       "sound": "/ĕ/",
       "word": "thread",
       "sentence": "She threaded the blue thread into the needle.",
-      "distractorWords": ["throat", "third"],
+      "distractorWords": ["dream", "clean"],
       "explanation": "'thread' is a trickster! 'ea' says short /ĕ/!",
       "fruitType": "plum"
     },
@@ -290,7 +290,7 @@
       "sound": "/ĕ/",
       "word": "sweat",
       "sentence": "Running fast made him sweat in the sunshine.",
-      "distractorWords": ["sweet", "swim"],
+      "distractorWords": ["beach", "teach"],
       "explanation": "'sweat' is a trickster! 'ea' says short /ĕ/!",
       "fruitType": "orange"
     },
@@ -301,7 +301,7 @@
       "sound": "/ĕ/",
       "word": "spread",
       "sentence": "Spread the sweet jam on the toast.",
-      "distractorWords": ["speed", "sprout"],
+      "distractorWords": ["leaf", "peach"],
       "explanation": "'spread' is a trickster! 'ea' says short /ĕ/!",
       "fruitType": "grape"
     },
@@ -312,7 +312,7 @@
       "sound": "/ĕ/",
       "word": "heavy",
       "sentence": "The big box was too heavy to carry alone.",
-      "distractorWords": ["happy", "haven"],
+      "distractorWords": ["dream", "clean"],
       "explanation": "'heavy' is a trickster! 'ea' says short /ĕ/!",
       "fruitType": "watermelon"
     },
