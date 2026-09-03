@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="icon-192.png" />
     <link rel="manifest" href="manifest.json" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
     <!-- SEO Meta Tags -->
     <title>Ginny Crunchers - Retro Educational Adventure PWA</title>
@@ -16,14 +16,36 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Ginny Crunchers" />
     <link rel="apple-touch-icon" href="icon-192.png" />
-    <script type="module" crossorigin src="./assets/index-C7lkqFSp.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BLWxwakO.css">
-  </head>
+    <style>
+      .visually-hidden {
+        position: fixed !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-E0hvCmc8.js"></script>
+  <link rel="manifest" href="./manifest.webmanifest"></head>
   <body>
     <div id="app">
       <div class="safe-zone" id="safe-zone-root">
         <!-- Screens are rendered dynamically here -->
       </div>
     </div>
+    <div id="a11y-live" aria-live="polite" aria-atomic="true" class="visually-hidden"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(err => {
+            console.error('SW registration failed:', err);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

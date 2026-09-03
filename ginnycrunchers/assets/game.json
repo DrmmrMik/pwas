@@ -1,0 +1,4702 @@
+{
+	"textures": [
+		{
+			"image": "game.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 2048,
+				"h": 1024
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "ginny/cheer/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 88,
+						"h": 73
+					},
+					"frame": {
+						"x": 3,
+						"y": 3,
+						"w": 88,
+						"h": 73
+					}
+				},
+				{
+					"filename": "ginny/cheer/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 88,
+						"h": 73
+					},
+					"frame": {
+						"x": 97,
+						"y": 3,
+						"w": 88,
+						"h": 73
+					}
+				},
+				{
+					"filename": "ginny/cheer/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 88,
+						"h": 73
+					},
+					"frame": {
+						"x": 191,
+						"y": 3,
+						"w": 88,
+						"h": 73
+					}
+				},
+				{
+					"filename": "ginny/cheer/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 88,
+						"h": 73
+					},
+					"frame": {
+						"x": 285,
+						"y": 3,
+						"w": 88,
+						"h": 73
+					}
+				},
+				{
+					"filename": "ginny/cheer/4",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 88,
+						"h": 73
+					},
+					"frame": {
+						"x": 379,
+						"y": 3,
+						"w": 88,
+						"h": 73
+					}
+				},
+				{
+					"filename": "ginny/cheer/5",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 88,
+						"h": 73
+					},
+					"frame": {
+						"x": 473,
+						"y": 3,
+						"w": 88,
+						"h": 73
+					}
+				},
+				{
+					"filename": "troggle/bashful/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 567,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/bashful/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 661,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/bashful/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 755,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/bashful/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 849,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/bo/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 943,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/bo/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1037,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/bo/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1131,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/bo/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1225,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/chaser/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1319,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/chaser/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1413,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/chaser/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1507,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/chaser/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1601,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/reggie/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1695,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/reggie/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1789,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/reggie/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 1883,
+						"y": 3,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "ginny/hop/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 23,
+						"w": 68,
+						"h": 56
+					},
+					"frame": {
+						"x": 1977,
+						"y": 3,
+						"w": 68,
+						"h": 56
+					}
+				},
+				{
+					"filename": "troggle/reggie/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 567,
+						"y": 61,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/smartie/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 3,
+						"y": 82,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/smartie/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 97,
+						"y": 82,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/smartie/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 191,
+						"y": 82,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/smartie/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 52
+					},
+					"frame": {
+						"x": 285,
+						"y": 82,
+						"w": 88,
+						"h": 52
+					}
+				},
+				{
+					"filename": "troggle/helper/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 47
+					},
+					"frame": {
+						"x": 379,
+						"y": 82,
+						"w": 88,
+						"h": 47
+					}
+				},
+				{
+					"filename": "troggle/helper/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 47
+					},
+					"frame": {
+						"x": 473,
+						"y": 82,
+						"w": 88,
+						"h": 47
+					}
+				},
+				{
+					"filename": "troggle/helper/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 47
+					},
+					"frame": {
+						"x": 661,
+						"y": 61,
+						"w": 88,
+						"h": 47
+					}
+				},
+				{
+					"filename": "troggle/helper/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 88,
+						"h": 47
+					},
+					"frame": {
+						"x": 755,
+						"y": 61,
+						"w": 88,
+						"h": 47
+					}
+				},
+				{
+					"filename": "troggle/telegraph/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 80,
+						"h": 80
+					},
+					"frame": {
+						"x": 849,
+						"y": 61,
+						"w": 80,
+						"h": 80
+					}
+				},
+				{
+					"filename": "ginny/hop/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 26,
+						"w": 70,
+						"h": 54
+					},
+					"frame": {
+						"x": 661,
+						"y": 114,
+						"w": 70,
+						"h": 54
+					}
+				},
+				{
+					"filename": "ginny/idle/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 21,
+						"w": 68,
+						"h": 56
+					},
+					"frame": {
+						"x": 567,
+						"y": 119,
+						"w": 68,
+						"h": 56
+					}
+				},
+				{
+					"filename": "fx/confetti/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 8,
+						"w": 8,
+						"h": 16
+					},
+					"frame": {
+						"x": 641,
+						"y": 119,
+						"w": 8,
+						"h": 16
+					}
+				},
+				{
+					"filename": "ginny/spit/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 19,
+						"w": 67,
+						"h": 60
+					},
+					"frame": {
+						"x": 737,
+						"y": 114,
+						"w": 67,
+						"h": 60
+					}
+				},
+				{
+					"filename": "emoji/🍍",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 7,
+						"w": 32,
+						"h": 50
+					},
+					"frame": {
+						"x": 810,
+						"y": 114,
+						"w": 32,
+						"h": 50
+					}
+				},
+				{
+					"filename": "cells/dim/0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 810,
+						"y": 170,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "cells/frame/highlight",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 810,
+						"y": 208,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "ginny/chomp/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 641,
+						"y": 174,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "fx/confetti/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 9,
+						"w": 18,
+						"h": 14
+					},
+					"frame": {
+						"x": 713,
+						"y": 174,
+						"w": 18,
+						"h": 14
+					}
+				},
+				{
+					"filename": "ginny/chomp/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 737,
+						"y": 180,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "fx/confetti/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 9,
+						"w": 18,
+						"h": 14
+					},
+					"frame": {
+						"x": 713,
+						"y": 194,
+						"w": 18,
+						"h": 14
+					}
+				},
+				{
+					"filename": "fx/confetti/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 7,
+						"w": 16,
+						"h": 18
+					},
+					"frame": {
+						"x": 713,
+						"y": 214,
+						"w": 16,
+						"h": 18
+					}
+				},
+				{
+					"filename": "ginny/chomp/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 379,
+						"y": 135,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "ginny/chomp/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 451,
+						"y": 135,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "emoji/🐰",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 7,
+						"w": 38,
+						"h": 50
+					},
+					"frame": {
+						"x": 523,
+						"y": 135,
+						"w": 38,
+						"h": 50
+					}
+				},
+				{
+					"filename": "ginny/chomp/4",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 567,
+						"y": 181,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "ui/heart-empty",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 14,
+						"w": 38,
+						"h": 40
+					},
+					"frame": {
+						"x": 523,
+						"y": 191,
+						"w": 38,
+						"h": 40
+					}
+				},
+				{
+					"filename": "ginny/chomp/5",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 639,
+						"y": 238,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "fx/smoke/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 22,
+						"w": 20,
+						"h": 20
+					},
+					"frame": {
+						"x": 711,
+						"y": 238,
+						"w": 20,
+						"h": 20
+					}
+				},
+				{
+					"filename": "ginny/hurt/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 18,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 737,
+						"y": 244,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "ginny/hurt/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 22,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 3,
+						"y": 140,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "ginny/hurt/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 18,
+						"w": 66,
+						"h": 58
+					},
+					"frame": {
+						"x": 75,
+						"y": 140,
+						"w": 66,
+						"h": 58
+					}
+				},
+				{
+					"filename": "ginny/idle/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 20,
+						"w": 64,
+						"h": 58
+					},
+					"frame": {
+						"x": 147,
+						"y": 140,
+						"w": 64,
+						"h": 58
+					}
+				},
+				{
+					"filename": "ginny/idle/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 20,
+						"w": 64,
+						"h": 58
+					},
+					"frame": {
+						"x": 217,
+						"y": 140,
+						"w": 64,
+						"h": 58
+					}
+				},
+				{
+					"filename": "ginny/hop/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 15,
+						"w": 62,
+						"h": 60
+					},
+					"frame": {
+						"x": 287,
+						"y": 140,
+						"w": 62,
+						"h": 60
+					}
+				},
+				{
+					"filename": "ginny/spit/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 19,
+						"w": 62,
+						"h": 60
+					},
+					"frame": {
+						"x": 355,
+						"y": 199,
+						"w": 62,
+						"h": 60
+					}
+				},
+				{
+					"filename": "ginny/spit/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 19,
+						"w": 62,
+						"h": 60
+					},
+					"frame": {
+						"x": 423,
+						"y": 199,
+						"w": 62,
+						"h": 60
+					}
+				},
+				{
+					"filename": "fx/sparkle/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 20,
+						"w": 24,
+						"h": 24
+					},
+					"frame": {
+						"x": 491,
+						"y": 199,
+						"w": 24,
+						"h": 24
+					}
+				},
+				{
+					"filename": "ginny/spit/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 19,
+						"w": 62,
+						"h": 60
+					},
+					"frame": {
+						"x": 491,
+						"y": 237,
+						"w": 62,
+						"h": 60
+					}
+				},
+				{
+					"filename": "ginny/idle/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 18,
+						"w": 61,
+						"h": 62
+					},
+					"frame": {
+						"x": 559,
+						"y": 245,
+						"w": 61,
+						"h": 62
+					}
+				},
+				{
+					"filename": "fx/smoke/4",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 60,
+						"h": 60
+					},
+					"frame": {
+						"x": 559,
+						"y": 313,
+						"w": 60,
+						"h": 60
+					}
+				},
+				{
+					"filename": "ginny/hop/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 7,
+						"w": 57,
+						"h": 64
+					},
+					"frame": {
+						"x": 626,
+						"y": 302,
+						"w": 57,
+						"h": 64
+					}
+				},
+				{
+					"filename": "emoji/🍕",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 6,
+						"w": 42,
+						"h": 52
+					},
+					"frame": {
+						"x": 689,
+						"y": 302,
+						"w": 42,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🍿",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 6,
+						"w": 42,
+						"h": 52
+					},
+					"frame": {
+						"x": 689,
+						"y": 360,
+						"w": 42,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/💀",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 7,
+						"w": 42,
+						"h": 51
+					},
+					"frame": {
+						"x": 689,
+						"y": 418,
+						"w": 42,
+						"h": 51
+					}
+				},
+				{
+					"filename": "fx/sparkle/5",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 56,
+						"h": 56
+					},
+					"frame": {
+						"x": 625,
+						"y": 372,
+						"w": 56,
+						"h": 56
+					}
+				},
+				{
+					"filename": "troggle/telegraph/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 16,
+						"w": 56,
+						"h": 56
+					},
+					"frame": {
+						"x": 625,
+						"y": 434,
+						"w": 56,
+						"h": 56
+					}
+				},
+				{
+					"filename": "emoji/☄️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 5,
+						"w": 54,
+						"h": 53
+					},
+					"frame": {
+						"x": 625,
+						"y": 496,
+						"w": 54,
+						"h": 53
+					}
+				},
+				{
+					"filename": "emoji/🥰",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 5,
+						"w": 54,
+						"h": 52
+					},
+					"frame": {
+						"x": 3,
+						"y": 204,
+						"w": 54,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/😂",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 8,
+						"w": 54,
+						"h": 47
+					},
+					"frame": {
+						"x": 63,
+						"y": 204,
+						"w": 54,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😺",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 8,
+						"w": 54,
+						"h": 46
+					},
+					"frame": {
+						"x": 123,
+						"y": 204,
+						"w": 54,
+						"h": 46
+					}
+				},
+				{
+					"filename": "emoji/🪐",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 17,
+						"w": 54,
+						"h": 31
+					},
+					"frame": {
+						"x": 183,
+						"y": 204,
+						"w": 54,
+						"h": 31
+					}
+				},
+				{
+					"filename": "emoji/👢",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 7,
+						"w": 37,
+						"h": 50
+					},
+					"frame": {
+						"x": 243,
+						"y": 204,
+						"w": 37,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🏎️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 32,
+						"w": 54,
+						"h": 25
+					},
+					"frame": {
+						"x": 183,
+						"y": 241,
+						"w": 54,
+						"h": 25
+					}
+				},
+				{
+					"filename": "emoji/🛵",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 53,
+						"h": 50
+					},
+					"frame": {
+						"x": 123,
+						"y": 256,
+						"w": 53,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🚜",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 15,
+						"w": 53,
+						"h": 43
+					},
+					"frame": {
+						"x": 63,
+						"y": 260,
+						"w": 53,
+						"h": 43
+					}
+				},
+				{
+					"filename": "emoji/🚒",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 16,
+						"w": 53,
+						"h": 41
+					},
+					"frame": {
+						"x": 3,
+						"y": 262,
+						"w": 53,
+						"h": 41
+					}
+				},
+				{
+					"filename": "emoji/🚛",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 18,
+						"w": 53,
+						"h": 40
+					},
+					"frame": {
+						"x": 286,
+						"y": 206,
+						"w": 53,
+						"h": 40
+					}
+				},
+				{
+					"filename": "emoji/🚌",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 22,
+						"w": 53,
+						"h": 36
+					},
+					"frame": {
+						"x": 286,
+						"y": 252,
+						"w": 53,
+						"h": 36
+					}
+				},
+				{
+					"filename": "emoji/🎈",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 6,
+						"w": 36,
+						"h": 52
+					},
+					"frame": {
+						"x": 243,
+						"y": 265,
+						"w": 36,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🚙",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 23,
+						"w": 53,
+						"h": 34
+					},
+					"frame": {
+						"x": 182,
+						"y": 303,
+						"w": 53,
+						"h": 34
+					}
+				},
+				{
+					"filename": "emoji/👡",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 32,
+						"w": 50,
+						"h": 25
+					},
+					"frame": {
+						"x": 182,
+						"y": 272,
+						"w": 50,
+						"h": 25
+					}
+				},
+				{
+					"filename": "emoji/☀️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 5,
+						"w": 52,
+						"h": 53
+					},
+					"frame": {
+						"x": 3,
+						"y": 309,
+						"w": 52,
+						"h": 53
+					}
+				},
+				{
+					"filename": "emoji/🍬",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 52,
+						"h": 52
+					},
+					"frame": {
+						"x": 61,
+						"y": 309,
+						"w": 52,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/✈️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 52,
+						"h": 51
+					},
+					"frame": {
+						"x": 61,
+						"y": 367,
+						"w": 52,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🌟",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 52,
+						"h": 51
+					},
+					"frame": {
+						"x": 3,
+						"y": 368,
+						"w": 52,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🍫",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 52,
+						"h": 50
+					},
+					"frame": {
+						"x": 3,
+						"y": 425,
+						"w": 52,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🏠",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 52,
+						"h": 50
+					},
+					"frame": {
+						"x": 119,
+						"y": 312,
+						"w": 52,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🚂",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 52,
+						"h": 50
+					},
+					"frame": {
+						"x": 119,
+						"y": 368,
+						"w": 52,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/👑",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 52,
+						"h": 49
+					},
+					"frame": {
+						"x": 345,
+						"y": 265,
+						"w": 52,
+						"h": 49
+					}
+				},
+				{
+					"filename": "emoji/⭐",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 52,
+						"h": 48
+					},
+					"frame": {
+						"x": 285,
+						"y": 294,
+						"w": 52,
+						"h": 48
+					}
+				},
+				{
+					"filename": "emoji/🦉",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 8,
+						"w": 36,
+						"h": 49
+					},
+					"frame": {
+						"x": 241,
+						"y": 323,
+						"w": 36,
+						"h": 49
+					}
+				},
+				{
+					"filename": "ui/heart",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 15,
+						"w": 36,
+						"h": 37
+					},
+					"frame": {
+						"x": 241,
+						"y": 378,
+						"w": 36,
+						"h": 37
+					}
+				},
+				{
+					"filename": "fx/sparkle/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 14,
+						"w": 36,
+						"h": 36
+					},
+					"frame": {
+						"x": 241,
+						"y": 421,
+						"w": 36,
+						"h": 36
+					}
+				},
+				{
+					"filename": "emoji/🧣",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 6,
+						"w": 35,
+						"h": 52
+					},
+					"frame": {
+						"x": 241,
+						"y": 463,
+						"w": 35,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🌊",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 52,
+						"h": 48
+					},
+					"frame": {
+						"x": 177,
+						"y": 343,
+						"w": 52,
+						"h": 48
+					}
+				},
+				{
+					"filename": "emoji/🥐",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 52,
+						"h": 48
+					},
+					"frame": {
+						"x": 177,
+						"y": 397,
+						"w": 52,
+						"h": 48
+					}
+				},
+				{
+					"filename": "emoji/🐱",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 8,
+						"w": 52,
+						"h": 46
+					},
+					"frame": {
+						"x": 403,
+						"y": 265,
+						"w": 52,
+						"h": 46
+					}
+				},
+				{
+					"filename": "emoji/😸",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 52,
+						"h": 46
+					},
+					"frame": {
+						"x": 461,
+						"y": 303,
+						"w": 52,
+						"h": 46
+					}
+				},
+				{
+					"filename": "emoji/😻",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 52,
+						"h": 46
+					},
+					"frame": {
+						"x": 403,
+						"y": 317,
+						"w": 52,
+						"h": 46
+					}
+				},
+				{
+					"filename": "emoji/🐧",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 7,
+						"w": 34,
+						"h": 50
+					},
+					"frame": {
+						"x": 519,
+						"y": 303,
+						"w": 34,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🐷",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 11,
+						"w": 52,
+						"h": 45
+					},
+					"frame": {
+						"x": 461,
+						"y": 355,
+						"w": 52,
+						"h": 45
+					}
+				},
+				{
+					"filename": "troggle/telegraph/0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 88,
+						"h": 88
+					},
+					"spriteSourceSize": {
+						"x": 28,
+						"y": 28,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 519,
+						"y": 359,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "emoji/💼",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 12,
+						"w": 52,
+						"h": 45
+					},
+					"frame": {
+						"x": 343,
+						"y": 320,
+						"w": 52,
+						"h": 45
+					}
+				},
+				{
+					"filename": "emoji/🍉",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 10,
+						"w": 52,
+						"h": 44
+					},
+					"frame": {
+						"x": 343,
+						"y": 371,
+						"w": 52,
+						"h": 44
+					}
+				},
+				{
+					"filename": "emoji/💻",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 15,
+						"w": 52,
+						"h": 42
+					},
+					"frame": {
+						"x": 401,
+						"y": 369,
+						"w": 52,
+						"h": 42
+					}
+				},
+				{
+					"filename": "emoji/🚚",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 15,
+						"w": 52,
+						"h": 42
+					},
+					"frame": {
+						"x": 401,
+						"y": 417,
+						"w": 52,
+						"h": 42
+					}
+				},
+				{
+					"filename": "emoji/🍩",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 11,
+						"w": 52,
+						"h": 41
+					},
+					"frame": {
+						"x": 283,
+						"y": 348,
+						"w": 52,
+						"h": 41
+					}
+				},
+				{
+					"filename": "emoji/🚐",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 17,
+						"w": 52,
+						"h": 40
+					},
+					"frame": {
+						"x": 283,
+						"y": 395,
+						"w": 52,
+						"h": 40
+					}
+				},
+				{
+					"filename": "emoji/🐨",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 13,
+						"w": 52,
+						"h": 39
+					},
+					"frame": {
+						"x": 341,
+						"y": 421,
+						"w": 52,
+						"h": 39
+					}
+				},
+				{
+					"filename": "emoji/🚕",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 20,
+						"w": 52,
+						"h": 38
+					},
+					"frame": {
+						"x": 283,
+						"y": 441,
+						"w": 52,
+						"h": 38
+					}
+				},
+				{
+					"filename": "emoji/🚲",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 20,
+						"w": 52,
+						"h": 38
+					},
+					"frame": {
+						"x": 341,
+						"y": 466,
+						"w": 52,
+						"h": 38
+					}
+				},
+				{
+					"filename": "emoji/🚓",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 21,
+						"w": 52,
+						"h": 37
+					},
+					"frame": {
+						"x": 282,
+						"y": 485,
+						"w": 52,
+						"h": 37
+					}
+				},
+				{
+					"filename": "emoji/🏍️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 24,
+						"w": 52,
+						"h": 34
+					},
+					"frame": {
+						"x": 282,
+						"y": 528,
+						"w": 52,
+						"h": 34
+					}
+				},
+				{
+					"filename": "emoji/🚗",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 24,
+						"w": 52,
+						"h": 34
+					},
+					"frame": {
+						"x": 557,
+						"y": 379,
+						"w": 52,
+						"h": 34
+					}
+				},
+				{
+					"filename": "ui/button/disabled",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 519,
+						"y": 397,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "emoji/🚀",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 51,
+						"h": 51
+					},
+					"frame": {
+						"x": 459,
+						"y": 406,
+						"w": 51,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/⚽",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 51,
+						"h": 50
+					},
+					"frame": {
+						"x": 557,
+						"y": 419,
+						"w": 51,
+						"h": 50
+					}
+				},
+				{
+					"filename": "ui/button/normal",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 516,
+						"y": 435,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "emoji/🌒",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 51,
+						"h": 50
+					},
+					"frame": {
+						"x": 459,
+						"y": 463,
+						"w": 51,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🌓",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 51,
+						"h": 50
+					},
+					"frame": {
+						"x": 399,
+						"y": 475,
+						"w": 51,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🌕",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 7,
+						"w": 51,
+						"h": 50
+					},
+					"frame": {
+						"x": 340,
+						"y": 510,
+						"w": 51,
+						"h": 50
+					}
+				},
+				{
+					"filename": "ui/button/pressed",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 32,
+						"h": 32
+					},
+					"frame": {
+						"x": 516,
+						"y": 473,
+						"w": 32,
+						"h": 32
+					}
+				},
+				{
+					"filename": "emoji/🍪",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 7,
+						"w": 51,
+						"h": 50
+					},
+					"frame": {
+						"x": 554,
+						"y": 475,
+						"w": 51,
+						"h": 50
+					}
+				},
+				{
+					"filename": "cells/frame/idle",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 30,
+						"h": 30
+					},
+					"frame": {
+						"x": 516,
+						"y": 511,
+						"w": 30,
+						"h": 30
+					}
+				},
+				{
+					"filename": "emoji/🍞",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 51,
+						"h": 49
+					},
+					"frame": {
+						"x": 456,
+						"y": 519,
+						"w": 51,
+						"h": 49
+					}
+				},
+				{
+					"filename": "emoji/📚",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 51,
+						"h": 49
+					},
+					"frame": {
+						"x": 397,
+						"y": 555,
+						"w": 51,
+						"h": 49
+					}
+				},
+				{
+					"filename": "emoji/⛈️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 51,
+						"h": 48
+					},
+					"frame": {
+						"x": 340,
+						"y": 566,
+						"w": 51,
+						"h": 48
+					}
+				},
+				{
+					"filename": "emoji/🧤",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 51,
+						"h": 48
+					},
+					"frame": {
+						"x": 397,
+						"y": 610,
+						"w": 51,
+						"h": 48
+					}
+				},
+				{
+					"filename": "emoji/💨",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 8,
+						"w": 51,
+						"h": 47
+					},
+					"frame": {
+						"x": 397,
+						"y": 664,
+						"w": 51,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/🐼",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 10,
+						"w": 51,
+						"h": 46
+					},
+					"frame": {
+						"x": 552,
+						"y": 531,
+						"w": 51,
+						"h": 46
+					}
+				},
+				{
+					"filename": "fx/smoke/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 17,
+						"w": 30,
+						"h": 30
+					},
+					"frame": {
+						"x": 513,
+						"y": 555,
+						"w": 30,
+						"h": 30
+					}
+				},
+				{
+					"filename": "emoji/🎩",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 12,
+						"w": 51,
+						"h": 42
+					},
+					"frame": {
+						"x": 454,
+						"y": 574,
+						"w": 51,
+						"h": 42
+					}
+				},
+				{
+					"filename": "emoji/🐵",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 12,
+						"w": 51,
+						"h": 40
+					},
+					"frame": {
+						"x": 454,
+						"y": 622,
+						"w": 51,
+						"h": 40
+					}
+				},
+				{
+					"filename": "emoji/⛅",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 11,
+						"w": 51,
+						"h": 38
+					},
+					"frame": {
+						"x": 61,
+						"y": 424,
+						"w": 51,
+						"h": 38
+					}
+				},
+				{
+					"filename": "emoji/👟",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 23,
+						"w": 51,
+						"h": 34
+					},
+					"frame": {
+						"x": 118,
+						"y": 424,
+						"w": 51,
+						"h": 34
+					}
+				},
+				{
+					"filename": "emoji/👞",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 29,
+						"w": 51,
+						"h": 28
+					},
+					"frame": {
+						"x": 175,
+						"y": 451,
+						"w": 51,
+						"h": 28
+					}
+				},
+				{
+					"filename": "emoji/🌀",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 52
+					},
+					"frame": {
+						"x": 118,
+						"y": 464,
+						"w": 50,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🍊",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 52
+					},
+					"frame": {
+						"x": 61,
+						"y": 468,
+						"w": 50,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🍗",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 52
+					},
+					"frame": {
+						"x": 3,
+						"y": 481,
+						"w": 50,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🍭",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 52
+					},
+					"frame": {
+						"x": 174,
+						"y": 485,
+						"w": 50,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/☔",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 5,
+						"w": 46,
+						"h": 53
+					},
+					"frame": {
+						"x": 230,
+						"y": 522,
+						"w": 46,
+						"h": 53
+					}
+				},
+				{
+					"filename": "emoji/🎒",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 51
+					},
+					"frame": {
+						"x": 117,
+						"y": 522,
+						"w": 50,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🎸",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 51
+					},
+					"frame": {
+						"x": 117,
+						"y": 579,
+						"w": 50,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🔑",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 51
+					},
+					"frame": {
+						"x": 173,
+						"y": 543,
+						"w": 50,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🚎",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 51
+					},
+					"frame": {
+						"x": 173,
+						"y": 600,
+						"w": 50,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🤷",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 51
+					},
+					"frame": {
+						"x": 282,
+						"y": 568,
+						"w": 50,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🌪️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 5,
+						"w": 46,
+						"h": 53
+					},
+					"frame": {
+						"x": 229,
+						"y": 620,
+						"w": 46,
+						"h": 53
+					}
+				},
+				{
+					"filename": "emoji/🌙",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 7,
+						"w": 50,
+						"h": 50
+					},
+					"frame": {
+						"x": 59,
+						"y": 526,
+						"w": 50,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🐯",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 7,
+						"w": 50,
+						"h": 50
+					},
+					"frame": {
+						"x": 3,
+						"y": 539,
+						"w": 50,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/😇",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 5,
+						"w": 50,
+						"h": 50
+					},
+					"frame": {
+						"x": 59,
+						"y": 582,
+						"w": 50,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🥑",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 7,
+						"w": 50,
+						"h": 50
+					},
+					"frame": {
+						"x": 3,
+						"y": 595,
+						"w": 50,
+						"h": 50
+					}
+				},
+				{
+					"filename": "fx/smoke/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 7,
+						"w": 50,
+						"h": 50
+					},
+					"frame": {
+						"x": 115,
+						"y": 636,
+						"w": 50,
+						"h": 50
+					}
+				},
+				{
+					"filename": "fx/sparkle/4",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 7,
+						"w": 50,
+						"h": 50
+					},
+					"frame": {
+						"x": 59,
+						"y": 638,
+						"w": 50,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🐔",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 50,
+						"h": 49
+					},
+					"frame": {
+						"x": 3,
+						"y": 651,
+						"w": 50,
+						"h": 49
+					}
+				},
+				{
+					"filename": "emoji/🐻",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 50,
+						"h": 47
+					},
+					"frame": {
+						"x": 171,
+						"y": 657,
+						"w": 50,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/🦊",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 50,
+						"h": 47
+					},
+					"frame": {
+						"x": 115,
+						"y": 692,
+						"w": 50,
+						"h": 47
+					}
+				},
+				{
+					"filename": "ui/star-empty",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 6,
+						"w": 50,
+						"h": 47
+					},
+					"frame": {
+						"x": 59,
+						"y": 694,
+						"w": 50,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/🐮",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 10,
+						"w": 50,
+						"h": 46
+					},
+					"frame": {
+						"x": 3,
+						"y": 706,
+						"w": 50,
+						"h": 46
+					}
+				},
+				{
+					"filename": "fx/sparkle/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 17,
+						"w": 30,
+						"h": 30
+					},
+					"frame": {
+						"x": 229,
+						"y": 581,
+						"w": 30,
+						"h": 30
+					}
+				},
+				{
+					"filename": "emoji/🌭",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 9,
+						"w": 50,
+						"h": 45
+					},
+					"frame": {
+						"x": 338,
+						"y": 620,
+						"w": 50,
+						"h": 45
+					}
+				},
+				{
+					"filename": "emoji/🐸",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 12,
+						"w": 50,
+						"h": 44
+					},
+					"frame": {
+						"x": 281,
+						"y": 625,
+						"w": 50,
+						"h": 44
+					}
+				},
+				{
+					"filename": "emoji/🧀",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 11,
+						"w": 50,
+						"h": 43
+					},
+					"frame": {
+						"x": 281,
+						"y": 675,
+						"w": 50,
+						"h": 43
+					}
+				},
+				{
+					"filename": "emoji/🍎",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 6,
+						"w": 48,
+						"h": 52
+					},
+					"frame": {
+						"x": 227,
+						"y": 679,
+						"w": 48,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🍔",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 6,
+						"w": 48,
+						"h": 51
+					},
+					"frame": {
+						"x": 227,
+						"y": 737,
+						"w": 48,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🐶",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 13,
+						"w": 50,
+						"h": 40
+					},
+					"frame": {
+						"x": 171,
+						"y": 710,
+						"w": 50,
+						"h": 40
+					}
+				},
+				{
+					"filename": "emoji/👒",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 14,
+						"w": 50,
+						"h": 40
+					},
+					"frame": {
+						"x": 115,
+						"y": 745,
+						"w": 50,
+						"h": 40
+					}
+				},
+				{
+					"filename": "emoji/🐭",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 14,
+						"w": 50,
+						"h": 37
+					},
+					"frame": {
+						"x": 171,
+						"y": 756,
+						"w": 50,
+						"h": 37
+					}
+				},
+				{
+					"filename": "emoji/☁️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 13,
+						"w": 50,
+						"h": 36
+					},
+					"frame": {
+						"x": 59,
+						"y": 747,
+						"w": 50,
+						"h": 36
+					}
+				},
+				{
+					"filename": "emoji/👓",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 22,
+						"w": 50,
+						"h": 19
+					},
+					"frame": {
+						"x": 3,
+						"y": 758,
+						"w": 50,
+						"h": 19
+					}
+				},
+				{
+					"filename": "emoji/🥳",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 5,
+						"w": 49,
+						"h": 53
+					},
+					"frame": {
+						"x": 3,
+						"y": 783,
+						"w": 49,
+						"h": 53
+					}
+				},
+				{
+					"filename": "emoji/😛",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 50
+					},
+					"frame": {
+						"x": 58,
+						"y": 789,
+						"w": 49,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/😭",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 50
+					},
+					"frame": {
+						"x": 3,
+						"y": 842,
+						"w": 49,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🤮",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 50
+					},
+					"frame": {
+						"x": 113,
+						"y": 791,
+						"w": 49,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🤣",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 7,
+						"w": 49,
+						"h": 49
+					},
+					"frame": {
+						"x": 58,
+						"y": 845,
+						"w": 49,
+						"h": 49
+					}
+				},
+				{
+					"filename": "emoji/😀",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 3,
+						"y": 898,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😁",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 337,
+						"y": 671,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😃",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 935,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😄",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 990,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😅",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1045,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😆",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1100,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😉",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1155,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😊",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1210,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😋",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1265,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😍",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1320,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😠",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1375,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😡",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1430,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/😢",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1485,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/🤢",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1540,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/🤩",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1595,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/🤬",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 8,
+						"w": 49,
+						"h": 47
+					},
+					"frame": {
+						"x": 1650,
+						"y": 61,
+						"w": 49,
+						"h": 47
+					}
+				},
+				{
+					"filename": "emoji/🐦",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 13,
+						"w": 49,
+						"h": 42
+					},
+					"frame": {
+						"x": 1705,
+						"y": 61,
+						"w": 49,
+						"h": 42
+					}
+				},
+				{
+					"filename": "emoji/💩",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 7,
+						"w": 48,
+						"h": 50
+					},
+					"frame": {
+						"x": 1760,
+						"y": 61,
+						"w": 48,
+						"h": 50
+					}
+				},
+				{
+					"filename": "emoji/🛴",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 7,
+						"w": 48,
+						"h": 50
+					},
+					"frame": {
+						"x": 1705,
+						"y": 109,
+						"w": 48,
+						"h": 50
+					}
+				},
+				{
+					"filename": "ui/coin",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 8,
+						"w": 48,
+						"h": 48
+					},
+					"frame": {
+						"x": 1814,
+						"y": 61,
+						"w": 48,
+						"h": 48
+					}
+				},
+				{
+					"filename": "ui/banner",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 48,
+						"h": 30
+					},
+					"frame": {
+						"x": 1868,
+						"y": 61,
+						"w": 48,
+						"h": 30
+					}
+				},
+				{
+					"filename": "emoji/❄️",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 6,
+						"w": 46,
+						"h": 52
+					},
+					"frame": {
+						"x": 1922,
+						"y": 61,
+						"w": 46,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🌈",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 6,
+						"w": 46,
+						"h": 52
+					},
+					"frame": {
+						"x": 1868,
+						"y": 97,
+						"w": 46,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🍓",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 6,
+						"w": 46,
+						"h": 52
+					},
+					"frame": {
+						"x": 1814,
+						"y": 115,
+						"w": 46,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🍖",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 6,
+						"w": 46,
+						"h": 52
+					},
+					"frame": {
+						"x": 1759,
+						"y": 155,
+						"w": 46,
+						"h": 52
+					}
+				},
+				{
+					"filename": "cells/frame/eaten",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 28,
+						"h": 28
+					},
+					"frame": {
+						"x": 1759,
+						"y": 117,
+						"w": 28,
+						"h": 28
+					}
+				},
+				{
+					"filename": "emoji/🍰",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 6,
+						"w": 46,
+						"h": 51
+					},
+					"frame": {
+						"x": 1974,
+						"y": 65,
+						"w": 46,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🦁",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 6,
+						"w": 46,
+						"h": 51
+					},
+					"frame": {
+						"x": 1920,
+						"y": 119,
+						"w": 46,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🦆",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 7,
+						"w": 46,
+						"h": 51
+					},
+					"frame": {
+						"x": 1866,
+						"y": 155,
+						"w": 46,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🧦",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 6,
+						"w": 46,
+						"h": 51
+					},
+					"frame": {
+						"x": 1866,
+						"y": 212,
+						"w": 46,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🐹",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 11,
+						"w": 46,
+						"h": 44
+					},
+					"frame": {
+						"x": 1866,
+						"y": 269,
+						"w": 46,
+						"h": 44
+					}
+				},
+				{
+					"filename": "emoji/🍇",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 7,
+						"w": 45,
+						"h": 51
+					},
+					"frame": {
+						"x": 1866,
+						"y": 319,
+						"w": 45,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🍌",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 6,
+						"w": 45,
+						"h": 51
+					},
+					"frame": {
+						"x": 1811,
+						"y": 173,
+						"w": 45,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🍟",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 6,
+						"w": 44,
+						"h": 52
+					},
+					"frame": {
+						"x": 1811,
+						"y": 230,
+						"w": 44,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/⏰",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 7,
+						"w": 44,
+						"h": 51
+					},
+					"frame": {
+						"x": 1972,
+						"y": 122,
+						"w": 44,
+						"h": 51
+					}
+				},
+				{
+					"filename": "fx/sparkle/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 10,
+						"w": 44,
+						"h": 44
+					},
+					"frame": {
+						"x": 1918,
+						"y": 176,
+						"w": 44,
+						"h": 44
+					}
+				},
+				{
+					"filename": "ui/star",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 10,
+						"w": 42,
+						"h": 40
+					},
+					"frame": {
+						"x": 1918,
+						"y": 226,
+						"w": 42,
+						"h": 40
+					}
+				},
+				{
+					"filename": "ui/mute",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 14,
+						"w": 42,
+						"h": 36
+					},
+					"frame": {
+						"x": 1968,
+						"y": 179,
+						"w": 42,
+						"h": 36
+					}
+				},
+				{
+					"filename": "emoji/📱",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 7,
+						"w": 28,
+						"h": 51
+					},
+					"frame": {
+						"x": 2016,
+						"y": 179,
+						"w": 28,
+						"h": 51
+					}
+				},
+				{
+					"filename": "emoji/🍒",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 6,
+						"w": 41,
+						"h": 52
+					},
+					"frame": {
+						"x": 1968,
+						"y": 221,
+						"w": 41,
+						"h": 52
+					}
+				},
+				{
+					"filename": "ui/pause",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 14,
+						"w": 28,
+						"h": 36
+					},
+					"frame": {
+						"x": 2015,
+						"y": 236,
+						"w": 28,
+						"h": 36
+					}
+				},
+				{
+					"filename": "ui/speaker",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 14,
+						"w": 41,
+						"h": 36
+					},
+					"frame": {
+						"x": 1918,
+						"y": 272,
+						"w": 41,
+						"h": 36
+					}
+				},
+				{
+					"filename": "emoji/🎂",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 6,
+						"w": 40,
+						"h": 52
+					},
+					"frame": {
+						"x": 1965,
+						"y": 279,
+						"w": 40,
+						"h": 52
+					}
+				},
+				{
+					"filename": "emoji/🍯",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 6,
+						"w": 40,
+						"h": 51
+					},
+					"frame": {
+						"x": 1918,
+						"y": 314,
+						"w": 40,
+						"h": 51
+					}
+				},
+				{
+					"filename": "fx/smoke/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 12,
+						"w": 40,
+						"h": 40
+					},
+					"frame": {
+						"x": 1964,
+						"y": 337,
+						"w": 40,
+						"h": 40
+					}
+				},
+				{
+					"filename": "emoji/⚡",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 6,
+						"w": 39,
+						"h": 52
+					},
+					"frame": {
+						"x": 1917,
+						"y": 371,
+						"w": 39,
+						"h": 52
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://github.com/odrick/free-tex-packer-core",
+		"version": "0.3.9"
+	}
+}
