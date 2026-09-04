@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "pages": [
+    {
+      "schemaVersion": 1,
+      "id": "page-01",
+      "title": "Butterfly & Sun",
+      "viewBox": [
+        0,
+        0,
+        2048,
+        1536
+      ],
+      "regionCount": 106,
+      "coverage": 0.829,
+      "file": "page-01.svg"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "page-02",
+      "title": "Castle",
+      "viewBox": [
+        0,
+        0,
+        2048,
+        1536
+      ],
+      "regionCount": 91,
+      "coverage": 0.8084,
+      "file": "page-02.svg"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "page-03",
+      "title": "Ocean Fish",
+      "viewBox": [
+        0,
+        0,
+        2048,
+        1536
+      ],
+      "regionCount": 60,
+      "coverage": 0.9165,
+      "file": "page-03.svg"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "page-04",
+      "title": "Garden Flower",
+      "viewBox": [
+        0,
+        0,
+        2048,
+        1536
+      ],
+      "regionCount": 82,
+      "coverage": 0.8185,
+      "file": "page-04.svg"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "page-05",
+      "title": "Space Rocket",
+      "viewBox": [
+        0,
+        0,
+        2048,
+        1536
+      ],
+      "regionCount": 66,
+      "coverage": 0.8067,
+      "file": "page-05.svg"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "page-06",
+      "title": "Forest Bear",
+      "viewBox": [
+        0,
+        0,
+        2048,
+        1536
+      ],
+      "regionCount": 133,
+      "coverage": 0.9395,
+      "file": "page-06.svg"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "page-07",
+      "title": "Princess",
+      "viewBox": [
+        0,
+        0,
+        2048,
+        1536
+      ],
+      "regionCount": 186,
+      "coverage": 0.9299,
+      "file": "page-07.svg"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "page-08",
+      "title": "Dinosaur",
+      "viewBox": [
+        0,
+        0,
+        2048,
+        1536
+      ],
+      "regionCount": 84,
+      "coverage": 0.8321,
+      "file": "page-08.svg"
+    }
+  ]
+}

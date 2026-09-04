@@ -1,141 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="version" content="v3-crayonbox-ipad-pro">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="CrayonBox">
-<meta name="theme-color" content="#F4EAD5">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/book-carousel.css">
-<title>CrayonBox — Creative Crayon Coloring</title>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#F4EAD5" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="description" content="A crayon coloring book for kids" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="alternate-manifest" href="./manifest.json" type="application/json" />
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="preload" href="./fonts/Fredoka.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./fonts/Outfit.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./fonts/faces.css" />
+  <style>
+    /* Fallback: render immediately with system fonts, swap when fonts load */
+    body { font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; }
+  </style>
+  <title>CrayonBox</title>
+  <script type="module" crossorigin src="./assets/index-DFGarZNM.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CQrmr2ie.css">
+<link rel="manifest" href="./manifest.webmanifest"></head>
 <body>
-<div id="loading" class="loading">CrayonBox</div>
-
-<div id="app">
-  <!-- Book Carousel Screen -->
-  <div id="screen-book-carousel" class="screen active">
-    <div class="book-container" id="bookContainer">
-      <div class="book-spread" id="bookSpread">
-        <div class="book-page book-page-left" id="pageLeft" title="Tap to color this page"></div>
-        <div class="book-spine"></div>
-        <div class="book-page book-page-right" id="pageRight" title="Tap to color this page"></div>
-      </div>
-    </div>
-    <div class="page-nav">
-      <button class="page-nav-btn" id="prevPageBtn" aria-label="Previous Page">◀</button>
-      <button class="page-nav-btn" id="nextPageBtn" aria-label="Next Page">▶</button>
-    </div>
-    <div class="page-indicator" id="pageIndicator">Page 1 of 8</div>
-    <div class="book-buttons">
-      <button class="gallery-btn" id="galleryBtn" aria-label="My Artwork Gallery">♥ Artwork</button>
-    </div>
-  </div>
-
-  <!-- Gallery View Screen -->
-  <div id="screen-gallery" class="screen">
-    <div class="gallery-header">
-      <button id="galleryBackBtn" aria-label="Back to book">◀</button>
-      <span>My Artwork Gallery</span>
-    </div>
-    <div class="gallery-grid" id="galleryGrid"></div>
-  </div>
-
-  <!-- Workspace Screen -->
-  <div id="screen-workspace" class="screen">
-    <!-- Top Control Bar -->
-    <div class="workspace-header">
-      <div class="header-left">
-        <button id="backBtn" class="icon-btn" aria-label="Back to book" title="Back to Coloring Book">📖</button>
-        <button id="undoBtn" class="icon-btn undo-icon" aria-label="Undo last stroke" title="Undo">↶</button>
-        <button id="clearBtn" class="icon-btn trash-icon" aria-label="Hold to Clear canvas" title="Hold to Clear">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#F4EAD5" stroke-width="2">
-            <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/>
-          </svg>
-          <div class="clear-progress" id="clearProgress"></div>
-        </button>
-      </div>
-
-      <!-- Center Tool Bar -->
-      <div class="header-center">
-        <div class="tool-group" id="toolModeGroup">
-          <button class="tool-btn active" data-mode="crayon" title="Wax Crayon Brush">🖍️ Crayon</button>
-          <button class="tool-btn" data-mode="fill" title="Smart Tap-to-Fill">🪣 Fill</button>
-          <button class="tool-btn" data-mode="stamp" title="Wax Sticker Stamp">⭐ Stamp</button>
-          <button class="tool-btn" data-mode="eraser" title="Eraser">🧹 Eraser</button>
-        </div>
-
-        <div class="tool-group" id="brushSizeGroup">
-          <button class="size-btn" data-size="thin" title="Thin Crayon Tip"><span class="dot dot-s"></span></button>
-          <button class="size-btn active" data-size="medium" title="Medium Crayon Tip"><span class="dot dot-m"></span></button>
-          <button class="size-btn" data-size="thick" title="Thick Crayon Tip"><span class="dot dot-l"></span></button>
-        </div>
-      </div>
-
-      <!-- Right Action Bar -->
-      <div class="header-right">
-        <button id="lineAssistBtn" class="toggle-btn" title="Toggle Stay Inside Lines Mode">🔒 Line Assist</button>
-        <button id="soundMuteBtn" class="icon-btn" title="Toggle Sound">🔊</button>
-      </div>
-    </div>
-
-    <!-- Sticker Stamp Selection Tray -->
-    <div id="stickerTray" class="sticker-tray hidden">
-      <div class="sticker-options">
-        <button class="sticker-opt active" data-stamp="star">⭐</button>
-        <button class="sticker-opt" data-stamp="heart">❤️</button>
-        <button class="sticker-opt" data-stamp="rainbow">🌈</button>
-        <button class="sticker-opt" data-stamp="sparkle">✨</button>
-        <button class="sticker-opt" data-stamp="smiley">😊</button>
-        <button class="sticker-opt" data-stamp="flower">🌸</button>
-        <button class="sticker-opt" data-stamp="sun">☀️</button>
-        <button class="sticker-opt" data-stamp="butterfly">🦋</button>
-        <button class="sticker-opt" data-stamp="crown">👑</button>
-      </div>
-    </div>
-
-    <!-- Canvas Container -->
-    <div class="canvas-container">
-      <div class="canvas-wrapper" id="canvasWrapper">
-        <canvas id="crayon-canvas"></canvas>
-        <div class="coloring-svg-overlay" id="coloringSvg"></div>
-        <div class="color-swatch" id="colorSwatch" style="background:#EF4444"></div>
-      </div>
-    </div>
-
-    <!-- Bottom Crayon Box Palette -->
-    <div class="crayon-palette" id="crayonPalette"></div>
-  </div>
-
-  <!-- Rotate Device Overlay -->
-  <div id="rotateOverlay" class="rotate-overlay">
-    <div class="rotate-icon">📱</div>
-    <div class="rotate-text">Rotate your device</div>
-    <div class="rotate-sub">Landscape mode is best for coloring</div>
-  </div>
-</div>
-
-<script src="js/render/paper-texture.js"></script>
-<script src="js/render/shaders.js"></script>
-<script src="js/render/webgl-engine.js"></script>
-<script src="js/input/pointer-handler.js"></script>
-<script src="js/input/gesture-detector.js"></script>
-<script src="js/audio/sound-engine.js"></script>
-<script src="js/db/storage.js"></script>
-<script src="js/pages-data.js"></script>
-<script src="js/app.js"></script>
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(console.warn);
-}
-</script>
+  <div id="app"></div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js')
+          .catch(function (e) { console.error('SW registration failed', e); });
+      });
+    }
+  </script>
 </body>
 </html>
