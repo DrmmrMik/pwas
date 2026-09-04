@@ -3,33 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    
     <title>CosmoBot: Math Blaster Odyssey</title>
     <meta name="title" content="CosmoBot: Math Blaster Odyssey" />
     <meta name="description" content="A mobile-friendly retro-modern math arcade PWA aligned with Pittsburgh Public Schools 2nd grade and gifted 3rd grade math curriculum. Starring Pip the plush robot!" />
-    
-    <meta name="theme-color" content="#6C5CE7" />
+    <meta name="theme-color" content="#0A0E1A" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="CosmoBot" />
-    
-    <link rel="manifest" href="./manifest.json" />
+    <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
-    <script type="module" crossorigin src="./assets/index-CvrF8bIH.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-ByvRVS2v.css">
-  </head>
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #0A0E1A;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+      #game-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-CeUKBVID.js"></script>
+  <link rel="manifest" href="./manifest.webmanifest"></head>
   <body>
-    <div id="app"></div>
+    <div id="game-container"></div>
     <script>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('./sw.js').catch(function(err) {
-            console.warn('SW registration warning:', err);
-          });
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch((err) => console.error('SW reg failed:', err));
         });
       }
     </script>
   </body>
 </html>
+
