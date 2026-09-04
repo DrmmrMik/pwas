@@ -1,6 +1,8 @@
 {
   "name": "Scavenger Hunt (E-Ink)",
   "short_name": "Hunt E-Ink",
+  "version": "1.1.0",
+  "x-build-stamp": "20260904140715",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -36,7 +38,5 @@
   ],
   "display_override": [
     "standalone"
-  ],
-  "version": "0.1.0",
-  "x-build-stamp": "20260822140122"
+  ]
 }
