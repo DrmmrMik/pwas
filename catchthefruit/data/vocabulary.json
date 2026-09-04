@@ -36,7 +36,7 @@
       "topic": "vocabulary",
       "levelNumber": 3,
       "name": "Synonym vs Antonym Discrimination",
-      "description": "Listen carefully to whether you need a synonym or an antonym!",
+      "description": "Look closely at whether you need a synonym or an antonym!",
       "fallSpeedDurationMs": 2300,
       "itemsRequired": 10,
       "masteryAccuracyThreshold": 0.85,

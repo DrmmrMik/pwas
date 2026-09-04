@@ -14,22 +14,22 @@
       "masteryAccuracyThreshold": 0.85,
       "scaffoldStage": "single_rule",
       "targetPatterns": ["ai", "ay"],
-      "prompt": "Catch words with 'ai' and 'ay' that say /ā/!",
-      "spokenPrompt": "Catch words with ai and ay that make the long A sound!"
+      "prompt": "Catch words with 'ai' and 'ay' that say /ā/ (like rain & day)!",
+      "spokenPrompt": "Catch words with 'ai' and 'ay' that say /ā/ (like rain & day)!"
     },
     {
       "id": "phonics_2",
       "topic": "phonics",
       "levelNumber": 2,
-      "name": "The Trickster 'ea' (/ē/ vs /ĕ/)",
+      "name": "The Trickster 'ea' (beach vs bread)",
       "description": "Discriminate between sunny long /ē/ and trickster short /ĕ/ in words with 'ea'.",
       "fallSpeedDurationMs": 2500,
       "itemsRequired": 10,
       "masteryAccuracyThreshold": 0.85,
       "scaffoldStage": "discrimination",
       "targetPatterns": ["ea_long_e", "ea_short_e"],
-      "prompt": "Listen closely! Catch words where 'ea' says /ē/ or trickster /ĕ/!",
-      "spokenPrompt": "Listen closely! Catch words where E A says long E or trickster short E!"
+      "prompt": "Catch words where 'ea' says /ē/ like beach or trickster /ĕ/ like bread!",
+      "spokenPrompt": "Catch words where 'ea' says /ē/ like beach or trickster /ĕ/ like bread!"
     },
     {
       "id": "phonics_3",
@@ -42,8 +42,8 @@
       "masteryAccuracyThreshold": 0.85,
       "scaffoldStage": "mixed_patterns",
       "targetPatterns": ["ee", "ie", "oa", "oe", "ui", "ue"],
-      "prompt": "Catch words with long vowel teams ee, ie, oa, and ui!",
-      "spokenPrompt": "Catch words with long vowel teams ee, ie, oa, and ui!"
+      "prompt": "Catch words with long vowel teams (like tree, boat, and fruit)!",
+      "spokenPrompt": "Catch words with long vowel teams (like tree, boat, and fruit)!"
     },
     {
       "id": "phonics_4",
@@ -56,8 +56,8 @@
       "masteryAccuracyThreshold": 0.85,
       "scaffoldStage": "mixed_patterns",
       "targetPatterns": ["ar", "er", "ir", "or", "ur"],
-      "prompt": "Catch words with bossy R-controlled vowels ar, er, ir, or, and ur!",
-      "spokenPrompt": "Catch words with bossy R vowels!"
+      "prompt": "Catch words with Bossy R vowels ar, er, ir, or, and ur (like star, fork, tiger)!",
+      "spokenPrompt": "Catch words with Bossy R vowels ar, er, ir, or, and ur (like star, fork, tiger)!"
     },
     {
       "id": "phonics_5",
@@ -69,8 +69,8 @@
       "itemsRequired": 12,
       "masteryAccuracyThreshold": 0.85,
       "scaffoldStage": "boss_level",
-      "prompt": "Boss Level: Catch all target vowel team and r-controlled words!",
-      "spokenPrompt": "Boss Level: Catch all target vowel team and r-controlled words!"
+      "prompt": "Boss Level: Catch vowel teams & Bossy R words (like rain, boat, star)!",
+      "spokenPrompt": "Boss Level: Catch vowel teams & Bossy R words (like rain, boat, star)!"
     }
   ],
   "items": [
