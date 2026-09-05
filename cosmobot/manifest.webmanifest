@@ -1,1 +1,101 @@
-{"name":"CosmoBot: Math Blaster Odyssey","short_name":"CosmoBot","description":"Pittsburgh Public Schools Math Blaster educational game for kids.","start_url":"./index.html","display":"standalone","background_color":"#0A0E1A","theme_color":"#0A0E1A","lang":"en","scope":"./","display_override":["standalone"],"orientation":"portrait","prefer_related_applications":false,"icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},{"src":"icon-192-maskable.png","sizes":"192x192","type":"image/png","purpose":"maskable"},{"src":"icon-512-maskable.png","sizes":"512x512","type":"image/png","purpose":"maskable"}],"screenshots":[{"src":"./screenshots/boot-screen.png","sizes":"393x852","type":"image/png","form_factor":"narrow","label":"CosmoBot Boot Screen"},{"src":"./screenshots/world-map.png","sizes":"393x852","type":"image/png","form_factor":"narrow","label":"Galaxy Map & World Selector"},{"src":"./screenshots/star-blaster.png","sizes":"393x852","type":"image/png","form_factor":"narrow","label":"Math Blaster Cannon Gameplay"},{"src":"./screenshots/pips-room.png","sizes":"393x852","type":"image/png","form_factor":"narrow","label":"Pip Habitat & Stats"}]}
+{
+  "name": "CosmoBot: Math Blaster Odyssey",
+  "short_name": "CosmoBot",
+  "description": "Mobile-friendly retro-modern math arcade PWA aligned with Pittsburgh Public Schools 2nd grade and gifted 3rd grade math curriculum. Starring Pip the plush robot!",
+  "id": "cosmobot-math-blaster",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone"],
+  "background_color": "#0A0E1A",
+  "theme_color": "#6C5CE7",
+  "prefer_related_applications": false,
+  "categories": ["education", "games", "kids"],
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "./icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./screenshots/boot-screen.png",
+      "sizes": "393x852",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "CosmoBot Boot Screen"
+    },
+    {
+      "src": "./screenshots/world-map.png",
+      "sizes": "393x852",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Galaxy Map & World Selector"
+    },
+    {
+      "src": "./screenshots/star-blaster.png",
+      "sizes": "393x852",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Math Blaster Cannon Gameplay"
+    },
+    {
+      "src": "./screenshots/pips-room.png",
+      "sizes": "393x852",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Pip's Cozy Habitat & Dress Up"
+    }
+  ]
+}

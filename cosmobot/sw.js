@@ -1,1 +1,72 @@
-if(!self.define){let e,n={};const i=(i,s)=>(i=new URL(i+".js",s).href,n[i]||new Promise(n=>{if("document"in self){const e=document.createElement("script");e.src=i,e.onload=n,document.head.appendChild(e)}else e=i,importScripts(i),n()}).then(()=>{let e=n[i];if(!e)throw new Error(`Module ${i} didn’t register its module`);return e}));self.define=(s,r)=>{const a=e||("document"in self?document.currentScript.src:"")||location.href;if(n[a])return;let o={};const f=e=>i(e,a),b={module:{uri:a},exports:o,require:f};n[a]=Promise.all(s.map(e=>b[e]||f(e))).then(e=>(r(...e),o))}}define(["./workbox-778a14ff"],function(e){"use strict";e.setCacheNameDetails({prefix:"cosmobot-v1"}),self.skipWaiting(),e.clientsClaim(),e.precacheAndRoute([{url:"manifest.json",revision:"b56eb5995ae2d4f5bdbd18e1fec2d2c9"},{url:"index.html",revision:"2f94ee8f7c59081ae29cb82fa6306be4"},{url:"icon-96.png",revision:"65ab5b0445baaf8b997bdfd7bb09609a"},{url:"icon-72.png",revision:"1018b9ed5f539822b0bc256afc4c9010"},{url:"icon-512.png",revision:"5aefd07256e79aa5519907d16aa9f494"},{url:"icon-512-maskable.png",revision:"b393f6811084f3ff787d9bb53d771faf"},{url:"icon-384.png",revision:"9acc45932b25eb4a2f7b4a94a6dddc1f"},{url:"icon-192.png",revision:"9d7d366b5f150410a7af08f21786e4b3"},{url:"icon-192-maskable.png",revision:"57f4c1cb8d1f83bb87b774363ea52cac"},{url:"icon-152.png",revision:"67eb7fb046c1a54a618808629bc2a669"},{url:"icon-144.png",revision:"23e0ab7132e4a1f69c1fd6cf68d77a92"},{url:"icon-128.png",revision:"7f110df4abae9daef295efe69eda8982"},{url:"favicon.svg",revision:"6c4abfe13c20549d7d821b8a0da63e18"},{url:"screenshots/world-map.png",revision:"f2e38e3235bac478719219f7d7e4beb0"},{url:"screenshots/star-blaster.png",revision:"86e1db7807008973e9a5cd283a4a58ae"},{url:"screenshots/pps-report.png",revision:"7b15896eaeafb32d9e430a45ab6450f1"},{url:"screenshots/pips-room.png",revision:"3a80b98fbd0427ded0d1fd9a624814f4"},{url:"screenshots/boot-screen.png",revision:"5ab2f1e694015d977b8a3f30f8f9ec96"},{url:"assets/index-CP__Kjbp.js",revision:null},{url:"assets/game.png",revision:null},{url:"assets/game.json",revision:null},{url:"icon-192-maskable.png",revision:"57f4c1cb8d1f83bb87b774363ea52cac"},{url:"icon-192.png",revision:"9d7d366b5f150410a7af08f21786e4b3"},{url:"icon-512-maskable.png",revision:"b393f6811084f3ff787d9bb53d771faf"},{url:"icon-512.png",revision:"5aefd07256e79aa5519907d16aa9f494"},{url:"manifest.webmanifest",revision:"b56eb5995ae2d4f5bdbd18e1fec2d2c9"}],{}),e.cleanupOutdatedCaches(),e.registerRoute(new e.NavigationRoute(e.createHandlerBoundToURL("index.html")))});
+const CACHE_NAME = 'cosmobot-v3';
+const PRECACHE_ASSETS = [
+  './',
+  './index.html',
+  './manifest.json',
+  './favicon.svg',
+  './icons/icon-192.png',
+  './icons/icon-192-maskable.png',
+  './icons/icon-512.png',
+  './icons/icon-512-maskable.png'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      // Robust individual caching so single 404 does not abort SW install
+      return Promise.allSettled(
+        PRECACHE_ASSETS.map((asset) => cache.add(asset).catch(() => {}))
+      );
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        fetch(event.request).then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, networkResponse);
+            });
+          }
+        }).catch(() => {});
+        return cachedResponse;
+      }
+
+      return fetch(event.request).then((networkResponse) => {
+        if (!networkResponse || networkResponse.status !== 200) {
+          return networkResponse;
+        }
+        const responseToCache = networkResponse.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, responseToCache);
+        });
+        return networkResponse;
+      }).catch(() => {
+        if (event.request.mode === 'navigate') {
+          return caches.match('./index.html');
+        }
+      });
+    })
+  );
+});

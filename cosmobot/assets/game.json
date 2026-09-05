@@ -4,74 +4,11 @@
 			"image": "game.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 1024,
-				"h": 512
+				"w": 512,
+				"h": 1024
 			},
 			"scale": 1,
 			"frames": [
-				{
-					"filename": "pip/idle/2",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 96,
-						"h": 96
-					},
-					"spriteSourceSize": {
-						"x": 20,
-						"y": 0,
-						"w": 56,
-						"h": 91
-					},
-					"frame": {
-						"x": 3,
-						"y": 3,
-						"w": 56,
-						"h": 91
-					}
-				},
-				{
-					"filename": "pip/blastoff/1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 96,
-						"h": 96
-					},
-					"spriteSourceSize": {
-						"x": 23,
-						"y": 0,
-						"w": 50,
-						"h": 91
-					},
-					"frame": {
-						"x": 3,
-						"y": 100,
-						"w": 50,
-						"h": 91
-					}
-				},
-				{
-					"filename": "pip/wrong/2",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 96,
-						"h": 96
-					},
-					"spriteSourceSize": {
-						"x": 20,
-						"y": 4,
-						"w": 58,
-						"h": 88
-					},
-					"frame": {
-						"x": 3,
-						"y": 197,
-						"w": 58,
-						"h": 88
-					}
-				},
 				{
 					"filename": "pip/idle/0",
 					"rotated": false,
@@ -81,16 +18,16 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 20,
-						"y": 4,
-						"w": 56,
-						"h": 88
+						"x": 10,
+						"y": 10,
+						"w": 76,
+						"h": 76
 					},
 					"frame": {
-						"x": 59,
-						"y": 100,
-						"w": 56,
-						"h": 88
+						"x": 3,
+						"y": 3,
+						"w": 76,
+						"h": 76
 					}
 				},
 				{
@@ -102,16 +39,37 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 20,
-						"y": 4,
-						"w": 56,
-						"h": 88
+						"x": 10,
+						"y": 10,
+						"w": 76,
+						"h": 76
 					},
 					"frame": {
-						"x": 65,
-						"y": 3,
-						"w": 56,
-						"h": 88
+						"x": 3,
+						"y": 85,
+						"w": 76,
+						"h": 76
+					}
+				},
+				{
+					"filename": "pip/wrong/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 10,
+						"w": 76,
+						"h": 76
+					},
+					"frame": {
+						"x": 3,
+						"y": 167,
+						"w": 76,
+						"h": 76
 					}
 				},
 				{
@@ -123,20 +81,20 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 20,
-						"y": 4,
-						"w": 56,
-						"h": 88
+						"x": 11,
+						"y": 10,
+						"w": 74,
+						"h": 76
 					},
 					"frame": {
-						"x": 121,
-						"y": 97,
-						"w": 56,
-						"h": 88
+						"x": 3,
+						"y": 249,
+						"w": 74,
+						"h": 76
 					}
 				},
 				{
-					"filename": "pip/hop/1",
+					"filename": "pip/idle/2",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -144,16 +102,16 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 22,
-						"y": 0,
-						"w": 52,
-						"h": 88
+						"x": 11,
+						"y": 10,
+						"w": 74,
+						"h": 75
 					},
 					"frame": {
-						"x": 127,
-						"y": 3,
-						"w": 52,
-						"h": 88
+						"x": 3,
+						"y": 331,
+						"w": 74,
+						"h": 75
 					}
 				},
 				{
@@ -165,20 +123,20 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 12,
-						"y": 0,
+						"x": 11,
+						"y": 10,
 						"w": 73,
-						"h": 87
+						"h": 75
 					},
 					"frame": {
 						"x": 3,
-						"y": 291,
+						"y": 412,
 						"w": 73,
-						"h": 87
+						"h": 75
 					}
 				},
 				{
-					"filename": "pip/blastoff/2",
+					"filename": "pip/idle/1",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -186,16 +144,37 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 22,
-						"y": 0,
-						"w": 53,
-						"h": 87
+						"x": 10,
+						"y": 12,
+						"w": 76,
+						"h": 74
 					},
 					"frame": {
-						"x": 67,
-						"y": 194,
-						"w": 53,
-						"h": 87
+						"x": 3,
+						"y": 493,
+						"w": 76,
+						"h": 74
+					}
+				},
+				{
+					"filename": "pip/hop/1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 10,
+						"w": 68,
+						"h": 74
+					},
+					"frame": {
+						"x": 82,
+						"y": 412,
+						"w": 68,
+						"h": 74
 					}
 				},
 				{
@@ -208,57 +187,15 @@
 					},
 					"spriteSourceSize": {
 						"x": 10,
-						"y": 0,
-						"w": 78,
-						"h": 86
-					},
-					"frame": {
-						"x": 3,
-						"y": 384,
-						"w": 78,
-						"h": 86
-					}
-				},
-				{
-					"filename": "pip/idle/1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 96,
-						"h": 96
-					},
-					"spriteSourceSize": {
-						"x": 19,
-						"y": 7,
-						"w": 58,
-						"h": 85
-					},
-					"frame": {
-						"x": 82,
-						"y": 287,
-						"w": 58,
-						"h": 85
-					}
-				},
-				{
-					"filename": "pip/hop/2",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 96,
-						"h": 96
-					},
-					"spriteSourceSize": {
-						"x": 11,
-						"y": 0,
+						"y": 10,
 						"w": 76,
-						"h": 84
+						"h": 73
 					},
 					"frame": {
-						"x": 126,
-						"y": 191,
+						"x": 83,
+						"y": 249,
 						"w": 76,
-						"h": 84
+						"h": 73
 					}
 				},
 				{
@@ -270,20 +207,20 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 20,
-						"y": 8,
-						"w": 58,
-						"h": 84
+						"x": 10,
+						"y": 13,
+						"w": 76,
+						"h": 73
 					},
 					"frame": {
-						"x": 183,
-						"y": 97,
-						"w": 58,
-						"h": 84
+						"x": 83,
+						"y": 328,
+						"w": 76,
+						"h": 73
 					}
 				},
 				{
-					"filename": "pip/blastoff/3",
+					"filename": "pip/blastoff/1",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -291,16 +228,16 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 21,
-						"y": 0,
-						"w": 54,
-						"h": 84
+						"x": 15,
+						"y": 10,
+						"w": 66,
+						"h": 73
 					},
 					"frame": {
-						"x": 208,
+						"x": 85,
 						"y": 3,
-						"w": 54,
-						"h": 84
+						"w": 66,
+						"h": 73
 					}
 				},
 				{
@@ -313,15 +250,36 @@
 					},
 					"spriteSourceSize": {
 						"x": 10,
-						"y": 8,
-						"w": 78,
-						"h": 82
+						"y": 14,
+						"w": 76,
+						"h": 72
 					},
 					"frame": {
-						"x": 268,
+						"x": 85,
+						"y": 82,
+						"w": 76,
+						"h": 72
+					}
+				},
+				{
+					"filename": "pip/hop/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 10,
+						"w": 76,
+						"h": 72
+					},
+					"frame": {
+						"x": 157,
 						"y": 3,
-						"w": 78,
-						"h": 82
+						"w": 76,
+						"h": 72
 					}
 				},
 				{
@@ -333,16 +291,37 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 18,
-						"y": 11,
-						"w": 60,
-						"h": 81
+						"x": 10,
+						"y": 16,
+						"w": 76,
+						"h": 70
 					},
 					"frame": {
-						"x": 352,
-						"y": 3,
-						"w": 60,
-						"h": 81
+						"x": 85,
+						"y": 160,
+						"w": 76,
+						"h": 70
+					}
+				},
+				{
+					"filename": "pip/blastoff/2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 10,
+						"w": 70,
+						"h": 70
+					},
+					"frame": {
+						"x": 3,
+						"y": 573,
+						"w": 70,
+						"h": 70
 					}
 				},
 				{
@@ -354,16 +333,37 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 17,
-						"y": 15,
-						"w": 62,
-						"h": 77
+						"x": 10,
+						"y": 19,
+						"w": 76,
+						"h": 67
 					},
 					"frame": {
-						"x": 418,
-						"y": 3,
-						"w": 62,
-						"h": 77
+						"x": 3,
+						"y": 649,
+						"w": 76,
+						"h": 67
+					}
+				},
+				{
+					"filename": "pip/blastoff/3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 10,
+						"w": 72,
+						"h": 67
+					},
+					"frame": {
+						"x": 79,
+						"y": 573,
+						"w": 72,
+						"h": 67
 					}
 				},
 				{
@@ -375,16 +375,16 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 16,
-						"y": 18,
-						"w": 64,
-						"h": 74
+						"x": 10,
+						"y": 21,
+						"w": 76,
+						"h": 65
 					},
 					"frame": {
-						"x": 486,
-						"y": 3,
-						"w": 64,
-						"h": 74
+						"x": 85,
+						"y": 492,
+						"w": 76,
+						"h": 65
 					}
 				},
 				{
@@ -396,16 +396,16 @@
 						"h": 96
 					},
 					"spriteSourceSize": {
-						"x": 15,
-						"y": 22,
-						"w": 66,
-						"h": 71
+						"x": 10,
+						"y": 25,
+						"w": 76,
+						"h": 61
 					},
 					"frame": {
-						"x": 556,
-						"y": 3,
-						"w": 66,
-						"h": 71
+						"x": 156,
+						"y": 407,
+						"w": 76,
+						"h": 61
 					}
 				},
 				{
@@ -423,8 +423,8 @@
 						"h": 53
 					},
 					"frame": {
-						"x": 628,
-						"y": 3,
+						"x": 165,
+						"y": 236,
 						"w": 53,
 						"h": 53
 					}
@@ -444,52 +444,10 @@
 						"h": 53
 					},
 					"frame": {
-						"x": 687,
-						"y": 3,
+						"x": 165,
+						"y": 295,
 						"w": 53,
 						"h": 53
-					}
-				},
-				{
-					"filename": "ui/node_unlocked",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 6,
-						"y": 6,
-						"w": 53,
-						"h": 53
-					},
-					"frame": {
-						"x": 746,
-						"y": 3,
-						"w": 53,
-						"h": 53
-					}
-				},
-				{
-					"filename": "ui/coin",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 8,
-						"y": 8,
-						"w": 49,
-						"h": 49
-					},
-					"frame": {
-						"x": 805,
-						"y": 3,
-						"w": 49,
-						"h": 49
 					}
 				},
 				{
@@ -507,8 +465,8 @@
 						"h": 46
 					},
 					"frame": {
-						"x": 860,
-						"y": 3,
+						"x": 165,
+						"y": 354,
 						"w": 49,
 						"h": 46
 					}
@@ -528,31 +486,10 @@
 						"h": 46
 					},
 					"frame": {
-						"x": 915,
-						"y": 3,
+						"x": 220,
+						"y": 354,
 						"w": 49,
 						"h": 46
-					}
-				},
-				{
-					"filename": "ui/rocket",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 64,
-						"h": 64
-					},
-					"spriteSourceSize": {
-						"x": 10,
-						"y": 6,
-						"w": 45,
-						"h": 53
-					},
-					"frame": {
-						"x": 970,
-						"y": 3,
-						"w": 45,
-						"h": 53
 					}
 				},
 				{
@@ -570,10 +507,73 @@
 						"h": 45
 					},
 					"frame": {
-						"x": 860,
-						"y": 55,
+						"x": 275,
+						"y": 354,
 						"w": 45,
 						"h": 45
+					}
+				},
+				{
+					"filename": "ui/node_unlocked",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 53,
+						"h": 53
+					},
+					"frame": {
+						"x": 167,
+						"y": 81,
+						"w": 53,
+						"h": 53
+					}
+				},
+				{
+					"filename": "ui/rocket",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 6,
+						"w": 45,
+						"h": 53
+					},
+					"frame": {
+						"x": 167,
+						"y": 140,
+						"w": 45,
+						"h": 53
+					}
+				},
+				{
+					"filename": "ui/coin",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 64,
+						"h": 64
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 8,
+						"w": 49,
+						"h": 49
+					},
+					"frame": {
+						"x": 218,
+						"y": 140,
+						"w": 49,
+						"h": 49
 					}
 				},
 				{
@@ -591,8 +591,8 @@
 						"h": 41
 					},
 					"frame": {
-						"x": 805,
-						"y": 58,
+						"x": 226,
+						"y": 81,
 						"w": 41,
 						"h": 41
 					}
