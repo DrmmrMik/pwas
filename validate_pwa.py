@@ -56,15 +56,19 @@ def warn(msg):
 
 
 def load_manifest(d):
-    p = os.path.join(d, "manifest.json")
-    if not os.path.exists(p):
-        err("manifest.json missing")
-        return None
-    try:
-        return json.load(open(p))
-    except Exception as e:
-        err(f"manifest.json not valid JSON: {e}")
-        return None
+    # Accept both the classic literal filename and the vite-plugin-pwa /
+    # Workbox convention (manifest.webmanifest) — both are valid per spec,
+    # the extension is a naming convention, not a requirement.
+    for name in ("manifest.json", "manifest.webmanifest"):
+        p = os.path.join(d, name)
+        if os.path.exists(p):
+            try:
+                return json.load(open(p))
+            except Exception as e:
+                err(f"{name} not valid JSON: {e}")
+                return None
+    err("manifest.json (or manifest.webmanifest) missing")
+    return None
 
 
 def load_html(d):
@@ -187,7 +191,8 @@ def check_html(html):
         warn("viewport meta lacks viewport-fit=cover")
     if 'name="theme-color"' not in html:
         warn("index.html missing theme-color meta")
-    if "serviceWorker.register" not in html:
+    if "serviceWorker.register" not in html and "registerSW.js" not in html and \
+       'id="vite-plugin-pwa:register-sw"' not in html:
         err("index.html does not register a service worker")
 
 
