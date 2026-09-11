@@ -196,6 +196,39 @@ def check_html(html):
         err("index.html does not register a service worker")
 
 
+def check_asset_paths_vs_base_url(html, base_url):
+    """Catches the 'white screen after deploy, works locally' bug class.
+
+    A framework build (Vite etc.) with no `base` config set emits
+    root-absolute asset paths (src="/assets/index-*.js"). Those paths are
+    only correct if the app is served at the domain root. If it's actually
+    served at a subpath (e.g. a monorepo folder), the browser requests the
+    WRONG url, the JS bundle 404s, the app never mounts, and the page is a
+    blank white screen — with build succeeding and even Playwright tests
+    passing locally (local dev/preview servers default to root, so this
+    class of bug is invisible until the real deployed URL is hit).
+    Requires --base-url to know what subpath the app SHOULD be served at.
+    """
+    if html is None or not base_url:
+        return
+    from urllib.parse import urlparse
+    base_path = urlparse(base_url).path.rstrip("/") + "/"
+    srcs = re.findall(r'<script[^>]+src="([^"]+)"', html)
+    srcs += re.findall(r'<link[^>]+rel="manifest"[^>]+href="([^"]+)"', html)
+    for src in srcs:
+        if src.startswith("http") or src.startswith("//"):
+            continue
+        if src.startswith("/") and not src.startswith(base_path):
+            err(f"asset path '{src}' does not start with the deploy base path "
+                f"'{base_path}' — this WILL 404 at runtime and produce a blank "
+                "white screen, even though local build/test passed. Fix: set "
+                "`base` in vite.config.ts (or equivalent) to the real deploy "
+                "subpath, update manifest scope/start_url/shortcuts to match, "
+                "and update the Playwright config's baseURL to match too — "
+                "otherwise the test suite keeps passing against a false-positive "
+                "root-relative setup while the live site is broken.")
+
+
 def check_sw(sw, d):
     if sw is None:
         return
@@ -256,6 +289,7 @@ def main():
     check_manifest(m, d)
     check_html(html)
     check_sw(sw, d)
+    check_asset_paths_vs_base_url(html, base_url)
     if base_url:
         check_live_icons(m, base_url)
 
