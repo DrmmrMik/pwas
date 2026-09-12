@@ -184,11 +184,13 @@ try {
 
   // Determine matching repository name for the individual project
   const repoMapping = {
+    'ginnycrunchers': 'ginnycrunchers',
     'climascape': 'climascape',
     'crayonbox': 'crayonbox',
-    'penandpaper': 'penandpaper',
+    'penandpaper': 'PenAndPaper',
     'fitnesstracker': 'fitness_tracker',
     'photoscavengerhunt': 'photo_scavenger_hunt',
+    'photoscavengerhunt-eink': 'photo_scavenger_hunt_eink',
     'travel-charleston': 'travel-charleston'
   };
   const repoName = repoMapping[targetFolder] || targetFolder;
