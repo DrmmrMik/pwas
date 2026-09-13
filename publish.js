@@ -178,9 +178,13 @@ try {
   // Add the changes to the monorepo to check status
   runGitSecure(`git add "${targetFolder}"`);
   runGitSecure('git add "projects.json"');
+  runGitSecure('git add "app.js"');
+  if (fs.existsSync(path.join(repoDir, 'nova'))) {
+    runGitSecure('git add "nova"');
+  }
 
-  // Check if there are any changes to commit in the target folder or projects.json
-  const statusCheck = execSync(`git status --porcelain "${targetFolder}" projects.json`, { cwd: repoDir }).toString().trim();
+  // Check if there are any changes to commit
+  const statusCheck = execSync('git status --porcelain', { cwd: repoDir }).toString().trim();
 
   // Determine matching repository name for the individual project
   const repoMapping = {
