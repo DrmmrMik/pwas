@@ -123,7 +123,9 @@ function getGlowColor(colorHex) {
 
 async function loadProjects() {
   try {
-    const res = await fetch('./projects.json');
+    const isSubdir = window.location.pathname.includes('/nova');
+    const basePrefix = isSubdir ? '../' : './';
+    const res = await fetch(`${basePrefix}projects.json`);
     if (!res.ok) throw new Error('Could not load projects.json registry');
     const folders = await res.json();
     
@@ -131,12 +133,13 @@ async function loadProjects() {
     appList = [];
 
     for (const folder of folders) {
+      if (isSubdir && folder === 'nova') continue;
       try {
-        const manifestRes = await fetch(`./${folder}/manifest.json`);
+        const manifestRes = await fetch(`${basePrefix}${folder}/manifest.json`);
         if (!manifestRes.ok) {
           // If manifest is missing, check if index.html exists to avoid showing non-existent projects
           try {
-            const indexRes = await fetch(`./${folder}/index.html`);
+            const indexRes = await fetch(`${basePrefix}${folder}/index.html`);
             if (!indexRes.ok) {
               console.warn(`[Portal] Skipping "${folder}" - directory is missing or empty.`);
               continue;
@@ -150,11 +153,11 @@ async function loadProjects() {
         const manifest = await manifestRes.json();
         
         // Resolve icon source path
-        let iconUrl = 'icons/icon.svg'; // fallback
+        let iconUrl = isSubdir ? '../icons/icon.svg' : 'icons/icon.svg'; // fallback
         if (manifest.icons && manifest.icons.length > 0) {
           // Try to find the 192 icon or take the first one
           const iconObj = manifest.icons.find(i => i.sizes.includes('192')) || manifest.icons[0];
-          iconUrl = `./${folder}/${iconObj.src.replace(/^\//, '')}`;
+          iconUrl = `${basePrefix}${folder}/${iconObj.src.replace(/^\//, '')}`;
         }
 
         let rawStart = manifest.start_url || 'index.html';
@@ -174,7 +177,7 @@ async function loadProjects() {
           themeColor: manifest.theme_color || '#a855f7',
           icon: iconUrl,
           categories: manifest.categories || ['utility'],
-          startUrl: `./${folder}/${rawStart}`
+          startUrl: `${basePrefix}${folder}/${rawStart}`
         };
 
         appList.push(appData);
