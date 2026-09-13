@@ -157,6 +157,15 @@ async function loadProjects() {
           iconUrl = `./${folder}/${iconObj.src.replace(/^\//, '')}`;
         }
 
+        let rawStart = manifest.start_url || 'index.html';
+        if (rawStart.startsWith(`/pwas/${folder}/`)) {
+          rawStart = rawStart.slice(`/pwas/${folder}/`.length);
+        } else if (rawStart.startsWith(`/${folder}/`)) {
+          rawStart = rawStart.slice(`/${folder}/`.length);
+        }
+        rawStart = rawStart.replace(/^\.\//, '').replace(/^\//, '');
+        if (!rawStart) rawStart = 'index.html';
+
         const appData = {
           folder: folder,
           name: manifest.name || folder,
@@ -165,7 +174,7 @@ async function loadProjects() {
           themeColor: manifest.theme_color || '#a855f7',
           icon: iconUrl,
           categories: manifest.categories || ['utility'],
-          startUrl: `./${folder}/${(manifest.start_url || 'index.html').replace(/^\.\//, '').replace(/^\//, '')}`
+          startUrl: `./${folder}/${rawStart}`
         };
 
         appList.push(appData);
