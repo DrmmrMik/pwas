@@ -8,6 +8,7 @@
   "theme_color": "#0b1d3a",
   "lang": "en",
   "scope": "./",
+  "version": "1.0.0",
   "display_override": [
     "standalone"
   ],
@@ -74,6 +75,5 @@
       ]
     }
   ],
-  "version": "0.1.0",
-  "x-build-stamp": "20260914201801"
+  "x-build-stamp": "20260914220905"
 }
