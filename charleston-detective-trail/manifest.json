@@ -1,0 +1,79 @@
+{
+  "name": "Charleston Detective Trail",
+  "short_name": "CHS Trail",
+  "description": "Interactive family audio tour & architectural scavenger hunt in historic downtown Charleston, SC.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b1d3a",
+  "lang": "en",
+  "scope": "./",
+  "display_override": [
+    "standalone"
+  ],
+  "orientation": "portrait",
+  "categories": [
+    "travel",
+    "education",
+    "kids"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Stop list on a phone"
+    },
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Map view on desktop"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Simulate GPS",
+      "short_name": "GPS Sim",
+      "description": "Jump to any stop without walking there",
+      "url": "./index.html?tab=map",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0",
+  "x-build-stamp": "20260914201506"
+}
