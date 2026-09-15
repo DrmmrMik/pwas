@@ -139,6 +139,9 @@ function detectIsEink(manifest, folder, name, shortName) {
   if (cats.includes('e-ink') || cats.includes('eink')) return true;
   if (folder.toLowerCase().endsWith('-eink') || folder.toLowerCase().endsWith('_eink')) return true;
   if (manifest.eink === true || manifest.is_eink === true) return true;
+  // Single-build apps with a runtime e-ink toggle (not a separate
+  // dedicated e-ink folder) declare it this way -- see validate_pwa.py.
+  if (manifest.eink_mode === 'toggle') return true;
   if ((name + ' ' + shortName).toLowerCase().includes('e-ink') || (name + ' ' + shortName).toLowerCase().includes('eink')) return true;
   return false;
 }
