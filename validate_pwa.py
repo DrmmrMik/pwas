@@ -208,7 +208,7 @@ def check_manifest(m, d):
 
 
 
-def check_html(html):
+def check_html(html, build_dir=None):
     if html is None:
         return
     if "http://" in html:
@@ -223,7 +223,36 @@ def check_html(html):
         warn("index.html missing theme-color meta")
     if "serviceWorker.register" not in html and "registerSW.js" not in html and \
        'id="vite-plugin-pwa:register-sw"' not in html:
-        err("index.html does not register a service worker")
+        # Framework builds using vite-plugin-pwa's virtual:pwa-register/react
+        # (or /vue, /svelte, etc.) hook register the service worker from
+        # INSIDE the compiled JS bundle -- e.g. so a component can show a
+        # custom "update available, tap to refresh" banner instead of the
+        # library silently self-updating. index.html never mentions the
+        # service worker at all in that pattern; it's not a missed
+        # registration, it's a different, equally valid place to put one.
+        # Fall back to scanning the built JS for evidence of a real
+        # navigator.serviceWorker.register() call (workbox-window, which
+        # every vite-plugin-pwa registration path -- inline script or
+        # framework hook -- bundles and calls into) before failing the gate.
+        registered_in_bundle = False
+        if build_dir:
+            for root, _dirs, files in os.walk(build_dir):
+                for fname in files:
+                    if not fname.endswith(".js"):
+                        continue
+                    fpath = os.path.join(root, fname)
+                    try:
+                        with open(fpath, "r", encoding="utf-8", errors="ignore") as fh:
+                            contents = fh.read()
+                    except OSError:
+                        continue
+                    if "serviceWorker.register" in contents or "serviceWorker" in contents and "Workbox" in contents:
+                        registered_in_bundle = True
+                        break
+                if registered_in_bundle:
+                    break
+        if not registered_in_bundle:
+            err("index.html does not register a service worker")
 
 
 def check_asset_paths_vs_base_url(html, base_url):
@@ -317,7 +346,7 @@ def main():
     sw = load_sw(d)
 
     check_manifest(m, d)
-    check_html(html)
+    check_html(html, build_dir=d)
     check_sw(sw, d)
     check_asset_paths_vs_base_url(html, base_url)
     if base_url:
