@@ -26,6 +26,7 @@ To deploy or update a sub-app, follow this sequence exactly:
    `node publish.js <target-folder-name> <source-dist-path>`
    * *Example:* `node publish.js ginnycrunchers /home/gallabot/Documents/Gemini/Ginny_Crunchers/dist`
 5. **Verify Path Formatting:** Confirm that the output files in the target subfolder use **relative paths** (`./assets/...`, `./sw.js`) so that they don't return 404s when hosted under the `/pwas/` subdirectory.
+6. **Verify Title Disambiguation & Taxonomy:** Ensure `manifest.json` has a unique `name` and `short_name` that does not clash with existing apps in `projects.json`. Verify that it declares a valid category (`travel`, `games`, `utilities`). If publishing an E-Ink variant, ensure the title includes `(E-Ink)` (e.g. `CHS E-Ink`) and includes `"e-ink"` in `categories`.
 
 ---
 

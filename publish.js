@@ -77,10 +77,18 @@ if (!srcStat.isDirectory()) {
 const token = loadToken();
 
 try {
-  // 3. Clean target directory
+  // 3. Clean target directory (resilient to sandboxed shells that block
+  // unlink/rmdir on mounted folders -- falls back to renaming the stale
+  // directory aside rather than hard-failing the whole publish).
   log(`Cleaning target folder: "${targetDir}"...`);
   if (fs.existsSync(targetDir)) {
-    fs.rmSync(targetDir, { recursive: true, force: true });
+    try {
+      fs.rmSync(targetDir, { recursive: true, force: true });
+    } catch (cleanErr) {
+      const staleDir = `${targetDir}.stale-${Date.now()}`;
+      log(`Could not delete existing target folder (${cleanErr.message}); renaming aside to "${staleDir}" instead.`);
+      fs.renameSync(targetDir, staleDir);
+    }
   }
   fs.mkdirSync(targetDir, { recursive: true });
 
@@ -157,13 +165,50 @@ try {
     }
     log(`Running: ${printCmd}`);
 
-    try {
+    const attempt = () => {
       const output = execSync(cmdStr, { cwd, stdio: 'pipe' });
       const outputStr = output.toString();
       if (outputStr.trim()) {
         console.log(token ? outputStr.replace(new RegExp(token, 'g'), '[REDACTED]') : outputStr);
       }
+    };
+
+    try {
+      attempt();
     } catch (err) {
+      const lockRe = /Unable to create '([^']+\.lock)': File exists/;
+      let stderrStr = err.stderr ? err.stderr.toString() : '';
+      if (lockRe.test(stderrStr)) {
+        // Some sandboxed environments block unlink() on files inside mounted
+        // folders, so git's own post-op cleanup of its various lockfiles
+        // (index.lock, HEAD.lock, and similar) can silently fail, leaving a
+        // ghost lock that blocks the *next* git command even though the
+        // previous one actually succeeded. Renaming the ghost aside (rename
+        // works where unlink doesn't) and retrying is a safe, non-destructive
+        // recovery -- each successful retry can itself leave a fresh ghost
+        // behind (for a *different* lock file each time), so loop a few
+        // times, re-detecting the specific lock path from each error, rather
+        // than retrying just once against a hardcoded path. On a normal
+        // machine this branch never triggers since locks are legitimately
+        // absent between commands.
+        for (let i = 0; i < 8; i++) {
+          const m = lockRe.exec(stderrStr);
+          if (!m) break;
+          const lockPath = m[1];
+          try {
+            if (fs.existsSync(lockPath)) {
+              fs.renameSync(lockPath, `${lockPath}.stale-${Date.now()}-${i}`);
+            }
+            log(`Detected a stale ${path.basename(lockPath)} left by a prior operation; renamed it aside and retrying "${printCmd}" (attempt ${i + 2})...`);
+            attempt();
+            return;
+          } catch (retryErr) {
+            err = retryErr;
+            stderrStr = retryErr.stderr ? retryErr.stderr.toString() : '';
+            if (!lockRe.test(stderrStr)) break;
+          }
+        }
+      }
       let errMsg = err.message;
       if (err.stderr) {
         errMsg += '\n' + err.stderr.toString();
@@ -223,11 +268,20 @@ try {
     logError(`Could not deploy to individual repository "DrmmrMik/${repoName}": ${err.message}`);
     log("Continuing with central monorepo publication...");
   } finally {
-    // Clean up target directory's .git directory to keep the monorepo clean
+    // Clean up target directory's .git directory to keep the monorepo clean.
+    // Resilient to sandboxed shells that block unlink/rmdir on mounted
+    // folders: fall back to renaming it aside rather than aborting a
+    // publish that otherwise succeeded.
     const gitDir = path.join(targetDir, '.git');
     if (fs.existsSync(gitDir)) {
-      fs.rmSync(gitDir, { recursive: true, force: true });
-      log("Cleaned up temporary .git metadata from target folder.");
+      try {
+        fs.rmSync(gitDir, { recursive: true, force: true });
+        log("Cleaned up temporary .git metadata from target folder.");
+      } catch (cleanErr) {
+        const staleGitDir = path.join(targetDir, `.git.stale-${Date.now()}`);
+        log(`Could not delete temporary .git metadata (${cleanErr.message}); renaming aside to "${staleGitDir}" instead. Safe to delete manually later.`);
+        fs.renameSync(gitDir, staleGitDir);
+      }
     }
   }
 

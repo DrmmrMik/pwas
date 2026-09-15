@@ -12,6 +12,9 @@
     "standalone"
   ],
   "orientation": "portrait",
+  "categories": [
+    "games"
+  ],
   "icons": [
     {
       "src": "icon-72.png",

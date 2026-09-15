@@ -10,6 +10,10 @@
   "lang": "en",
   "scope": "./",
   "description": "Paper-style scavenger hunt checklist for e-readers",
+  "categories": [
+    "games",
+    "e-ink"
+  ],
   "icons": [
     {
       "src": "./icon-192.png",

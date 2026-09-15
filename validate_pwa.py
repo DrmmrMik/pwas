@@ -177,6 +177,24 @@ def check_manifest(m, d):
     if not m.get("screenshots"):
         warn("manifest has no screenshots (recommended for install prompt)")
 
+    # Category taxonomy and E-Ink disambiguation check
+    categories = m.get("categories", [])
+    if not categories:
+        warn("manifest lacks 'categories' member (recommended: declare 'travel', 'games', or 'utilities')")
+    
+    dir_name = os.path.basename(os.path.abspath(d)).lower()
+    is_eink = dir_name.endswith("-eink") or any(c.lower() in ("e-ink", "eink") for c in (categories or []))
+    if is_eink:
+        s_name = str(m.get("short_name", "")).lower()
+        full_name = str(m.get("name", "")).lower()
+        if "e-ink" not in s_name and "eink" not in s_name:
+            err(f"E-Ink app ({dir_name}) short_name '{m.get('short_name')}' lacks explicit '(E-Ink)' suffix for disambiguation")
+        if "e-ink" not in full_name and "eink" not in full_name:
+            warn(f"E-Ink app ({dir_name}) name '{m.get('name')}' should include '(E-Ink)' suffix")
+        if not any(c.lower() in ("e-ink", "eink") for c in (categories or [])):
+            warn(f"E-Ink app ({dir_name}) should include 'e-ink' tag in manifest categories")
+
+
 
 def check_html(html):
     if html is None:

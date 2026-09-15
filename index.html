@@ -114,6 +114,37 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" id="search-input" class="search-input" placeholder="Search applications..." aria-label="Search applications" autocomplete="off">
       </div>
+
+      <!-- Category & E-Ink Filter Pills -->
+      <nav class="filter-bar" aria-label="Filter applications">
+        <div class="filter-pills" role="tablist">
+          <button class="filter-pill active" data-category="all" role="tab" aria-selected="true">
+            <span>All</span>
+            <span class="filter-count" id="count-all">0</span>
+          </button>
+          <button class="filter-pill" data-category="travel" role="tab" aria-selected="false">
+            <i class="fa-solid fa-plane-departure"></i>
+            <span>Travel</span>
+            <span class="filter-count" id="count-travel">0</span>
+          </button>
+          <button class="filter-pill" data-category="games" role="tab" aria-selected="false">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>Games</span>
+            <span class="filter-count" id="count-games">0</span>
+          </button>
+          <button class="filter-pill" data-category="utilities" role="tab" aria-selected="false">
+            <i class="fa-solid fa-wrench"></i>
+            <span>Utilities</span>
+            <span class="filter-count" id="count-utilities">0</span>
+          </button>
+          <div class="filter-divider" aria-hidden="true"></div>
+          <button class="filter-pill filter-pill-eink" id="btn-eink-filter" data-tag="e-ink" role="button" aria-pressed="false" title="Filter for E-Ink optimized apps">
+            <i class="fa-solid fa-book-open"></i>
+            <span>E-Ink</span>
+            <span class="filter-count" id="count-eink">0</span>
+          </button>
+        </div>
+      </nav>
     </header>
 
     <!-- Main Scrollable App Grid -->
@@ -136,15 +167,19 @@
           </style>
           <h3 class="noscript-title">Applications</h3>
           <ul class="app-list">
-            <li><a class="app-link" href="./climascape/">🌳 Climascape</a></li>
-            <li><a class="app-link" href="./crayonbox/">🎨 Crayon Box</a></li>
-            <li><a class="app-link" href="./fitnesstracker/">🏋️ AuraFit</a></li>
-            <li><a class="app-link" href="./ginnycrunchers/">🧁 Ginny Crunchers</a></li>
-            <li><a class="app-link" href="./penandpaper/">✍️ Pen &amp; Paper</a></li>
-            <li><a class="app-link" href="./photoscavengerhunt/">📸 Photo Scavenger Hunt</a></li>
-            <li><a class="app-link" href="./travel-charleston/">🗺️ Charleston Trip</a></li>
-            <li><a class="app-link" href="./travel-charleston-eink/">🗺️ Charleston E-Ink</a></li>
-            <li><a class="app-link" href="./charleston-detective-trail/">🕵️ Charleston Detective Trail</a></li>
+            <li><a class="app-link" href="./travel-charleston/">🗺️ Charleston Travel Companion (CHS Travel) — Travel</a></li>
+            <li><a class="app-link" href="./travel-charleston-eink/">📖 Charleston Travel Companion (CHS E-Ink) — Travel / E-Ink</a></li>
+            <li><a class="app-link" href="./charleston-detective-trail/">🕵️ Charleston Detective Trail (CHS Trail) — Travel</a></li>
+            <li><a class="app-link" href="./catchthefruit/">🍎 Catch the Fruit — Games</a></li>
+            <li><a class="app-link" href="./cosmobot/">🤖 CosmoBot — Games</a></li>
+            <li><a class="app-link" href="./crayonbox/">🎨 CrayonBox — Games</a></li>
+            <li><a class="app-link" href="./ginnycrunchers/">🧁 Ginny Crunchers — Games</a></li>
+            <li><a class="app-link" href="./penandpaper/">✍️ Pen &amp; Paper — Games</a></li>
+            <li><a class="app-link" href="./photoscavengerhunt/">📸 Photo Scavenger Hunt — Games</a></li>
+            <li><a class="app-link" href="./photoscavengerhunt-eink/">📄 Scavenger Hunt E-Ink — Games / E-Ink</a></li>
+            <li><a class="app-link" href="./climascape/">🌳 Climascape — Utilities</a></li>
+            <li><a class="app-link" href="./fitnesstracker/">🏋️ AuraFit — Utilities</a></li>
+            <li><a class="app-link" href="./nova/">🚀 Nova Portal — Utilities</a></li>
           </ul>
         </noscript>
       </div>

@@ -55,6 +55,22 @@ Android"** when a maskable icon is missing. The checklist below prevents both.
       adaptive mask doesn't crop the subject).
 - [ ] SVG icon (if used) is valid and self-contained.
 
+## 6. Title Uniqueness & Variant Disambiguation
+- [ ] `name` and `short_name` are **globally unique** across the PWA monorepo portfolio. No two apps may share the same title.
+- [ ] Hardware-specific or mode-specific variants (e.g. **E-Ink** editions) MUST be explicitly disambiguated in both `name` and `short_name`:
+  - Format: `<Base Title> (E-Ink)` (e.g. `Charleston Travel Companion (E-Ink)`, short: `CHS E-Ink`).
+  - Never publish an E-Ink variant with the same title as its standard smartphone/desktop counterpart.
+
+## 7. Portal Taxonomy & Tagging Standards
+- [ ] Every PWA must declare at least one primary category in `manifest.json` `categories` adhering to the standard portal taxonomy:
+  - `travel`: City guides, audio tours, itineraries, travel companions.
+  - `games`: Educational games, math arcades, coloring books, classic games, scavenger hunts.
+  - `utilities`: Fitness trackers, weather covariance analyzers, calculators, launcher tools.
+- [ ] **E-Ink Tagging**: Applications designed for or optimized for E-Ink devices (e.g. viwoods AiPaper, KOReader, Kindle) MUST:
+  - Include `"e-ink"` in the `categories` array (e.g. `["travel", "e-ink"]` or `["games", "e-ink"]`).
+  - Deploy to a directory ending with `-eink` (e.g. `travel-charleston-eink`, `photoscavengerhunt-eink`).
+
 ## Enforcement
 Run `python3 validate_pwa.py <pwa_build_dir>` BEFORE publishing. It exits non-zero
 on any failure. `publish.js` / build steps MUST call it and abort on failure.
+

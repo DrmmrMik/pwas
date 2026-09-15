@@ -11,6 +11,9 @@
   "display_override": [
     "standalone"
   ],
+  "categories": [
+    "utilities"
+  ],
   "prefer_related_applications": false,
   "icons": [
     {

@@ -12,6 +12,10 @@
     "standalone"
   ],
   "orientation": "portrait",
+  "categories": [
+    "games",
+    "education"
+  ],
   "prefer_related_applications": false,
   "icons": [
     {

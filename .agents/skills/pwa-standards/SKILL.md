@@ -10,6 +10,8 @@ Use this skill when creating, debugging, or editing Progressive Web Apps (PWAs) 
 ## 1. Web App Manifest (`manifest.json`)
 Every PWA must have a `manifest.json` linked in the `<head>` of the main HTML file:
 - **Mandatory properties**: `name`, `short_name`, `description`, `start_url`, `scope`, `display: "standalone"`, `background_color`, `theme_color`, and `orientation: "portrait"` (or `"any"` if responsive grid allows landscape).
+- **Title Uniqueness & Disambiguation**: App titles must be globally unique across the portal. Any specialized or hardware-specific builds (such as E-Ink editions) MUST include an explicit differentiator in `name` and `short_name` (e.g. `name: "Charleston Travel Companion (E-Ink)"`, `short_name: "CHS E-Ink"`). Never publish identical titles for different app targets.
+- **Category Taxonomy & Tagging**: Every manifest must include a `categories` array containing at least one primary taxonomy category: `travel`, `games`, or `utilities`. If the app is optimized for e-ink panels, it must additionally declare `"e-ink"` in `categories` and use the `-eink` directory suffix.
 - **Icons**: Standard icons (`192x192`, `512x512` PNG) along with explicitly defined `purpose: "any maskable"` versions. Provide an SVG icon with `sizes: "any"` for future-proofing.
 - **Shortcuts**: Provide shortcuts for primary app tabs/actions to enable home screen quick actions.
 
