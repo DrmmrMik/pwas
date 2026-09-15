@@ -184,7 +184,17 @@ def check_manifest(m, d):
     
     dir_name = os.path.basename(os.path.abspath(d)).lower()
     is_eink = dir_name.endswith("-eink") or any(c.lower() in ("e-ink", "eink") for c in (categories or []))
-    if is_eink:
+    # A dedicated e-ink build (own folder/manifest, e.g. travel-charleston-eink)
+    # is a separate install from its full-color sibling, so its short_name/name
+    # need an explicit "(E-Ink)" marker or the two are indistinguishable in
+    # text-only contexts (portal noscript fallback, home-screen icon label).
+    # An app that instead ships ONE build with a runtime e-ink toggle (no
+    # separate install to disambiguate from) declares that via a custom
+    # `eink_mode: "toggle"` manifest field -- renaming it would misleadingly
+    # imply an e-ink-only build, so it's exempt from the naming requirement
+    # but still needs the 'e-ink' category tag for the portal filter/badge.
+    is_toggle_eink = m.get("eink_mode") == "toggle"
+    if is_eink and not is_toggle_eink:
         s_name = str(m.get("short_name", "")).lower()
         full_name = str(m.get("name", "")).lower()
         if "e-ink" not in s_name and "eink" not in s_name:
@@ -193,6 +203,8 @@ def check_manifest(m, d):
             warn(f"E-Ink app ({dir_name}) name '{m.get('name')}' should include '(E-Ink)' suffix")
         if not any(c.lower() in ("e-ink", "eink") for c in (categories or [])):
             warn(f"E-Ink app ({dir_name}) should include 'e-ink' tag in manifest categories")
+    elif is_toggle_eink and not is_eink:
+        err(f"manifest declares eink_mode: 'toggle' but is missing the 'e-ink' category tag needed for the portal filter/badge")
 
 
 
