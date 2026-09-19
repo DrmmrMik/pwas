@@ -1,4 +1,4 @@
-import{r as c,i as x,s as p,l as g,g as f,a as m,b as l,c as u,d as v,e as h,f as w,h as y,j as k,k as V,m as E,n as $,o as S,p as I,q as T,t as M,u as B}from"./settingsView-_Iq_2MtH.js";c();function H(){const o=document.body.dataset.version||"0.1.0",n=document.body.dataset.build||"dev";return{version:o,build:n}}function e(){const o=document.getElementById("app");if(!o)return;const n=f(),t=m();H();const r=n.settings.rainMode;let a="";switch(t){case"today":a=l(!1);break;case"itinerary":a=k(!1);break;case"map":a=y(!1);break;case"reservations":a=w(!1);break;case"packing":a=h(!1);break;case"ideas":a=v(!1);break;case"settings":a=u(!1);break;default:a=l(!1)}o.innerHTML=`
+import{r as c,i as x,s as p,l as g,g as f,a as m,b as l,c as u,d as v,e as h,f as w,h as y,j as k,k as V,m as E,n as $,o as S,p as I,q as T,t as M,u as B}from"./settingsView-BnNoXcHQ.js";c();function H(){const o=document.body.dataset.version||"0.1.0",n=document.body.dataset.build||"dev";return{version:o,build:n}}function e(){const o=document.getElementById("app");if(!o)return;const n=f(),t=m();H();const r=n.settings.rainMode;let a="";switch(t){case"today":a=l(!1);break;case"itinerary":a=k(!1);break;case"map":a=y(!1);break;case"reservations":a=w(!1);break;case"packing":a=h(!1);break;case"ideas":a=v(!1);break;case"settings":a=u(!1);break;default:a=l(!1)}o.innerHTML=`
     <!-- Sticky Header -->
     <header class="bg-slate-800 border-b border-slate-700 p-3.5 sticky top-0 z-20 shadow-md">
       <div class="flex items-center justify-between max-w-2xl mx-auto">
@@ -9,7 +9,7 @@ import{r as c,i as x,s as p,l as g,g as f,a as m,b as l,c as u,d as v,e as h,f a
           </div>
           <p class="text-xs text-slate-400">${n.meta.start} to ${n.meta.end} • ${n.meta.base.name}</p>
         </div>
-        <span class="text-[11px] px-2 py-1 bg-slate-900 text-teal-300 border border-slate-700 rounded font-mono font-bold">PWA v0.2.3</span>
+        <span class="text-[11px] px-2 py-1 bg-slate-900 text-teal-300 border border-slate-700 rounded font-mono font-bold">PWA v0.2.4</span>
       </div>
     </header>
 

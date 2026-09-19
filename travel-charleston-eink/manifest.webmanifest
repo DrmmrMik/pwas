@@ -6,8 +6,8 @@
   "background_color": "#ffffff",
   "lang": "en",
   "scope": "./",
-  "version": "0.2.3",
-  "x-build-stamp": "2026.08.15-005",
+  "version": "0.2.4",
+  "x-build-stamp": "2026.09.19-001",
   "description": "Offline-first E-Ink travel companion for Charleston family trip",
   "display_override": [
     "standalone"
@@ -62,4 +62,3 @@
     }
   ]
 }
-
