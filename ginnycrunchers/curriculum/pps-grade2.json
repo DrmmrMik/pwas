@@ -1,0 +1,3415 @@
+{
+  "version": "2.0.0",
+  "district": "Pittsburgh Public Schools",
+  "grade": 2,
+  "skills": {
+    "ELA-PHONICS-VTEAM-OA-01": {
+      "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+      "subject": "ELA",
+      "domain": "PHONICS",
+      "name": "Vowel Team \"oa\" (/oʊ/)",
+      "concept": "Identify words where vowel team oa spells the long o sound.",
+      "rule_prompt": "Munch words with the \"oa\" team!",
+      "audio_prompt": "ph_OW.wav",
+      "game_core": "muncher",
+      "standard_code": "CC.1.1.2.D",
+      "quarter": "Q1"
+    },
+    "ELA-GRAM-PLURALS-01": {
+      "skill_id": "ELA-GRAM-PLURALS-01",
+      "subject": "ELA",
+      "domain": "GRAM",
+      "name": "Irregular Plural Nouns",
+      "concept": "Distinguish irregular plural nouns from regular -s/-es plurals and singular forms.",
+      "rule_prompt": "Munch the Irregular Plural Nouns!",
+      "game_core": "muncher",
+      "standard_code": "CC.1.4.2.F",
+      "quarter": "Q2"
+    },
+    "ELA-MORPH-PREFIX-UN-01": {
+      "skill_id": "ELA-MORPH-PREFIX-UN-01",
+      "subject": "ELA",
+      "domain": "MORPH",
+      "name": "Prefix \"un-\" (Not / Opposite)",
+      "concept": "Recognize the prefix un- and distinguish from words with non-prefix un (e.g. uncle).",
+      "rule_prompt": "Munch words with the prefix \"un-\"!",
+      "game_core": "muncher",
+      "standard_code": "CC.1.2.2.F",
+      "quarter": "Q3"
+    },
+    "MATH-NUM-EVENODD-01": {
+      "skill_id": "MATH-NUM-EVENODD-01",
+      "subject": "MATH",
+      "domain": "OA",
+      "name": "Even and Odd Numbers",
+      "concept": "Determine whether a group of objects or a number up to 100 has an odd or even number of members.",
+      "rule_prompt": "Munch the Even Numbers!",
+      "game_core": "muncher",
+      "standard_code": "CC.2.2.2.A.3",
+      "quarter": "Q1"
+    },
+    "MATH-OA-FACTS20-01": {
+      "skill_id": "MATH-OA-FACTS20-01",
+      "subject": "MATH",
+      "domain": "OA",
+      "name": "Mental Addition Facts to 20",
+      "concept": "Fluently add and subtract within 20 using mental strategies.",
+      "rule_prompt": "Munch expressions equal to 14!",
+      "game_core": "muncher",
+      "standard_code": "CC.2.2.2.A.2",
+      "quarter": "Q1"
+    },
+    "MATH-NBT-PLACEVAL-01": {
+      "skill_id": "MATH-NBT-PLACEVAL-01",
+      "subject": "MATH",
+      "domain": "NBT",
+      "name": "Three-Digit Place Value",
+      "concept": "Understand that the three digits of a three-digit number represent amounts of hundreds, tens, and ones.",
+      "rule_prompt": "Munch numbers with 4 in the Tens place!",
+      "game_core": "muncher",
+      "standard_code": "CC.2.1.2.B.1",
+      "quarter": "Q2"
+    },
+    "MATH-G-SHAPES-01": {
+      "skill_id": "MATH-G-SHAPES-01",
+      "subject": "MATH",
+      "domain": "G",
+      "name": "2D Shape Attributes",
+      "concept": "Recognize and draw shapes having specified attributes, such as a given number of angles or sides.",
+      "rule_prompt": "Munch the Quadrilaterals!",
+      "game_core": "muncher",
+      "standard_code": "CC.2.3.2.A.1",
+      "quarter": "Q3"
+    },
+    "MATH-NBT-SUB-REGROUP-01": {
+      "skill_id": "MATH-NBT-SUB-REGROUP-01",
+      "subject": "MATH",
+      "domain": "NBT",
+      "name": "2-Digit Subtraction with Regrouping",
+      "concept": "Subtract within 100 using strategies based on place value and properties of operations.",
+      "rule_prompt": "Blast the correct difference!",
+      "game_core": "blaster",
+      "standard_code": "CC.2.1.2.B.3",
+      "quarter": "Q2"
+    },
+    "MATH-MD-TIME-01": {
+      "skill_id": "MATH-MD-TIME-01",
+      "subject": "MATH",
+      "domain": "MD",
+      "name": "Time to 5 Minutes",
+      "concept": "Tell and write time from analog and digital clocks to the nearest five minutes.",
+      "rule_prompt": "Blast the matching digital time!",
+      "game_core": "blaster",
+      "standard_code": "CC.2.4.2.A.2",
+      "quarter": "Q3"
+    },
+    "MATH-MD-MONEY-01": {
+      "skill_id": "MATH-MD-MONEY-01",
+      "subject": "MATH",
+      "domain": "MD",
+      "name": "Counting Coins & Making Change",
+      "concept": "Solve word problems involving dollar bills, quarters, dimes, nickels, and pennies.",
+      "rule_prompt": "Blast the correct coin total!",
+      "game_core": "blaster",
+      "standard_code": "CC.2.4.2.A.3",
+      "quarter": "Q2"
+    }
+  },
+  "item_pools": {
+    "ELA-PHONICS-VTEAM-OA-01": [
+      {
+        "item_id": "oa_v2_0",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "boat"
+        },
+        "distractors": [
+          {
+            "value": "bone",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          },
+          {
+            "value": "cone",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          },
+          {
+            "value": "home",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_1",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "coat"
+        },
+        "distractors": [
+          {
+            "value": "rope",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          },
+          {
+            "value": "nose",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          },
+          {
+            "value": "boot",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_2",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "soap"
+        },
+        "distractors": [
+          {
+            "value": "moon",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "room",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "pool",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_3",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "road"
+        },
+        "distractors": [
+          {
+            "value": "book",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "look",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "wood",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_4",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "toad"
+        },
+        "distractors": [
+          {
+            "value": "bat",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "cat",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "hat",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_5",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "float"
+        },
+        "distractors": [
+          {
+            "value": "top",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "hop",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "pot",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_6",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "roast"
+        },
+        "distractors": [
+          {
+            "value": "cup",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "dog",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "rain",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_7",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "toast"
+        },
+        "distractors": [
+          {
+            "value": "train",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          },
+          {
+            "value": "tree",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          },
+          {
+            "value": "feet",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_8",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "foam"
+        },
+        "distractors": [
+          {
+            "value": "seed",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          },
+          {
+            "value": "star",
+            "misconception_id": "ELA-MC-PHONICS-BOSSY-R"
+          },
+          {
+            "value": "fork",
+            "misconception_id": "ELA-MC-PHONICS-BOSSY-R"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_9",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "goat"
+        },
+        "distractors": [
+          {
+            "value": "bark",
+            "misconception_id": "ELA-MC-PHONICS-BOSSY-R"
+          },
+          {
+            "value": "yarn",
+            "misconception_id": "ELA-MC-PHONICS-BOSSY-R"
+          },
+          {
+            "value": "bird",
+            "misconception_id": "ELA-MC-PHONICS-BOSSY-R"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_10",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "cloak"
+        },
+        "distractors": [
+          {
+            "value": "coin",
+            "misconception_id": "ELA-MC-PHONICS-DIPHTHONG"
+          },
+          {
+            "value": "boy",
+            "misconception_id": "ELA-MC-PHONICS-DIPHTHONG"
+          },
+          {
+            "value": "toy",
+            "misconception_id": "ELA-MC-PHONICS-DIPHTHONG"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_11",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "throat"
+        },
+        "distractors": [
+          {
+            "value": "cow",
+            "misconception_id": "ELA-MC-PHONICS-DIPHTHONG"
+          },
+          {
+            "value": "cloud",
+            "misconception_id": "ELA-MC-PHONICS-DIPHTHONG"
+          },
+          {
+            "value": "bone",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_12",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "coach"
+        },
+        "distractors": [
+          {
+            "value": "cone",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          },
+          {
+            "value": "home",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          },
+          {
+            "value": "rope",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_13",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "soak"
+        },
+        "distractors": [
+          {
+            "value": "nose",
+            "misconception_id": "ELA-MC-PHONICS-SILENT-E"
+          },
+          {
+            "value": "boot",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "moon",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_14",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "boast"
+        },
+        "distractors": [
+          {
+            "value": "room",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "pool",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "book",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_15",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "groan"
+        },
+        "distractors": [
+          {
+            "value": "look",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "wood",
+            "misconception_id": "ELA-MC-PHONICS-DOUBLE-O"
+          },
+          {
+            "value": "bat",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_16",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "croak"
+        },
+        "distractors": [
+          {
+            "value": "cat",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "hat",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "top",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_17",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "moat"
+        },
+        "distractors": [
+          {
+            "value": "hop",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "pot",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "cup",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_18",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "coast"
+        },
+        "distractors": [
+          {
+            "value": "dog",
+            "misconception_id": "ELA-MC-PHONICS-SHORT-VOWEL"
+          },
+          {
+            "value": "rain",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          },
+          {
+            "value": "train",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          }
+        ]
+      },
+      {
+        "item_id": "oa_v2_19",
+        "skill_id": "ELA-PHONICS-VTEAM-OA-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch words with the \"oa\" team!"
+        },
+        "target": {
+          "value": "poach"
+        },
+        "distractors": [
+          {
+            "value": "tree",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          },
+          {
+            "value": "feet",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          },
+          {
+            "value": "seed",
+            "misconception_id": "ELA-MC-PHONICS-OTHER-TEAM"
+          }
+        ]
+      }
+    ],
+    "ELA-GRAM-PLURALS-01": [
+      {
+        "item_id": "plural_v2_0",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "children"
+        },
+        "distractors": [
+          {
+            "value": "cats",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "dogs",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "birds",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_1",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "feet"
+        },
+        "distractors": [
+          {
+            "value": "cars",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "balls",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "cups",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_2",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "teeth"
+        },
+        "distractors": [
+          {
+            "value": "hats",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "books",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "chairs",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_3",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "mice"
+        },
+        "distractors": [
+          {
+            "value": "tables",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "apples",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "shoes",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_4",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "geese"
+        },
+        "distractors": [
+          {
+            "value": "pens",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "toys",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "stars",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_5",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "men"
+        },
+        "distractors": [
+          {
+            "value": "childs",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          },
+          {
+            "value": "foots",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          },
+          {
+            "value": "tooths",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_6",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "women"
+        },
+        "distractors": [
+          {
+            "value": "mouses",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          },
+          {
+            "value": "gooses",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          },
+          {
+            "value": "child",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_7",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "people"
+        },
+        "distractors": [
+          {
+            "value": "foot",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "tooth",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "mouse",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_8",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "oxen"
+        },
+        "distractors": [
+          {
+            "value": "goose",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "man",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "woman",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_9",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "leaves"
+        },
+        "distractors": [
+          {
+            "value": "person",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "leaf",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "knife",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_10",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "knives"
+        },
+        "distractors": [
+          {
+            "value": "cats",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "dogs",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "birds",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_11",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "wives"
+        },
+        "distractors": [
+          {
+            "value": "cars",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "balls",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "cups",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_12",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "halves"
+        },
+        "distractors": [
+          {
+            "value": "hats",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "books",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "chairs",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_13",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "calves"
+        },
+        "distractors": [
+          {
+            "value": "tables",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "apples",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "shoes",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_14",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "lives"
+        },
+        "distractors": [
+          {
+            "value": "pens",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "toys",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          },
+          {
+            "value": "stars",
+            "misconception_id": "ELA-MC-GRAM-REGULAR-S"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_15",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "shelves"
+        },
+        "distractors": [
+          {
+            "value": "childs",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          },
+          {
+            "value": "foots",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          },
+          {
+            "value": "tooths",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_16",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "wolves"
+        },
+        "distractors": [
+          {
+            "value": "mouses",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          },
+          {
+            "value": "gooses",
+            "misconception_id": "ELA-MC-GRAM-OVERGENERALIZE"
+          },
+          {
+            "value": "child",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_17",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "thieves"
+        },
+        "distractors": [
+          {
+            "value": "foot",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "tooth",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "mouse",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_18",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "scarves"
+        },
+        "distractors": [
+          {
+            "value": "goose",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "man",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "woman",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          }
+        ]
+      },
+      {
+        "item_id": "plural_v2_19",
+        "skill_id": "ELA-GRAM-PLURALS-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch the Irregular Plural Nouns!"
+        },
+        "target": {
+          "value": "loaves"
+        },
+        "distractors": [
+          {
+            "value": "person",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "leaf",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          },
+          {
+            "value": "knife",
+            "misconception_id": "ELA-MC-GRAM-SINGULAR"
+          }
+        ]
+      }
+    ],
+    "ELA-MORPH-PREFIX-UN-01": [
+      {
+        "item_id": "un_v2_0",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unhappy"
+        },
+        "distractors": [
+          {
+            "value": "happy",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "lock",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "tie",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_1",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unlock"
+        },
+        "distractors": [
+          {
+            "value": "pack",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "fold",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "safe",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_2",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "untie"
+        },
+        "distractors": [
+          {
+            "value": "real",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "seen",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "kind",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_3",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unpack"
+        },
+        "distractors": [
+          {
+            "value": "fair",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "well",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "true",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_4",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unfold"
+        },
+        "distractors": [
+          {
+            "value": "clear",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "under",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          },
+          {
+            "value": "uncle",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_5",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unsafe"
+        },
+        "distractors": [
+          {
+            "value": "unit",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          },
+          {
+            "value": "until",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          },
+          {
+            "value": "union",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_6",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unreal"
+        },
+        "distractors": [
+          {
+            "value": "uniform",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          },
+          {
+            "value": "rebuild",
+            "misconception_id": "ELA-MC-MORPH-OTHER-PREFIX"
+          },
+          {
+            "value": "replay",
+            "misconception_id": "ELA-MC-MORPH-OTHER-PREFIX"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_7",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unseen"
+        },
+        "distractors": [
+          {
+            "value": "preheat",
+            "misconception_id": "ELA-MC-MORPH-OTHER-PREFIX"
+          },
+          {
+            "value": "dislike",
+            "misconception_id": "ELA-MC-MORPH-OTHER-PREFIX"
+          },
+          {
+            "value": "happy",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_8",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unkind"
+        },
+        "distractors": [
+          {
+            "value": "lock",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "tie",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "pack",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_9",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unfair"
+        },
+        "distractors": [
+          {
+            "value": "fold",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "safe",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "real",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_10",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unwell"
+        },
+        "distractors": [
+          {
+            "value": "seen",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "kind",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "fair",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_11",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "untrue"
+        },
+        "distractors": [
+          {
+            "value": "well",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "true",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "clear",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_12",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unclear"
+        },
+        "distractors": [
+          {
+            "value": "under",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          },
+          {
+            "value": "uncle",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          },
+          {
+            "value": "unit",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_13",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "undo"
+        },
+        "distractors": [
+          {
+            "value": "until",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          },
+          {
+            "value": "union",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          },
+          {
+            "value": "uniform",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_14",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unplug"
+        },
+        "distractors": [
+          {
+            "value": "rebuild",
+            "misconception_id": "ELA-MC-MORPH-OTHER-PREFIX"
+          },
+          {
+            "value": "replay",
+            "misconception_id": "ELA-MC-MORPH-OTHER-PREFIX"
+          },
+          {
+            "value": "preheat",
+            "misconception_id": "ELA-MC-MORPH-OTHER-PREFIX"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_15",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "uncover"
+        },
+        "distractors": [
+          {
+            "value": "dislike",
+            "misconception_id": "ELA-MC-MORPH-OTHER-PREFIX"
+          },
+          {
+            "value": "happy",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "lock",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_16",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unfreeze"
+        },
+        "distractors": [
+          {
+            "value": "tie",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "pack",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "fold",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_17",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unwrap"
+        },
+        "distractors": [
+          {
+            "value": "safe",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "real",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "seen",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_18",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unhook"
+        },
+        "distractors": [
+          {
+            "value": "kind",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "fair",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "well",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          }
+        ]
+      },
+      {
+        "item_id": "un_v2_19",
+        "skill_id": "ELA-MORPH-PREFIX-UN-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch words with the prefix \"un-\"!"
+        },
+        "target": {
+          "value": "unarm"
+        },
+        "distractors": [
+          {
+            "value": "true",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "clear",
+            "misconception_id": "ELA-MC-MORPH-BASE-WORD"
+          },
+          {
+            "value": "under",
+            "misconception_id": "ELA-MC-MORPH-PSEUDO-PREFIX"
+          }
+        ]
+      }
+    ],
+    "MATH-NUM-EVENODD-01": [
+      {
+        "item_id": "even_v2_0",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 24
+        },
+        "distractors": [
+          {
+            "value": 23,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 35,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 47,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_1",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 36
+        },
+        "distractors": [
+          {
+            "value": 11,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 49,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 61,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_2",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 48
+        },
+        "distractors": [
+          {
+            "value": 73,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 85,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 97,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_3",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 12
+        },
+        "distractors": [
+          {
+            "value": 15,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 27,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 39,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_4",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 50
+        },
+        "distractors": [
+          {
+            "value": 53,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 67,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 81,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_5",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 62
+        },
+        "distractors": [
+          {
+            "value": 19,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 31,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 43,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_6",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 74
+        },
+        "distractors": [
+          {
+            "value": 57,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 71,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 89,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_7",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 86
+        },
+        "distractors": [
+          {
+            "value": 93,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 17,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 29,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_8",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 98
+        },
+        "distractors": [
+          {
+            "value": 75,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 23,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 35,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_9",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 16
+        },
+        "distractors": [
+          {
+            "value": 47,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 11,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 49,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_10",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 28
+        },
+        "distractors": [
+          {
+            "value": 61,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 73,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 85,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_11",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 40
+        },
+        "distractors": [
+          {
+            "value": 97,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 15,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 27,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_12",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 54
+        },
+        "distractors": [
+          {
+            "value": 39,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 53,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 67,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_13",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 68
+        },
+        "distractors": [
+          {
+            "value": 81,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 19,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 31,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_14",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 82
+        },
+        "distractors": [
+          {
+            "value": 43,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 57,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 71,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_15",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 90
+        },
+        "distractors": [
+          {
+            "value": 89,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 93,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 17,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_16",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 64
+        },
+        "distractors": [
+          {
+            "value": 29,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 75,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 23,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_17",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 38
+        },
+        "distractors": [
+          {
+            "value": 35,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 47,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 11,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_18",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 76
+        },
+        "distractors": [
+          {
+            "value": 49,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 61,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 73,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      },
+      {
+        "item_id": "even_v2_19",
+        "skill_id": "MATH-NUM-EVENODD-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Even Numbers!"
+        },
+        "target": {
+          "value": 94
+        },
+        "distractors": [
+          {
+            "value": 85,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 97,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          },
+          {
+            "value": 15,
+            "misconception_id": "MATH-MC-EVENODD-ONES-DIGIT"
+          }
+        ]
+      }
+    ],
+    "MATH-OA-FACTS20-01": [
+      {
+        "item_id": "facts14_v2_0",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "7 + 7"
+        },
+        "distractors": [
+          {
+            "value": "8 + 5",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "9 + 6",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "7 + 8",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_1",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "8 + 6"
+        },
+        "distractors": [
+          {
+            "value": "6 + 6",
+            "misconception_id": "MATH-MC-FACTS-DOUBLES-CONFUSION"
+          },
+          {
+            "value": "9 + 4",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "10 + 5",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_2",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "9 + 5"
+        },
+        "distractors": [
+          {
+            "value": "20 - 7",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "18 - 5",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "16 - 3",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_3",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "10 + 4"
+        },
+        "distractors": [
+          {
+            "value": "15 - 2",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "11 + 4",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "12 + 3",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_4",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "20 - 6"
+        },
+        "distractors": [
+          {
+            "value": "13 + 2",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "19 - 4",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "17 - 2",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_5",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "18 - 4"
+        },
+        "distractors": [
+          {
+            "value": "8 + 7",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "9 + 7",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-TWO"
+          },
+          {
+            "value": "10 + 3",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_6",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "16 - 2"
+        },
+        "distractors": [
+          {
+            "value": "20 - 5",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "18 - 3",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "16 - 4",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_7",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "15 - 1"
+        },
+        "distractors": [
+          {
+            "value": "15 - 3",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "8 + 5",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "9 + 6",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_8",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "14 + 0"
+        },
+        "distractors": [
+          {
+            "value": "7 + 8",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "6 + 6",
+            "misconception_id": "MATH-MC-FACTS-DOUBLES-CONFUSION"
+          },
+          {
+            "value": "9 + 4",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_9",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "11 + 3"
+        },
+        "distractors": [
+          {
+            "value": "10 + 5",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "20 - 7",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "18 - 5",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_10",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "12 + 2"
+        },
+        "distractors": [
+          {
+            "value": "16 - 3",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "15 - 2",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "11 + 4",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_11",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "13 + 1"
+        },
+        "distractors": [
+          {
+            "value": "12 + 3",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "13 + 2",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "19 - 4",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_12",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "19 - 5"
+        },
+        "distractors": [
+          {
+            "value": "17 - 2",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "8 + 7",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "9 + 7",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-TWO"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_13",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "17 - 3"
+        },
+        "distractors": [
+          {
+            "value": "10 + 3",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          },
+          {
+            "value": "20 - 5",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "18 - 3",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          }
+        ]
+      },
+      {
+        "item_id": "facts14_v2_14",
+        "skill_id": "MATH-OA-FACTS20-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch expressions equal to 14!"
+        },
+        "target": {
+          "value": "6 + 8"
+        },
+        "distractors": [
+          {
+            "value": "16 - 4",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "15 - 3",
+            "misconception_id": "MATH-MC-FACTS-SUB-OFF"
+          },
+          {
+            "value": "8 + 5",
+            "misconception_id": "MATH-MC-FACTS-OFF-BY-ONE"
+          }
+        ]
+      }
+    ],
+    "MATH-NBT-PLACEVAL-01": [
+      {
+        "item_id": "placeval_v2_0",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 245
+        },
+        "distractors": [
+          {
+            "value": 425,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          },
+          {
+            "value": 438,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          },
+          {
+            "value": 104,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_1",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 348
+        },
+        "distractors": [
+          {
+            "value": 524,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 694,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 714,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_2",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 140
+        },
+        "distractors": [
+          {
+            "value": 804,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 904,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 137,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_3",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 542
+        },
+        "distractors": [
+          {
+            "value": 320,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          },
+          {
+            "value": 615,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          },
+          {
+            "value": 382,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_4",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 649
+        },
+        "distractors": [
+          {
+            "value": 879,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          },
+          {
+            "value": 511,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          },
+          {
+            "value": 405,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_5",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 741
+        },
+        "distractors": [
+          {
+            "value": 418,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          },
+          {
+            "value": 124,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 534,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_6",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 846
+        },
+        "distractors": [
+          {
+            "value": 684,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 724,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 814,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_7",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 943
+        },
+        "distractors": [
+          {
+            "value": 924,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 425,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          },
+          {
+            "value": 438,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_8",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 147
+        },
+        "distractors": [
+          {
+            "value": 104,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 524,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 694,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_9",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 440
+        },
+        "distractors": [
+          {
+            "value": 714,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 804,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 904,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_10",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 645
+        },
+        "distractors": [
+          {
+            "value": 137,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          },
+          {
+            "value": 320,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          },
+          {
+            "value": 615,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_11",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 342
+        },
+        "distractors": [
+          {
+            "value": 382,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          },
+          {
+            "value": 879,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          },
+          {
+            "value": 511,
+            "misconception_id": "MATH-MC-PLACEVAL-NO-FOUR"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_12",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 849
+        },
+        "distractors": [
+          {
+            "value": 405,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          },
+          {
+            "value": 418,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          },
+          {
+            "value": 124,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_13",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 541
+        },
+        "distractors": [
+          {
+            "value": 534,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 684,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 724,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          }
+        ]
+      },
+      {
+        "item_id": "placeval_v2_14",
+        "skill_id": "MATH-NBT-PLACEVAL-01",
+        "level": 2,
+        "prompt": {
+          "text": "Munch numbers with 4 in the Tens place!"
+        },
+        "target": {
+          "value": 748
+        },
+        "distractors": [
+          {
+            "value": 814,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 924,
+            "misconception_id": "MATH-MC-PLACEVAL-ONES-CONFUSION"
+          },
+          {
+            "value": 425,
+            "misconception_id": "MATH-MC-PLACEVAL-HUNDREDS-CONFUSION"
+          }
+        ]
+      }
+    ],
+    "MATH-G-SHAPES-01": [
+      {
+        "item_id": "shapes_v2_0",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Square"
+        },
+        "distractors": [
+          {
+            "value": "Triangle",
+            "misconception_id": "MATH-MC-SHAPES-3-SIDES"
+          },
+          {
+            "value": "Pentagon",
+            "misconception_id": "MATH-MC-SHAPES-5-SIDES"
+          },
+          {
+            "value": "Hexagon",
+            "misconception_id": "MATH-MC-SHAPES-6-SIDES"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_1",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Rectangle"
+        },
+        "distractors": [
+          {
+            "value": "Octagon",
+            "misconception_id": "MATH-MC-SHAPES-8-SIDES"
+          },
+          {
+            "value": "Circle",
+            "misconception_id": "MATH-MC-SHAPES-CURVED"
+          },
+          {
+            "value": "Oval",
+            "misconception_id": "MATH-MC-SHAPES-CURVED"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_2",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Rhombus"
+        },
+        "distractors": [
+          {
+            "value": "Heptagon",
+            "misconception_id": "MATH-MC-SHAPES-7-SIDES"
+          },
+          {
+            "value": "Decagon",
+            "misconception_id": "MATH-MC-SHAPES-10-SIDES"
+          },
+          {
+            "value": "Cube",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_3",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Trapezoid"
+        },
+        "distractors": [
+          {
+            "value": "Sphere",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          },
+          {
+            "value": "Cone",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          },
+          {
+            "value": "Cylinder",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_4",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Parallelogram"
+        },
+        "distractors": [
+          {
+            "value": "Pyramid",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          },
+          {
+            "value": "Prism",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          },
+          {
+            "value": "Triangle",
+            "misconception_id": "MATH-MC-SHAPES-3-SIDES"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_5",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Kite"
+        },
+        "distractors": [
+          {
+            "value": "Pentagon",
+            "misconception_id": "MATH-MC-SHAPES-5-SIDES"
+          },
+          {
+            "value": "Hexagon",
+            "misconception_id": "MATH-MC-SHAPES-6-SIDES"
+          },
+          {
+            "value": "Octagon",
+            "misconception_id": "MATH-MC-SHAPES-8-SIDES"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_6",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Dart"
+        },
+        "distractors": [
+          {
+            "value": "Circle",
+            "misconception_id": "MATH-MC-SHAPES-CURVED"
+          },
+          {
+            "value": "Oval",
+            "misconception_id": "MATH-MC-SHAPES-CURVED"
+          },
+          {
+            "value": "Heptagon",
+            "misconception_id": "MATH-MC-SHAPES-7-SIDES"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_7",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Diamond"
+        },
+        "distractors": [
+          {
+            "value": "Decagon",
+            "misconception_id": "MATH-MC-SHAPES-10-SIDES"
+          },
+          {
+            "value": "Cube",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          },
+          {
+            "value": "Sphere",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_8",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Oblong"
+        },
+        "distractors": [
+          {
+            "value": "Cone",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          },
+          {
+            "value": "Cylinder",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          },
+          {
+            "value": "Pyramid",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          }
+        ]
+      },
+      {
+        "item_id": "shapes_v2_9",
+        "skill_id": "MATH-G-SHAPES-01",
+        "level": 1,
+        "prompt": {
+          "text": "Munch the Quadrilaterals!"
+        },
+        "target": {
+          "value": "Chevron"
+        },
+        "distractors": [
+          {
+            "value": "Prism",
+            "misconception_id": "MATH-MC-SHAPES-3D-SOLID"
+          },
+          {
+            "value": "Triangle",
+            "misconception_id": "MATH-MC-SHAPES-3-SIDES"
+          },
+          {
+            "value": "Pentagon",
+            "misconception_id": "MATH-MC-SHAPES-5-SIDES"
+          }
+        ]
+      }
+    ],
+    "MATH-NBT-SUB-REGROUP-01": [
+      {
+        "item_id": "sub_01",
+        "skill_id": "MATH-NBT-SUB-REGROUP-01",
+        "level": 2,
+        "prompt": {
+          "text": "52 - 27 = ?"
+        },
+        "target": {
+          "value": 25
+        },
+        "distractors": [
+          {
+            "value": 35,
+            "misconception_id": "MATH-MC-SUB-SMALLER-FROM-LARGER"
+          },
+          {
+            "value": 24,
+            "misconception_id": "MATH-MC-SUB-OFF-BY-ONE"
+          },
+          {
+            "value": 31,
+            "misconception_id": "MATH-MC-SUB-NO-REGROUP"
+          }
+        ]
+      },
+      {
+        "item_id": "sub_02",
+        "skill_id": "MATH-NBT-SUB-REGROUP-01",
+        "level": 2,
+        "prompt": {
+          "text": "63 - 38 = ?"
+        },
+        "target": {
+          "value": 25
+        },
+        "distractors": [
+          {
+            "value": 35,
+            "misconception_id": "MATH-MC-SUB-SMALLER-FROM-LARGER"
+          },
+          {
+            "value": 26,
+            "misconception_id": "MATH-MC-SUB-OFF-BY-ONE"
+          },
+          {
+            "value": 31,
+            "misconception_id": "MATH-MC-SUB-NO-REGROUP"
+          }
+        ]
+      },
+      {
+        "item_id": "sub_03",
+        "skill_id": "MATH-NBT-SUB-REGROUP-01",
+        "level": 2,
+        "prompt": {
+          "text": "74 - 49 = ?"
+        },
+        "target": {
+          "value": 25
+        },
+        "distractors": [
+          {
+            "value": 35,
+            "misconception_id": "MATH-MC-SUB-SMALLER-FROM-LARGER"
+          },
+          {
+            "value": 26,
+            "misconception_id": "MATH-MC-SUB-OFF-BY-ONE"
+          },
+          {
+            "value": 33,
+            "misconception_id": "MATH-MC-SUB-NO-REGROUP"
+          }
+        ]
+      },
+      {
+        "item_id": "sub_04",
+        "skill_id": "MATH-NBT-SUB-REGROUP-01",
+        "level": 2,
+        "prompt": {
+          "text": "81 - 46 = ?"
+        },
+        "target": {
+          "value": 35
+        },
+        "distractors": [
+          {
+            "value": 45,
+            "misconception_id": "MATH-MC-SUB-SMALLER-FROM-LARGER"
+          },
+          {
+            "value": 34,
+            "misconception_id": "MATH-MC-SUB-OFF-BY-ONE"
+          },
+          {
+            "value": 43,
+            "misconception_id": "MATH-MC-SUB-NO-REGROUP"
+          }
+        ]
+      },
+      {
+        "item_id": "sub_05",
+        "skill_id": "MATH-NBT-SUB-REGROUP-01",
+        "level": 2,
+        "prompt": {
+          "text": "95 - 58 = ?"
+        },
+        "target": {
+          "value": 37
+        },
+        "distractors": [
+          {
+            "value": 43,
+            "misconception_id": "MATH-MC-SUB-SMALLER-FROM-LARGER"
+          },
+          {
+            "value": 36,
+            "misconception_id": "MATH-MC-SUB-OFF-BY-ONE"
+          },
+          {
+            "value": 47,
+            "misconception_id": "MATH-MC-SUB-NO-REGROUP"
+          }
+        ]
+      }
+    ],
+    "MATH-MD-TIME-01": [
+      {
+        "item_id": "time_01",
+        "skill_id": "MATH-MD-TIME-01",
+        "level": 2,
+        "prompt": {
+          "text": "Analog Clock: Hour at 3, Minute at 9"
+        },
+        "target": {
+          "value": "3:45"
+        },
+        "distractors": [
+          {
+            "value": "3:09",
+            "misconception_id": "MATH-MC-TIME-READ-MINUTE-AS-NUMBER"
+          },
+          {
+            "value": "9:15",
+            "misconception_id": "MATH-MC-TIME-REVERSE-HANDS"
+          },
+          {
+            "value": "4:45",
+            "misconception_id": "MATH-MC-TIME-HOUR-TOO-EARLY"
+          }
+        ]
+      },
+      {
+        "item_id": "time_02",
+        "skill_id": "MATH-MD-TIME-01",
+        "level": 2,
+        "prompt": {
+          "text": "Analog Clock: Hour between 7 and 8, Minute at 6"
+        },
+        "target": {
+          "value": "7:30"
+        },
+        "distractors": [
+          {
+            "value": "7:06",
+            "misconception_id": "MATH-MC-TIME-READ-MINUTE-AS-NUMBER"
+          },
+          {
+            "value": "6:35",
+            "misconception_id": "MATH-MC-TIME-REVERSE-HANDS"
+          },
+          {
+            "value": "8:30",
+            "misconception_id": "MATH-MC-TIME-HOUR-TOO-EARLY"
+          }
+        ]
+      },
+      {
+        "item_id": "time_03",
+        "skill_id": "MATH-MD-TIME-01",
+        "level": 2,
+        "prompt": {
+          "text": "Analog Clock: Hour past 1, Minute at 4"
+        },
+        "target": {
+          "value": "1:20"
+        },
+        "distractors": [
+          {
+            "value": "1:04",
+            "misconception_id": "MATH-MC-TIME-READ-MINUTE-AS-NUMBER"
+          },
+          {
+            "value": "4:05",
+            "misconception_id": "MATH-MC-TIME-REVERSE-HANDS"
+          },
+          {
+            "value": "2:20",
+            "misconception_id": "MATH-MC-TIME-HOUR-TOO-EARLY"
+          }
+        ]
+      }
+    ],
+    "MATH-MD-MONEY-01": [
+      {
+        "item_id": "money_01",
+        "skill_id": "MATH-MD-MONEY-01",
+        "level": 2,
+        "prompt": {
+          "text": "2 Quarters + 1 Dime + 3 Pennies"
+        },
+        "target": {
+          "value": "63¢"
+        },
+        "distractors": [
+          {
+            "value": "38¢",
+            "misconception_id": "MATH-MC-MONEY-DIME-NICKEL-CONFUSION"
+          },
+          {
+            "value": "73¢",
+            "misconception_id": "MATH-MC-MONEY-OVERCOUNT-COIN"
+          },
+          {
+            "value": "60¢",
+            "misconception_id": "MATH-MC-MONEY-IGNORED-PENNIES"
+          }
+        ]
+      },
+      {
+        "item_id": "money_02",
+        "skill_id": "MATH-MD-MONEY-01",
+        "level": 2,
+        "prompt": {
+          "text": "1 Quarter + 3 Nickels + 4 Pennies"
+        },
+        "target": {
+          "value": "44¢"
+        },
+        "distractors": [
+          {
+            "value": "59¢",
+            "misconception_id": "MATH-MC-MONEY-NICKEL-DIME-CONFUSION"
+          },
+          {
+            "value": "34¢",
+            "misconception_id": "MATH-MC-MONEY-UNDERCOUNT"
+          },
+          {
+            "value": "40¢",
+            "misconception_id": "MATH-MC-MONEY-IGNORED-PENNIES"
+          }
+        ]
+      },
+      {
+        "item_id": "money_03",
+        "skill_id": "MATH-MD-MONEY-01",
+        "level": 2,
+        "prompt": {
+          "text": "3 Dimes + 2 Nickels + 6 Pennies"
+        },
+        "target": {
+          "value": "46¢"
+        },
+        "distractors": [
+          {
+            "value": "36¢",
+            "misconception_id": "MATH-MC-MONEY-NICKEL-PENNY-CONFUSION"
+          },
+          {
+            "value": "56¢",
+            "misconception_id": "MATH-MC-MONEY-DIME-OVERCOUNT"
+          },
+          {
+            "value": "40¢",
+            "misconception_id": "MATH-MC-MONEY-IGNORED-PENNIES"
+          }
+        ]
+      }
+    ]
+  }
+}
