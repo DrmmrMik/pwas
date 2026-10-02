@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/pwas/value-screener/sw.js', { scope: '/pwas/value-screener/' })})}
