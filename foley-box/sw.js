@@ -1,5 +1,5 @@
 // Foley Box service worker: app shell + sound clips cached for offline use.
-const VERSION = "1.2.0";
+const VERSION = "1.2.1";
 const SHELL_CACHE = `foleybox-shell-${VERSION}`;
 const AUDIO_CACHE = "foleybox-audio-v1"; // clips never change; keep across app versions
 const FONT_CACHE = "foleybox-fonts-v1";

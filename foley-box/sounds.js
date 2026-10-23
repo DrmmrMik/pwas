@@ -65,7 +65,7 @@ export const SOUNDS = [
   S({ id: "yawn", cat: "emotions", label: "Yawn", emoji: "🥱", hash: "4/43", file: "Yawning_1.ogg", start: 1.0, end: 4.2, gain: 4.47, title: "Yawning 1", author: "ezwa (pdsounds.org)", lic: LIC.PD }),
   S({ id: "cough", cat: "emotions", label: "Awkward cough", emoji: "😬", hash: "d/d9", file: "Cough_2.ogg", start: 4.4, end: 5.6, gain: 1.12, title: "Cough 2", author: "ezwa (pdsounds.org)", lic: LIC.PD }),
   S({ id: "sneeze", cat: "emotions", label: "Achoo", emoji: "🤧", hash: "d/d0", file: "Sneezing.ogg", start: 0.2, end: 2.9, gain: 1.0, title: "Sneezing", author: "jc (pdsounds.org)", lic: LIC.PD }),
-  S({ id: "heartbeat", cat: "emotions", label: "Nervous heartbeat", emoji: "💓", hash: "7/75", file: "Heartbeat.ogg", end: 5.0, gain: 0.89, title: "Heartbeat", author: "HerbertBoland (freesound.org)", lic: LIC.BY3 }),
+  S({ id: "heartbeat", cat: "emotions", label: "Nervous heartbeat", emoji: "💓", hash: "e/eb", file: "Heart_sound_82bpm.ogg", end: 5.2, rate: 1.3, hp: 30, pre: 2, drive: 4, hp2: 150, gain: 1.25, title: "Heart sound, 82 bpm", author: "TECHNO-INSPECTOR", lic: LIC.BYSA4, note: "sped up 1.3× and saturated so it is audible on phone speakers" }),
   S({ id: "babygiggle", cat: "emotions", label: "Baby giggle", emoji: "🥰", hash: "6/6b", file: "Baby_Laugh.ogg", end: 1.7, gain: 1.78, title: "Baby Laugh", author: "reinsamba (freesound.org)", lic: LIC.BY3 }),
 
   // Business
@@ -85,7 +85,7 @@ export const SOUNDS = [
 
   // Cartoon
   S({ id: "boing", cat: "cartoon", label: "Boing", hash: "e/ee", file: "Boing_raw.ogg", end: 2.6, gain: 1.26, title: "Boing raw", author: "cfork (freesound.org)", lic: LIC.BY4 }),
-  S({ id: "bonk", cat: "cartoon", label: "Bonk", hash: "1/1c", file: "Knocking_on_wood_or_door.ogg", start: 4.66, end: 4.84, gain: 1.67, title: "Knocking on wood or door", author: "stephan (pdsounds.org)", lic: LIC.PD }),
+  S({ id: "bonk", cat: "cartoon", label: "Bonk", hash: "4/44", file: "Bongo_Grave.ogg", end: 0.4, rate: 1.0, bend: 0.75, pre: 4, drive: 8, hp2: 100, gain: 0.3, title: "Bongo grave (low bongo)", author: "ZappaMidiPF", lic: LIC.BYSA4, note: "pitch-bent down and saturated for a cartoon bonk" }),
   S({ id: "pan", cat: "cartoon", label: "Frying pan", hash: "8/85", file: "Pots_and_pans_hits_5_%28Gravity_Sound%29.wav", start: 0.15, end: 1.9, gain: 0.95, title: "Pots and pans hits 5", author: "Gravity Sound", lic: LIC.BY4 }),
   S({ id: "squeak", cat: "cartoon", label: "Squeak", hash: "6/6e", file: "Rubber_squeaking.ogg", start: 0.25, end: 3.6, gain: 2.0, title: "Rubber squeaking", author: "stephan (pdsounds.org)", lic: LIC.PD }),
   S({ id: "beep", cat: "cartoon", label: "Beep beep", hash: "8/8c", file: "Car_Horn.wav", start: 0.45, end: 2.3, gain: 1.12, title: "Car Horn", author: "15HPanska_Ruttner_Jan", lic: LIC.CC0 }),

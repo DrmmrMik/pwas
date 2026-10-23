@@ -33,6 +33,13 @@ let overlap = store.get("overlap", true);
 master.gain.value = store.get("volume", 1);
 volumeEl.value = master.gain.value;
 
+function highpass(freq) { const f = ctx.createBiquadFilter(); f.type = "highpass"; f.frequency.value = freq; return f; }
+const curves = new Map();
+function shaperCurve(k) {
+  if (!curves.has(k)) { const n = 2048, c = new Float32Array(n); for (let i = 0; i < n; i++) { const x = (i / (n - 1)) * 2 - 1; c[i] = Math.tanh(k * x) / Math.tanh(k); } curves.set(k, c); }
+  return curves.get(k);
+}
+
 function decode(ab) {
   return new Promise((res, rej) => {
     const p = ctx.decodeAudioData(ab, res, rej);
@@ -95,18 +102,35 @@ async function play(sound) {
 
   const start = Math.min(sound.start || 0, buf.duration);
   const end = Math.min(sound.end || buf.duration, buf.duration);
-  const dur = Math.max(0.05, end - start);
+  const clip = Math.max(0.05, end - start);           // seconds of the recording to use
+  const r0 = sound.rate || 1, r1 = sound.bend || r0;  // playback speed; bend = speed at the end (pitch glide)
+  const dur = clip / ((r0 + r1) / 2);                 // how long it lasts in real time
   const fadeOut = Math.min(0.25, dur * 0.15);
   const now = ctx.currentTime;
 
   const src = ctx.createBufferSource();
   src.buffer = buf;
+  src.playbackRate.setValueAtTime(r0, now);
+  if (sound.bend) src.playbackRate.linearRampToValueAtTime(r1, now + dur);
+
+  // Optional shaping: saturation adds harmonics so very low sounds (heartbeats, deep thuds)
+  // are audible on phone and laptop speakers, which can't reproduce much below ~200 Hz.
+  let node = src;
+  const chain = (n) => { node.connect(n); node = n; };
+  if (sound.hp) chain(highpass(sound.hp));
+  if (sound.drive) {
+    const pre = ctx.createGain(); pre.gain.value = sound.pre || 1; chain(pre);
+    const sh = ctx.createWaveShaper(); sh.curve = shaperCurve(sound.drive); sh.oversample = "4x"; chain(sh);
+  }
+  if (sound.hp2) chain(highpass(sound.hp2));
+
   const g = ctx.createGain();
   g.gain.setValueAtTime(sound.gain, now);
   g.gain.setValueAtTime(sound.gain, now + dur - fadeOut);
   g.gain.linearRampToValueAtTime(0.0001, now + dur);
-  src.connect(g).connect(master);
-  src.start(now, start, dur);
+  node.connect(g).connect(master);
+  src.start(now, start);
+  src.stop(now + dur + 0.02);
 
   const voice = { src, g, t0: now, dur };
   voices.set(sound.id, voice);
@@ -302,6 +326,7 @@ function renderCredits() {
     const src = document.createElement("div"); src.className = "src";
     const a = document.createElement("a"); a.href = s.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Source on Wikimedia Commons";
     src.append(a, document.createTextNode(s.start || s.end ? ` · trimmed to ${(s.start || 0).toFixed(1)}–${s.end.toFixed(1)}s` : ""));
+    if (s.note) src.append(document.createTextNode(` · ${s.note}`));
     li.append(line, src);
     list.append(li);
   }
