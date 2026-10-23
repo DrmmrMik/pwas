@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Foley Box</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="A pocket soundboard of real laugh tracks, rimshots and cartoon sound effects.">
+<meta name="theme-color" content="#1a1620" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#efe8de" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Foley Box">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="4" width="56" height="56" rx="14" fill="var(--pad-laughs)"/><rect x="14" y="14" width="16" height="16" rx="4" fill="var(--bg)"/><rect x="34" y="14" width="16" height="16" rx="4" fill="var(--bg)" opacity=".55"/><rect x="14" y="34" width="16" height="16" rx="4" fill="var(--bg)" opacity=".55"/><rect x="34" y="34" width="16" height="16" rx="4" fill="var(--bg)"/></svg>
+      <h1>Foley Box</h1>
+    </div>
+
+    <div class="sign" id="sign" aria-live="polite">
+      <span class="sign-word" id="signWord">Applause</span>
+      <span class="sign-sub" id="signSub">Tap a pad · 27 real recordings</span>
+    </div>
+
+    <div class="controls">
+      <label class="vol" for="volume" title="Master volume">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        <span class="sr">Volume</span>
+        <input id="volume" type="range" min="0" max="1.5" step="0.05" value="1">
+      </label>
+      <button class="chip" id="overlap" type="button" aria-pressed="true" title="Let sounds play over each other">Layer sounds</button>
+      <button class="chip stop" id="stopAll" type="button" title="Stop everything (Esc or Space)">Stop all <kbd>Esc</kbd></button>
+    </div>
+  </header>
+
+  <main id="board" class="board" aria-label="Sound pads"></main>
+
+  <footer class="foot">
+    <span id="status" class="status">Loading sounds…</span>
+    <button class="link" id="openCredits" type="button">Credits &amp; licenses</button>
+  </footer>
+</div>
+
+<button class="fab-stop" id="fabStop" type="button" hidden>Stop</button>
+
+<dialog id="credits" class="credits" aria-labelledby="creditsTitle">
+  <div class="credits-inner">
+    <div class="credits-head">
+      <h2 id="creditsTitle">Credits &amp; licenses</h2>
+      <button class="chip" id="closeCredits" type="button">Close</button>
+    </div>
+    <p class="credits-note">Every sound is a real recording from Wikimedia Commons, released into the public domain or under a free Creative Commons license. Clips are trimmed and level-matched on playback; the originals are unchanged.</p>
+    <ol id="creditList" class="credit-list"></ol>
+  </div>
+</dialog>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

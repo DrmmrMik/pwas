@@ -1,0 +1,55 @@
+{
+  "name": "Foley Box",
+  "short_name": "Foley Box",
+  "description": "A pocket soundboard of real laugh tracks, rimshots, crowd reactions and cartoon sound effects. Public-domain and Creative Commons recordings from Wikimedia Commons.",
+  "id": "foley-box",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1a1620",
+  "theme_color": "#1a1620",
+  "categories": [
+    "utilities",
+    "entertainment"
+  ],
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "display_override": [
+    "standalone"
+  ],
+  "prefer_related_applications": false,
+  "version": "1.0.0",
+  "x-build-stamp": "20261023183611"
+}
