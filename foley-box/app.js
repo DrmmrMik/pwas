@@ -159,17 +159,36 @@ function renderBoard() {
   board.append(frag);
 }
 
-let suppressClick = false;
+// Mouse plays instantly on press. Touch and pen play on release, and only if the finger
+// stayed put: a drag is a scroll, not a tap, so scrolling the board never fires a pad.
+const TAP_SLOP = 10;          // px of movement allowed before a touch counts as a scroll
+let touch = null;             // { id, x, y, pad } for the finger currently on a pad
+let lastPointerAt = 0;        // used to ignore the synthetic click that follows a pointer tap
+function cancelTouch() { touch?.pad.classList.remove("pressing"); touch = null; }
 board.addEventListener("pointerdown", (e) => {
   const pad = e.target.closest(".pad");
   if (!pad || e.button > 0) return;
-  suppressClick = true;
+  lastPointerAt = performance.now();
+  if (e.pointerType === "mouse") { hit(pad); return; }
+  cancelTouch();
+  touch = { id: e.pointerId, x: e.clientX, y: e.clientY, pad };
+  pad.classList.add("pressing");
+});
+board.addEventListener("pointermove", (e) => {
+  if (touch && e.pointerId === touch.id && Math.hypot(e.clientX - touch.x, e.clientY - touch.y) > TAP_SLOP) cancelTouch();
+});
+board.addEventListener("pointerup", (e) => {
+  if (!touch || e.pointerId !== touch.id) return;
+  const { pad } = touch;
+  cancelTouch();
+  lastPointerAt = performance.now();
   hit(pad);
 });
+board.addEventListener("pointercancel", cancelTouch); // the browser took over to scroll
+window.addEventListener("scroll", cancelTouch, { passive: true });
 board.addEventListener("click", (e) => {
   const pad = e.target.closest(".pad");
-  if (!pad) return;
-  if (suppressClick) { suppressClick = false; return; }
+  if (!pad || performance.now() - lastPointerAt < 800) return;
   hit(pad); // keyboard activation (Enter / Space on a focused pad)
 });
 board.addEventListener("contextmenu", (e) => { if (e.target.closest(".pad")) e.preventDefault(); });

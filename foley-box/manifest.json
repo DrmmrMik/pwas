@@ -50,6 +50,6 @@
     "standalone"
   ],
   "prefer_related_applications": false,
-  "version": "1.0.0",
-  "x-build-stamp": "20261023183611"
+  "version": "1.0.1",
+  "x-build-stamp": "20261023185103"
 }

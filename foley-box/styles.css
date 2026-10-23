@@ -162,6 +162,7 @@ kbd { font: 500 .7rem/1 var(--font-mono); padding: 3px 5px; border-radius: 4px; 
   touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 .pad[data-cat="crowd"] { --c: var(--pad-crowd); }
 .pad[data-cat="drums"] { --c: var(--pad-drums); }
@@ -171,8 +172,8 @@ kbd { font: 500 .7rem/1 var(--font-mono); padding: 3px 5px; border-radius: 4px; 
 .bank[data-cat="drums"] { --c: var(--pad-drums); }
 .bank[data-cat="cartoon"] { --c: var(--pad-cartoon); }
 
-.pad:hover { filter: brightness(1.06); }
-.pad:active, .pad.hit { transform: translateY(4px); box-shadow: 0 1px 0 color-mix(in srgb, var(--c) 55%, #000), 0 3px 8px var(--shadow); }
+@media (hover: hover) { .pad:hover { filter: brightness(1.06); } .pad:active { transform: translateY(4px); } }
+.pad.pressing, .pad.hit { transform: translateY(4px); box-shadow: 0 1px 0 color-mix(in srgb, var(--c) 55%, #000), 0 3px 8px var(--shadow); }
 .pad:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 .pad.loading { filter: saturate(.25) brightness(.8); cursor: progress; }
 .pad.failed { filter: grayscale(1) brightness(.7); }
