@@ -16,7 +16,7 @@ const store = {
 
 const AUDIO_CACHE = "foleybox-audio-v1"; // keep in sync with sw.js
 const IDLE_WORD = "Quiet please";
-const IDLE_SUB = `Tap a pad · ${SOUNDS.length} real recordings`;
+const IDLE_SUB = `Tap a play button · ${SOUNDS.length} real recordings`;
 
 /* ---------- Audio engine ---------- */
 const AC = window.AudioContext || window.webkitAudioContext;
@@ -140,16 +140,20 @@ function renderBoard() {
     const grid = document.createElement("div");
     grid.className = "pads";
     for (const s of sounds) {
-      const b = document.createElement("button");
-      b.type = "button";
+      const b = document.createElement("div");
       b.className = "pad loading";
       b.dataset.cat = s.cat;
       b.dataset.id = s.id;
       const len = ((s.end || 0) - (s.start || 0)).toFixed(1);
       const key = keyFor.get(s.id);
-      b.setAttribute("aria-label", `${s.label}${key ? `, shortcut ${key.toUpperCase()}` : ""}`);
-      b.innerHTML = `<span class="pad-label"></span><span class="pad-meta"><span>${len}s</span>${key ? `<span class="pad-key">${key}</span>` : ""}</span><span class="pad-progress" aria-hidden="true"></span>`;
-      b.querySelector(".pad-label").textContent = s.label.replace(/-/g, "‑"); // keep "Ba-dum-tss" on one line
+      b.innerHTML = `<span class="pad-label"></span>
+        <span class="pad-foot">
+          <span class="pad-meta"><span>${len}s</span>${key ? `<span class="pad-key">${key}</span>` : ""}</span>
+          <button type="button" class="pad-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></button>
+        </span>
+        <span class="pad-progress" aria-hidden="true"></span>`;
+      b.querySelector(".pad-label").textContent = s.label.replace(/-/g, "\u2011"); // keep "Ba-dum-tss" on one line
+      b.querySelector(".pad-play").setAttribute("aria-label", `Play ${s.label}${key ? ` (shortcut ${key.toUpperCase()})` : ""}`);
       grid.append(b);
       padEls.set(s.id, b);
     }
@@ -159,20 +163,24 @@ function renderBoard() {
   board.append(frag);
 }
 
-// Mouse plays instantly on press. Touch and pen play on release, and only if the finger
-// stayed put: a drag is a scroll, not a tap, so scrolling the board never fires a pad.
+// Touch: only the round play button fires, on release, and only if the finger stayed put,
+// so thumbs can scroll anywhere on the board (cards included) without triggering sounds.
+// Mouse: a click anywhere on a card plays instantly. Keyboard: Tab to a play button + Enter,
+// or use the letter/number shortcuts.
 const TAP_SLOP = 10;          // px of movement allowed before a touch counts as a scroll
-let touch = null;             // { id, x, y, pad } for the finger currently on a pad
+let touch = null;             // { id, x, y, btn, pad } for the finger currently on a play button
 let lastPointerAt = 0;        // used to ignore the synthetic click that follows a pointer tap
-function cancelTouch() { touch?.pad.classList.remove("pressing"); touch = null; }
+function cancelTouch() { touch?.btn.classList.remove("pressing"); touch = null; }
 board.addEventListener("pointerdown", (e) => {
   const pad = e.target.closest(".pad");
   if (!pad || e.button > 0) return;
   lastPointerAt = performance.now();
-  if (e.pointerType === "mouse") { hit(pad); return; }
+  if (e.pointerType === "mouse") { flashPad(pad); hit(pad); return; }
+  const btn = e.target.closest(".pad-play");
+  if (!btn) return; // touching the card body is just the start of a scroll
   cancelTouch();
-  touch = { id: e.pointerId, x: e.clientX, y: e.clientY, pad };
-  pad.classList.add("pressing");
+  touch = { id: e.pointerId, x: e.clientX, y: e.clientY, btn, pad };
+  btn.classList.add("pressing");
 });
 board.addEventListener("pointermove", (e) => {
   if (touch && e.pointerId === touch.id && Math.hypot(e.clientX - touch.x, e.clientY - touch.y) > TAP_SLOP) cancelTouch();
@@ -187,10 +195,11 @@ board.addEventListener("pointerup", (e) => {
 board.addEventListener("pointercancel", cancelTouch); // the browser took over to scroll
 window.addEventListener("scroll", cancelTouch, { passive: true });
 board.addEventListener("click", (e) => {
-  const pad = e.target.closest(".pad");
-  if (!pad || performance.now() - lastPointerAt < 800) return;
-  hit(pad); // keyboard activation (Enter / Space on a focused pad)
+  const btn = e.target.closest(".pad-play");
+  if (!btn || performance.now() - lastPointerAt < 800) return;
+  hit(btn.closest(".pad")); // keyboard activation (Enter / Space on a focused play button)
 });
+function flashPad(pad) { pad.classList.add("hit"); setTimeout(() => pad.classList.remove("hit"), 110); }
 board.addEventListener("contextmenu", (e) => { if (e.target.closest(".pad")) e.preventDefault(); });
 
 function hit(pad) {
@@ -207,9 +216,7 @@ document.addEventListener("keydown", (e) => {
   const s = soundForKey.get(e.key.toLowerCase());
   if (s && !e.repeat) {
     e.preventDefault();
-    const pad = padFor(s.id);
-    pad.classList.add("hit");
-    setTimeout(() => pad.classList.remove("hit"), 110);
+    flashPad(padFor(s.id));
     play(s);
   }
 });

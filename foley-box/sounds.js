@@ -12,6 +12,7 @@ const LIC = {
   CC0: { name: "CC0 1.0", url: "https://creativecommons.org/publicdomain/zero/1.0/" },
   BY3: { name: "CC BY 3.0", url: "https://creativecommons.org/licenses/by/3.0/" },
   BY4: { name: "CC BY 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
+  BYSA3: { name: "CC BY-SA 3.0", url: "https://creativecommons.org/licenses/by-sa/3.0/" },
   BYSA25: { name: "CC BY-SA 2.5", url: "https://creativecommons.org/licenses/by-sa/2.5/" },
   BYSA4: { name: "CC BY-SA 4.0", url: "https://creativecommons.org/licenses/by-sa/4.0/" },
 };
@@ -20,6 +21,7 @@ export const CATEGORIES = [
   { id: "laughs", name: "Laugh track" },
   { id: "crowd", name: "Crowd" },
   { id: "drums", name: "Rimshots & stings" },
+  { id: "business", name: "Business" },
   { id: "cartoon", name: "Cartoon" },
 ];
 
@@ -52,13 +54,26 @@ export const SOUNDS = [
   S({ id: "dundun", cat: "drums", label: "Dun dun duuun", hash: "8/81", file: "Dun_dun_duuun%21.ogg", end: 4.5, title: "Dun dun duuun!", author: "copyc4t", lic: LIC.BY4 }),
   S({ id: "gong", cat: "drums", label: "Gong", hash: "4/42", file: "Gong_or_bell_vibrant_%28short%29.ogg", start: 0.2, end: 5.6, gain: 1.2, title: "Gong or bell vibrant (short)", author: "pdsounds.org", lic: LIC.CC0 }),
 
+  // Business
+  S({ id: "phone", cat: "business", label: "Phone ringing", hash: "e/e7", file: "Model_500_Telephone_British_ring.ogg", end: 6.0, title: "Model 500 Telephone, British ring", author: "CianMcCann", lic: LIC.BYSA3 }),
+  S({ id: "typing", cat: "business", label: "Furious typing", hash: "0/0a", file: "Typing_-_Model_M_1986.ogg", end: 5.0, title: "Typing, Model M 1986", author: "Raymangold22", lic: LIC.CC0 }),
+  S({ id: "typeding", cat: "business", label: "Typewriter ding", hash: "9/9f", file: "406243_stubb_typewriter-ding-near-mono.wav", end: 1.05, gain: 2.5, title: "Typewriter ding", author: "_stubb (freesound.org)", lic: LIC.CC0 }),
+  S({ id: "dialup", cat: "business", label: "Dial-up internet", hash: "8/85", file: "Dial_up_connection_%28short%29.oga", end: 9.5, gain: 1.2, title: "Dial up connection (short)", author: "pdsounds.org", lic: LIC.CC0 }),
+  S({ id: "busy", cat: "business", label: "Busy signal", hash: "6/6c", file: "NorthAmericanBusySignal.ogg", end: 4.0, gain: 1.4, title: "North American busy signal", author: "Jamieyu (English Wikipedia)", lic: LIC.PD }),
+  S({ id: "openbell", cat: "business", label: "Opening bell", hash: "6/64", file: "Dingdingding.wav", end: 1.74, gain: 3, title: "Ding ding ding", author: "IOII-IOIO-IIOI", lic: LIC.CC0 }),
+  S({ id: "deadline", cat: "business", label: "Deadline", hash: "5/56", file: "Clock_ticking.ogg", end: 6.0, gain: 1.3, title: "Clock ticking", author: "natalie (pdsounds.org)", lic: LIC.PD }),
+  S({ id: "kaching", cat: "business", label: "Ka-ching", hash: "7/70", file: "Cash_register.ogg", start: 0.2, end: 1.9, gain: 1.2, title: "Cash register", author: "Wikimedia Commons contributor", lic: LIC.PD }),
+  S({ id: "coins", cat: "business", label: "Budget", hash: "2/2d", file: "Coins_dropped_in_metallic_moneybox.ogg", end: 3.6, gain: 1.6, title: "Coins dropped in metallic moneybox", author: "ezwa (pdsounds.org)", lic: LIC.PD }),
+  S({ id: "shredder", cat: "business", label: "Shredder", hash: "e/e4", file: "Shredder_hum.ogg", end: 4.0, gain: 3, title: "Shredder hum", author: "stephan (pdsounds.org)", lic: LIC.PD }),
+  S({ id: "printer", cat: "business", label: "Dot-matrix printer", hash: "1/17", file: "Star-LC-10-printer-01.ogg", end: 6.0, gain: 0.9, title: "Star LC-10 printer", author: "Priwo", lic: LIC.PD }),
+  S({ id: "whip", cat: "business", label: "Crack the whip", hash: "c/c2", file: "Whip-sound.ogg", end: 0.89, gain: 1.2, title: "Whip sound", author: "Mike Koenig", lic: LIC.BY3 }),
+
   // Cartoon
   S({ id: "boing", cat: "cartoon", label: "Boing", hash: "e/ee", file: "Boing_raw.ogg", end: 2.6, gain: 1.6, title: "Boing raw", author: "cfork", lic: LIC.BY4 }),
   S({ id: "bonk", cat: "cartoon", label: "Bonk", hash: "a/a1", file: "Cartoon_Punch.ogg", start: 0.3, end: 0.85, title: "Cartoon Punch", author: "Unknown author", lic: LIC.BYSA25 }),
   S({ id: "squeak", cat: "cartoon", label: "Squeak", hash: "6/6e", file: "Rubber_squeaking.ogg", start: 0.25, end: 3.6, gain: 2, title: "Rubber squeaking", author: "stephan (pdsounds.org)", lic: LIC.PD }),
   S({ id: "wolf", cat: "cartoon", label: "Wolf whistle", hash: "a/ab", file: "Wolf_whistle.ogg", start: 1.0, end: 2.3, gain: 1.8, title: "Wolf whistle", author: "Wikimedia Commons contributor", lic: LIC.PD }),
   S({ id: "ref", cat: "cartoon", label: "Foul!", hash: "7/7d", file: "218318_splicesound_referee-whistle-blow-gymnasium.wav", start: 0.05, end: 1.2, gain: 2, title: "Referee whistle blow, gymnasium", author: "SpliceSound (freesound.org)", lic: LIC.CC0 }),
-  S({ id: "kaching", cat: "cartoon", label: "Ka-ching", hash: "7/70", file: "Cash_register.ogg", start: 0.2, end: 1.9, gain: 1.2, title: "Cash register", author: "Wikimedia Commons contributor", lic: LIC.PD }),
   S({ id: "bell", cat: "cartoon", label: "Ding-ding", hash: "c/ce", file: "Rotating-bicycle-bell.wav", end: 1.3, gain: 3, title: "Rotating bicycle bell", author: "AntumDeluge", lic: LIC.CC0 }),
 ];
 

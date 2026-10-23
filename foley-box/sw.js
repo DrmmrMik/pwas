@@ -1,5 +1,5 @@
 // Foley Box service worker: app shell + sound clips cached for offline use.
-const VERSION = "1.0.1";
+const VERSION = "1.1.0";
 const SHELL_CACHE = `foleybox-shell-${VERSION}`;
 const AUDIO_CACHE = "foleybox-audio-v1"; // clips never change; keep across app versions
 const FONT_CACHE = "foleybox-fonts-v1";
@@ -47,6 +47,17 @@ async function staleWhileRevalidate(req, cacheName) {
   return hit || (await net) || new Response("Offline", { status: 503 });
 }
 
+async function networkFirst(req, cacheName) {
+  const cache = await caches.open(cacheName);
+  try {
+    const res = await fetch(req, { cache: "no-cache" });
+    if (res.ok) cache.put(req, res.clone());
+    return res;
+  } catch {
+    return (await cache.match(req, { ignoreSearch: true })) || new Response("Offline", { status: 503 });
+  }
+}
+
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
@@ -55,9 +66,9 @@ self.addEventListener("fetch", (e) => {
   if (url.hostname === "fonts.googleapis.com" || url.hostname === "fonts.gstatic.com") { e.respondWith(staleWhileRevalidate(req, FONT_CACHE)); return; }
   if (url.origin === self.location.origin) {
     if (req.mode === "navigate") {
-      e.respondWith(fetch(req).then((res) => { if (res.ok) { const copy = res.clone(); caches.open(SHELL_CACHE).then((c) => c.put("./index.html", copy)); } return res; }).catch(() => caches.match("./index.html")));
+      e.respondWith(fetch(req, { cache: "no-cache" }).then((res) => { if (res.ok) { const copy = res.clone(); caches.open(SHELL_CACHE).then((c) => c.put("./index.html", copy)); } return res; }).catch(() => caches.match("./index.html")));
       return;
     }
-    e.respondWith(staleWhileRevalidate(req, SHELL_CACHE));
+    e.respondWith(networkFirst(req, SHELL_CACHE)); // always run the newest published code when online
   }
 });
