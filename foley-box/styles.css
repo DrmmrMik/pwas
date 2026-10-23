@@ -14,6 +14,7 @@
   --pad-drums: #47b8ac;
   --pad-cartoon: #ab8cf0;
   --pad-business: #8fb3e8;
+  --pad-emotions: #f39ac0;
   --pad-ink: #1b1520;
   --shadow: rgba(0, 0, 0, .45);
   --font-display: "Bungee", "Arial Black", Impact, sans-serif;
@@ -25,7 +26,7 @@
   :root:not([data-theme="dark"]) {
     --bg: #efe8de; --panel: #fbf7f1; --line: #d9cfc2; --ink: #1d1822; --muted: #6c6274;
     --sign-off: #e4d3cf; --sign-on: #e5321f; --sign-glow: rgba(229, 50, 31, .35);
-    --pad-laughs: #f2ad2c; --pad-crowd: #ea5a3b; --pad-drums: #2fa597; --pad-cartoon: #9a77ea; --pad-business: #6f9ee0;
+    --pad-laughs: #f2ad2c; --pad-crowd: #ea5a3b; --pad-drums: #2fa597; --pad-cartoon: #9a77ea; --pad-business: #6f9ee0; --pad-emotions: #ec79aa;
     --pad-ink: #1b1520; --shadow: rgba(60, 40, 30, .22);
     color-scheme: light;
   }
@@ -33,7 +34,7 @@
 :root[data-theme="light"] {
   --bg: #efe8de; --panel: #fbf7f1; --line: #d9cfc2; --ink: #1d1822; --muted: #6c6274;
   --sign-off: #e4d3cf; --sign-on: #e5321f; --sign-glow: rgba(229, 50, 31, .35);
-  --pad-laughs: #f2ad2c; --pad-crowd: #ea5a3b; --pad-drums: #2fa597; --pad-cartoon: #9a77ea; --pad-business: #6f9ee0;
+  --pad-laughs: #f2ad2c; --pad-crowd: #ea5a3b; --pad-drums: #2fa597; --pad-cartoon: #9a77ea; --pad-business: #6f9ee0; --pad-emotions: #ec79aa;
   --pad-ink: #1b1520; --shadow: rgba(60, 40, 30, .22);
   color-scheme: light;
 }
@@ -169,6 +170,8 @@ kbd { font: 500 .7rem/1 var(--font-mono); padding: 3px 5px; border-radius: 4px; 
 .pad[data-cat="drums"] { --c: var(--pad-drums); }
 .pad[data-cat="cartoon"] { --c: var(--pad-cartoon); }
 .pad[data-cat="business"] { --c: var(--pad-business); }
+.pad[data-cat="emotions"] { --c: var(--pad-emotions); }
+.bank[data-cat="emotions"] { --c: var(--pad-emotions); }
 .bank[data-cat="business"] { --c: var(--pad-business); }
 .bank[data-cat="laughs"] { --c: var(--pad-laughs); }
 .bank[data-cat="crowd"] { --c: var(--pad-crowd); }
@@ -200,6 +203,8 @@ kbd { font: 500 .7rem/1 var(--font-mono); padding: 3px 5px; border-radius: 4px; 
 .pad.loading { filter: saturate(.25) brightness(.8); }
 .pad.failed { filter: grayscale(1) brightness(.7); }
 
+.pad-head { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pad-emoji { font-size: 1.75rem; line-height: 1; }
 .pad-label { font: 800 1.12rem/1.1 var(--font-body); text-wrap: balance; }
 .pad-meta { display: flex; align-items: center; gap: 8px; font: 500 .72rem/1 var(--font-mono); opacity: .72; }
 .pad-key { min-width: 20px; text-align: center; padding: 3px 5px; border-radius: 5px; background: color-mix(in srgb, var(--pad-ink) 14%, transparent); text-transform: uppercase; }

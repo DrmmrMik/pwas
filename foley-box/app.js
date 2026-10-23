@@ -146,7 +146,7 @@ function renderBoard() {
       b.dataset.id = s.id;
       const len = ((s.end || 0) - (s.start || 0)).toFixed(1);
       const key = keyFor.get(s.id);
-      b.innerHTML = `<span class="pad-label"></span>
+      b.innerHTML = `<span class="pad-head">${s.emoji ? `<span class="pad-emoji" aria-hidden="true">${s.emoji}</span>` : ""}<span class="pad-label"></span></span>
         <span class="pad-foot">
           <span class="pad-meta"><span>${len}s</span>${key ? `<span class="pad-key">${key}</span>` : ""}</span>
           <button type="button" class="pad-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></button>
@@ -249,7 +249,7 @@ function renderSign() {
   if (voices.size) {
     const cur = lastStarted && voices.has(lastStarted.id) ? lastStarted : SOUNDS.find((s) => voices.has(s.id));
     sign.classList.add("lit");
-    signWord.textContent = cur.label;
+    signWord.textContent = (cur.emoji ? cur.emoji + " " : "") + cur.label;
     signSub.textContent = voices.size > 1 ? `${voices.size} sounds playing · Esc to stop` : "On air · Esc to stop";
   } else {
     sign.classList.remove("lit");
