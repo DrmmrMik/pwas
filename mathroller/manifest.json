@@ -1,0 +1,100 @@
+{
+  "name": "Math Roller",
+  "short_name": "Math Roller",
+  "description": "Tilt to roll a marble through toy mazes. Earn new marbles, then learn numbers and words along the way.",
+  "start_url": "./",
+  "display": "fullscreen",
+  "background_color": "#BFE6D2",
+  "theme_color": "#E2483D",
+  "lang": "en",
+  "scope": "./",
+  "id": "./",
+  "display_override": [
+    "fullscreen",
+    "standalone"
+  ],
+  "orientation": "landscape",
+  "categories": [
+    "games",
+    "education",
+    "kids"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/wide-maze.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tilt to roll the marble through a toy maze"
+    },
+    {
+      "src": "screenshots/wide-learn.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Roll over the words that match the rule"
+    },
+    {
+      "src": "screenshots/narrow-home.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Pick mazes, learn games, or your marble collection"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mazes",
+      "short_name": "Mazes",
+      "url": "./?go=worlds",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Learn",
+      "short_name": "Learn",
+      "url": "./?go=lab",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "version": "0.1.0",
+  "x-build-stamp": "20261024035915"
+}

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <title>Math Roller</title>
+    <meta name="description" content="Tilt to roll a marble through toy mazes. Earn new marbles, then learn numbers and words along the way." />
+    <meta name="theme-color" content="#E2483D" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Math Roller" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+    <script type="module" crossorigin src="./assets/index-DOfU-sgw.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CRMEca7S.css">
+  <link rel="manifest" href="./manifest.json"></head>
+  <body data-screen="boot">
+    <canvas id="gl" aria-label="Marble maze"></canvas>
+    <div id="joy" class="joy" aria-hidden="true"><div class="joy-knob"></div></div>
+
+    <!-- Boot / loading -->
+    <section class="screen" id="s-boot" aria-label="Loading">
+      <div class="boot-marble"></div>
+    </section>
+
+    <!-- Title -->
+    <section class="screen" id="s-title" aria-label="Title">
+      <h1 class="logo" aria-label="Math Roller">
+        <span class="blk c1">M</span><span class="blk c2">a</span><span class="blk c3">t</span><span class="blk c4">h</span>
+        <span class="gap"></span>
+        <span class="blk c5">R</span><span class="blk c6">o</span><span class="blk c1">l</span><span class="blk c2">l</span><span class="blk c3">e</span><span class="blk c4">r</span>
+      </h1>
+      <button class="play-big" id="btn-play" aria-label="Play"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 14 L52 32 L22 50 Z" /></svg></button>
+      <p class="title-hint" id="title-hint">Tap to play</p>
+    </section>
+
+    <!-- Home: choose a mode -->
+    <section class="screen" id="s-home" aria-label="Choose a game">
+      <header class="topbar">
+        <button class="chip-btn" data-act="title" aria-label="Back"><span aria-hidden="true">←</span></button>
+        <div class="star-count" aria-label="Stars"><span class="star-ico" aria-hidden="true">★</span><b id="home-stars">0</b></div>
+      </header>
+      <div class="mode-row">
+        <button class="mode m-adv" data-act="worlds">
+          <span class="mode-art" aria-hidden="true">🗺️</span><span class="mode-name">Mazes</span>
+        </button>
+        <button class="mode m-lab" data-act="lab" id="mode-lab">
+          <span class="mode-art" aria-hidden="true">🔤</span><span class="mode-name">Learn</span>
+        </button>
+        <button class="mode m-free" data-act="free">
+          <span class="mode-art" aria-hidden="true">🎲</span><span class="mode-name">Free roll</span>
+        </button>
+        <button class="mode m-shelf" data-act="shelf">
+          <span class="mode-art" id="shelf-art" aria-hidden="true">🫙</span><span class="mode-name">Marbles</span>
+          <span class="badge" id="shelf-badge" hidden></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Worlds + levels -->
+    <section class="screen" id="s-worlds" aria-label="Mazes">
+      <header class="topbar">
+        <button class="chip-btn" data-act="home" aria-label="Back"><span aria-hidden="true">←</span></button>
+        <div class="world-tabs" id="world-tabs" role="tablist"></div>
+        <div class="star-count"><span class="star-ico" aria-hidden="true">★</span><b class="js-stars">0</b></div>
+      </header>
+      <div class="level-board" id="level-board"></div>
+    </section>
+
+    <!-- Learning lab -->
+    <section class="screen" id="s-lab" aria-label="Learn">
+      <header class="topbar">
+        <button class="chip-btn" data-act="home" aria-label="Back"><span aria-hidden="true">←</span></button>
+        <div class="world-tabs" id="shelf-tabs" role="tablist"></div>
+        <div class="star-count"><span class="star-ico" aria-hidden="true">★</span><b class="js-stars">0</b></div>
+      </header>
+      <div class="skill-grid" id="skill-grid"></div>
+    </section>
+
+    <!-- Free roll -->
+    <section class="screen" id="s-free" aria-label="Free roll">
+      <header class="topbar">
+        <button class="chip-btn" data-act="home" aria-label="Back"><span aria-hidden="true">←</span></button>
+        <div></div>
+        <div class="star-count"><span class="star-ico" aria-hidden="true">★</span><b class="js-stars">0</b></div>
+      </header>
+      <div class="free-row">
+        <button class="free-btn f-s" data-free="small" aria-label="Small maze"><span class="dots d1"></span><span>Small</span></button>
+        <button class="free-btn f-m" data-free="medium" aria-label="Medium maze"><span class="dots d2"></span><span>Medium</span></button>
+        <button class="free-btn f-l" data-free="big" aria-label="Big maze"><span class="dots d3"></span><span>Big</span></button>
+      </div>
+    </section>
+
+    <!-- Marble shelf -->
+    <section class="screen" id="s-shelf" aria-label="Marbles">
+      <header class="topbar">
+        <button class="chip-btn" data-act="home" aria-label="Back"><span aria-hidden="true">←</span></button>
+        <div class="next-unlock" id="next-unlock"></div>
+        <div class="star-count"><span class="star-ico" aria-hidden="true">★</span><b class="js-stars">0</b></div>
+      </header>
+      <div class="shelf" id="shelf"></div>
+    </section>
+
+    <!-- In-game HUD -->
+    <section class="screen" id="s-game" aria-label="Playing">
+      <button class="chip-btn hud-pause" id="btn-pause" aria-label="Pause"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.5"/><rect x="14" y="5" width="4" height="14" rx="1.5"/></svg></button>
+      <div class="prompt" id="prompt" hidden>
+        <button class="prompt-say" id="btn-say" aria-label="Hear it again"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 8.5c1.2 1 1.2 6 0 7" fill="none" stroke-width="2" stroke-linecap="round"/><path d="M18.5 6c2.4 2 2.4 10 0 12" fill="none" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <span class="prompt-key" id="prompt-key"></span>
+        <span class="prompt-text" id="prompt-text"></span>
+        <span class="pips" id="pips"></span>
+      </div>
+      <div class="hud-gems" id="hud-gems" hidden><span class="gem-ico" aria-hidden="true"></span><b id="gem-count">0/0</b></div>
+      <div class="countdown" id="countdown" aria-live="polite"></div>
+      <div class="toast" id="toast" aria-live="polite"></div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal" id="m-pause" hidden role="dialog" aria-label="Paused">
+      <div class="card">
+        <div class="pause-row">
+          <button class="block-btn b-leaf" data-act="resume" aria-label="Keep playing"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 14 L52 32 L22 50 Z"/></svg></button>
+          <button class="block-btn b-sun" data-act="restart" aria-label="Start again"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5a7 7 0 1 1-6.6 4.7" fill="none" stroke-width="2.6" stroke-linecap="round"/><path d="M4 4v6h6" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="block-btn b-sky" data-act="recenter" aria-label="Level the board"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="none" stroke-width="2.4"/><circle cx="12" cy="12" r="2.6"/></svg></button>
+          <button class="block-btn b-tomato" data-act="quit" aria-label="Go home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg></button>
+        </div>
+        <p class="hint-line" id="pause-hint">Lay it flat, then tap the target to level the board.</p>
+      </div>
+    </div>
+
+    <div class="modal" id="m-result" hidden role="dialog" aria-label="Maze finished">
+      <div class="card result-card">
+        <div class="stars-big" id="stars-big">
+          <div class="sb"><span class="sbs">★</span><span class="sbr" id="sr0"></span></div>
+          <div class="sb"><span class="sbs">★</span><span class="sbr" id="sr1"></span></div>
+          <div class="sb"><span class="sbs">★</span><span class="sbr" id="sr2"></span></div>
+        </div>
+        <div class="result-row">
+          <button class="block-btn b-sun small" data-act="again" aria-label="Play again"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5a7 7 0 1 1-6.6 4.7" fill="none" stroke-width="2.6" stroke-linecap="round"/><path d="M4 4v6h6" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="block-btn b-leaf big" data-act="next" aria-label="Next maze"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 14 L42 32 L18 50 Z"/><rect x="44" y="14" width="7" height="36" rx="3"/></svg></button>
+          <button class="block-btn b-tomato small" data-act="quit" aria-label="Go home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="m-unlock" hidden role="dialog" aria-label="New marble">
+      <div class="card unlock-card">
+        <div class="unlock-glow"><img id="unlock-img" alt="" /></div>
+        <p class="unlock-name" id="unlock-name"></p>
+        <button class="block-btn b-leaf wide" data-act="equip-new">Use it!</button>
+        <button class="text-btn" data-act="close-unlock">Keep my marble</button>
+      </div>
+    </div>
+
+    <div class="modal" id="m-gate" hidden role="dialog" aria-label="Grown-ups only">
+      <div class="card gate-card">
+        <p class="gate-title">Grown-ups only</p>
+        <p class="gate-q" id="gate-q"></p>
+        <div class="gate-answers" id="gate-answers"></div>
+        <button class="text-btn" data-act="close-gate">Cancel</button>
+      </div>
+    </div>
+
+    <div class="modal parent" id="m-parent" hidden role="dialog" aria-label="Parent settings">
+      <div class="card parent-card">
+        <header class="parent-head">
+          <div class="ptabs" role="tablist">
+            <button class="ptab" data-ptab="settings" aria-selected="true">Settings</button>
+            <button class="ptab" data-ptab="progress">Progress</button>
+            <button class="ptab" data-ptab="data">Data &amp; install</button>
+          </div>
+          <button class="chip-btn" data-act="close-parent" aria-label="Close">✕</button>
+        </header>
+        <div class="pbody" id="pbody"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="m-break" hidden role="dialog" aria-label="Break time">
+      <div class="card break-card">
+        <div class="break-art" aria-hidden="true">🧸</div>
+        <p class="break-title">Stretch break!</p>
+        <p class="break-sub">Wiggle your fingers, look out the window, then come back.</p>
+        <button class="block-btn b-leaf wide" data-act="close-break" id="btn-break" disabled>OK</button>
+      </div>
+    </div>
+
+    <button class="gear" id="btn-gear" aria-label="Grown-ups: hold for settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm8.4 4.7-.1-2.4 2-1.6-2-3.4-2.4.9-2-1.2L15.5 3h-4l-.4 2.5-2 1.2-2.4-.9-2 3.4 2 1.6-.1 2.4-2 1.6 2 3.4 2.4-.9 2 1.2.4 2.5h4l.4-2.5 2-1.2 2.4.9 2-3.4z"/></svg><span class="gear-ring"></span></button>
+    <div class="rotate-hint" id="rotate-hint" hidden><span aria-hidden="true">📱↻</span> Turn sideways for a bigger board</div>
+    <div class="debug" id="debug" hidden></div>
+    <div class="corner-tap" id="corner-tap" aria-hidden="true"></div>
+  </body>
+</html>
