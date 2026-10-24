@@ -13,7 +13,8 @@
   ],
   "orientation": "portrait",
   "categories": [
-    "games"
+    "games",
+    "entertainment"
   ],
   "icons": [
     {
@@ -140,5 +141,5 @@
     }
   ],
   "version": "0.1.0",
-  "x-build-stamp": "20260913215735"
+  "x-build-stamp": "20261024040025"
 }
