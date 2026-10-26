@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "id": "key-quest-kids",
+  "audience": "kids",
+  "tiers": [
+    {
+      "tier": 0,
+      "name": "Black-Key Explorer",
+      "world": "starry-sky",
+      "icon": "🌟",
+      "skills": [
+        "black keys",
+        "high & low",
+        "up, down, repeat"
+      ],
+      "songs": [
+        "two-black-keys",
+        "three-black-echo",
+        "hot-cross-buns-black",
+        "big-bear",
+        "rain-rain-black",
+        "frog-hop",
+        "raindrops",
+        "mary-had-a-little-lamb-black"
+      ],
+      "graduation": "3 songs with 2 stars in Wait Mode"
+    },
+    {
+      "tier": 1,
+      "name": "Middle C Home",
+      "world": "candy-hills",
+      "icon": "🏠",
+      "skills": [
+        "find Middle C",
+        "right hand 1-2-3",
+        "steps"
+      ],
+      "songs": [
+        "middle-c-stairs",
+        "hot-cross-buns",
+        "bouncing-ball",
+        "doorbell",
+        "au-clair-de-la-lune-part-1",
+        "gently-down",
+        "hot-cross-buns-lh"
+      ],
+      "graduation": "3 songs with 2 stars in Wait Mode and 1 song with a star at turtle speed"
+    },
+    {
+      "tier": 2,
+      "name": "Five-Finger Friends",
+      "world": "candy-hills",
+      "icon": "🖐️",
+      "skills": [
+        "C position",
+        "fingers 1-5",
+        "steps and skips",
+        "whole note"
+      ],
+      "songs": [
+        "rocket-launch",
+        "three-blind-mice",
+        "frere-jacques",
+        "mary-had-a-little-lamb",
+        "five-finger-march",
+        "ode-to-joy",
+        "pony-trot",
+        "lightly-row",
+        "when-the-saints",
+        "jingle-bells"
+      ],
+      "graduation": "6 songs with 2 stars playing along at turtle speed"
+    },
+    {
+      "tier": 3,
+      "name": "Stretch & Shift",
+      "world": "ocean-reef",
+      "icon": "🐙",
+      "skills": [
+        "stretch to A",
+        "move your hand",
+        "3/4 time",
+        "eighth notes"
+      ],
+      "songs": [
+        "spooky-stretch",
+        "twinkle-twinkle",
+        "london-bridge",
+        "teddy-waltz",
+        "this-old-man",
+        "up-and-over",
+        "frere-jacques-full",
+        "au-clair-de-la-lune",
+        "yankee-doodle",
+        "ode-to-joy-full"
+      ],
+      "graduation": "6 songs with 2 stars at rabbit speed"
+    },
+    {
+      "tier": 4,
+      "name": "Left Hand Hello",
+      "world": "ocean-reef",
+      "icon": "🫲",
+      "skills": [
+        "left hand C position",
+        "hands take turns"
+      ],
+      "songs": [],
+      "graduation": "Coming soon"
+    },
+    {
+      "tier": 5,
+      "name": "G Position",
+      "world": "space-station",
+      "icon": "🪐",
+      "skills": [
+        "G position",
+        "F sharp"
+      ],
+      "songs": [],
+      "graduation": "Coming soon"
+    },
+    {
+      "tier": 6,
+      "name": "Hands Together",
+      "world": "space-station",
+      "icon": "🙌",
+      "skills": [
+        "melody + long left-hand notes"
+      ],
+      "songs": [],
+      "graduation": "Coming soon"
+    }
+  ]
+}
