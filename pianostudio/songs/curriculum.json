@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "piano-studio-adult",
+  "audience": "adult",
+  "tiers": [
+    { "tier": 6, "name": "Level 1 — foundations", "world": "studio", "icon": "🎹", "skills": ["lh-roots", "hands-together", "triads"], "songs": ["blues-c-roots", "saints-c-roots", "saints-f-triads"], "graduation": "Unit gates (see content/studio)" },
+    { "tier": 7, "name": "Level 1 — jazz harmony", "world": "studio", "icon": "🎷", "skills": ["shells", "ii-V-I", "lead-sheets"], "songs": ["blues-f-shells", "two-five-walk", "rose-changes"], "graduation": "Unit gates (see content/studio)" }
+  ]
+}

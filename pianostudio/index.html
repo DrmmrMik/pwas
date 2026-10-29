@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Piano Studio</title>
+    <meta name="description" content="Learn piano as an adult: jazz, theory, ear and reading with a backing band." />
+    <meta name="theme-color" content="#101318" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Piano Studio" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+    <script>
+      // e-ink before first paint: no flash of the dark theme on a Bigme/Viwoods
+      try {
+        var e = localStorage.getItem('piano-studio:eink');
+        var slow = window.matchMedia && window.matchMedia('(update: slow)').matches;
+        if (e === '1' || (e === null && slow)) document.documentElement.classList.add('eink');
+      } catch (_) {}
+    </script>
+    <style>html,body{background:#101318;height:100%;margin:0}html.eink,html.eink body{background:#fff}.boot{color:#e8e3d6;place-items:center;font:600 22px system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;display:grid;position:fixed;top:0;bottom:0;left:0;right:0}html.eink .boot{color:#000}</style>
+    <script type="module" crossorigin src="./assets/index-CLl_OduV.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/CanvasPool-DyGeXTmQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/canvasUtils-D0aN6580.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderTargetSystem-woKhaEPh.js">
+    <link rel="modulepreload" crossorigin href="./assets/getTextureBatchBindGroup-DGsgf0zf.js">
+    <link rel="modulepreload" crossorigin href="./assets/getTexelRangeRects-Bnfm2By4.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-B3yLRBpt.css">
+  <link rel="manifest" href="./manifest.json"></head>
+  <body data-screen="boot">
+    <div id="app"><div class="boot">Piano Studio…</div></div>
+    <noscript>Piano Studio needs JavaScript.</noscript>
+  </body>
+</html>
