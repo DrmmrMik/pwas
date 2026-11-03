@@ -8,7 +8,7 @@
   "theme_color": "#101318",
   "lang": "en",
   "scope": "./",
-  "id": "./",
+  "id": "/pwas/pianostudio/",
   "display_override": [
     "standalone",
     "fullscreen"
@@ -63,5 +63,5 @@
     }
   ],
   "version": "0.1.0",
-  "x-build-stamp": "20261103041256"
+  "x-build-stamp": "20261103225336"
 }
