@@ -8,7 +8,7 @@
   "theme_color": "#14122B",
   "lang": "en",
   "scope": "./",
-  "id": "./",
+  "id": "/pwas/keyquest/",
   "display_override": [
     "fullscreen",
     "standalone"
@@ -78,5 +78,5 @@
     }
   ],
   "version": "0.1.0",
-  "x-build-stamp": "20261031155004"
+  "x-build-stamp": "20261103225314"
 }
