@@ -176,6 +176,17 @@ def check_manifest(m, d):
         err("display_override contains 'window-controls-overlay' - strip it for Android")
     if not m.get("screenshots"):
         warn("manifest has no screenshots (recommended for install prompt)")
+    # App version: the publisher stamps a placeholder '0.1.0' when the build did
+    # not declare one, so the installed app and the portal build stamp report a
+    # version that has nothing to do with the release (Key Quest shipped 1.1.1
+    # while its manifest said 0.1.0 and its About screen said 1.0.4). Set
+    # manifest.version from the app's package.json in the Vite config instead of
+    # hardcoding it in two places.
+    _mv = m.get("version")
+    if not _mv or _mv == "0.1.0":
+        warn("manifest has no real 'version' (missing or the publisher's 0.1.0 "
+             "placeholder) - derive it from package.json so the build stamp "
+             "matches the release")
 
     # Category taxonomy and E-Ink disambiguation check
     categories = m.get("categories", [])

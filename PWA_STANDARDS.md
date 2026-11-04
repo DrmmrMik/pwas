@@ -16,6 +16,10 @@ Android"** when a maskable icon is missing. The checklist below prevents both.
 ## 2. Web App Manifest (`manifest.json`)
 - [ ] Valid JSON, parseable.
 - [ ] `name` and `short_name` present (short_name ≤ 12 chars recommended).
+- [ ] `version` present and equal to the app's `package.json` version — derive it
+  in the Vite config (`JSON.parse(readFileSync('./package.json')).version`), never
+  hardcode it. The publisher stamps a `0.1.0` placeholder when the build declares
+  no version, and a second hardcoded copy in the config drifts from the release.
 - [ ] `start_url` present (e.g. `./index.html`).
 - [ ] `scope` present and matches the app origin path.
 - [ ] `display` is `standalone` or `fullscreen` (not `browser`).
