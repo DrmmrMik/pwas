@@ -40,7 +40,7 @@ const srcDir = process.argv[3];
 if (!targetFolder || !srcDir) {
   logError("Missing arguments.");
   console.log("Usage: node publish.js <target-folder-name> <source-directory-path>");
-  console.log("Example: node publish.js climascape /home/gallabot/Documents/Gemini/WeatherHome/dist");
+  console.log("Example: node publish.js climascape /home/gallabot/code/apps/weather-home/dist");
   process.exit(1);
 }
 
@@ -108,8 +108,20 @@ try {
       const pkg = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
       pkg.version = pkg.version || '0.1.0';
       pkg['x-build-stamp'] = stamp;
+      // Manifest id is resolved against the manifest URL, so a relative id like
+      // "./" resolves to the ORIGIN (https://drmmrmik.github.io/) and every
+      // portal app ends up claiming the same identity -- Chrome then treats them
+      // as one app and reports the others as "already installed". Give every app
+      // a path-scoped id it owns. Defaults only: an explicit id always wins.
+      const idWasDefaulted = !pkg.id || pkg.id === './' || pkg.id === '.';
+      if (idWasDefaulted) {
+        pkg.id = `/pwas/${targetFolder}/`;
+      }
       fs.writeFileSync(manifestPath, JSON.stringify(pkg, null, 2) + '\n', 'utf8');
       log(`Stamped manifest.json: version=${pkg.version} x-build-stamp=${stamp}`);
+      if (idWasDefaulted) {
+        log(`Set manifest id to "${pkg.id}" (was missing or "./").`);
+      }
     } catch (se) {
       logError(`Could not stamp manifest.json: ${se.message}`);
     }
