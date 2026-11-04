@@ -9,6 +9,7 @@
   "lang": "en",
   "scope": "./",
   "id": "/pwas/mathroller/",
+  "version": "1.1.1",
   "display_override": [
     "fullscreen",
     "standalone"
@@ -95,6 +96,5 @@
       ]
     }
   ],
-  "version": "0.1.0",
-  "x-build-stamp": "20261103225758"
+  "x-build-stamp": "20261104002753"
 }
