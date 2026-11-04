@@ -9,7 +9,7 @@
   "lang": "en",
   "scope": "./",
   "id": "/pwas/keyquest/",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "display_override": [
     "fullscreen",
     "standalone"
@@ -78,5 +78,5 @@
       ]
     }
   ],
-  "x-build-stamp": "20261104003803"
+  "x-build-stamp": "20261104004402"
 }
