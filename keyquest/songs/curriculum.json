@@ -131,5 +131,57 @@
       "songs": [],
       "graduation": "Coming soon"
     }
+  ],
+  "collections": [
+    {
+      "id": "christmas",
+      "name": "Christmas Village",
+      "world": "snowy-village",
+      "icon": "🎄",
+      "season": {
+        "from": "11-01",
+        "to": "01-15"
+      },
+      "islands": [
+        {
+          "name": "Christmas Tunes",
+          "icon": "🔔",
+          "songs": [
+            "jingle-bells",
+            "jolly-old-st-nicholas",
+            "deck-the-halls",
+            "joy-to-the-world"
+          ]
+        },
+        {
+          "name": "More Christmas Tunes",
+          "icon": "⭐",
+          "songs": [
+            "good-king-wenceslas",
+            "we-wish-you-a-merry-christmas",
+            "silent-night"
+          ]
+        },
+        {
+          "name": "Christmas Chords",
+          "icon": "🙌",
+          "songs": [
+            "jingle-bells-chords",
+            "jolly-old-st-nicholas-chords",
+            "deck-the-halls-chords",
+            "joy-to-the-world-chords"
+          ]
+        },
+        {
+          "name": "More Christmas Chords",
+          "icon": "🙌",
+          "songs": [
+            "good-king-wenceslas-chords",
+            "we-wish-you-a-merry-christmas-chords",
+            "silent-night-chords"
+          ]
+        }
+      ]
+    }
   ]
 }
