@@ -1,0 +1,58 @@
+{
+  "name": "Orlando 2026 Action & Mario Trip Companion",
+  "short_name": "Orlando 2026",
+  "description": "Mario-First Action Router, Live Show Pivot Engine, High-Value Dining & 40 Insider Tips for Thanksgiving 2026",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "en",
+  "scope": "./",
+  "version": "1.0.0",
+  "display_override": [
+    "standalone",
+    "fullscreen"
+  ],
+  "orientation": "any",
+  "categories": [
+    "travel",
+    "games",
+    "e-ink"
+  ],
+  "eink_mode": "toggle",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "x-build-stamp": "20261108182232",
+  "id": "/pwas/orlando-trip-2026/"
+}
