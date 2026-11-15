@@ -1,0 +1,50 @@
+{
+  "name": "Keybird MIDI Monitor",
+  "short_name": "MIDI Monitor",
+  "description": "Firmware test bench for the M-VAVE FM-1: logs and analyses Web MIDI, sends notes, clock and SysEx, exports a JSON report.",
+  "version": "1.0.0",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone"
+  ],
+  "orientation": "any",
+  "background_color": "#f6f5f2",
+  "theme_color": "#2f5fd0",
+  "lang": "en",
+  "categories": [
+    "utilities",
+    "music"
+  ],
+  "portal_section": "keybird",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "x-build-stamp": "20261115213741",
+  "id": "/pwas/keybird-midi-monitor/"
+}

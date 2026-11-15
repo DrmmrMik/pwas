@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Keybird MIDI Monitor</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2f5fd0">
+<link rel="icon" href="icons/icon-192.png">
+<meta name="description" content="Firmware-agnostic Web MIDI test page for the Keybird firmware test plan.">
+<style>
+:root {
+  --bg: #f6f5f2; --panel: #ffffff; --ink: #1c1c1e; --muted: #5f6064; --line: #dddbd5;
+  --accent: #2f5fd0; --accent-ink: #ffffff; --ok: #1f7a46; --warn: #9a5b00; --bad: #b3261e;
+  --hint-bg: #fff6df; --hint-line: #e8c76a; --cell: #eceae4; --cell-on: #2f5fd0; --mark: #7a3fd0;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141416; --panel: #1d1d20; --ink: #ececee; --muted: #a0a1a6; --line: #34343a;
+    --accent: #7ea2ff; --accent-ink: #0d1530; --ok: #5fcf8e; --warn: #f0b552; --bad: #ff8a80;
+    --hint-bg: #2b2516; --hint-line: #6e5a22; --cell: #2a2a2f; --cell-on: #7ea2ff; --mark: #c09bff;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141416; --panel: #1d1d20; --ink: #ececee; --muted: #a0a1a6; --line: #34343a;
+  --accent: #7ea2ff; --accent-ink: #0d1530; --ok: #5fcf8e; --warn: #f0b552; --bad: #ff8a80;
+  --hint-bg: #2b2516; --hint-line: #6e5a22; --cell: #2a2a2f; --cell-on: #7ea2ff; --mark: #c09bff;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+header { padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; border-bottom: 1px solid var(--line); background: var(--panel); position: sticky; top: 0; z-index: 5; }
+header h1 { font-size: 17px; margin: 0; margin-right: auto; }
+main { padding: 12px 16px 48px; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); max-width: 1500px; margin: 0 auto; }
+@media (min-width: 1000px) { main { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; } #col-tools { position: sticky; top: 64px; } }
+section.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 0; }
+section.panel + section.panel { margin-top: 12px; }
+h2 { font-size: 15px; margin: 0 0 8px; }
+h3 { font-size: 13px; margin: 12px 0 4px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+button, select, input, textarea { font: inherit; color: inherit; }
+button { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; min-height: 40px; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button.on { outline: 2px solid var(--accent); outline-offset: -2px; font-weight: 600; }
+button:disabled { opacity: .45; cursor: default; }
+input, select, textarea { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; min-height: 36px; max-width: 100%; }
+textarea { width: 100%; min-height: 60px; resize: vertical; }
+label { display: inline-flex; gap: 6px; align-items: center; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row + .row { margin-top: 8px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.mono { font-family: var(--mono); font-size: 13px; }
+.banner { padding: 10px 12px; border-radius: 8px; border: 1px solid var(--hint-line); background: var(--hint-bg); margin: 12px 16px 0; }
+.banner.bad { border-color: var(--bad); }
+.pill { font-size: 13px; padding: 3px 9px; border-radius: 99px; border: 1px solid var(--line); white-space: nowrap; }
+.pill.ok { color: var(--ok); border-color: currentColor; }
+.pill.bad { color: var(--bad); border-color: currentColor; }
+#steps-nav { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+#steps-nav button { flex: 0 0 auto; min-height: 36px; padding: 4px 10px; font-size: 14px; }
+#steps-nav button .st { margin-left: 4px; }
+ol.do { margin: 6px 0; padding-left: 22px; }
+ol.do li + li { margin-top: 3px; }
+.hint { border: 1px dashed var(--hint-line); background: var(--hint-bg); border-radius: 8px; padding: 8px 10px; margin: 8px 0; font-size: 14px; }
+.hint b { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+.result { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.result button { min-height: 36px; padding: 4px 12px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; }
+.scroll-x { overflow-x: auto; }
+.grid16 { display: grid; grid-template-columns: minmax(84px, max-content) repeat(16, minmax(14px, 1fr)); gap: 2px; font-size: 12px; align-items: center; }
+.grid16 .c { height: 22px; border-radius: 3px; background: var(--cell); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; }
+.grid16 .c.on { background: var(--cell-on); color: var(--accent-ink); }
+.grid16 .c.part { background: color-mix(in srgb, var(--cell-on) 40%, var(--cell)); }
+.grid16 .h { text-align: center; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.grid16 .h.beat, .grid16 .lab { font-weight: 600; }
+.grid16 .lab { font-family: var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#log-wrap { max-height: 55vh; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+#log { font-family: var(--mono); font-size: 12px; }
+#log td { white-space: nowrap; padding: 2px 6px; }
+#log td.dec { white-space: normal; min-width: 180px; }
+#log td.bytes { max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+#log tr.out td { color: var(--accent); }
+#log tr.mark td { color: var(--mark); font-weight: 600; }
+#log thead th { position: sticky; top: 0; background: var(--panel); }
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 2px 12px; font-size: 14px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+details > summary { cursor: pointer; font-weight: 600; min-height: 32px; display: flex; align-items: center; }
+.meter { height: 10px; background: var(--cell); border-radius: 5px; overflow: hidden; width: 160px; }
+.meter > i { display: block; height: 100%; width: 0; background: var(--ok); }
+.empty { color: var(--muted); font-size: 14px; }
+@media (max-width: 520px) { .kv { grid-template-columns: minmax(0, 1fr); } .kv dt { margin-top: 4px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Keybird MIDI Monitor</h1>
+  <span id="midi-pill" class="pill">MIDI: not connected</span>
+  <button id="btn-connect" class="primary">Connect</button>
+  <button id="btn-mark" title="Add a ◆ marker to the log (shortcut: M)">◆ Mark</button>
+  <button id="btn-export">Export JSON</button>
+</header>
+<div id="banners"></div>
+<main>
+  <div id="col-steps">
+    <section class="panel">
+      <div id="steps-nav" role="tablist" aria-label="Test steps"></div>
+      <div id="step-body"></div>
+    </section>
+    <section class="panel">
+      <h2>What came in during this step</h2>
+      <div id="analysis"><p class="empty">Nothing yet.</p></div>
+    </section>
+    <section class="panel">
+      <details id="session-details">
+        <summary>Session details</summary>
+        <div class="kv" style="margin-top:8px">
+          <dt><label for="s-build">Firmware build</label></dt><dd><input id="s-build" data-s="firmwareBuild" placeholder="e.g. V10.7.17" style="width:100%"></dd>
+          <dt><label for="s-device">Phone / computer</label></dt><dd><input id="s-device" data-s="device" placeholder="e.g. Pixel 8, Android 16" style="width:100%"></dd>
+          <dt><label for="s-browser">Browser</label></dt><dd><input id="s-browser" data-s="browser" style="width:100%"></dd>
+          <dt><label for="s-connection">Connection</label></dt><dd><input id="s-connection" data-s="connection" placeholder="e.g. USB-C OTG adapter, 1 m data cable" style="width:100%"></dd>
+          <dt><label for="s-tester">Tester</label></dt><dd><input id="s-tester" data-s="tester" style="width:100%"></dd>
+          <dt><label for="s-notes">Notes</label></dt><dd><textarea id="s-notes" data-s="notes"></textarea></dd>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <label>Hints <select id="hint-pack"></select></label>
+          <label class="small"><input type="file" id="import-file" accept="application/json,.json" hidden><button id="btn-import" type="button">Load a saved JSON</button></label>
+          <button id="btn-reset" type="button">New session</button>
+        </div>
+      </details>
+    </section>
+  </div>
+  <div id="col-tools">
+    <section class="panel">
+      <h2>Ports</h2>
+      <div id="ports" class="small"><p class="empty">Tap Connect to list MIDI ports.</p></div>
+      <div class="row" style="margin-top:6px">
+        <label>Send to <select id="out-select"><option value="">(no output)</option></select></label>
+        <button id="btn-refresh">Refresh ports</button>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Send</h2>
+      <div class="row">
+        <label>Ch <select id="n-ch"></select></label>
+        <label>Note <input id="n-note" type="number" min="0" max="127" value="60" style="width:72px"></label>
+        <label>Vel <input id="n-vel" type="number" min="1" max="127" value="100" style="width:68px"></label>
+        <button id="btn-note">Play note</button>
+        <button id="btn-sweep">Sweep ch 1–16</button>
+      </div>
+      <div class="row">
+        <label>BPM <input id="c-bpm" type="number" min="20" max="300" step="1" value="120" style="width:72px"></label>
+        <button data-bpm="90">90</button><button data-bpm="120">120</button><button data-bpm="128">128</button>
+      </div>
+      <div class="row">
+        <button id="btn-clock">Clock on</button>
+        <button id="btn-start">START</button>
+        <button id="btn-stop">STOP</button>
+        <button id="btn-continue">CONTINUE</button>
+        <span id="clock-status" class="small muted"></span>
+      </div>
+      <div class="row">
+        <input id="sx-hex" class="mono" placeholder="F0 7E 7F 06 01 F7" style="flex:1 1 220px">
+        <button id="btn-sysex">Send SysEx</button>
+      </div>
+      <div class="row" id="pack-actions"></div>
+    </section>
+    <section class="panel">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">Log <span id="log-count" class="muted small"></span></h2>
+        <div class="row small">
+          <label><input type="checkbox" id="f-clock" checked> Hide clock &amp; keep-alive</label>
+          <label><input type="checkbox" id="f-pause"> Pause view</label>
+          <button id="btn-clear">Clear</button>
+        </div>
+      </div>
+      <div id="log-wrap" style="margin-top:8px">
+        <table id="log"><thead><tr><th>t (s)</th><th>step</th><th></th><th>port</th><th>bytes</th><th>meaning</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+'use strict';
+const TOOL = { name: 'keybird-midi-monitor', version: '1.0.0' };
+const SCHEMA = 'keybird.midimonitor/1';
+const AUTOSAVE_KEY = 'keybird.midimonitor.autosave';
+
+/* ------------------------------------------------------------------
+ * HINT_PACKS — firmware help, FROM DOCS, UNVERIFIED.
+ * The monitor itself knows nothing about any firmware. Everything
+ * firmware-specific (port names, SysEx, settings ids, step tips) lives
+ * here and is shown labelled "from docs, unverified" until the M0
+ * hardware logs confirm it.
+ * ------------------------------------------------------------------ */
+const HINT_PACKS = {
+  jiant: (() => {
+    const HDR = [0x7D, 0x46, 0x4C];
+    const CMD = { INFO: 1, NAMES: 10, WATCH: 22, CHANGED: 23, RELOAD: 24, PING: 25, STEP_CHANGED: 26, TRACK_STEP: 30, TRANSPORT: 40, PUNCH: 41, MUTATE: 42, MENU_DESC: 72, MENU_SET: 73 };
+    const CMD_NAME = Object.fromEntries(Object.entries(CMD).map(([k, v]) => [v, k]));
+    const MIDI_OUT = ['KEYS', 'CLOCK', 'ALL', 'OFF'];
+    const RC = { 0: 'saved', 1: 'unknown id', 3: 'RAM only', 4: 'saved after STOP' };
+    const v14 = (lo, hi) => (lo | (hi << 7)) - 8192;
+    const enc14 = v => { const u = v + 8192; return [u & 0x7F, (u >> 7) & 0x7F]; };
+    const frame = (cmd, args = []) => [0xF0, ...HDR, cmd, ...args, 0xF7];
+    function readStr(a, i) { let s = ''; while (i < a.length && a[i] !== 0) s += String.fromCharCode(a[i++]); return [s, i + 1]; }
+    function endsWith(a, tail) { if (a.length < tail.length) return false; return tail.every((b, k) => b === null || a[a.length - tail.length + k] === b); }
+    function findSeq(a, seq) { for (let i = 0; i + seq.length <= a.length; i++) if (seq.every((b, k) => a[i + k] === b)) return i; return -1; }
+
+    function decodeInfo(a) {
+      let i = 0, version;
+      [version, i] = readStr(a, i);
+      const r = { version, nEngines: a[i++], pCount: a[i++], gCount: a[i++], nStep: a[i++], pE0: a[i++], engines: [] };
+      for (let k = 0; k < r.nEngines && i < a.length; k++) { let s; [s, i] = readStr(a, i); r.engines.push(s); }
+      if (i < a.length) r.nTrk = a[i++];
+      if (i < a.length) r.chainRows = a[i++];
+      const tags = a.slice(i);
+      r.tagsHex = hex(tags);
+      let c = null;
+      if (endsWith(tags, [0x43, 0x02, null, null, 0x59, 0x01, null])) c = tags.slice(-7, -3);
+      else if (endsWith(tags, [0x43, 0x02, null, null])) c = tags.slice(-4);
+      r.contract = c ? `${c[2]}.${c[3]}` : null;
+      r.jiantTag = findSeq(tags, [0x4A, 0x01, 0x01]) >= 0;
+      const m = findSeq(tags, [0x4E, 0x01]);
+      r.menuCount = m >= 0 ? tags[m + 2] : null;
+      return r;
+    }
+    function decodeMenuDesc(a) {
+      const r = { index: a[0], id: a[1] };
+      if (a[1] === 127 || a.length < 3) { r.end = true; return r; }
+      let i = 2;
+      r.kind = a[i++]; r.value = v14(a[i], a[i + 1]); i += 2; r.min = v14(a[i], a[i + 1]); i += 2; r.max = v14(a[i], a[i + 1]); i += 2;
+      [r.name, i] = readStr(a, i);
+      if (r.kind === 0) { r.names = []; for (let k = r.min; k <= r.max && i < a.length; k++) { let s; [s, i] = readStr(a, i); r.names.push(s); } }
+      else if (r.kind === 1) { [r.unit, i] = readStr(a, i); }
+      if (i < a.length) { r.tab = a[i++]; [r.tabName, i] = readStr(a, i); }
+      return r;
+    }
+    function decodeNames(a) {
+      let i = 2; const r = { engine: a[0], count: a[1], names: [] };
+      for (let k = 0; k < r.count && i < a.length; k++) { let s; [s, i] = readStr(a, i); r.names.push(s); }
+      return r;
+    }
+
+    return {
+      id: 'jiant',
+      label: 'JIANT (from docs, unverified)',
+      source: 'juanjiant-bit/JIANT web/EDITOR_PROTOCOL.md @ ceac999 (read 2026-11-15); docs/MANUAL.md; build-log 2026-11-11',
+      portMatch: /jiant|fm-1|felucca/i,
+      audioMatch: /jiant|fm-1|felucca|m-vave/i,
+      CMD,
+      steps: {
+        1: 'USB name is "FM-1" since V10 ("JIANT" from 0.9.12, "JIANT FM" before). Match the name loosely, then confirm with INFO.',
+        2: 'Editor SysEx is F0 7D 46 4C cmd … F7. INFO is cmd 1; its reply ends with tag 43 02 major minor (protocol 1.2 on V10.6z7 and later).',
+        3: 'MIDI OUT defaults to KEYS (0 KEYS · 1 CLOCK · 2 ALL · 3 OFF), in MENU (hold HOME) › MIDI OUT. Run this step on KEYS first, then again on ALL.',
+        4: 'Step edit: SEQ › STEP on a drum track. White keys = 16 steps, black keys 1–8 = lanes, black key 9 = accent. Scale lock: QUANT WHITE. Watch whether grid presses are echoed at all.',
+        5: 'Sequencer notes go out only with MIDI OUT = ALL. Each track has its own channel (ch 1–6 = T1–T6).',
+        6: 'Clock goes out with MIDI OUT = CLOCK or ALL, at 24 ppqn, also while stopped.',
+        7: 'With MIDI OUT = ALL, knob moves go out as NRPN (CC99/98 + CC6/38).',
+        8: 'Ch 1–6 play T1–T6; the drum track takes GM notes 35–81. T5 and T6 are silent by default (TRACKS 4).',
+        9: 'Clock source is the global CLK setting (INT / USB / TRS). The device holds a whole-number BPM averaged over 2 beats. Transport watch (WATCH bit 2) pushes a TRANSPORT SysEx on every beat and needs no MIDI OUT setting.',
+        10: 'JIANT sends stereo plus 8-channel stems over USB audio. Android capture is unverified.',
+        11: 'MENU_SET is cmd 73; MIDI OUT is setting id 20. ALL = F0 7D 46 4C 49 14 02 40 F7. The reply carries rc (0 saved, 3 RAM only, 4 saved after STOP, 1 unknown id), the id and the value the device took.',
+        12: 'BLE MIDI since V10.13 carries notes, CC and clock, but no SysEx: INFO and Transport watch will not answer over BLE.',
+        13: 'Chiptune: try FM6, ANALOG and LOFI presets for lead, bass and arp. Lo-fi: DRUM-X kits, keys, soft bass, NOISE for vinyl dust. NAMES (cmd 10) lists an engine\'s presets.',
+      },
+      presetRoles: ['Chip lead', 'Chip bass', 'Chip arp', 'Chip drums', 'Lo-fi keys', 'Lo-fi bass', 'Lo-fi drums', 'Vinyl dust / texture'],
+      actions: {
+        2: [{ label: 'INFO', bytes: () => frame(CMD.INFO) }],
+        11: [
+          { label: 'MIDI OUT = ALL', bytes: () => frame(CMD.MENU_SET, [20, ...enc14(2)]) },
+          { label: 'MIDI OUT = KEYS', bytes: () => frame(CMD.MENU_SET, [20, ...enc14(0)]) },
+          { label: 'Read MENU list', run: 'menuList' },
+        ],
+      },
+      identify: () => frame(CMD.INFO),
+      watchFrame: on => frame(CMD.WATCH, [on ? 0b00101 : 0]),
+      pingFrame: () => frame(CMD.PING),
+      menuDescFrame: i => frame(CMD.MENU_DESC, [i]),
+      namesFrame: e => frame(CMD.NAMES, [e]),
+      engineList: info => info && info.engines ? info.engines.map((n, i) => ({ id: i, name: n })).filter(e => e.name && e.name !== '-') : null,
+
+      /* Returns {name, text, kind, data} for one of this firmware's SysEx frames, or null. */
+      decode(d) {
+        if (d[0] !== 0xF0 || d[1] !== HDR[0] || d[2] !== HDR[1] || d[3] !== HDR[2]) return null;
+        const cmd = d[4], a = d.slice(5, d[d.length - 1] === 0xF7 ? -1 : undefined);
+        const name = CMD_NAME[cmd] || `cmd ${cmd}`;
+        const out = { name, cmd, kind: 'other', text: name + (a.length ? ' · ' + hex(a.slice(0, 24)) + (a.length > 24 ? ' …' : '') : '') };
+        try {
+          if (cmd === CMD.INFO && a.length > 6) {
+            const r = decodeInfo(a);
+            Object.assign(out, { kind: 'identify', data: r, text: `INFO · ${r.version} · protocol ${r.contract || '?'} · ${r.nTrk ?? '?'} tracks · ${r.nEngines} engines${r.jiantTag ? ' · JIANT tag' : ''}` });
+          } else if (cmd === CMD.INFO) { out.text = 'INFO request'; }
+          else if (cmd === CMD.MENU_SET && a.length === 4) {
+            const r = { rc: a[0], id: a[1], value: v14(a[2], a[3]) };
+            const label = r.id === 20 ? `MIDI OUT = ${r.value} ${MIDI_OUT[r.value] || ''}` : `id ${r.id} = ${r.value}`;
+            Object.assign(out, { kind: 'setting', data: r, text: `MENU_SET reply · rc ${r.rc} (${RC[r.rc] || '?'}) · ${label}` });
+          } else if (cmd === CMD.MENU_SET && a.length === 3) {
+            out.text = `MENU_SET request · id ${a[0]} = ${v14(a[1], a[2])}` + (a[0] === 20 ? ` (MIDI OUT ${MIDI_OUT[v14(a[1], a[2])] || '?'})` : '');
+          } else if (cmd === CMD.MENU_DESC && a.length > 1) {
+            const r = decodeMenuDesc(a);
+            Object.assign(out, { kind: 'menu', data: r, text: r.end ? `MENU_DESC · index ${r.index}: end of list` : `MENU_DESC · #${r.index} id ${r.id} ${r.name} = ${r.names ? r.names[r.value - r.min] ?? r.value : r.value}` });
+          } else if (cmd === CMD.MENU_DESC) { out.text = `MENU_DESC request · index ${a[0]}`; }
+          else if (cmd === CMD.NAMES && a.length > 2) {
+            const r = decodeNames(a);
+            Object.assign(out, { kind: 'names', data: r, text: `NAMES · engine ${r.engine} · ${r.count} presets` });
+          } else if (cmd === CMD.WATCH) {
+            out.text = `WATCH · bits ${a[0]} (${[a[0] & 1 && 'on', a[0] & 2 && 'tracks', a[0] & 4 && 'transport', a[0] & 8 && 'punch', a[0] & 16 && 'mutate'].filter(Boolean).join(', ') || 'off'})`;
+            out.data = { bits: a[0] };
+          } else if (cmd === CMD.PING) { out.kind = 'keepalive'; out.text = 'PING'; }
+          else if (cmd === CMD.TRANSPORT && a.length >= 4) {
+            const r = { playing: a[0], beat: a[1], bar: a[2] | (a[3] << 7) };
+            Object.assign(out, { kind: 'beat', data: r, text: `TRANSPORT · ${r.playing ? 'playing' : 'stopped'} · bar ${r.bar} beat ${r.beat + 1}` });
+          } else if (cmd === CMD.CHANGED && a.length >= 4) {
+            out.text = `CHANGED · ${a[0] ? 'global' : 'track'} param ${a[1]} = ${v14(a[2], a[3])}`;
+          }
+        } catch (e) { out.text += ' (decode error)'; }
+        return out;
+      },
+    };
+  })(),
+};
+
+/* ---------------------------------------------------------------- steps */
+const STEPS = [
+  { id: 1, title: 'Ports', do: ['Plug the FM-1 in with a USB-C data cable (through an OTG adapter on a phone).', 'Tap Connect and allow MIDI, including SysEx.', 'Check the port list on the right. Names are saved automatically.', 'Note anything odd: a port listed twice, or missing.'] },
+  { id: 2, title: 'Identify', do: ['Tap "Identity request" (the MIDI standard one).', 'If hints are on, tap the hint\'s identify button too.', 'Replies show below and in the log.'], actions: [{ label: 'Identity request', bytes: () => [0xF0, 0x7E, 0x7F, 0x06, 0x01, 0xF7] }] },
+  { id: 3, title: 'Key output', do: ['Write the device\'s MIDI output setting in the notes.', '◆ Mark "white", then press every white key from low to high.', '◆ Mark "black", then press every black key.', '◆ Mark "oct", then press OCT+ twice and a key, OCT− twice and a key.'], marks: ['white', 'black', 'oct'] },
+  { id: 4, title: 'Keys per mode', do: ['Repeat step 3 in each mode the lessons use.', '◆ Mark the mode before each run.'], marks: ['step edit', 'scale lock'] },
+  { id: 5, title: 'Playback', do: ['On the drum track, program a kick on steps 1, 5, 9, 13 and a snare on 5 and 13.', 'Press PLAY, let it loop at least 4 times, then press STOP.', 'The 16-step grid below should show that pattern.', 'Optional: add a short melody on another track and play again.'] },
+  { id: 6, title: 'Clock out', do: ['◆ Mark "stopped" and leave the device stopped for 10 seconds.', '◆ Mark "playing", press PLAY and wait 10 seconds.', 'Press STOP.'], marks: ['stopped', 'playing'] },
+  { id: 7, title: 'Knobs', do: ['Turn each knob slowly from one end to the other.', '◆ Mark the knob\'s name before each one.'] },
+  { id: 8, title: 'Note input', do: ['Tap "Sweep ch 1–16". It plays one note on each channel, 1.2 seconds apart, and marks each one.', 'Write down which channels made a sound, and on which track.'], actions: [{ label: 'Sweep ch 1–16', run: 'sweep' }] },
+  { id: 9, title: 'Clock in', do: ['Set the device to follow USB clock.', 'Turn on Transport watch if hints offer it: it measures drift for you.', 'For 90, 120 and 128 BPM: tap the BPM, tap START, wait 30 seconds, tap STOP.', 'Then run 120 BPM for 5 minutes.', 'Write how long each tempo took to settle on the device screen.'] },
+  { id: 10, title: 'USB audio', do: ['Tap "Check audio inputs" and allow the microphone.', 'Is the FM-1 in the list? Press PLAY on the device and meter it.', 'Does the phone\'s own speaker still play sound, or did the FM-1 take it over?'], actions: [{ label: 'Check audio inputs', run: 'audio' }] },
+  { id: 11, title: 'Remote setup', do: ['Try the settings commands below.', 'Check on the device screen that the setting changed.', 'Put MIDI OUT back where you want it for the rest of the run.'] },
+  { id: 12, title: 'BLE (optional)', do: ['Unplug USB and pair the FM-1 over Bluetooth MIDI.', 'Tap Refresh ports, then repeat steps 3, 5 and 9 while on this step.', 'Write which parts worked.'] },
+  { id: 13, title: 'Preset pass', do: ['Load sounds on the device and rate how well each fits a role (1 poor – 5 great).', 'Write the engine and preset name you used.'] },
+];
+const RESULTS = [['yes', 'Works'], ['partly', 'Partly'], ['no', 'Doesn\'t'], ['skipped', 'Skipped']];
+
+/* ---------------------------------------------------------------- state */
+const S = {
+  t0: performance.now(),
+  createdAt: new Date().toISOString(),
+  msgs: [],            // {t, dir:'in'|'out'|'mark', port, step, d:number[] | label}
+  step: 1,
+  results: {},         // step id -> {result, notes}
+  session: {},
+  presets: {},         // role -> {sound, rating, notes}
+  presetNames: {},     // engine -> names[]
+  audio: null,
+  menu: [],
+  identity: {},
+  ports: { inputs: [], outputs: [] },
+  packId: 'jiant',
+  sysexEnabled: null,
+};
+let access = null, output = null, dirty = false, viewDirty = true;
+const pack = () => HINT_PACKS[S.packId] || null;
+const $ = s => document.querySelector(s);
+const now = () => performance.now() - S.t0;
+const toAbs = t => t + S.t0;
+
+/* ---------------------------------------------------------------- helpers */
+function hex(a) { return Array.from(a, b => b.toString(16).toUpperCase().padStart(2, '0')).join(' '); }
+function parseHex(s) {
+  const parts = s.replace(/0x/gi, '').replace(/[,;]/g, ' ').trim().split(/\s+/).filter(Boolean);
+  const bytes = parts.map(p => { if (!/^[0-9a-f]{1,2}$/i.test(p)) throw new Error(`"${p}" is not a hex byte`); return parseInt(p, 16); });
+  if (bytes[0] !== 0xF0 || bytes[bytes.length - 1] !== 0xF7) throw new Error('SysEx must start with F0 and end with F7');
+  if (bytes.slice(1, -1).some(b => b > 0x7F)) throw new Error('Data bytes must be 00–7F');
+  return bytes;
+}
+const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+function noteName(n) { return NOTE_NAMES[n % 12] + (Math.floor(n / 12) - 1); }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function median(a) { if (!a.length) return null; const s = [...a].sort((x, y) => x - y); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
+function stdev(a) { if (a.length < 2) return 0; const m = a.reduce((x, y) => x + y, 0) / a.length; return Math.sqrt(a.reduce((x, y) => x + (y - m) ** 2, 0) / (a.length - 1)); }
+function fmt(n, d = 1) { return n == null || Number.isNaN(n) ? '–' : n.toFixed(d); }
+function lowerBound(arr, x) { let lo = 0, hi = arr.length; while (lo < hi) { const m = (lo + hi) >> 1; if (arr[m] < x) lo = m + 1; else hi = m; } return lo; }
+function stepTitle(id) { const s = STEPS.find(x => x.id === id); return s ? s.title : String(id); }
+
+const CC_NAMES = { 0: 'bank MSB', 1: 'mod', 6: 'data MSB', 7: 'volume', 10: 'pan', 11: 'expression', 32: 'bank LSB', 38: 'data LSB', 64: 'sustain', 98: 'NRPN LSB', 99: 'NRPN MSB', 100: 'RPN LSB', 101: 'RPN MSB', 120: 'all sound off', 121: 'reset ctrls', 123: 'all notes off' };
+const RT = { 0xF8: 'clock', 0xFA: 'START', 0xFB: 'CONTINUE', 0xFC: 'STOP', 0xFE: 'active sensing', 0xFF: 'reset', 0xF6: 'tune request' };
+
+/* Text for one message. */
+function describe(d) {
+  const st = d[0], hi = st & 0xF0, ch = (st & 0x0F) + 1;
+  if (st >= 0xF8) return RT[st] || 'realtime ' + hex([st]);
+  if (st === 0xF0) {
+    const p = pack(); const dec = p && p.decode(d);
+    if (dec) return dec.text;
+    if (d[1] === 0x7E && d[3] === 0x06 && d[4] === 0x02) {
+      const r = decodeIdentity(d);
+      return `Identity reply · manufacturer ${r.manufacturer} · family ${r.family} · model ${r.model} · version ${r.version}`;
+    }
+    if (d[1] === 0x7E && d[3] === 0x06 && d[4] === 0x01) return 'Identity request';
+    return `SysEx (${d.length} bytes)`;
+  }
+  if (st === 0xF2) return `song position ${d[1] | (d[2] << 7)}`;
+  if (st === 0xF3) return `song select ${d[1]}`;
+  switch (hi) {
+    case 0x90: return d[2] ? `ch${ch} note on ${noteName(d[1])} (${d[1]}) vel ${d[2]}` : `ch${ch} note off ${noteName(d[1])} (${d[1]})`;
+    case 0x80: return `ch${ch} note off ${noteName(d[1])} (${d[1]})`;
+    case 0xA0: return `ch${ch} poly AT ${d[1]} = ${d[2]}`;
+    case 0xB0: return `ch${ch} CC${d[1]}${CC_NAMES[d[1]] ? ' ' + CC_NAMES[d[1]] : ''} = ${d[2]}`;
+    case 0xC0: return `ch${ch} program ${d[1]}`;
+    case 0xD0: return `ch${ch} channel AT ${d[1]}`;
+    case 0xE0: return `ch${ch} pitch bend ${(d[1] | (d[2] << 7)) - 8192}`;
+  }
+  return 'unknown';
+}
+function decodeIdentity(d) {
+  let i = 5; let manufacturer;
+  if (d[i] === 0) { manufacturer = hex(d.slice(i, i + 3)); i += 3; } else { manufacturer = hex([d[i]]); i += 1; }
+  return { manufacturer, family: hex(d.slice(i, i + 2)), model: hex(d.slice(i + 2, i + 4)), version: hex(d.slice(i + 4, i + 8)), raw: hex(d) };
+}
+function isQuiet(m) {
+  if (m.dir === 'mark') return false;
+  const b = m.d[0];
+  if (b === 0xF8 || b === 0xFE) return true;
+  if (b === 0xF0) { const p = pack(); const dec = p && p.decode(m.d); return !!(dec && dec.kind === 'keepalive'); }
+  return false;
+}
+
+/* ---------------------------------------------------------------- MIDI I/O */
+const waiters = [];
+function waitFor(pred, ms) {
+  return new Promise(resolve => {
+    const w = { pred, resolve };
+    waiters.push(w);
+    setTimeout(() => { const i = waiters.indexOf(w); if (i >= 0) { waiters.splice(i, 1); resolve(null); } }, ms);
+  });
+}
+function record(dir, d, tAbs, port) {
+  const m = { t: +(tAbs - S.t0).toFixed(3), dir, port, step: S.step, d: Array.from(d) };
+  S.msgs.push(m);
+  dirty = viewDirty = true;
+  queueLogRow(m);
+  if (dir === 'in') {
+    for (let i = waiters.length - 1; i >= 0; i--) if (waiters[i].pred(m)) { const w = waiters.splice(i, 1)[0]; w.resolve(m); }
+    onIncoming(m);
+  }
+  return m;
+}
+function addMark(label) {
+  const m = { t: +now().toFixed(3), dir: 'mark', port: '', step: S.step, label: label || 'mark' };
+  S.msgs.push(m); dirty = viewDirty = true; queueLogRow(m);
+}
+function send(bytes, tAbs) {
+  if (!output) { toast('Pick an output port first.'); return false; }
+  try {
+    if (tAbs != null) output.send(bytes, tAbs); else output.send(bytes);
+  } catch (e) { toast('Send failed: ' + e.message); return false; }
+  record('out', bytes, tAbs ?? performance.now(), output.name);
+  return true;
+}
+
+async function connect() {
+  if (!navigator.requestMIDIAccess) return;
+  try {
+    access = await navigator.requestMIDIAccess({ sysex: true });
+    S.sysexEnabled = access.sysexEnabled !== false;
+  } catch (e) {
+    try { access = await navigator.requestMIDIAccess(); S.sysexEnabled = false; banner('SysEx was not allowed, so steps 2, 9 (transport watch) and 11 cannot work. Reload and allow it to fix this.', true); }
+    catch (e2) { banner('MIDI access was refused: ' + e2.message, true); return; }
+  }
+  access.onstatechange = e => { addMark(`port ${e.port.type} "${e.port.name}" ${e.port.state}`); refreshPorts(); };
+  refreshPorts();
+  $('#btn-connect').textContent = 'Reconnect';
+}
+const listening = new WeakSet();
+function refreshPorts() {
+  if (!access) return;
+  const ins = [...access.inputs.values()], outs = [...access.outputs.values()];
+  const info = p => ({ id: p.id, name: p.name, manufacturer: p.manufacturer, version: p.version, state: p.state, connection: p.connection });
+  S.ports = { inputs: ins.map(info), outputs: outs.map(info), at: new Date().toISOString() };
+  for (const p of ins) if (!listening.has(p)) {
+    listening.add(p);
+    p.addEventListener('midimessage', e => record('in', e.data, e.timeStamp || performance.now(), p.name));
+  }
+  const sel = $('#out-select'), keep = output && output.id;
+  sel.innerHTML = '<option value="">(no output)</option>' + outs.map(o => `<option value="${esc(o.id)}">${esc(o.name)}</option>`).join('');
+  const pm = pack() && pack().portMatch;
+  const pick = outs.find(o => o.id === keep) || (pm && outs.find(o => pm.test(o.name))) || outs[0];
+  output = pick || null; sel.value = pick ? pick.id : '';
+  const pill = $('#midi-pill');
+  pill.textContent = `MIDI: ${ins.length} in · ${outs.length} out${S.sysexEnabled ? ' · SysEx' : ''}`;
+  pill.className = 'pill ' + (ins.length ? 'ok' : 'bad');
+  renderPorts(); dirty = true;
+}
+function renderPorts() {
+  const row = (p, dir) => `<tr><td>${dir}</td><td><b>${esc(p.name)}</b></td><td>${esc(p.manufacturer || '–')}</td><td>${esc(p.version || '–')}</td><td>${esc(p.state)}/${esc(p.connection)}</td><td class="mono">${esc(p.id)}</td></tr>`;
+  const rows = [...S.ports.inputs.map(p => row(p, 'in')), ...S.ports.outputs.map(p => row(p, 'out'))];
+  $('#ports').innerHTML = rows.length
+    ? `<div class="scroll-x"><table><thead><tr><th></th><th>name</th><th>manufacturer</th><th>version</th><th>state</th><th>id</th></tr></thead><tbody>${rows.join('')}</tbody></table></div>`
+    : '<p class="empty">No MIDI ports. Check the cable is a data cable and the FM-1 is on.</p>';
+}
+
+function onIncoming(m) {
+  if (m.d[0] !== 0xF0) return;
+  const p = pack(); const dec = p && p.decode(m.d);
+  if (dec && dec.kind === 'identify') {
+    S.identity.info = dec.data;
+    if (!S.session.firmwareBuild) { S.session.firmwareBuild = dec.data.version; syncSessionInputs(); }
+  } else if (m.d[1] === 0x7E && m.d[3] === 0x06 && m.d[4] === 0x02) {
+    S.identity.universal = decodeIdentity(m.d);
+  } else if (dec && dec.kind === 'names') {
+    S.presetNames[dec.data.engine] = dec.data.names;
+  } else return;
+  if (S.step === 2 || S.step === 13) renderStep();
+}
+
+/* ---------------------------------------------------------------- clock sender (worker-ticked lookahead) */
+const clock = { on: false, bpm: 120, interval: 60000 / (120 * 24), next: 0, worker: null, lookahead: 100, pendingStart: false };
+function clockWorker() {
+  if (clock.worker) return clock.worker;
+  const src = 'let id=null;onmessage=e=>{if(e.data==="start"){if(!id)id=setInterval(()=>postMessage(0),25)}else{clearInterval(id);id=null}}';
+  clock.worker = new Worker(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
+  clock.worker.onmessage = clockTick;
+  return clock.worker;
+}
+function clockTick() {
+  if (!clock.on || !output) return;
+  const horizon = performance.now() + clock.lookahead;
+  while (clock.next < horizon) {
+    if (clock.pendingStart) { send([0xFA], clock.next); clock.pendingStart = false; }
+    send([0xF8], clock.next);
+    clock.next += clock.interval;
+  }
+}
+function setBpm(bpm) {
+  bpm = Math.max(20, Math.min(300, Math.round(+bpm || 120)));
+  clock.bpm = bpm; clock.interval = 60000 / (bpm * 24);
+  $('#c-bpm').value = bpm; renderClock();
+}
+function clockOn() {
+  if (!output) { toast('Pick an output port first.'); return; }
+  if (clock.on) return;
+  clock.on = true; clock.next = performance.now() + 30;
+  clockWorker().postMessage('start'); clockTick(); renderClock();
+}
+function clockOff() { clock.on = false; clock.pendingStart = false; if (clock.worker) clock.worker.postMessage('stop'); renderClock(); }
+function transportStart() {
+  if (!output) { toast('Pick an output port first.'); return; }
+  if (clock.on) { clock.pendingStart = true; }
+  else { clock.pendingStart = true; clockOn(); }
+  addMark(`START ${clock.bpm} BPM`);
+}
+function transportStop() { send([0xFC], clock.on ? clock.next : undefined); }
+function renderClock() {
+  $('#btn-clock').textContent = clock.on ? 'Clock off' : 'Clock on';
+  $('#btn-clock').classList.toggle('on', clock.on);
+  $('#clock-status').textContent = clock.on ? `sending ${clock.bpm} BPM` : '';
+}
+
+/* ---------------------------------------------------------------- transport watch */
+const watch = { on: false, timer: null };
+function setWatch(on) {
+  const p = pack();
+  if (!p || !p.watchFrame) return;
+  if (on && !send(p.watchFrame(true))) return;
+  if (!on && watch.on) send(p.watchFrame(false));
+  watch.on = on;
+  clearInterval(watch.timer);
+  if (on) watch.timer = setInterval(() => { if (output) send(p.pingFrame()); }, 1000);
+  renderPackActions(); renderStep();
+}
+
+/* ---------------------------------------------------------------- step runners */
+let sweepTimer = null;
+function sweep() {
+  if (!output) { toast('Pick an output port first.'); return; }
+  if (sweepTimer) { clearTimeout(sweepTimer); sweepTimer = null; addMark('sweep stopped'); renderStep(); return; }
+  const note = +$('#n-note').value || 60, vel = +$('#n-vel').value || 100;
+  let ch = 1;
+  const next = () => {
+    if (ch > 16) { sweepTimer = null; addMark('sweep done'); renderStep(); return; }
+    addMark(`sweep ch ${ch}`);
+    const t = performance.now();
+    send([0x90 | (ch - 1), note, vel], t); send([0x80 | (ch - 1), note, 0], t + 500);
+    ch++; sweepTimer = setTimeout(next, 1200);
+  };
+  next(); renderStep();
+}
+function playNote() {
+  const ch = +$('#n-ch').value, note = +$('#n-note').value, vel = +$('#n-vel').value || 100;
+  const t = performance.now();
+  send([0x90 | (ch - 1), note & 127, vel & 127], t) && send([0x80 | (ch - 1), note & 127, 0], t + 400);
+}
+async function menuList() {
+  const p = pack(); if (!p || !p.menuDescFrame) return;
+  S.menu = []; renderStep();
+  for (let i = 0; i < 64; i++) {
+    if (!send(p.menuDescFrame(i))) break;
+    const m = await waitFor(x => { const d = p.decode(x.d); return d && d.kind === 'menu' && d.data.index === i; }, 600);
+    if (!m) { S.menu.push({ index: i, noReply: true }); break; }
+    const r = p.decode(m.d).data;
+    if (r.end) break;
+    S.menu.push(r); dirty = true; renderStep();
+  }
+  renderStep();
+}
+async function readNames(engine) {
+  const p = pack(); if (!p || !p.namesFrame) return;
+  send(p.namesFrame(engine));
+  const m = await waitFor(x => { const d = p.decode(x.d); return d && d.kind === 'names' && d.data.engine === engine; }, 1500);
+  if (!m) toast('No reply to NAMES.');
+  renderStep();
+}
+async function audioCheck() {
+  const r = { at: new Date().toISOString(), secure: isSecureContext, midiOpen: !!access, before: [], after: [], granted: false, error: null, meters: {} };
+  S.audio = r; renderStep();
+  if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) { r.error = 'mediaDevices not available'; renderStep(); return; }
+  const list = async () => (await navigator.mediaDevices.enumerateDevices()).filter(d => d.kind === 'audioinput' || d.kind === 'audiooutput').map(d => ({ kind: d.kind, label: d.label || '(label hidden)', deviceId: d.deviceId }));
+  try {
+    r.before = await list();
+    const st = await navigator.mediaDevices.getUserMedia({ audio: true });
+    r.granted = true; r.defaultTrack = st.getAudioTracks()[0] && st.getAudioTracks()[0].label;
+    st.getTracks().forEach(t => t.stop());
+    r.after = await list();
+    const am = pack() && pack().audioMatch;
+    r.matched = r.after.filter(d => d.kind === 'audioinput' && ((am && am.test(d.label)) || /usb/i.test(d.label))).map(d => d.label);
+  } catch (e) { r.error = `${e.name}: ${e.message}`; }
+  dirty = true; addMark('audio check'); renderStep();
+}
+async function meter(deviceId, label) {
+  const r = S.audio; if (!r) return;
+  let st, ctx;
+  try {
+    st = await navigator.mediaDevices.getUserMedia({ audio: { deviceId: { exact: deviceId }, echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    const tr = st.getAudioTracks()[0], set = tr.getSettings ? tr.getSettings() : {};
+    ctx = new AudioContext(); const an = ctx.createAnalyser(); an.fftSize = 2048;
+    ctx.createMediaStreamSource(st).connect(an);
+    const buf = new Float32Array(an.fftSize); let peak = 0; const t0 = performance.now();
+    addMark(`meter "${label}"`);
+    await new Promise(res => {
+      const loop = () => {
+        an.getFloatTimeDomainData(buf);
+        for (const v of buf) peak = Math.max(peak, Math.abs(v));
+        const bar = document.querySelector(`[data-meter="${CSS.escape(deviceId)}"] > i`);
+        if (bar) bar.style.width = Math.min(100, peak * 100) + '%';
+        if (performance.now() - t0 < 5000) requestAnimationFrame(loop); else res();
+      };
+      loop();
+    });
+    r.meters[label] = { peak: +peak.toFixed(4), peakDb: peak > 0 ? +(20 * Math.log10(peak)).toFixed(1) : null, channelCount: set.channelCount ?? null, sampleRate: set.sampleRate ?? ctx.sampleRate };
+  } catch (e) { r.meters[label] = { error: `${e.name}: ${e.message}` }; }
+  finally { if (st) st.getTracks().forEach(t => t.stop()); if (ctx) ctx.close(); }
+  dirty = true; renderStep();
+}
+const RUNNERS = { sweep, menuList, audio: audioCheck };
+
+/* ---------------------------------------------------------------- analysis */
+function analyze(msgs) {
+  const midi = msgs.filter(m => m.dir !== 'mark');
+  const A = { total: midi.length, in: 0, out: 0, channels: {}, notes: {}, cc: {}, nrpn: {}, programs: [], bend: 0, aftertouch: 0, sysex: [], runs: [], grid: null, beats: null, marks: msgs.filter(m => m.dir === 'mark').map(m => ({ t: m.t, label: m.label })) };
+  const nrpnState = {};
+  const p = pack();
+  for (const m of midi) {
+    A[m.dir]++;
+    if (m.dir !== 'in') continue;
+    const d = m.d, st = d[0], hi = st & 0xF0, ch = (st & 0x0F) + 1;
+    if (st >= 0xF0) {
+      if (st === 0xF0) { const dec = p && p.decode(d); A.sysex.push({ t: m.t, text: describe(d), kind: dec ? dec.kind : null }); }
+      continue;
+    }
+    A.channels[ch] = (A.channels[ch] || 0) + 1;
+    if (hi === 0x90 && d[2] > 0) {
+      const n = A.notes[ch] || (A.notes[ch] = { count: 0, set: {} });
+      n.count++; n.set[d[1]] = (n.set[d[1]] || 0) + 1;
+    } else if (hi === 0xB0) {
+      const k = `${ch}:${d[1]}`, c = A.cc[k] || (A.cc[k] = { ch, cc: d[1], count: 0, min: 127, max: 0 });
+      c.count++; c.min = Math.min(c.min, d[2]); c.max = Math.max(c.max, d[2]);
+      const ns = nrpnState[ch] || (nrpnState[ch] = {});
+      if (d[1] === 99) ns.msb = d[2]; else if (d[1] === 98) ns.lsb = d[2];
+      else if (d[1] === 101 || d[1] === 100) ns.msb = ns.lsb = undefined;
+      else if ((d[1] === 6 || d[1] === 38) && ns.msb !== undefined && ns.lsb !== undefined) {
+        if (d[1] === 6) ns.dmsb = d[2]; else ns.dlsb = d[2];
+        const param = (ns.msb << 7) | ns.lsb, val = ((ns.dmsb || 0) << 7) | (ns.dlsb || 0);
+        const k2 = `${ch}:${param}`, r = A.nrpn[k2] || (A.nrpn[k2] = { ch, param, count: 0, min: Infinity, max: -Infinity });
+        if (d[1] === 38 || ns.dlsb === undefined) { r.count++; r.min = Math.min(r.min, val); r.max = Math.max(r.max, val); }
+      }
+    } else if (hi === 0xC0) A.programs.push({ ch, program: d[1] });
+    else if (hi === 0xE0) A.bend++;
+    else if (hi === 0xA0 || hi === 0xD0) A.aftertouch++;
+  }
+  A.runs = [...clockRuns(midi, 'in'), ...clockRuns(midi, 'out')].sort((a, b) => a.start - b.start);
+  A.grid = buildGrid(midi);
+  A.beats = beatReport(midi);
+  return A;
+}
+
+/* Clock runs: split at START or a gap > 500 ms. */
+function clockRuns(midi, dir) {
+  const runs = []; let cur = null, playing = false;
+  const close = () => { if (cur && cur.ticks.length > 1) runs.push(finishRun(cur)); cur = null; };
+  for (const m of midi) {
+    if (m.dir !== dir) continue;
+    const b = m.d[0];
+    if (b === 0xFA || b === 0xFB) { close(); playing = true; cur = { dir, playing: true, starts: b === 0xFA, ticks: [] }; continue; }
+    if (b === 0xFC) { close(); playing = false; continue; }
+    if (b !== 0xF8) continue;
+    if (cur && cur.ticks.length && m.t - cur.ticks[cur.ticks.length - 1] > 500) close();
+    if (!cur) cur = { dir, playing, starts: false, ticks: [] };
+    cur.ticks.push(m.t);
+  }
+  close();
+  return runs;
+}
+function finishRun(r) {
+  const iv = []; for (let i = 1; i < r.ticks.length; i++) iv.push(r.ticks[i] - r.ticks[i - 1]);
+  const med = median(iv), dev = iv.map(x => Math.abs(x - med)).sort((a, b) => a - b);
+  return {
+    dir: r.dir, playing: r.playing, start: r.ticks[0], end: r.ticks[r.ticks.length - 1], ticks: r.ticks.length,
+    bpm: med ? 60000 / (24 * med) : null, meanBpm: iv.length ? 60000 / (24 * (r.ticks[r.ticks.length - 1] - r.ticks[0]) / iv.length) : null,
+    jitterMs: stdev(iv), p95DevMs: dev.length ? dev[Math.floor(dev.length * 0.95)] : 0,
+  };
+}
+
+/* 16-step grid: incoming note-ons quantized against clock ticks (incoming clock if present, else ours). */
+function buildGrid(midi) {
+  const notesIn = midi.filter(m => m.dir === 'in' && (m.d[0] & 0xF0) === 0x90 && m.d[2] > 0);
+  if (!notesIn.length) return null;
+  const inTicks = midi.filter(m => m.dir === 'in' && m.d[0] === 0xF8).length;
+  const src = inTicks >= 24 ? 'in' : 'out';
+  // Play segments: from START (or first tick) of the chosen clock; tick 0 is the first clock after START.
+  const segs = []; let seg = null;
+  for (const m of midi) {
+    if (m.dir !== src) continue;
+    const b = m.d[0];
+    if (b === 0xFA) { seg = { ticks: [], fromStart: true }; segs.push(seg); }
+    else if (b === 0xFC) seg = null;
+    else if (b === 0xF8) {
+      if (seg && seg.ticks.length && m.t - seg.ticks[seg.ticks.length - 1] > 500) seg = null;
+      if (!seg) { seg = { ticks: [], fromStart: false }; segs.push(seg); }
+      seg.ticks.push(m.t);
+    }
+  }
+  const good = segs.filter(s => s.ticks.length >= 24);
+  if (!good.length) return null;
+  const rows = {}, offsets = []; let loops = 0, placed = 0;
+  for (const s of good) {
+    const T = s.ticks, iv = []; for (let i = 1; i < T.length; i++) iv.push(T[i] - T[i - 1]);
+    const tickMs = median(iv);
+    loops += Math.ceil(T.length / 96);
+    for (const m of notesIn) {
+      if (m.t < T[0] - tickMs * 3 || m.t > T[T.length - 1] + tickMs * 3) continue;
+      const k = lowerBound(T, m.t) - 1; // last tick at or before m.t
+      let frac;
+      if (k < 0) frac = (m.t - T[0]) / tickMs;
+      else if (k >= T.length - 1) frac = (T.length - 1) + (m.t - T[T.length - 1]) / tickMs;
+      else frac = k + (m.t - T[k]) / (T[k + 1] - T[k]);
+      const stepF = frac / 6, step = Math.round(stepF);
+      offsets.push((stepF - step) * 6 * tickMs);
+      const key = `ch${(m.d[0] & 15) + 1} ${noteName(m.d[1])}`;
+      const row = rows[key] || (rows[key] = { ch: (m.d[0] & 15) + 1, note: m.d[1], label: key, cells: new Array(16).fill(0) });
+      row.cells[((step % 16) + 16) % 16]++; placed++;
+    }
+  }
+  if (!placed) return null;
+  const list = Object.values(rows).sort((a, b) => a.ch - b.ch || a.note - b.note);
+  const abs = offsets.map(Math.abs);
+  return { clock: src, loops, rows: list, placed, medianOffsetMs: median(offsets), medianAbsOffsetMs: median(abs), maxAbsOffsetMs: Math.max(...abs) };
+}
+
+/* Device beat reports (hint pack pushes) against the beats of our outgoing clock. */
+function beatReport(midi) {
+  const p = pack(); if (!p) return null;
+  const beats = [];
+  for (const m of midi) {
+    if (m.dir !== 'in' || m.d[0] !== 0xF0) continue;
+    const dec = p.decode(m.d);
+    if (dec && dec.kind === 'beat' && dec.data.playing) beats.push({ t: m.t, ...dec.data });
+  }
+  if (!beats.length) return null;
+  const iv = []; for (let i = 1; i < beats.length; i++) iv.push(beats[i].t - beats[i - 1].t);
+  const r = { count: beats.length, deviceBpm: iv.length ? 60000 / median(iv.filter(x => x < 3000)) : null, beatJitterMs: stdev(iv.filter(x => x < 3000)) };
+  // Expected beats: every 24th outgoing clock since our START.
+  const expected = []; let k = -1;
+  for (const m of midi) {
+    if (m.dir !== 'out') continue;
+    if (m.d[0] === 0xFA) k = 0;
+    else if (m.d[0] === 0xFC) k = -1;
+    else if (m.d[0] === 0xF8 && k >= 0) { if (k % 24 === 0) expected.push(m.t); k++; }
+  }
+  if (expected.length < 2) return r;
+  expected.sort((a, b) => a - b);
+  const off = [];
+  for (const b of beats) {
+    const i = lowerBound(expected, b.t);
+    const cands = [expected[i - 1], expected[i]].filter(x => x !== undefined);
+    const e = cands.reduce((best, x) => Math.abs(b.t - x) < Math.abs(b.t - best) ? x : best, cands[0]);
+    off.push({ t: b.t, o: b.t - e });
+  }
+  const os = off.map(x => x.o);
+  // Settled: from the first beat after which consecutive offsets move < 5 ms.
+  let s = os.length - 1; while (s > 0 && Math.abs(os[s] - os[s - 1]) < 5) s--;
+  const n = off.length, mt = off.reduce((a, x) => a + x.t, 0) / n, mo = os.reduce((a, x) => a + x, 0) / n;
+  const num = off.reduce((a, x) => a + (x.t - mt) * (x.o - mo), 0), den = off.reduce((a, x) => a + (x.t - mt) ** 2, 0);
+  Object.assign(r, {
+    vsOurClock: true, firstOffsetMs: os[0], lastOffsetMs: os[n - 1], medianOffsetMs: median(os),
+    spreadMs: Math.max(...os) - Math.min(...os), driftMsPerMin: den ? (num / den) * 60000 : 0,
+    spanS: (off[n - 1].t - off[0].t) / 1000, settledAfterS: (off[s].t - off[0].t) / 1000,
+  });
+  return r;
+}
+
+/* ---------------------------------------------------------------- rendering */
+function renderNav() {
+  $('#steps-nav').innerHTML = STEPS.map(s => {
+    const r = S.results[s.id] && S.results[s.id].result;
+    const mark = r === 'yes' ? '✓' : r === 'partly' ? '½' : r === 'no' ? '✗' : r === 'skipped' ? '–' : '';
+    return `<button role="tab" data-step="${s.id}" aria-selected="${s.id === S.step}" class="${s.id === S.step ? 'on' : ''}">${s.id}. ${esc(s.title)}${mark ? `<span class="st">${mark}</span>` : ''}</button>`;
+  }).join('');
+}
+function renderStep() {
+  const s = STEPS.find(x => x.id === S.step), p = pack();
+  const r = S.results[s.id] || {};
+  const hint = p && p.steps && p.steps[s.id];
+  const actions = [...(s.actions || []), ...((p && p.actions && p.actions[s.id]) || [])];
+  let h = `<h2>Step ${s.id} of ${STEPS.length} · ${esc(s.title)}</h2><ol class="do">${s.do.map(x => `<li>${esc(x)}</li>`).join('')}</ol>`;
+  if (hint) h += `<div class="hint"><b>${esc(p.label)}</b><br>${esc(hint)}</div>`;
+  const btns = [];
+  for (const [i, a] of actions.entries()) btns.push(`<button data-action="${i}">${esc(a.run === 'sweep' && sweepTimer ? 'Stop sweep' : a.label)}</button>`);
+  for (const mk of s.marks || []) btns.push(`<button data-mark="${esc(mk)}">◆ ${esc(mk)}</button>`);
+  if (s.id === 9 && p && p.watchFrame) btns.push(`<button data-watch class="${watch.on ? 'on' : ''}">Transport watch: ${watch.on ? 'on' : 'off'}</button>`);
+  if (s.id === 9) btns.push(`<span class="small muted">START/STOP and BPM are in the Send panel.</span>`);
+  if (btns.length) h += `<div class="row">${btns.join('')}</div>`;
+  h += stepExtras(s.id);
+  h += `<div class="result" role="group" aria-label="Result">${RESULTS.map(([v, l]) => `<button data-result="${v}" class="${r.result === v ? 'on' : ''}">${l}</button>`).join('')}</div>`;
+  h += `<textarea data-notes placeholder="What happened? Channels, names, anything surprising.">${esc(r.notes || '')}</textarea>`;
+  h += `<div class="row" style="margin-top:8px"><button data-nav="-1" ${s.id === 1 ? 'disabled' : ''}>← Back</button><button data-nav="1" class="primary" ${s.id === STEPS.length ? 'disabled' : ''}>Next step →</button></div>`;
+  const body = $('#step-body');
+  const focusNotes = document.activeElement && document.activeElement.matches('[data-notes]');
+  body.innerHTML = h;
+  if (focusNotes) body.querySelector('[data-notes]').focus();
+  _actions = actions;
+}
+let _actions = [];
+
+function stepExtras(id) {
+  const p = pack();
+  if (id === 2) {
+    const i = S.identity.info, u = S.identity.universal;
+    let h = '';
+    if (i) h += `<h3>Firmware reply</h3><dl class="kv"><dt>Version</dt><dd>${esc(i.version)}</dd><dt>Protocol</dt><dd>${esc(i.contract || 'no contract tag')}</dd><dt>Tracks</dt><dd>${i.nTrk ?? '–'}</dd><dt>Steps</dt><dd>${i.nStep}</dd><dt>Engines</dt><dd>${esc(i.engines.filter(e => e && e !== '-').join(', '))}</dd><dt>Settings</dt><dd>${i.menuCount ?? '–'}</dd><dt>Tags</dt><dd class="mono">${esc(i.tagsHex)}</dd></dl>`;
+    if (u) h += `<h3>Identity reply</h3><dl class="kv"><dt>Manufacturer</dt><dd>${esc(u.manufacturer)}</dd><dt>Family / model</dt><dd>${esc(u.family)} / ${esc(u.model)}</dd><dt>Version</dt><dd>${esc(u.version)}</dd></dl>`;
+    return h;
+  }
+  if (id === 10) {
+    const a = S.audio; if (!a) return '';
+    let h = `<h3>Audio devices</h3>`;
+    if (a.error) h += `<p class="small" style="color:var(--bad)">${esc(a.error)}</p>`;
+    const ins = (a.after.length ? a.after : a.before).filter(d => d.kind === 'audioinput');
+    if (ins.length) h += `<table><tbody>${ins.map(d => {
+      const mt = a.meters[d.label];
+      return `<tr><td>${esc(d.label)}</td><td>${a.granted ? `<div class="row"><div class="meter" data-meter="${esc(d.deviceId)}"><i></i></div><button data-meter-id="${esc(d.deviceId)}" data-meter-label="${esc(d.label)}">Meter 5 s</button></div>` : ''}</td><td class="small">${mt ? (mt.error ? esc(mt.error) : `peak ${mt.peakDb ?? '–'} dBFS · ${mt.channelCount ?? '?'} ch · ${mt.sampleRate} Hz`) : ''}</td></tr>`;
+    }).join('')}</tbody></table>`;
+    else h += `<p class="empty">No audio inputs listed.</p>`;
+    if (a.granted) h += `<p class="small">Likely FM-1 inputs: ${a.matched.length ? esc(a.matched.join(', ')) : 'none found by name'}.</p>`;
+    return h;
+  }
+  if (id === 11 && S.menu.length) {
+    return `<h3>Device settings</h3><div class="scroll-x"><table><thead><tr><th>#</th><th>id</th><th>name</th><th>value</th><th>choices</th><th>tab</th></tr></thead><tbody>${S.menu.map(m => m.noReply ? `<tr><td>${m.index}</td><td colspan="5">no reply</td></tr>` : `<tr><td>${m.index}</td><td>${m.id}</td><td>${esc(m.name)}</td><td>${esc(m.names ? m.names[m.value - m.min] ?? m.value : m.value)}</td><td>${esc(m.names ? m.names.join(' · ') : `${m.min}–${m.max} ${m.unit || ''}`)}</td><td>${esc(m.tabName || '')}</td></tr>`).join('')}</tbody></table></div>`;
+  }
+  if (id === 13) {
+    const roles = (p && p.presetRoles) || ['Lead', 'Bass', 'Drums', 'Keys', 'Texture'];
+    let h = `<h3>Sounds</h3><div class="scroll-x"><table><thead><tr><th>role</th><th>engine / preset</th><th>fit</th><th>notes</th></tr></thead><tbody>`;
+    for (const role of roles) {
+      const v = S.presets[role] || {};
+      h += `<tr><td>${esc(role)}</td><td><input data-preset="${esc(role)}" data-f="sound" value="${esc(v.sound || '')}" style="width:100%;min-width:120px"></td><td><select data-preset="${esc(role)}" data-f="rating"><option value=""></option>${[1, 2, 3, 4, 5].map(n => `<option ${+v.rating === n ? 'selected' : ''}>${n}</option>`).join('')}</select></td><td><input data-preset="${esc(role)}" data-f="notes" value="${esc(v.notes || '')}" style="width:100%;min-width:120px"></td></tr>`;
+    }
+    h += `</tbody></table></div>`;
+    if (p && p.namesFrame) {
+      const engines = (p.engineList && p.engineList(S.identity.info)) || Array.from({ length: 16 }, (_, i) => ({ id: i, name: `engine ${i}` }));
+      h += `<div class="row" style="margin-top:8px"><label>Preset names for <select id="names-engine">${engines.map(e => `<option value="${e.id}">${esc(e.name)}</option>`).join('')}</select></label><button data-names>Read</button></div>`;
+      for (const [e, names] of Object.entries(S.presetNames)) {
+        const en = engines.find(x => x.id === +e);
+        h += `<p class="small"><b>${esc(en ? en.name : 'engine ' + e)}:</b> ${esc(names.join(', '))}</p>`;
+      }
+    }
+    return h;
+  }
+  return '';
+}
+
+function renderAnalysis() {
+  const A = analyze(S.msgs.filter(m => m.step === S.step));
+  const el = $('#analysis');
+  if (!A.total && !A.marks.length) { el.innerHTML = '<p class="empty">Nothing yet during this step.</p>'; return; }
+  let h = `<p class="small muted">${A.in} in · ${A.out} out · ${A.marks.length} marks</p>`;
+  const chs = Object.keys(A.notes).sort((a, b) => a - b);
+  if (chs.length) {
+    h += `<h3>Notes in</h3><div class="scroll-x"><table><thead><tr><th>ch</th><th>note-ons</th><th>range</th><th>notes</th></tr></thead><tbody>`;
+    for (const ch of chs) {
+      const n = A.notes[ch], ks = Object.keys(n.set).map(Number).sort((a, b) => a - b);
+      h += `<tr><td>${ch}</td><td>${n.count}</td><td>${noteName(ks[0])}–${noteName(ks[ks.length - 1])}</td><td>${ks.map(k => `${noteName(k)}<span class="muted">×${n.set[k]}</span>`).join(' ')}</td></tr>`;
+    }
+    h += `</tbody></table></div>`;
+  }
+  const other = Object.keys(A.channels).filter(c => !A.notes[c]);
+  if (other.length) h += `<p class="small">Other channel messages on ch ${other.join(', ')}.</p>`;
+  const ccs = Object.values(A.cc);
+  if (ccs.length) h += `<h3>Controllers</h3><p class="small mono">${ccs.map(c => `ch${c.ch} CC${c.cc} ×${c.count} (${c.min}–${c.max})`).join(' · ')}</p>`;
+  const nr = Object.values(A.nrpn);
+  if (nr.length) h += `<h3>NRPN</h3><p class="small mono">${nr.map(c => `ch${c.ch} #${c.param} (${c.param >> 7}/${c.param & 127}) ×${c.count} ${c.min}–${c.max}`).join(' · ')}</p>`;
+  if (A.programs.length || A.bend || A.aftertouch) h += `<p class="small">Program changes ${A.programs.length} · pitch bend ${A.bend} · aftertouch ${A.aftertouch}</p>`;
+  if (A.runs.length) {
+    h += `<h3>Clock</h3><div class="scroll-x"><table><thead><tr><th>dir</th><th>state</th><th>at (s)</th><th>length</th><th>ticks</th><th>BPM</th><th>jitter</th></tr></thead><tbody>`;
+    for (const r of A.runs) h += `<tr><td>${r.dir}</td><td>${r.playing ? 'playing' : 'stopped'}</td><td>${fmt(r.start / 1000, 1)}</td><td>${fmt((r.end - r.start) / 1000, 1)} s</td><td>${r.ticks}</td><td>${fmt(r.bpm, 2)} <span class="muted">(avg ${fmt(r.meanBpm, 2)})</span></td><td>σ ${fmt(r.jitterMs, 2)} ms · p95 ${fmt(r.p95DevMs, 2)}</td></tr>`;
+    h += `</tbody></table></div>`;
+  }
+  if (A.grid) {
+    const g = A.grid;
+    h += `<h3>Playback grid</h3><p class="small muted">Quantized to ${g.clock === 'in' ? 'the device\'s' : 'our'} clock · ${g.loops} loop${g.loops === 1 ? '' : 's'} · timing median ${fmt(g.medianOffsetMs, 1)} ms, |max| ${fmt(g.maxAbsOffsetMs, 1)} ms</p>`;
+    h += `<div class="scroll-x"><div class="grid16" data-grid><span></span>${Array.from({ length: 16 }, (_, i) => `<span class="h ${i % 4 === 0 ? 'beat' : ''}">${i + 1}</span>`).join('')}`;
+    for (const row of g.rows) {
+      const max = Math.max(...row.cells);
+      h += `<span class="lab" title="${esc(row.label)}">${esc(row.label)}</span>${row.cells.map(c => `<span class="c ${c && c >= max * 0.75 ? 'on' : c ? 'part' : ''}">${c || ''}</span>`).join('')}`;
+    }
+    h += `</div></div>`;
+  }
+  if (A.beats) {
+    const b = A.beats;
+    h += `<h3>Device beats</h3><dl class="kv"><dt>Beat reports</dt><dd>${b.count} · device ${fmt(b.deviceBpm, 2)} BPM · σ ${fmt(b.beatJitterMs, 1)} ms</dd>`;
+    if (b.vsOurClock) h += `<dt>vs our clock</dt><dd>first ${fmt(b.firstOffsetMs, 1)} ms · last ${fmt(b.lastOffsetMs, 1)} ms · median ${fmt(b.medianOffsetMs, 1)} ms</dd><dt>Drift</dt><dd>${fmt(b.driftMsPerMin, 2)} ms/min over ${fmt(b.spanS, 0)} s · spread ${fmt(b.spreadMs, 1)} ms</dd><dt>Settled after</dt><dd>${fmt(b.settledAfterS, 1)} s</dd>`;
+    h += `</dl><p class="small muted">Offsets include USB SysEx latency; the drift is what matters.</p>`;
+  }
+  const sx = A.sysex.filter(x => x.kind !== 'keepalive' && x.kind !== 'beat');
+  if (sx.length) h += `<h3>SysEx in</h3><ul class="small">${sx.slice(-12).map(x => `<li>${esc(x.text)}</li>`).join('')}</ul>`;
+  if (A.marks.length) h += `<h3>Marks</h3><p class="small">${A.marks.map(m => `◆ ${esc(m.label)} <span class="muted">${fmt(m.t / 1000, 1)} s</span>`).join(' · ')}</p>`;
+  el.innerHTML = h;
+}
+
+/* Log view: rows appended in batches, capped. */
+const LOG_CAP = 400; let logQueue = [];
+function queueLogRow(m) { logQueue.push(m); }
+function flushLog() {
+  $('#log-count').textContent = `(${S.msgs.length})`;
+  if ($('#f-pause').checked || !logQueue.length) { if (!$('#f-pause').checked) logQueue = []; return; }
+  const hide = $('#f-clock').checked, tb = $('#log tbody'), wrap = $('#log-wrap');
+  const atBottom = wrap.scrollHeight - wrap.scrollTop - wrap.clientHeight < 40;
+  const frag = document.createDocumentFragment();
+  for (const m of logQueue.slice(-LOG_CAP)) {
+    if (hide && isQuiet(m)) continue;
+    const tr = document.createElement('tr'); tr.className = m.dir;
+    tr.innerHTML = m.dir === 'mark'
+      ? `<td>${(m.t / 1000).toFixed(3)}</td><td>${m.step}</td><td>◆</td><td></td><td></td><td class="dec">${esc(m.label)}</td>`
+      : `<td>${(m.t / 1000).toFixed(3)}</td><td>${m.step}</td><td>${m.dir === 'in' ? '←' : '→'}</td><td>${esc((m.port || '').slice(0, 14))}</td><td class="bytes" title="${hex(m.d)}">${hex(m.d.slice(0, 16))}${m.d.length > 16 ? ' …' : ''}</td><td class="dec">${esc(describe(m.d))}</td>`;
+    frag.appendChild(tr);
+  }
+  logQueue = [];
+  tb.appendChild(frag);
+  while (tb.children.length > LOG_CAP) tb.removeChild(tb.firstChild);
+  if (atBottom) wrap.scrollTop = wrap.scrollHeight;
+}
+function rebuildLog() { $('#log tbody').innerHTML = ''; logQueue = S.msgs.slice(-LOG_CAP); flushLog(); }
+
+function renderPackActions() {
+  const p = pack(), el = $('#pack-actions');
+  if (!p) { el.innerHTML = ''; return; }
+  const b = [`<span class="small muted">${esc(p.label)}:</span>`];
+  if (p.identify) b.push(`<button data-pk="identify">Identify</button>`);
+  if (p.watchFrame) b.push(`<button data-pk="watch" class="${watch.on ? 'on' : ''}">Transport watch: ${watch.on ? 'on' : 'off'}</button>`);
+  el.innerHTML = b.join('');
+}
+
+let toastTimer;
+function toast(msg) {
+  let t = $('#toast');
+  if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'banner'; t.setAttribute('role', 'status'); t.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;margin:0;z-index:9;max-width:520px'; document.body.appendChild(t); }
+  t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => t.hidden = true, 3500);
+}
+function banner(msg, bad, html) {
+  const d = document.createElement('div'); d.className = 'banner' + (bad ? ' bad' : '');
+  if (html) d.innerHTML = msg; else d.textContent = msg;
+  $('#banners').appendChild(d); return d;
+}
+
+/* ---------------------------------------------------------------- session, export, autosave */
+function syncSessionInputs() { document.querySelectorAll('[data-s]').forEach(i => { i.value = S.session[i.dataset.s] || ''; }); }
+function exportData() {
+  const steps = STEPS.map(s => {
+    const msgs = S.msgs.filter(m => m.step === s.id);
+    const a = analyze(msgs);
+    delete a.sysex;
+    return { id: s.id, title: s.title, result: (S.results[s.id] || {}).result || null, notes: (S.results[s.id] || {}).notes || '', messageCount: msgs.filter(m => m.dir !== 'mark').length, analysis: a };
+  });
+  const p = pack();
+  return {
+    schema: SCHEMA,
+    tool: TOOL,
+    createdAt: S.createdAt,
+    exportedAt: new Date().toISOString(),
+    session: { ...S.session, userAgent: navigator.userAgent, secureContext: isSecureContext, sysexEnabled: S.sysexEnabled, hintPack: p ? { id: p.id, source: p.source, verified: false } : null },
+    ports: S.ports,
+    identity: S.identity,
+    steps,
+    audio: S.audio,
+    menu: S.menu,
+    presets: S.presets,
+    presetNames: S.presetNames,
+    marks: S.msgs.filter(m => m.dir === 'mark').map(m => ({ t: m.t, step: m.step, label: m.label })),
+    // Replay fixture: t = ms since session start (performance clock), d = raw bytes as hex.
+    replay: { timeUnit: 'ms', note: 'dir "in" = from device, "out" = sent by the monitor. Outgoing clock is logged at its scheduled time.' },
+    messages: S.msgs.filter(m => m.dir !== 'mark').map(m => ({ t: m.t, dir: m.dir, port: m.port, step: m.step, d: hex(m.d) })),
+  };
+}
+async function doExport() {
+  const data = exportData(), json = JSON.stringify(data, null, 1);
+  const slug = s => String(s || '').replace(/[^a-z0-9.]+/gi, '-').replace(/^-|-$/g, '').slice(0, 24);
+  const name = `midimonitor-${slug(S.session.firmwareBuild) || 'unknown'}-${slug(S.session.device) || (/Android/.test(navigator.userAgent) ? 'android' : 'desktop')}-${new Date().toISOString().slice(0, 16).replace(/[:T]/g, '')}.json`;
+  const file = new File([json], name, { type: 'application/json' });
+  if (navigator.canShare && /Android/.test(navigator.userAgent) && navigator.canShare({ files: [file] })) {
+    try { await navigator.share({ files: [file], title: name }); return; } catch (e) { if (e.name === 'AbortError') return; }
+  }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = name;
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+function loadData(o) {
+  if (!o || (o.schema !== SCHEMA && o.schema !== 'autosave')) throw new Error('Not a midimonitor file');
+  S.createdAt = o.createdAt || S.createdAt;
+  S.session = Object.fromEntries(Object.entries(o.session || {}).filter(([k]) => !['userAgent', 'secureContext', 'sysexEnabled', 'hintPack'].includes(k)));
+  S.ports = o.ports || S.ports; S.identity = o.identity || {}; S.audio = o.audio || null; S.menu = o.menu || [];
+  S.presets = o.presets || {}; S.presetNames = o.presetNames || {};
+  S.results = {}; for (const s of o.steps || []) if (s.result || s.notes) S.results[s.id] = { result: s.result, notes: s.notes };
+  if (o.results) S.results = o.results;
+  const toBytes = d => Array.isArray(d) ? d : d.split(' ').filter(Boolean).map(x => parseInt(x, 16));
+  const msgs = (o.messages || []).map(m => ({ t: m.t, dir: m.dir, port: m.port, step: m.step, d: toBytes(m.d) }));
+  for (const k of o.marks || []) msgs.push({ t: k.t, dir: 'mark', port: '', step: k.step, label: k.label });
+  msgs.sort((a, b) => a.t - b.t);
+  S.msgs = msgs;
+  const last = msgs.length ? msgs[msgs.length - 1].t : 0;
+  S.t0 = performance.now() - last - 1000; // new messages land after the loaded ones
+  if (o.step) S.step = o.step;
+  syncSessionInputs(); renderPorts(); renderNav(); renderStep(); rebuildLog(); viewDirty = true;
+}
+function autosave() {
+  if (!dirty) return; dirty = false;
+  try {
+    const o = exportData();
+    localStorage.setItem(AUTOSAVE_KEY, JSON.stringify({ ...o, schema: 'autosave', results: S.results, step: S.step, savedAt: Date.now() }));
+  } catch (e) { /* storage full or blocked: export still works */ }
+}
+function offerRestore() {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(AUTOSAVE_KEY) || 'null'); } catch (e) { saved = null; }
+  if (!saved || !saved.messages || (!saved.messages.length && !Object.keys(saved.results || {}).length)) return;
+  const b = banner(`Unfinished session from ${new Date(saved.savedAt).toLocaleString()} (${saved.messages.length} messages). <button data-restore>Restore</button> <button data-discard>Discard</button>`, false, true);
+  b.querySelector('[data-restore]').onclick = () => { try { loadData(saved); } catch (e) { toast(e.message); } b.remove(); };
+  b.querySelector('[data-discard]').onclick = () => { try { localStorage.removeItem(AUTOSAVE_KEY); } catch (e) { } b.remove(); };
+}
+
+/* ---------------------------------------------------------------- wiring */
+function init() {
+  if (!isSecureContext) banner('This page needs a secure context (HTTPS, localhost or a local file) for Web MIDI.', true);
+  if (!navigator.requestMIDIAccess) banner('This browser has no Web MIDI. Use Chrome or Edge on Android, Windows, macOS or Linux. (iPhone and iPad cannot run this.)', true);
+  $('#n-ch').innerHTML = Array.from({ length: 16 }, (_, i) => `<option>${i + 1}</option>`).join('');
+  $('#hint-pack').innerHTML = '<option value="">none</option>' + Object.values(HINT_PACKS).map(p => `<option value="${p.id}">${esc(p.label)}</option>`).join('');
+  $('#hint-pack').value = S.packId;
+  S.session.browser = (navigator.userAgentData && navigator.userAgentData.brands ? navigator.userAgentData.brands.filter(b => !/Not/.test(b.brand)).map(b => `${b.brand} ${b.version}`).join(', ') : '') || navigator.userAgent;
+  syncSessionInputs();
+
+  $('#btn-connect').onclick = connect;
+  $('#btn-refresh').onclick = refreshPorts;
+  $('#btn-mark').onclick = () => { const l = prompt('Marker label (optional)', ''); if (l !== null) addMark(l || 'mark'); };
+  $('#btn-export').onclick = doExport;
+  $('#btn-note').onclick = playNote;
+  $('#btn-sweep').onclick = sweep;
+  $('#btn-clock').onclick = () => clock.on ? clockOff() : clockOn();
+  $('#btn-start').onclick = transportStart;
+  $('#btn-stop').onclick = transportStop;
+  $('#btn-continue').onclick = () => send([0xFB], clock.on ? clock.next : undefined);
+  $('#c-bpm').onchange = e => setBpm(e.target.value);
+  document.querySelectorAll('[data-bpm]').forEach(b => b.onclick = () => setBpm(b.dataset.bpm));
+  $('#btn-sysex').onclick = () => { try { send(parseHex($('#sx-hex').value)); } catch (e) { toast(e.message); } };
+  $('#out-select').onchange = e => { output = access && access.outputs.get(e.target.value) || null; };
+  $('#f-clock').onchange = rebuildLog;
+  $('#f-pause').onchange = () => { if (!$('#f-pause').checked) rebuildLog(); };
+  $('#btn-clear').onclick = () => { if (confirm('Clear the log? Step results and notes stay.')) { S.msgs = []; rebuildLog(); viewDirty = dirty = true; } };
+  $('#hint-pack').onchange = e => { if (watch.on) setWatch(false); S.packId = e.target.value; renderPackActions(); renderStep(); rebuildLog(); viewDirty = dirty = true; };
+  $('#btn-import').onclick = () => $('#import-file').click();
+  $('#import-file').onchange = async e => { const f = e.target.files[0]; if (!f) return; try { loadData(JSON.parse(await f.text())); toast('Loaded ' + f.name); } catch (err) { toast(err.message); } e.target.value = ''; };
+  $('#btn-reset').onclick = () => { if (confirm('Start a new session? Export first if you need this one.')) { try { localStorage.removeItem(AUTOSAVE_KEY); } catch (e) { } location.reload(); } };
+  document.querySelectorAll('[data-s]').forEach(i => i.oninput = () => { S.session[i.dataset.s] = i.value; dirty = true; });
+
+  $('#pack-actions').onclick = e => {
+    const b = e.target.closest('[data-pk]'); if (!b) return;
+    if (b.dataset.pk === 'identify') send(pack().identify());
+    if (b.dataset.pk === 'watch') setWatch(!watch.on);
+  };
+  $('#steps-nav').onclick = e => { const b = e.target.closest('[data-step]'); if (b) goStep(+b.dataset.step); };
+  const body = $('#step-body');
+  body.onclick = e => {
+    const t = e.target.closest('button'); if (!t) return;
+    if (t.dataset.action !== undefined) {
+      const a = _actions[+t.dataset.action];
+      if (a.bytes) send(a.bytes()); else if (a.run) RUNNERS[a.run]();
+    } else if (t.dataset.mark) addMark(t.dataset.mark);
+    else if (t.hasAttribute('data-watch')) setWatch(!watch.on);
+    else if (t.dataset.result) { const r = S.results[S.step] || (S.results[S.step] = {}); r.result = r.result === t.dataset.result ? null : t.dataset.result; dirty = true; renderNav(); renderStep(); }
+    else if (t.dataset.nav) goStep(S.step + +t.dataset.nav);
+    else if (t.dataset.meterId) meter(t.dataset.meterId, t.dataset.meterLabel);
+    else if (t.hasAttribute('data-names')) readNames(+$('#names-engine').value);
+  };
+  body.oninput = e => {
+    if (e.target.matches('[data-notes]')) { (S.results[S.step] || (S.results[S.step] = {})).notes = e.target.value; dirty = true; }
+    else if (e.target.dataset.preset) { const v = S.presets[e.target.dataset.preset] || (S.presets[e.target.dataset.preset] = {}); v[e.target.dataset.f] = e.target.value; dirty = true; }
+  };
+  document.addEventListener('keydown', e => {
+    if (e.key.toLowerCase() === 'm' && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input, textarea, select')) { e.preventDefault(); addMark('mark'); }
+  });
+
+  renderNav(); renderStep(); renderPackActions(); renderClock();
+  setInterval(() => { flushLog(); if (viewDirty) { viewDirty = false; renderAnalysis(); } }, 400);
+  setInterval(autosave, 5000);
+  addEventListener('pagehide', () => { dirty = true; autosave(); });
+  offerRestore();
+}
+function goStep(id) {
+  if (id < 1 || id > STEPS.length) return;
+  S.step = id; dirty = viewDirty = true; renderNav(); renderStep(); renderAnalysis();
+  const b = document.querySelector(`#steps-nav [data-step="${id}"]`); if (b) b.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+}
+
+window.__monitor = { S, analyze, exportData, HINT_PACKS }; // for tests
+init();
+</script>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});</script>
+</body>
+</html>
