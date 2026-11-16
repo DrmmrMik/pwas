@@ -265,9 +265,24 @@ try {
     individualPushUrl = `git@github.com:DrmmrMik/${repoName}.git`;
   }
 
-  // A. Publish to the individual target repository
-  log(`Deploying directly to individual repository: "DrmmrMik/${repoName}"...`);
-  try {
+  // Mirror repos are optional: many apps live only in the "pwas" monorepo (the
+  // Nova Portal). Probe first instead of force-pushing to a repo that isn't
+  // there and reporting it as an error. `git ls-remote` exits 0 for any repo
+  // that exists (even an empty one) and non-zero when it doesn't.
+  const mirrorExists = (() => {
+    try {
+      execSync(`git ls-remote ${individualPushUrl}`, { stdio: 'pipe', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' }, timeout: 30000 });
+      return true;
+    } catch (e) {
+      return false;
+    }
+  })();
+
+  // A. Publish to the individual target repository, if the app has one
+  if (!mirrorExists) {
+    log(`No mirror repository "DrmmrMik/${repoName}" on GitHub; this app lives only in the portal. Skipping the mirror push.`);
+  } else try {
+    log(`Deploying directly to individual repository: "DrmmrMik/${repoName}"...`);
     runGitSecure('git init', targetDir);
     runGitSecure('git config user.name "PWA Publisher"', targetDir);
     runGitSecure('git config user.email "publisher@pwa.local"', targetDir);
@@ -325,16 +340,19 @@ try {
   // a 404 there on a newly-created repo is a non-fatal warning, NOT a hard fail.
   const monoBase = `https://drmmrmik.github.io/pwas/${targetFolder}/`;
   const indvBase = `https://drmmrmik.github.io/${repoName}/`;
-  log(`Verifying live deployment (monorepo ${monoBase}, individual ${indvBase}) ...`);
-  
-  // Force-trigger Pages rebuild (much faster than waiting for the automatic one)
+  log(`Verifying live deployment (monorepo ${monoBase}${mirrorExists ? `, individual ${indvBase}` : ''}) ...`);
+
+  // Force-trigger Pages rebuilds (much faster than waiting for the automatic
+  // ones). The portal ("pwas") always; the mirror only when it exists.
   if (token && token !== 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE') {
-    try {
-      const rebuildCmd = `curl -s -X PUT -H "Authorization: Bearer ${token}" -H "Accept: application/vnd.github+json" -H "Content-Type: application/json" -d '{"source":{"branch":"main","path":"/"}}' https://api.github.com/repos/DrmmrMik/${repoName}/pages -w "%{http_code}" 2>/dev/null`;
-      const rebuildRes = execSync(rebuildCmd, { stdio: 'pipe' }).toString().trim();
-      log(`Pages rebuild trigger: HTTP ${rebuildRes.slice(-3)}`);
-    } catch (e) {
-      log(`Pages rebuild trigger attempt: ${e.message.split('\\n')[0]}`);
+    for (const repo of mirrorExists ? ['pwas', repoName] : ['pwas']) {
+      try {
+        const rebuildCmd = `curl -s -o /dev/null -X POST -H "Authorization: Bearer ${token}" -H "Accept: application/vnd.github+json" https://api.github.com/repos/DrmmrMik/${repo}/pages/builds -w "%{http_code}" 2>/dev/null`;
+        const rebuildRes = execSync(rebuildCmd, { stdio: 'pipe' }).toString().trim();
+        log(`Pages rebuild trigger for "${repo}": HTTP ${rebuildRes.slice(-3)}`);
+      } catch (e) {
+        log(`Pages rebuild trigger attempt for "${repo}": ${e.message.split('\n')[0]}`);
+      }
     }
   } else {
     log('No token available, waiting for automatic Pages rebuild...');
@@ -361,8 +379,10 @@ try {
   }
 
   // 6b. Individual-repo URL — secondary signal; 404 on a new repo is non-fatal.
-  const indvOk = urlOk(indvBase);
-  if (indvOk) {
+  const indvOk = mirrorExists && urlOk(indvBase);
+  if (!mirrorExists) {
+    // nothing to check: the app has no mirror repo
+  } else if (indvOk) {
     log(`Individual repo live check: HTTP 200 — app also served at ${indvBase}`);
   } else {
     log(`Individual repo live check: HTTP 404 — not served at ${indvBase}. ` +
@@ -379,7 +399,7 @@ try {
     );
   }
 
-  log(`Successfully deployed "${targetFolder}" to both its individual repository and the central monorepo!`);
+  log(mirrorExists ? `Successfully deployed "${targetFolder}" to both its individual repository and the central monorepo!` : `Successfully deployed "${targetFolder}" to the central monorepo (Nova Portal)!`);
   log(`BUILD INDICATOR: installed app will show build stamp from manifest.json x-build-stamp.`);
 } catch (err) {
   logError(`An error occurred during publication: ${err.message}`);
