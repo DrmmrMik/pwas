@@ -1,0 +1,1230 @@
+{
+ "schema": 1,
+ "curriculumVersion": "0.1.0",
+ "keyOrder": [
+  "C",
+  "G",
+  "F",
+  "D",
+  "Bb",
+  "A",
+  "Eb",
+  "E",
+  "Ab",
+  "B",
+  "Db",
+  "F#"
+ ],
+ "strandWeights": {
+  "H": 35,
+  "R": 25,
+  "K": 10,
+  "E": 12,
+  "T": 10,
+  "P": 3,
+  "S": 5
+ },
+ "bands": {
+  "RH": {
+   "lowest": [
+    "C4",
+    "B4"
+   ],
+   "all": [
+    "F3",
+    "C6"
+   ]
+  },
+  "LH": {
+   "lowest": [
+    "C2",
+    "B3"
+   ],
+   "all": [
+    "C2",
+    "C4"
+   ]
+  },
+  "LH-root": {
+   "lowest": [
+    "C2",
+    "B3"
+   ]
+  },
+  "scaleRH": {
+   "tonic": [
+    "C4",
+    "B4"
+   ]
+  },
+  "scaleLH": {
+   "tonic": [
+    "C3",
+    "B3"
+   ]
+  }
+ },
+ "familyTargetMs": {
+  "key.find": 1200,
+  "read.note": 1200,
+  "read.keyctx": 1500,
+  "step.from": 1500,
+  "read.interval": 2000,
+  "read.chord": 2500,
+  "chord.symbol": 2500,
+  "chord.roman": 2500,
+  "ear.note": 3000,
+  "penta.play": 6000,
+  "prog.play": 6000,
+  "pedal.direct": 8000,
+  "pedal.legato": 10000,
+  "degree.play": 2000,
+  "keysig.tonic": 3000,
+  "scale.play": 12000,
+  "ear.interval": 4000,
+  "ear.chord": 5000,
+  "ear.prog": 8000
+ },
+ "modules": [
+  {
+   "id": "K0.1",
+   "phase": 0,
+   "strand": "K",
+   "title": "Keyboard map",
+   "prereqs": [],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B1 U1",
+   "where": "Faber Book 1 Unit 1, and every later card: you find keys by the black-key groups",
+   "concepts": "2/3 black-key groups; white keys in any octave, then exact C2–C6",
+   "unlocked": true
+  },
+  {
+   "id": "T0.1",
+   "phase": 0,
+   "strand": "T",
+   "title": "Pulse & basic values",
+   "prereqs": [],
+   "starter": true,
+   "gate": "G-rhythm",
+   "targetMs": null,
+   "faber": "B1 U1",
+   "where": "Faber Book 1 Unit 1; the count you keep under every Piano Studio play-along",
+   "concepts": "Steady beat; whole/half/quarter notes and rests; 4/4",
+   "unlocked": true
+  },
+  {
+   "id": "S0.1",
+   "phase": 0,
+   "strand": "S",
+   "title": "Notation basics",
+   "prereqs": [],
+   "starter": true,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": "B1 U1–2",
+   "where": "Faber Book 1 Units 1–2; the words every lesson and the Piano Studio micro-lessons use",
+   "concepts": "Staff, clefs, grand staff, ledger line, bar line, measure, double bar, repeat, finger numbers, scientific pitch names",
+   "unlocked": true
+  },
+  {
+   "id": "R1.1",
+   "phase": 1,
+   "strand": "R",
+   "title": "Six landmarks",
+   "prereqs": [
+    "S0.1"
+   ],
+   "starter": true,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B1 U2–4",
+   "where": "Faber Book 1 Units 2–4: read every new note as a step or skip from one of these six",
+   "concepts": "Bass C (C3), Bass F (F3), Middle C (C4, both clefs), Treble G (G4), Treble C (C5)",
+   "unlocked": false
+  },
+  {
+   "id": "R1.2",
+   "phase": 1,
+   "strand": "R",
+   "title": "Steps from landmarks: C–C",
+   "prereqs": [
+    "R1.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B1 U2–4",
+   "where": "Faber Book 1 Units 2–4 (Middle C and C positions), and the first Piano Studio sight-reading level",
+   "concepts": "Bass C3–C4 and treble C4–C5 (10 new notes)",
+   "unlocked": false
+  },
+  {
+   "id": "R1.3",
+   "phase": 1,
+   "strand": "R",
+   "title": "2nds & 3rds on the staff",
+   "prereqs": [
+    "R1.2"
+   ],
+   "starter": false,
+   "gate": "G-interval",
+   "targetMs": null,
+   "faber": "B1 U2–4",
+   "where": "Faber Book 1 Units 2–4: most melodies there move by steps and skips",
+   "concepts": "Step = line↔space; skip = line→line / space→space; harmonic and melodic",
+   "unlocked": false
+  },
+  {
+   "id": "E1.1",
+   "phase": 1,
+   "strand": "E",
+   "title": "Pitch match",
+   "prereqs": [
+    "K0.1"
+   ],
+   "starter": false,
+   "gate": "G-ear",
+   "targetMs": null,
+   "faber": null,
+   "where": "Playing by ear: finding a tune's first note before you play along",
+   "concepts": "Hear a white key C3–C5 → play it",
+   "unlocked": false
+  },
+  {
+   "id": "T1.1",
+   "phase": 1,
+   "strand": "T",
+   "title": "Dotted half, ties, 3/4",
+   "prereqs": [
+    "T0.1"
+   ],
+   "starter": false,
+   "gate": "G-rhythm",
+   "targetMs": null,
+   "faber": "B1 U3–7",
+   "where": "Faber Book 1 Units 3–7: waltzes in 3/4 and held notes across beats",
+   "concepts": "Dotted half; tie (adds); 3/4 vs 4/4",
+   "unlocked": false
+  },
+  {
+   "id": "S1.1",
+   "phase": 1,
+   "strand": "S",
+   "title": "Dynamics & articulation I",
+   "prereqs": [
+    "S0.1"
+   ],
+   "starter": false,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": "B1 U2–6",
+   "where": "Faber Book 1 Units 2–6: the markings above and below nearly every piece",
+   "concepts": "p, mp, mf, f, cresc., dim., slur/legato, staccato, tie vs slur, phrase",
+   "unlocked": false
+  },
+  {
+   "id": "H1.1",
+   "phase": 1,
+   "strand": "H",
+   "title": "Musical alphabet & intervals as distance",
+   "prereqs": [
+    "K0.1"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": 2000,
+   "faber": "B1 U2",
+   "where": "Faber Book 1 Unit 2, and every chord later: a triad is a stack of 3rds",
+   "concepts": "Counting letter-steps; interval number by counting (2nd–8ve) on keys",
+   "unlocked": false
+  },
+  {
+   "id": "R2.1",
+   "phase": 2,
+   "strand": "R",
+   "title": "Treble up to G5",
+   "prereqs": [
+    "R1.2"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B1 U7–8",
+   "where": "Faber Book 1 Units 7–8: right-hand melodies climb above treble C",
+   "concepts": "D5–G5; space notes F–A–C–E",
+   "unlocked": false
+  },
+  {
+   "id": "R2.2",
+   "phase": 2,
+   "strand": "R",
+   "title": "Bass down to F2",
+   "prereqs": [
+    "R1.2"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B1 U4–8",
+   "where": "Faber Book 1 Units 4–8: left-hand bass notes below bass C",
+   "concepts": "F2–B2",
+   "unlocked": false
+  },
+  {
+   "id": "R2.3",
+   "phase": 2,
+   "strand": "R",
+   "title": "4ths, 5ths, octave",
+   "prereqs": [
+    "R1.3",
+    "R2.1",
+    "R2.2"
+   ],
+   "starter": false,
+   "gate": "G-interval",
+   "targetMs": null,
+   "faber": "B1 U9",
+   "where": "Faber Book 1 Unit 9: the blocked 5th is the left-hand accompaniment for dozens of pieces",
+   "concepts": "Interval shapes on the staff; blocked 5th",
+   "unlocked": false
+  },
+  {
+   "id": "R2.4",
+   "phase": 2,
+   "strand": "R",
+   "title": "8va / 8vb",
+   "prereqs": [
+    "R2.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B1 U8",
+   "where": "Faber Book 1 Unit 8: high and low notes written with octave signs instead of many ledger lines",
+   "concepts": "Octave signs",
+   "unlocked": false
+  },
+  {
+   "id": "T2.1",
+   "phase": 2,
+   "strand": "T",
+   "title": "Eighth notes & pick-ups",
+   "prereqs": [
+    "T1.1"
+   ],
+   "starter": false,
+   "gate": "G-rhythm",
+   "targetMs": null,
+   "faber": "B1 U5",
+   "where": "Faber Book 1 Unit 5: eighth notes, and pieces that start before beat 1",
+   "concepts": "Eighth pairs, \"1 & 2 &\", anacrusis",
+   "unlocked": false
+  },
+  {
+   "id": "E2.1",
+   "phase": 2,
+   "strand": "E",
+   "title": "Interval ear I",
+   "prereqs": [
+    "E1.1",
+    "H1.1"
+   ],
+   "starter": false,
+   "gate": "G-ear",
+   "targetMs": null,
+   "faber": "B1 U9",
+   "where": "Playing by ear: hearing how far a melody jumps",
+   "concepts": "2nd, 3rd, 4th, 5th, 8ve, up and down, first note given",
+   "unlocked": false
+  },
+  {
+   "id": "S2.1",
+   "phase": 2,
+   "strand": "S",
+   "title": "Form & navigation",
+   "prereqs": [
+    "S1.1"
+   ],
+   "starter": false,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": "B1–B2",
+   "where": "Faber Books 1–2: road-map signs that tell you where to go next in a piece",
+   "concepts": "Repeat with endings, D.C., D.S., fine, coda, fermata, accent",
+   "unlocked": false
+  },
+  {
+   "id": "K2.1",
+   "phase": 2,
+   "strand": "K",
+   "title": "The whole keyboard",
+   "prereqs": [
+    "K0.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": null,
+   "where": "Low bass notes and high treble runs in pieces, and any note a teacher or a score names by octave",
+   "concepts": "Octave numbers across all 88 keys; white keys from A0 up to C8",
+   "unlocked": false
+  },
+  {
+   "id": "K3.1",
+   "phase": 3,
+   "strand": "K",
+   "title": "Black keys & enharmonics",
+   "prereqs": [
+    "K0.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B1 U10",
+   "where": "Faber Book 1 Unit 10: the first sharps and flats; every key signature after it",
+   "concepts": "Both names of each black key; exact octave C2–C6",
+   "unlocked": false
+  },
+  {
+   "id": "K3.3",
+   "phase": 3,
+   "strand": "K",
+   "title": "Black keys at both ends",
+   "prereqs": [
+    "K3.1",
+    "K2.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": 1500,
+   "faber": null,
+   "where": "Low bass and high treble passages; with K0.1, K2.1 and K3.1 every one of the 88 keys has been found by name",
+   "concepts": "Both names of the black keys below C2 and above C6, octave-exact",
+   "unlocked": false
+  },
+  {
+   "id": "K3.2",
+   "phase": 3,
+   "strand": "K",
+   "title": "Half & whole steps",
+   "prereqs": [
+    "K3.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": 1500,
+   "faber": "B1 U10",
+   "where": "Faber Book 1 Unit 10, and every scale and chord formula: they're all built from half and whole steps",
+   "concepts": "H/W up and down from all 12 pcs",
+   "unlocked": false
+  },
+  {
+   "id": "R3.1",
+   "phase": 3,
+   "strand": "R",
+   "title": "Accidentals on the staff",
+   "prereqs": [
+    "R2.1",
+    "R2.2",
+    "K3.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": 1500,
+   "faber": "B1 U10–11",
+   "where": "Faber Book 1 Units 10–11: sharps and flats written in the music",
+   "concepts": "♯ ♭ ♮; an accidental lasts the bar",
+   "unlocked": false
+  },
+  {
+   "id": "H3.1",
+   "phase": 3,
+   "strand": "H",
+   "title": "Major pentascales (12)",
+   "prereqs": [
+    "K3.2"
+   ],
+   "starter": false,
+   "gate": "G-seq",
+   "targetMs": null,
+   "faber": "B2 early",
+   "where": "Faber Book 2: five-finger positions in every key, and the first five notes of each major scale",
+   "concepts": "W–W–H–W; RH then LH",
+   "unlocked": false
+  },
+  {
+   "id": "H3.2",
+   "phase": 3,
+   "strand": "H",
+   "title": "Major triads (12), root",
+   "prereqs": [
+    "H3.1"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": "B1 U11",
+   "where": "Faber Book 1 Unit 11, every chord chart, and Piano Studio's left-hand chords",
+   "concepts": "Root–3rd–5th; major 3rd + minor 3rd",
+   "unlocked": false
+  },
+  {
+   "id": "H3.3",
+   "phase": 3,
+   "strand": "H",
+   "title": "Minor pentascales & minor triads (12)",
+   "prereqs": [
+    "H3.2"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": "B2 ~U4–6",
+   "where": "Faber Book 2 minor pieces, and the minor chords in every pop chart",
+   "concepts": "Lower the 3rd; W–H–W–W",
+   "unlocked": false
+  },
+  {
+   "id": "E3.1",
+   "phase": 3,
+   "strand": "E",
+   "title": "Major vs minor",
+   "prereqs": [
+    "E2.1",
+    "H3.3"
+   ],
+   "starter": false,
+   "gate": "G-ear",
+   "targetMs": null,
+   "faber": "B2",
+   "where": "Playing by ear: telling a happy (major) chord from a sad (minor) one",
+   "concepts": "Triad quality by ear",
+   "unlocked": false
+  },
+  {
+   "id": "S3.1",
+   "phase": 3,
+   "strand": "S",
+   "title": "Theory words I",
+   "prereqs": [
+    "H3.2"
+   ],
+   "starter": false,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": "B1 U11",
+   "where": "Faber Book 1 Unit 11 and every theory explanation in Piano Studio lessons",
+   "concepts": "Tonic, dominant, triad, root, pentascale, half/whole step, enharmonic",
+   "unlocked": false
+  },
+  {
+   "id": "H4.1",
+   "phase": 4,
+   "strand": "H",
+   "title": "I and V7 (primary shapes)",
+   "prereqs": [
+    "H3.2"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": "B1 U11–12",
+   "where": "Faber Book 1 Units 11–12: the left-hand I and V7 shapes under most of the book's pieces",
+   "concepts": "Tonic/dominant; V7 = 7–4–5 shape; I–V7–I",
+   "unlocked": false
+  },
+  {
+   "id": "H4.2",
+   "phase": 4,
+   "strand": "H",
+   "title": "I–IV–V7 primary chords",
+   "prereqs": [
+    "H4.1"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": "B2 (C, G, F)",
+   "where": "Faber Book 2 in C, G and F: the three chords that harmonise thousands of folk songs and hymns",
+   "concepts": "IV = 1–4–6 shape; I–IV–I–V7–I",
+   "unlocked": false
+  },
+  {
+   "id": "H4.3",
+   "phase": 4,
+   "strand": "H",
+   "title": "Cadences",
+   "prereqs": [
+    "H4.2"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": null,
+   "where": "Phrase endings in every style: hearing whether a phrase stops, pauses or surprises",
+   "concepts": "Authentic (PAC/IAC), plagal, half, deceptive",
+   "unlocked": false
+  },
+  {
+   "id": "R4.1",
+   "phase": 4,
+   "strand": "R",
+   "title": "Reading in G and F",
+   "prereqs": [
+    "R3.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B2 late",
+   "where": "Faber Book 2 pieces in G and F major",
+   "concepts": "Key signature 1♯ / 1♭ applied while reading",
+   "unlocked": false
+  },
+  {
+   "id": "R4.2",
+   "phase": 4,
+   "strand": "R",
+   "title": "Ledger-line C's & the 6th",
+   "prereqs": [
+    "R2.3"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": "B2 ~p. 40",
+   "where": "Faber Book 2 around page 40: low and high C, and the 6th that opens many melodies",
+   "concepts": "C2, C6, A5/B5, D2/E2; 6ths on the staff",
+   "unlocked": false
+  },
+  {
+   "id": "T4.1",
+   "phase": 4,
+   "strand": "T",
+   "title": "Eighth rest, dotted quarter, syncopation",
+   "prereqs": [
+    "T2.1"
+   ],
+   "starter": false,
+   "gate": "G-rhythm",
+   "targetMs": null,
+   "faber": "B2 ~pp. 68–71",
+   "where": "Faber Book 2 pages 68–71, and the long-short feel of most melodies",
+   "concepts": "♪-rest; dotted quarter–eighth; eighth–quarter–eighth",
+   "unlocked": false
+  },
+  {
+   "id": "P4.1",
+   "phase": 4,
+   "strand": "P",
+   "title": "Direct & legato pedal",
+   "prereqs": [
+    "H4.2"
+   ],
+   "starter": false,
+   "gate": "G-pedal",
+   "targetMs": null,
+   "faber": "B1 / B2",
+   "where": "Faber Books 1–2 pedal pieces, and every ballad accompaniment in Piano Studio",
+   "concepts": "Ped./release marks; legato pedal (up on the new chord, down right after)",
+   "unlocked": false
+  },
+  {
+   "id": "S4.1",
+   "phase": 4,
+   "strand": "S",
+   "title": "Tempo & character terms",
+   "prereqs": [
+    "S1.1"
+   ],
+   "starter": false,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": "B2",
+   "where": "Faber Book 2 and every printed score: the words at the top that set speed and mood",
+   "concepts": "Largo, Adagio, Andante, Moderato, Allegro, Presto, rit., accel., a tempo, dolce, cantabile",
+   "unlocked": false
+  },
+  {
+   "id": "E4.1",
+   "phase": 4,
+   "strand": "E",
+   "title": "Hearing I, IV, V",
+   "prereqs": [
+    "E3.1",
+    "H4.2"
+   ],
+   "starter": false,
+   "gate": "G-ear",
+   "targetMs": null,
+   "faber": null,
+   "where": "Playing by ear: finding the three chords of a folk song or blues",
+   "concepts": "Hear a 3–4 chord progression in C → play the bass roots",
+   "unlocked": false
+  },
+  {
+   "id": "K5.1",
+   "phase": 5,
+   "strand": "K",
+   "title": "Major scales (12)",
+   "prereqs": [
+    "H3.1"
+   ],
+   "starter": false,
+   "gate": "G-seq",
+   "targetMs": null,
+   "faber": "B2 (C, G, F)",
+   "where": "Faber Book 2 scales in C, G and F, then every key: scales are the warm-up and the map of each key",
+   "concepts": "W–W–H–W–W–W–H; RH, LH, then HT (parallel octaves)",
+   "unlocked": false
+  },
+  {
+   "id": "S5.1",
+   "phase": 5,
+   "strand": "S",
+   "title": "Key signatures & circle of fifths",
+   "prereqs": [
+    "K5.1"
+   ],
+   "starter": false,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": null,
+   "where": "Every printed score: name the key from the signature in a second",
+   "concepts": "15 major key signatures; order of sharps/flats; circle",
+   "unlocked": false
+  },
+  {
+   "id": "S5.2",
+   "phase": 5,
+   "strand": "S",
+   "title": "Relative minors",
+   "prereqs": [
+    "S5.1"
+   ],
+   "starter": false,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": null,
+   "where": "Reading minor-key pieces: the signature is shared with the relative major",
+   "concepts": "Relative minor = 6th degree / down a minor 3rd",
+   "unlocked": false
+  },
+  {
+   "id": "K5.2",
+   "phase": 5,
+   "strand": "K",
+   "title": "Minor scales (12 × 3 forms)",
+   "prereqs": [
+    "K5.1",
+    "H3.3"
+   ],
+   "starter": false,
+   "gate": "G-seq",
+   "targetMs": null,
+   "faber": null,
+   "where": "Minor-key pieces and the minor ii–V–i: the three forms explain the 'extra' accidentals",
+   "concepts": "Natural, harmonic (raised 7), melodic (raised 6 & 7 up)",
+   "unlocked": false
+  },
+  {
+   "id": "K5.3",
+   "phase": 5,
+   "strand": "K",
+   "title": "Scale degrees",
+   "prereqs": [
+    "K5.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": 2000,
+   "faber": null,
+   "where": "Roman numerals, ear training and every theory book name notes by degree",
+   "concepts": "Numbers and names (tonic … leading tone); play degree N in key",
+   "unlocked": false
+  },
+  {
+   "id": "R5.1",
+   "phase": 5,
+   "strand": "R",
+   "title": "Reading with key signatures",
+   "prereqs": [
+    "R4.1",
+    "S5.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": null,
+   "where": "Faber Book 2 and beyond: pieces in D, A, B♭ and E♭",
+   "concepts": "Signatures up to 3♯/3♭",
+   "unlocked": false
+  },
+  {
+   "id": "E5.1",
+   "phase": 5,
+   "strand": "E",
+   "title": "Scale-degree function",
+   "prereqs": [
+    "E3.1",
+    "K5.3"
+   ],
+   "starter": false,
+   "gate": "G-ear",
+   "targetMs": null,
+   "faber": null,
+   "where": "Playing by ear: every note's 'feeling' in the key (5 is stable, 7 wants to rise to 1)",
+   "concepts": "Cadence, then a degree → play it (Functional Ear Trainer style)",
+   "unlocked": false
+  },
+  {
+   "id": "H6.1",
+   "phase": 6,
+   "strand": "H",
+   "title": "All triad qualities + sus",
+   "prereqs": [
+    "H3.3"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": null,
+   "where": "vii° in every key, augmented passing chords, and sus chords in pop and worship charts",
+   "concepts": "Diminished, augmented, sus2, sus4 (12 roots)",
+   "unlocked": false
+  },
+  {
+   "id": "H6.2",
+   "phase": 6,
+   "strand": "H",
+   "title": "Inversions & slash chords",
+   "prereqs": [
+    "H3.3"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": null,
+   "where": "Smooth accompaniments (voice leading) and slash chords on lead sheets",
+   "concepts": "1st and 2nd inversion; C/E, C/G; figured 6, 6/4",
+   "unlocked": false
+  },
+  {
+   "id": "H6.3",
+   "phase": 6,
+   "strand": "H",
+   "title": "Diatonic triads in major",
+   "prereqs": [
+    "H6.1",
+    "K5.1"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": null,
+   "where": "Every pop chart and hymnal: name the chords by number, and transpose by number",
+   "concepts": "I ii iii IV V vi vii° in 12 keys",
+   "unlocked": false
+  },
+  {
+   "id": "H6.4",
+   "phase": 6,
+   "strand": "H",
+   "title": "Diatonic triads in minor",
+   "prereqs": [
+    "H6.3",
+    "K5.2"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": null,
+   "where": "Minor-key songs and the minor ii–V–i",
+   "concepts": "i ii° III iv V VI vii° (V and vii° from harmonic minor) in Am Em Dm Bm Gm Cm",
+   "unlocked": false
+  },
+  {
+   "id": "R6.1",
+   "phase": 6,
+   "strand": "R",
+   "title": "Chords on the staff",
+   "prereqs": [
+    "H6.2",
+    "R4.2"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": null,
+   "where": "Reading accompaniment parts and hymn-style harmony",
+   "concepts": "Triads and inversions, both clefs, keys C G F D B♭",
+   "unlocked": false
+  },
+  {
+   "id": "E6.1",
+   "phase": 6,
+   "strand": "E",
+   "title": "Triad quality & inversion by ear",
+   "prereqs": [
+    "E3.1",
+    "H6.2"
+   ],
+   "starter": false,
+   "gate": "G-ear",
+   "targetMs": null,
+   "faber": null,
+   "where": "Hearing chord colour in recordings: bright, dark, tense, dreamy",
+   "concepts": "maj / min / dim / aug; root vs inverted",
+   "unlocked": false
+  },
+  {
+   "id": "S6.1",
+   "phase": 6,
+   "strand": "S",
+   "title": "Harmony vocabulary",
+   "prereqs": [
+    "H6.3"
+   ],
+   "starter": false,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": null,
+   "where": "Understanding why progressions work, in Piano Studio lessons and any harmony book",
+   "concepts": "Function (tonic/subdominant/dominant), diatonic, chord quality pattern M-m-m-M-M-m-dim",
+   "unlocked": false
+  },
+  {
+   "id": "H7.1",
+   "phase": 7,
+   "strand": "H",
+   "title": "Voice-leading rules",
+   "prereqs": [
+    "H6.2",
+    "H4.2"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": null,
+   "where": "Every accompaniment you play: smooth chord changes with the hand barely moving",
+   "concepts": "Hold common tones; move other voices by step; nearest inversion; avoid parallel 5ths/8ves in 4-part (concept only)",
+   "unlocked": false
+  },
+  {
+   "id": "H7.2",
+   "phase": 7,
+   "strand": "H",
+   "title": "Core progressions 1–7",
+   "prereqs": [
+    "H7.1",
+    "H6.3"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": null,
+   "where": "The chord progressions behind most pop, folk, hymn and jazz tunes",
+   "concepts": "PRG 1–7 in the key rotation",
+   "unlocked": false
+  },
+  {
+   "id": "H7.3",
+   "phase": 7,
+   "strand": "H",
+   "title": "Extended & minor progressions 8–14",
+   "prereqs": [
+    "H7.2",
+    "H6.4"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": null,
+   "where": "Pachelbel, the blues, minor-key pop and rock, flamenco, Baroque sequences",
+   "concepts": "PRG 8–14",
+   "unlocked": false
+  },
+  {
+   "id": "E7.1",
+   "phase": 7,
+   "strand": "E",
+   "title": "Progressions by ear",
+   "prereqs": [
+    "E4.1",
+    "H7.2"
+   ],
+   "starter": false,
+   "gate": "G-ear",
+   "targetMs": null,
+   "faber": null,
+   "where": "Playing by ear: recognising a song's progression from the first few bars",
+   "concepts": "Hear PRG in C → play bass roots",
+   "unlocked": false
+  },
+  {
+   "id": "T7.1",
+   "phase": 7,
+   "strand": "T",
+   "title": "Chords in rhythm",
+   "prereqs": [
+    "T4.1",
+    "H7.2"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": null,
+   "where": "Turning a chord chart into an accompaniment",
+   "concepts": "Block chords on beats 1 & 3; Alberti/broken-chord LH; bass + RH off-beats",
+   "unlocked": false
+  },
+  {
+   "id": "P7.1",
+   "phase": 7,
+   "strand": "P",
+   "title": "Legato pedal over progressions",
+   "prereqs": [
+    "P4.1",
+    "H7.2"
+   ],
+   "starter": false,
+   "gate": "G-pedal",
+   "targetMs": null,
+   "faber": null,
+   "where": "Ballad and hymn accompaniments: a full sound without blur",
+   "concepts": "Clean changes at chord boundaries at tempo",
+   "unlocked": false
+  },
+  {
+   "id": "H8.1",
+   "phase": 8,
+   "strand": "H",
+   "title": "Five 7th qualities",
+   "prereqs": [
+    "H6.1"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": 3000,
+   "faber": null,
+   "where": "Every jazz lead sheet, and Piano Studio Level 1's chord drills",
+   "concepts": "maj7, 7, m7, m7♭5, dim7 (12 roots, root position)",
+   "unlocked": false
+  },
+  {
+   "id": "H8.2",
+   "phase": 8,
+   "strand": "H",
+   "title": "Diatonic 7ths in major",
+   "prereqs": [
+    "H8.1",
+    "H6.3"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": null,
+   "where": "Jazz standards and the ii7–V7–Imaj7 at the heart of Piano Studio",
+   "concepts": "Imaj7 ii7 iii7 IVmaj7 V7 vi7 viiø7",
+   "unlocked": false
+  },
+  {
+   "id": "H8.3",
+   "phase": 8,
+   "strand": "H",
+   "title": "Shells & ii–V–I",
+   "prereqs": [
+    "H8.2"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": null,
+   "where": "Piano Studio's left-hand shells: the jazz pianist's basic accompaniment",
+   "concepts": "shell13 / shell17; shellAB ii–V–I in 12 keys",
+   "unlocked": false
+  },
+  {
+   "id": "H8.4",
+   "phase": 8,
+   "strand": "H",
+   "title": "Guide tones",
+   "prereqs": [
+    "H8.3"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": null,
+   "where": "Right-hand comping and walking-bass thinking: the two notes that define each chord",
+   "concepts": "3rds and 7ths voice-led through ii–V–I",
+   "unlocked": false
+  },
+  {
+   "id": "H8.5",
+   "phase": 8,
+   "strand": "H",
+   "title": "Minor ii–V–i",
+   "prereqs": [
+    "H8.3",
+    "H6.4"
+   ],
+   "starter": false,
+   "gate": "G-prog",
+   "targetMs": null,
+   "faber": null,
+   "where": "Minor jazz standards and Latin tunes",
+   "concepts": "iiø7–V7(♭9)–im7, shells",
+   "unlocked": false
+  },
+  {
+   "id": "H8.6",
+   "phase": 8,
+   "strand": "H",
+   "title": "Secondary dominants & turnarounds",
+   "prereqs": [
+    "H8.2",
+    "H7.2"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": null,
+   "faber": null,
+   "where": "The 'surprise' major chords in standards and Christmas songs (Piano Studio's Songbook level 2)",
+   "concepts": "V7/V, V7/ii, V7/vi; I–VI7–ii–V",
+   "unlocked": false
+  },
+  {
+   "id": "H8.7",
+   "phase": 8,
+   "strand": "H",
+   "title": "Colour chords",
+   "prereqs": [
+    "H8.1"
+   ],
+   "starter": false,
+   "gate": "G-chord",
+   "targetMs": 3000,
+   "faber": null,
+   "where": "Pop ballads, gospel, swing endings and lead-sheet extensions",
+   "concepts": "6, m6, add9, 7sus4, dominant 9 (shell + 9)",
+   "unlocked": false
+  },
+  {
+   "id": "E8.1",
+   "phase": 8,
+   "strand": "E",
+   "title": "7th qualities & ii–V–I by ear",
+   "prereqs": [
+    "E6.1",
+    "H8.1"
+   ],
+   "starter": false,
+   "gate": "G-ear",
+   "targetMs": null,
+   "faber": null,
+   "where": "Hearing jazz harmony: the colour of each 7th chord and the sound of a ii–V–I",
+   "concepts": "Five qualities; ii–V–I vs I–IV–V",
+   "unlocked": false
+  },
+  {
+   "id": "T8.1",
+   "phase": 8,
+   "strand": "T",
+   "title": "16ths, triplets, swing, comping",
+   "prereqs": [
+    "T4.1"
+   ],
+   "starter": false,
+   "gate": "G-rhythm",
+   "targetMs": null,
+   "faber": null,
+   "where": "Pop grooves, jazz swing and comping in Piano Studio's jam",
+   "concepts": "Sixteenth groups; triplets; swing eighths; Charleston and 2 other comping rhythms; 6/8",
+   "unlocked": false
+  },
+  {
+   "id": "S8.1",
+   "phase": 8,
+   "strand": "S",
+   "title": "Lead-sheet literacy",
+   "prereqs": [
+    "H8.1"
+   ],
+   "starter": false,
+   "gate": "G-anki",
+   "targetMs": null,
+   "faber": null,
+   "where": "Reading real lead sheets and fake books, where the same chord has several spellings",
+   "concepts": "Symbol variants: C-, CΔ, Cø, C°, C+, C7sus, C/E, N.C., slashes",
+   "unlocked": false
+  },
+  {
+   "id": "R9.1",
+   "phase": 9,
+   "strand": "R",
+   "title": "Ledger lines ±3",
+   "prereqs": [
+    "R4.2"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": null,
+   "where": "Wide-ranging piano music where the hands cross into each other's clef",
+   "concepts": "C2–E2, A5–E6; bass clef above middle C; treble below",
+   "unlocked": false
+  },
+  {
+   "id": "R9.2",
+   "phase": 9,
+   "strand": "R",
+   "title": "Signatures to 4♯/4♭",
+   "prereqs": [
+    "R5.1"
+   ],
+   "starter": false,
+   "gate": "G-note",
+   "targetMs": null,
+   "faber": null,
+   "where": "Pieces in E and A♭ major and their relative minors",
+   "concepts": "Accidentals in key context; courtesy accidentals",
+   "unlocked": false
+  },
+  {
+   "id": "R9.3",
+   "phase": 9,
+   "strand": "R",
+   "title": "Grand-staff dyads",
+   "prereqs": [
+    "R2.3"
+   ],
+   "starter": false,
+   "gate": "G-interval",
+   "targetMs": null,
+   "faber": null,
+   "where": "Hands-together pieces: read the two staves as one vertical event",
+   "concepts": "LH note + RH note together (hands-together reading)",
+   "unlocked": false
+  },
+  {
+   "id": "R9.4",
+   "phase": 9,
+   "strand": "R",
+   "title": "Bursts with look-ahead",
+   "prereqs": [
+    "R2.3",
+    "T2.1"
+   ],
+   "starter": false,
+   "gate": "G-burst",
+   "targetMs": null,
+   "faber": null,
+   "where": "Sight-reading: Piano Studio's unseen pieces and any new score",
+   "concepts": "Generated patterns using only learned notes, rhythms and keys",
+   "unlocked": false
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Piano Flash – Notes, Keys & Chords",
+  "short_name": "Piano Flash",
+  "description": "MIDI flashcards for piano: find every note on the staff and the keyboard, then intervals, chords, rhythm and ear, with spaced repetition. Shares progress with Piano Studio.",
+  "start_url": "./?go=flash",
+  "display": "standalone",
+  "background_color": "#101318",
+  "theme_color": "#101318",
+  "lang": "en",
+  "scope": "./",
+  "id": "/pwas/pianoflash/",
+  "version": "0.7.0",
+  "display_override": [
+    "standalone",
+    "fullscreen"
+  ],
+  "orientation": "any",
+  "categories": [
+    "education",
+    "music",
+    "utilities"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/flash-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/flash-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/flash-icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/flash-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start a Flash session",
+      "short_name": "Session",
+      "url": "./?go=flash",
+      "icons": [
+        {
+          "src": "icons/flash-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "x-build-stamp": "20261116024012"
+}

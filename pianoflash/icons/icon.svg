@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" fill="#101318"/>
+<g transform="translate(0 0) scale(1)">
+ <g stroke="#e8e3d6" stroke-width="6"><line x1="70" x2="442" y1="96" y2="96"/><line x1="70" x2="442" y1="122" y2="122"/><line x1="70" x2="442" y1="148" y2="148"/><line x1="70" x2="442" y1="174" y2="174"/><line x1="70" x2="442" y1="200" y2="200"/></g>
+ <ellipse cx="190" cy="174" rx="22" ry="16" transform="rotate(-20 190 174)" fill="#e9b949"/>
+ <rect x="206" y="70" width="7" height="102" fill="#e9b949"/>
+ <ellipse cx="300" cy="148" rx="22" ry="16" transform="rotate(-20 300 148)" fill="#e8e3d6"/>
+ <rect x="316" y="52" width="7" height="94" fill="#e8e3d6"/>
+ <polygon points="206,70 323,52 323,74 206,92" fill="#e8e3d6"/>
+ <g transform="translate(70 300)">
+  <rect x="0.0" y="0" width="50" height="150" rx="6" fill="#f4f1ea"/><rect x="53.3" y="0" width="50" height="150" rx="6" fill="#f4f1ea"/><rect x="106.6" y="0" width="50" height="150" rx="6" fill="#f4f1ea"/><rect x="159.9" y="0" width="50" height="150" rx="6" fill="#f4f1ea"/><rect x="213.2" y="0" width="50" height="150" rx="6" fill="#f4f1ea"/><rect x="266.5" y="0" width="50" height="150" rx="6" fill="#f4f1ea"/><rect x="319.8" y="0" width="50" height="150" rx="6" fill="#f4f1ea"/>
+  <rect x="35.0" y="0" width="30" height="92" rx="4" fill="#101318"/><rect x="88.3" y="0" width="30" height="92" rx="4" fill="#101318"/><rect x="194.9" y="0" width="30" height="92" rx="4" fill="#101318"/><rect x="248.2" y="0" width="30" height="92" rx="4" fill="#101318"/><rect x="301.5" y="0" width="30" height="92" rx="4" fill="#101318"/>
+ </g>
+</g></svg>
