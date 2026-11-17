@@ -189,7 +189,7 @@
    "targetMs": null,
    "faber": null,
    "where": "Playing by ear: finding a tune's first note before you play along",
-   "concepts": "Hear a white key C3–C5 → play it",
+   "concepts": "Hear middle C, then a white key C3–C5 → find it and play it (introduced a few keys at a time)",
    "unlocked": false
   },
   {
@@ -336,7 +336,7 @@
    "targetMs": null,
    "faber": "B1 U9",
    "where": "Playing by ear: hearing how far a melody jumps",
-   "concepts": "2nd, 3rd, 4th, 5th, 8ve, up and down, first note given",
+   "concepts": "2nd, 3rd, 4th, 5th, 8ve, up and down, first note given (2nd vs 5th first, one new size at a time)",
    "unlocked": false
   },
   {

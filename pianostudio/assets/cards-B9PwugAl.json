@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "curriculumVersion": "0.1.0",
- "generatedAt": "2026-11-16T01:03:51.279Z",
+ "generatedAt": "2026-11-17T01:06:22.536Z",
  "cards": [
   {
    "id": "key.find:any:C",
@@ -2377,7 +2377,7 @@
    "position": 50
   },
   {
-   "id": "ear.note:C3",
+   "id": "ear.note:C4",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -2388,7 +2388,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then the note to find. Play it.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -2397,7 +2397,17 @@
       "steps": [
        {
         "pitches": [
-         "C3"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "C4"
         ],
         "beats": 2
        }
@@ -2407,17 +2417,18 @@
    },
    "answer": {
     "pitches": [
-     "C3"
+     "C4"
     ],
-    "label": "C3"
+    "label": "C4"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     48
+     60
     ]
    },
    "mirror": null,
+   "stage": 1,
    "position": 51
   },
   {
@@ -2706,7 +2717,7 @@
    "position": 57
   },
   {
-   "id": "ear.note:D3",
+   "id": "ear.note:G4",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -2717,7 +2728,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -2726,7 +2737,17 @@
       "steps": [
        {
         "pitches": [
-         "D3"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "G4"
         ],
         "beats": 2
        }
@@ -2736,17 +2757,18 @@
    },
    "answer": {
     "pitches": [
-     "D3"
+     "G4"
     ],
-    "label": "D3"
+    "label": "G4"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     50
+     67
     ]
    },
    "mirror": null,
+   "stage": 1,
    "position": 58
   },
   {
@@ -3054,7 +3076,7 @@
    "position": 64
   },
   {
-   "id": "ear.note:E3",
+   "id": "ear.note:E4",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -3065,7 +3087,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -3074,7 +3096,17 @@
       "steps": [
        {
         "pitches": [
-         "E3"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "E4"
         ],
         "beats": 2
        }
@@ -3084,17 +3116,18 @@
    },
    "answer": {
     "pitches": [
-     "E3"
+     "E4"
     ],
-    "label": "E3"
+    "label": "E4"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     52
+     64
     ]
    },
    "mirror": null,
+   "stage": 2,
    "position": 65
   },
   {
@@ -3491,7 +3524,7 @@
    "position": 73
   },
   {
-   "id": "ear.note:F3",
+   "id": "ear.note:C5",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -3502,7 +3535,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -3511,7 +3544,17 @@
       "steps": [
        {
         "pitches": [
-         "F3"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "C5"
         ],
         "beats": 2
        }
@@ -3521,17 +3564,18 @@
    },
    "answer": {
     "pitches": [
-     "F3"
+     "C5"
     ],
-    "label": "F3"
+    "label": "C5"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     53
+     72
     ]
    },
    "mirror": null,
+   "stage": 2,
    "position": 74
   },
   {
@@ -3818,7 +3862,7 @@
    "position": 79
   },
   {
-   "id": "ear.note:G3",
+   "id": "ear.note:D4",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -3829,7 +3873,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -3838,7 +3882,17 @@
       "steps": [
        {
         "pitches": [
-         "G3"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "D4"
         ],
         "beats": 2
        }
@@ -3848,17 +3902,18 @@
    },
    "answer": {
     "pitches": [
-     "G3"
+     "D4"
     ],
-    "label": "G3"
+    "label": "D4"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     55
+     62
     ]
    },
    "mirror": null,
+   "stage": 3,
    "position": 80
   },
   {
@@ -4179,7 +4234,7 @@
    "position": 86
   },
   {
-   "id": "ear.note:A3",
+   "id": "ear.note:F4",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -4190,7 +4245,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -4199,7 +4254,17 @@
       "steps": [
        {
         "pitches": [
-         "A3"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "F4"
         ],
         "beats": 2
        }
@@ -4209,17 +4274,18 @@
    },
    "answer": {
     "pitches": [
-     "A3"
+     "F4"
     ],
-    "label": "A3"
+    "label": "F4"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     57
+     65
     ]
    },
    "mirror": null,
+   "stage": 3,
    "position": 87
   },
   {
@@ -4441,7 +4507,7 @@
    "position": 92
   },
   {
-   "id": "ear.note:B3",
+   "id": "ear.note:A4",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -4452,7 +4518,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -4461,7 +4527,17 @@
       "steps": [
        {
         "pitches": [
-         "B3"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "A4"
         ],
         "beats": 2
        }
@@ -4471,17 +4547,18 @@
    },
    "answer": {
     "pitches": [
-     "B3"
+     "A4"
     ],
-    "label": "B3"
+    "label": "A4"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     59
+     69
     ]
    },
    "mirror": null,
+   "stage": 3,
    "position": 93
   },
   {
@@ -4843,7 +4920,7 @@
    "position": 100
   },
   {
-   "id": "ear.note:C4",
+   "id": "ear.note:B4",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -4854,7 +4931,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -4866,6 +4943,16 @@
          "C4"
         ],
         "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "B4"
+        ],
+        "beats": 2
        }
       ]
      }
@@ -4873,17 +4960,18 @@
    },
    "answer": {
     "pitches": [
-     "C4"
+     "B4"
     ],
-    "label": "C4"
+    "label": "B4"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     60
+     71
     ]
    },
    "mirror": null,
+   "stage": 3,
    "position": 101
   },
   {
@@ -5181,7 +5269,7 @@
    "position": 106
   },
   {
-   "id": "ear.note:D4",
+   "id": "ear.note:G3",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -5192,7 +5280,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -5201,7 +5289,17 @@
       "steps": [
        {
         "pitches": [
-         "D4"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "G3"
         ],
         "beats": 2
        }
@@ -5211,17 +5309,18 @@
    },
    "answer": {
     "pitches": [
-     "D4"
+     "G3"
     ],
-    "label": "D4"
+    "label": "G3"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     62
+     55
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 107
   },
   {
@@ -5504,7 +5603,7 @@
    "position": 111
   },
   {
-   "id": "ear.note:E4",
+   "id": "ear.note:A3",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -5515,7 +5614,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -5524,7 +5623,17 @@
       "steps": [
        {
         "pitches": [
-         "E4"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "A3"
         ],
         "beats": 2
        }
@@ -5534,17 +5643,18 @@
    },
    "answer": {
     "pitches": [
-     "E4"
+     "A3"
     ],
-    "label": "E4"
+    "label": "A3"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     64
+     57
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 112
   },
   {
@@ -5602,7 +5712,7 @@
    "position": 113
   },
   {
-   "id": "ear.note:F4",
+   "id": "ear.note:B3",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -5613,7 +5723,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -5622,7 +5732,17 @@
       "steps": [
        {
         "pitches": [
-         "F4"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "B3"
         ],
         "beats": 2
        }
@@ -5632,17 +5752,18 @@
    },
    "answer": {
     "pitches": [
-     "F4"
+     "B3"
     ],
-    "label": "F4"
+    "label": "B3"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     65
+     59
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 114
   },
   {
@@ -5852,7 +5973,7 @@
    "position": 117
   },
   {
-   "id": "ear.note:G4",
+   "id": "ear.note:C3",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -5863,7 +5984,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -5872,7 +5993,17 @@
       "steps": [
        {
         "pitches": [
-         "G4"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "C3"
         ],
         "beats": 2
        }
@@ -5882,17 +6013,18 @@
    },
    "answer": {
     "pitches": [
-     "G4"
+     "C3"
     ],
-    "label": "G4"
+    "label": "C3"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     67
+     48
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 118
   },
   {
@@ -6194,7 +6326,7 @@
    "position": 122
   },
   {
-   "id": "ear.note:A4",
+   "id": "ear.note:D3",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -6205,7 +6337,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -6214,7 +6346,17 @@
       "steps": [
        {
         "pitches": [
-         "A4"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "D3"
         ],
         "beats": 2
        }
@@ -6224,17 +6366,18 @@
    },
    "answer": {
     "pitches": [
-     "A4"
+     "D3"
     ],
-    "label": "A4"
+    "label": "D3"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     69
+     50
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 123
   },
   {
@@ -6356,7 +6499,7 @@
    "position": 125
   },
   {
-   "id": "ear.note:B4",
+   "id": "ear.note:E3",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -6367,7 +6510,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -6376,7 +6519,17 @@
       "steps": [
        {
         "pitches": [
-         "B4"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "E3"
         ],
         "beats": 2
        }
@@ -6386,17 +6539,18 @@
    },
    "answer": {
     "pitches": [
-     "B4"
+     "E3"
     ],
-    "label": "B4"
+    "label": "E3"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     71
+     52
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 126
   },
   {
@@ -6518,7 +6672,7 @@
    "position": 128
   },
   {
-   "id": "ear.note:C5",
+   "id": "ear.note:F3",
    "moduleId": "E1.1",
    "phase": 1,
    "strand": "E",
@@ -6529,7 +6683,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the note you heard.",
+    "text": "First C4, then a new note. Find it on the keys.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -6538,7 +6692,17 @@
       "steps": [
        {
         "pitches": [
-         "C5"
+         "C4"
+        ],
+        "beats": 2
+       },
+       {
+        "pitches": [],
+        "beats": 1
+       },
+       {
+        "pitches": [
+         "F3"
         ],
         "beats": 2
        }
@@ -6548,17 +6712,18 @@
    },
    "answer": {
     "pitches": [
-     "C5"
+     "F3"
     ],
-    "label": "C5"
+    "label": "F3"
    },
    "accept": {
     "type": "exact",
     "midi": [
-     72
+     53
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 129
   },
   {
@@ -10479,6 +10644,7 @@
     ]
    },
    "mirror": null,
+   "stage": 1,
    "position": 194
   },
   {
@@ -10753,7 +10919,7 @@
    "position": 198
   },
   {
-   "id": "ear.interval:A3:2M:down",
+   "id": "ear.interval:G3:5P:up",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -10766,7 +10932,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is A3.",
+    "text": "Listen, then play both notes in order. The first note is G3.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -10775,13 +10941,13 @@
       "steps": [
        {
         "pitches": [
-         "A3"
+         "G3"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "G3"
+         "D4"
         ],
         "beats": 2
        }
@@ -10791,19 +10957,20 @@
    },
    "answer": {
     "pitches": [
-     "A3",
-     "G3"
+     "G3",
+     "D4"
     ],
-    "label": "A3 → G3"
+    "label": "G3 → D4"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     57,
-     55
+     55,
+     62
     ]
    },
    "mirror": null,
+   "stage": 1,
    "position": 199
   },
   {
@@ -11078,7 +11245,7 @@
    "position": 203
   },
   {
-   "id": "ear.interval:E4:2m:up",
+   "id": "ear.interval:C4:8P:up",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -11091,7 +11258,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is E4.",
+    "text": "Listen, then play both notes in order. The first note is C4.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -11100,13 +11267,13 @@
       "steps": [
        {
         "pitches": [
-         "E4"
+         "C4"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "F4"
+         "C5"
         ],
         "beats": 2
        }
@@ -11116,19 +11283,20 @@
    },
    "answer": {
     "pitches": [
-     "E4",
-     "F4"
+     "C4",
+     "C5"
     ],
-    "label": "E4 → F4"
+    "label": "C4 → C5"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     64,
-     65
+     60,
+     72
     ]
    },
    "mirror": null,
+   "stage": 2,
    "position": 204
   },
   {
@@ -11473,6 +11641,7 @@
     ]
    },
    "mirror": null,
+   "stage": 3,
    "position": 209
   },
   {
@@ -11818,6 +11987,7 @@
     ]
    },
    "mirror": null,
+   "stage": 3,
    "position": 214
   },
   {
@@ -12112,7 +12282,7 @@
    "position": 218
   },
   {
-   "id": "ear.interval:G4:3M:down",
+   "id": "ear.interval:F3:4P:up",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -12125,7 +12295,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is G4.",
+    "text": "Listen, then play both notes in order. The first note is F3.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -12134,13 +12304,13 @@
       "steps": [
        {
         "pitches": [
-         "G4"
+         "F3"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "Eb4"
+         "Bb3"
         ],
         "beats": 2
        }
@@ -12150,19 +12320,20 @@
    },
    "answer": {
     "pitches": [
-     "G4",
-     "Eb4"
+     "F3",
+     "Bb3"
     ],
-    "label": "G4 → E♭4"
+    "label": "F3 → B♭3"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     67,
-     63
+     53,
+     58
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 219
   },
   {
@@ -12294,7 +12465,7 @@
    "position": 221
   },
   {
-   "id": "ear.interval:F3:4P:up",
+   "id": "ear.interval:E4:2m:up",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -12307,7 +12478,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is F3.",
+    "text": "Listen, then play both notes in order. The first note is E4.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -12316,13 +12487,13 @@
       "steps": [
        {
         "pitches": [
-         "F3"
+         "E4"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "Bb3"
+         "F4"
         ],
         "beats": 2
        }
@@ -12332,19 +12503,20 @@
    },
    "answer": {
     "pitches": [
-     "F3",
-     "Bb3"
+     "E4",
+     "F4"
     ],
-    "label": "F3 → B♭3"
+    "label": "E4 → F4"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     53,
-     58
+     64,
+     65
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 222
   },
   {
@@ -12620,7 +12792,7 @@
    "position": 226
   },
   {
-   "id": "ear.interval:C5:4P:down",
+   "id": "ear.interval:A3:2M:down",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -12633,7 +12805,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is C5.",
+    "text": "Listen, then play both notes in order. The first note is A3.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -12642,13 +12814,13 @@
       "steps": [
        {
         "pitches": [
-         "C5"
+         "A3"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "G4"
+         "G3"
         ],
         "beats": 2
        }
@@ -12658,19 +12830,20 @@
    },
    "answer": {
     "pitches": [
-     "C5",
-     "G4"
+     "A3",
+     "G3"
     ],
-    "label": "C5 → G4"
+    "label": "A3 → G3"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     72,
-     67
+     57,
+     55
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 227
   },
   {
@@ -13022,7 +13195,7 @@
    "position": 231
   },
   {
-   "id": "ear.interval:G3:5P:up",
+   "id": "ear.interval:B4:5P:down",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -13035,7 +13208,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is G3.",
+    "text": "Listen, then play both notes in order. The first note is B4.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -13044,13 +13217,13 @@
       "steps": [
        {
         "pitches": [
-         "G3"
+         "B4"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "D4"
+         "E4"
         ],
         "beats": 2
        }
@@ -13060,19 +13233,20 @@
    },
    "answer": {
     "pitches": [
-     "G3",
-     "D4"
+     "B4",
+     "E4"
     ],
-    "label": "G3 → D4"
+    "label": "B4 → E4"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     55,
-     62
+     71,
+     64
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 232
   },
   {
@@ -13393,7 +13567,7 @@
    "position": 237
   },
   {
-   "id": "ear.interval:B4:5P:down",
+   "id": "ear.interval:A4:8P:down",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -13406,7 +13580,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is B4.",
+    "text": "Listen, then play both notes in order. The first note is A4.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -13415,13 +13589,13 @@
       "steps": [
        {
         "pitches": [
-         "B4"
+         "A4"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "E4"
+         "A3"
         ],
         "beats": 2
        }
@@ -13431,19 +13605,20 @@
    },
    "answer": {
     "pitches": [
-     "B4",
-     "E4"
+     "A4",
+     "A3"
     ],
-    "label": "B4 → E4"
+    "label": "A4 → A3"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     71,
-     64
+     69,
+     57
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 238
   },
   {
@@ -13710,7 +13885,7 @@
    "position": 242
   },
   {
-   "id": "ear.interval:C4:8P:up",
+   "id": "ear.interval:G4:3M:down",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -13723,7 +13898,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is C4.",
+    "text": "Listen, then play both notes in order. The first note is G4.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -13732,13 +13907,13 @@
       "steps": [
        {
         "pitches": [
-         "C4"
+         "G4"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "C5"
+         "Eb4"
         ],
         "beats": 2
        }
@@ -13748,19 +13923,20 @@
    },
    "answer": {
     "pitches": [
-     "C4",
-     "C5"
+     "G4",
+     "Eb4"
     ],
-    "label": "C4 → C5"
+    "label": "G4 → E♭4"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     60,
-     72
+     67,
+     63
     ]
    },
    "mirror": null,
+   "stage": 6,
    "position": 243
   },
   {
@@ -14074,7 +14250,7 @@
    "position": 247
   },
   {
-   "id": "ear.interval:A4:8P:down",
+   "id": "ear.interval:C5:4P:down",
    "moduleId": "E2.1",
    "phase": 2,
    "strand": "E",
@@ -14087,7 +14263,7 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play both notes in order. The first note is A4.",
+    "text": "Listen, then play both notes in order. The first note is C5.",
     "media": {
      "audio": {
       "kind": "ear",
@@ -14096,13 +14272,13 @@
       "steps": [
        {
         "pitches": [
-         "A4"
+         "C5"
         ],
         "beats": 1
        },
        {
         "pitches": [
-         "A3"
+         "G4"
         ],
         "beats": 2
        }
@@ -14112,19 +14288,20 @@
    },
    "answer": {
     "pitches": [
-     "A4",
-     "A3"
+     "C5",
+     "G4"
     ],
-    "label": "A4 → A3"
+    "label": "C5 → G4"
    },
    "accept": {
     "type": "sequence",
     "midi": [
-     69,
-     57
+     72,
+     67
     ]
    },
    "mirror": null,
+   "stage": 6,
    "position": 248
   },
   {
@@ -31726,13 +31903,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is C4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "C4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "C4",
@@ -31778,13 +31965,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is A3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "A3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "A3",
@@ -31830,13 +32027,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is F3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "F3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "F3",
@@ -31882,13 +32089,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is D4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "D4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "D4",
@@ -31934,13 +32151,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is G3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "G3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "G3",
@@ -31986,13 +32213,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is E4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "E4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "E4",
@@ -32038,13 +32275,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is D4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "D4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "D4",
@@ -32090,13 +32337,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is C4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "C4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "C4",
@@ -32142,13 +32399,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is B♭3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "Bb3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "Bb3",
@@ -32194,13 +32461,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is G3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "G3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "G3",
@@ -32246,13 +32523,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is E4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "E4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "E4",
@@ -32298,13 +32585,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Major or minor? Its lowest note is F3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "F3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "F3",
@@ -56727,6 +57024,7 @@
     ]
    },
    "mirror": null,
+   "stage": 1,
    "position": 995
   },
   {
@@ -56814,6 +57112,7 @@
     ]
    },
    "mirror": null,
+   "stage": 2,
    "position": 996
   },
   {
@@ -56901,6 +57200,7 @@
     ]
    },
    "mirror": null,
+   "stage": 1,
    "position": 997
   },
   {
@@ -56988,6 +57288,7 @@
     ]
    },
    "mirror": null,
+   "stage": 2,
    "position": 998
   },
   {
@@ -57075,6 +57376,7 @@
     ]
    },
    "mirror": null,
+   "stage": 1,
    "position": 999
   },
   {
@@ -57162,6 +57464,7 @@
     ]
    },
    "mirror": null,
+   "stage": 3,
    "position": 1000
   },
   {
@@ -57249,6 +57552,7 @@
     ]
    },
    "mirror": null,
+   "stage": 3,
    "position": 1001
   },
   {
@@ -57336,6 +57640,7 @@
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 1002
   },
   {
@@ -57423,6 +57728,7 @@
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 1003
   },
   {
@@ -57510,6 +57816,7 @@
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 1004
   },
   {
@@ -57597,6 +57904,7 @@
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 1005
   },
   {
@@ -57684,6 +57992,7 @@
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 1006
   },
   {
@@ -57771,6 +58080,7 @@
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 1007
   },
   {
@@ -57858,6 +58168,7 @@
     ]
    },
    "mirror": null,
+   "stage": 4,
    "position": 1008
   },
   {
@@ -57945,6 +58256,7 @@
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 1009
   },
   {
@@ -58032,6 +58344,7 @@
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 1010
   },
   {
@@ -58119,6 +58432,7 @@
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 1011
   },
   {
@@ -58206,6 +58520,7 @@
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 1012
   },
   {
@@ -58293,6 +58608,7 @@
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 1013
   },
   {
@@ -58380,6 +58696,7 @@
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 1014
   },
   {
@@ -58467,6 +58784,7 @@
     ]
    },
    "mirror": null,
+   "stage": 5,
    "position": 1015
   },
   {
@@ -62946,13 +63264,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is C4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "C4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "C4",
@@ -63241,13 +63569,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is A3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "A3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "A3",
@@ -63536,13 +63874,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is A3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "A3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "A3",
@@ -63788,13 +64136,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is A3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "A3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "A3",
@@ -64083,13 +64441,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is B3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "B3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "B3",
@@ -64378,13 +64746,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is A3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "A3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "A3",
@@ -64773,13 +65151,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is C4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "C4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "C4",
@@ -65025,13 +65413,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is C4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "C4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "C4",
@@ -65320,13 +65718,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is D4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "D4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "D4",
@@ -65615,13 +66023,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is B♭3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "Bb3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "Bb3",
@@ -65796,13 +66214,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is G4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "G4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "G4",
@@ -65977,13 +66405,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is G3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "G3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "G3",
@@ -66158,13 +66596,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is B♭3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "Bb3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "Bb3",
@@ -66296,13 +66744,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is C♯4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "C#4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "C#4",
@@ -66477,13 +66935,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is F3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "F3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "F3",
@@ -66658,13 +67126,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which quality, root position or inverted? Its lowest note is A♯3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "A#3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "A#3",
@@ -102755,13 +103233,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is C4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "C4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "C4",
@@ -103001,13 +103489,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is F3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "F3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "F3",
@@ -103378,13 +103876,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is G3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "G3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "G3",
@@ -103635,13 +104143,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is D4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "D4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "D4",
@@ -103960,13 +104478,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is D4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "D4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "D4",
@@ -104231,13 +104759,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is A3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "A3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "A3",
@@ -104540,13 +105078,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is B3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "B3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "B3",
@@ -104779,13 +105327,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is E4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "E4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "E4",
@@ -105050,13 +105608,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is C♯4, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "C#4"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "C#4",
@@ -105389,13 +105957,23 @@
    "retired": false,
    "channel": "app",
    "prompt": {
-    "text": "Listen, then play the chord you heard — the same notes.",
+    "text": "Which 7th chord? Its lowest note is G♯3, heard first. Play the whole chord.",
     "media": {
      "audio": {
       "kind": "ear",
       "tempo": 60,
       "cadenceKey": null,
       "steps": [
+       {
+        "pitches": [
+         "G#3"
+        ],
+        "beats": 1.5
+       },
+       {
+        "pitches": [],
+        "beats": 0.5
+       },
        {
         "pitches": [
          "G#3",
