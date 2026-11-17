@@ -9,7 +9,7 @@
   "lang": "en",
   "scope": "./",
   "id": "/pwas/pianoflash/",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "display_override": [
     "standalone",
     "fullscreen"
@@ -61,5 +61,5 @@
       ]
     }
   ],
-  "x-build-stamp": "20261117013756"
+  "x-build-stamp": "20261117141422"
 }
