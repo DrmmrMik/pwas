@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "curriculumVersion": "0.1.0",
- "generatedAt": "2026-11-17T01:06:22.536Z",
+ "generatedAt": "2026-11-17T23:36:17.260Z",
  "modules": [
   {
    "id": "K0.1",
@@ -9,6 +9,16 @@
    "strand": "K",
    "title": "Keyboard map",
    "prereqs": [],
+   "starter": false
+  },
+  {
+   "id": "K0.2",
+   "phase": 0,
+   "strand": "K",
+   "title": "Finger numbers (C position)",
+   "prereqs": [
+    "K0.1"
+   ],
    "starter": false
   },
   {
@@ -26,6 +36,16 @@
    "title": "Notation basics",
    "prereqs": [],
    "starter": true
+  },
+  {
+   "id": "K1.1",
+   "phase": 1,
+   "strand": "K",
+   "title": "Finger numbers (G position)",
+   "prereqs": [
+    "K0.2"
+   ],
+   "starter": false
   },
   {
    "id": "R1.1",
@@ -229,7 +249,8 @@
    "strand": "H",
    "title": "Major pentascales (12)",
    "prereqs": [
-    "K3.2"
+    "K3.2",
+    "K0.2"
    ],
    "starter": false
   },
@@ -250,6 +271,16 @@
    "title": "Minor pentascales & minor triads (12)",
    "prereqs": [
     "H3.2"
+   ],
+   "starter": false
+  },
+  {
+   "id": "H3.4",
+   "phase": 3,
+   "strand": "H",
+   "title": "Left-hand triads (major & minor)",
+   "prereqs": [
+    "H3.3"
    ],
    "starter": false
   },
@@ -291,6 +322,17 @@
    "title": "I–IV–V7 primary chords",
    "prereqs": [
     "H4.1"
+   ],
+   "starter": false
+  },
+  {
+   "id": "H4.4",
+   "phase": 4,
+   "strand": "H",
+   "title": "Left-hand primary chords",
+   "prereqs": [
+    "H4.2",
+    "H3.4"
    ],
    "starter": false
   },
@@ -8319,7 +8361,7 @@
    "fields": {
     "Symbol": "C",
     "Notes": "C – E – G",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -8387,7 +8429,7 @@
    "fields": {
     "Symbol": "G",
     "Notes": "G – B – D",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -8514,7 +8556,7 @@
    "fields": {
     "Symbol": "F",
     "Notes": "F – A – C",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -8641,7 +8683,7 @@
    "fields": {
     "Symbol": "D",
     "Notes": "D – F♯ – A",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -8768,7 +8810,7 @@
    "fields": {
     "Symbol": "B♭",
     "Notes": "B♭ – D – F",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -8836,7 +8878,7 @@
    "fields": {
     "Symbol": "A",
     "Notes": "A – C♯ – E",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -8963,7 +9005,7 @@
    "fields": {
     "Symbol": "E♭",
     "Notes": "E♭ – G – B♭",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9090,7 +9132,7 @@
    "fields": {
     "Symbol": "E",
     "Notes": "E – G♯ – B",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9158,7 +9200,7 @@
    "fields": {
     "Symbol": "A♭",
     "Notes": "A♭ – C – E♭",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9285,7 +9327,7 @@
    "fields": {
     "Symbol": "B",
     "Notes": "B – D♯ – F♯",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9412,7 +9454,7 @@
    "fields": {
     "Symbol": "D♭",
     "Notes": "D♭ – F – A♭",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9539,7 +9581,7 @@
    "fields": {
     "Symbol": "F♯",
     "Notes": "F♯ – A♯ – C♯",
-    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd)",
+    "Formula": "major: 1 – 3 – 5 (major 3rd + minor 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9666,7 +9708,7 @@
    "fields": {
     "Symbol": "Cm",
     "Notes": "C – E♭ – G",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9734,7 +9776,7 @@
    "fields": {
     "Symbol": "Gm",
     "Notes": "G – B♭ – D",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9861,7 +9903,7 @@
    "fields": {
     "Symbol": "Fm",
     "Notes": "F – A♭ – C",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -9988,7 +10030,7 @@
    "fields": {
     "Symbol": "Dm",
     "Notes": "D – F – A",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -10074,7 +10116,7 @@
    "fields": {
     "Symbol": "B♭m",
     "Notes": "B♭ – D♭ – F",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -10201,7 +10243,7 @@
    "fields": {
     "Symbol": "Am",
     "Notes": "A – C – E",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -10328,7 +10370,7 @@
    "fields": {
     "Symbol": "E♭m",
     "Notes": "E♭ – G♭ – B♭",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -10455,7 +10497,7 @@
    "fields": {
     "Symbol": "Em",
     "Notes": "E – G – B",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -10523,7 +10565,7 @@
    "fields": {
     "Symbol": "G♯m",
     "Notes": "G♯ – B – D♯",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -10650,7 +10692,7 @@
    "fields": {
     "Symbol": "Bm",
     "Notes": "B – D – F♯",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -10777,7 +10819,7 @@
    "fields": {
     "Symbol": "C♯m",
     "Notes": "C♯ – E – G♯",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -10863,7 +10905,7 @@
    "fields": {
     "Symbol": "F♯m",
     "Notes": "F♯ – A – C♯",
-    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd)",
+    "Formula": "minor: 1 – ♭3 – 5 (minor 3rd + major 3rd) · fingers RH 1-3-5, LH 5-3-1",
     "AddReverse": "y"
    },
    "media": {
@@ -19205,7 +19247,7 @@
    "fields": {
     "Symbol": "C°",
     "Notes": "C – E♭ – G♭",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -19288,7 +19330,7 @@
    "fields": {
     "Symbol": "C♯°",
     "Notes": "C♯ – E – G",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -19371,7 +19413,7 @@
    "fields": {
     "Symbol": "D°",
     "Notes": "D – F – A♭",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -19454,7 +19496,7 @@
    "fields": {
     "Symbol": "D♯°",
     "Notes": "D♯ – F♯ – A",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -19537,7 +19579,7 @@
    "fields": {
     "Symbol": "E°",
     "Notes": "E – G – B♭",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -19659,7 +19701,7 @@
    "fields": {
     "Symbol": "F°",
     "Notes": "F – A♭ – C♭",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -19781,7 +19823,7 @@
    "fields": {
     "Symbol": "F♯°",
     "Notes": "F♯ – A – C",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -19903,7 +19945,7 @@
    "fields": {
     "Symbol": "G°",
     "Notes": "G – B♭ – D♭",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -20025,7 +20067,7 @@
    "fields": {
     "Symbol": "G♯°",
     "Notes": "G♯ – B – D",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -20147,7 +20189,7 @@
    "fields": {
     "Symbol": "A°",
     "Notes": "A – C – E♭",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -20269,7 +20311,7 @@
    "fields": {
     "Symbol": "A♯°",
     "Notes": "A♯ – C♯ – E",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -20391,7 +20433,7 @@
    "fields": {
     "Symbol": "B°",
     "Notes": "B – D – F",
-    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds)"
+    "Formula": "diminished: 1 – ♭3 – ♭5 (two minor 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -20513,7 +20555,7 @@
    "fields": {
     "Symbol": "C+",
     "Notes": "C – E – G♯",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -20635,7 +20677,7 @@
    "fields": {
     "Symbol": "D♭+",
     "Notes": "D♭ – F – A",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -20757,7 +20799,7 @@
    "fields": {
     "Symbol": "D+",
     "Notes": "D – F♯ – A♯",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -20879,7 +20921,7 @@
    "fields": {
     "Symbol": "E♭+",
     "Notes": "E♭ – G – B",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21001,7 +21043,7 @@
    "fields": {
     "Symbol": "E+",
     "Notes": "E – G♯ – B♯",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21159,7 +21201,7 @@
    "fields": {
     "Symbol": "F+",
     "Notes": "F – A – C♯",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21281,7 +21323,7 @@
    "fields": {
     "Symbol": "G♭+",
     "Notes": "G♭ – B♭ – D",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21403,7 +21445,7 @@
    "fields": {
     "Symbol": "G+",
     "Notes": "G – B – D♯",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21506,7 +21548,7 @@
    "fields": {
     "Symbol": "A♭+",
     "Notes": "A♭ – C – E",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21628,7 +21670,7 @@
    "fields": {
     "Symbol": "A+",
     "Notes": "A – C♯ – E♯",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21750,7 +21792,7 @@
    "fields": {
     "Symbol": "B♭+",
     "Notes": "B♭ – D – F♯",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21853,7 +21895,7 @@
    "fields": {
     "Symbol": "B+",
     "Notes": "B – D♯ – F𝄪",
-    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds)"
+    "Formula": "augmented: 1 – 3 – ♯5 (two major 3rds) · fingers RH 1-3-5, LH 5-3-1"
    },
    "media": {
     "staff": {
@@ -21975,7 +22017,7 @@
    "fields": {
     "Symbol": "Csus2",
     "Notes": "C – D – G",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -22097,7 +22139,7 @@
    "fields": {
     "Symbol": "Gsus2",
     "Notes": "G – A – D",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -22200,7 +22242,7 @@
    "fields": {
     "Symbol": "Fsus2",
     "Notes": "F – G – C",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -22322,7 +22364,7 @@
    "fields": {
     "Symbol": "Dsus2",
     "Notes": "D – E – A",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -22444,7 +22486,7 @@
    "fields": {
     "Symbol": "B♭sus2",
     "Notes": "B♭ – C – F",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -22602,7 +22644,7 @@
    "fields": {
     "Symbol": "Asus2",
     "Notes": "A – B – E",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -22669,7 +22711,7 @@
    "fields": {
     "Symbol": "E♭sus2",
     "Notes": "E♭ – F – B♭",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -22791,7 +22833,7 @@
    "fields": {
     "Symbol": "Esus2",
     "Notes": "E – F♯ – B",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -22949,7 +22991,7 @@
    "fields": {
     "Symbol": "A♭sus2",
     "Notes": "A♭ – B♭ – E♭",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -23016,7 +23058,7 @@
    "fields": {
     "Symbol": "Bsus2",
     "Notes": "B – C♯ – F♯",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -23138,7 +23180,7 @@
    "fields": {
     "Symbol": "D♭sus2",
     "Notes": "D♭ – E♭ – A♭",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -23296,7 +23338,7 @@
    "fields": {
     "Symbol": "F♯sus2",
     "Notes": "F♯ – G♯ – C♯",
-    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd)"
+    "Formula": "suspended 2nd: 1 – 2 – 5 (the 2nd replaces the 3rd) · fingers RH 1-2-5, LH 5-4-1"
    },
    "media": {
     "staff": {
@@ -23418,7 +23460,7 @@
    "fields": {
     "Symbol": "Csus4",
     "Notes": "C – F – G",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -23485,7 +23527,7 @@
    "fields": {
     "Symbol": "Gsus4",
     "Notes": "G – C – D",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -23643,7 +23685,7 @@
    "fields": {
     "Symbol": "Fsus4",
     "Notes": "F – B♭ – C",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -23765,7 +23807,7 @@
    "fields": {
     "Symbol": "Dsus4",
     "Notes": "D – G – A",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -23887,7 +23929,7 @@
    "fields": {
     "Symbol": "B♭sus4",
     "Notes": "B♭ – E♭ – F",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -23990,7 +24032,7 @@
    "fields": {
     "Symbol": "Asus4",
     "Notes": "A – D – E",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -24112,7 +24154,7 @@
    "fields": {
     "Symbol": "E♭sus4",
     "Notes": "E♭ – A♭ – B♭",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -24234,7 +24276,7 @@
    "fields": {
     "Symbol": "Esus4",
     "Notes": "E – A – B",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -24337,7 +24379,7 @@
    "fields": {
     "Symbol": "A♭sus4",
     "Notes": "A♭ – D♭ – E♭",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -24404,7 +24446,7 @@
    "fields": {
     "Symbol": "Bsus4",
     "Notes": "B – E – F♯",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -24471,7 +24513,7 @@
    "fields": {
     "Symbol": "D♭sus4",
     "Notes": "D♭ – G♭ – A♭",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -24574,7 +24616,7 @@
    "fields": {
     "Symbol": "F♯sus4",
     "Notes": "F♯ – B – C♯",
-    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd)"
+    "Formula": "suspended 4th: 1 – 4 – 5 (the 4th replaces the 3rd) · fingers RH 1-4-5, LH 5-2-1"
    },
    "media": {
     "staff": {
@@ -47330,7 +47372,7 @@
    "fields": {
     "Symbol": "Cmaj7",
     "Notes": "C – E – G – B",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -47401,7 +47443,7 @@
    "fields": {
     "Symbol": "Gmaj7",
     "Notes": "G – B – D – F♯",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -47606,7 +47648,7 @@
    "fields": {
     "Symbol": "Fmaj7",
     "Notes": "F – A – C – E",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -47677,7 +47719,7 @@
    "fields": {
     "Symbol": "Dmaj7",
     "Notes": "D – F♯ – A – C♯",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -47748,7 +47790,7 @@
    "fields": {
     "Symbol": "B♭maj7",
     "Notes": "B♭ – D – F – A",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -47936,7 +47978,7 @@
    "fields": {
     "Symbol": "Amaj7",
     "Notes": "A – C♯ – E – G♯",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48007,7 +48049,7 @@
    "fields": {
     "Symbol": "E♭maj7",
     "Notes": "E♭ – G – B♭ – D",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48078,7 +48120,7 @@
    "fields": {
     "Symbol": "Emaj7",
     "Notes": "E – G♯ – B – D♯",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48149,7 +48191,7 @@
    "fields": {
     "Symbol": "A♭maj7",
     "Notes": "A♭ – C – E♭ – G",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48337,7 +48379,7 @@
    "fields": {
     "Symbol": "Bmaj7",
     "Notes": "B – D♯ – F♯ – A♯",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48408,7 +48450,7 @@
    "fields": {
     "Symbol": "D♭maj7",
     "Notes": "D♭ – F – A♭ – C",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48479,7 +48521,7 @@
    "fields": {
     "Symbol": "F♯maj7",
     "Notes": "F♯ – A♯ – C♯ – E♯",
-    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th)",
+    "Formula": "major 7th: 1 – 3 – 5 – 7 (major triad + major 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48650,7 +48692,7 @@
    "fields": {
     "Symbol": "C7",
     "Notes": "C – E – G – B♭",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48721,7 +48763,7 @@
    "fields": {
     "Symbol": "G7",
     "Notes": "G – B – D – F",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48792,7 +48834,7 @@
    "fields": {
     "Symbol": "F7",
     "Notes": "F – A – C – E♭",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -48863,7 +48905,7 @@
    "fields": {
     "Symbol": "D7",
     "Notes": "D – F♯ – A – C",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49054,7 +49096,7 @@
    "fields": {
     "Symbol": "B♭7",
     "Notes": "B♭ – D – F – A♭",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49125,7 +49167,7 @@
    "fields": {
     "Symbol": "A7",
     "Notes": "A – C♯ – E – G",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49196,7 +49238,7 @@
    "fields": {
     "Symbol": "E♭7",
     "Notes": "E♭ – G – B♭ – D♭",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49387,7 +49429,7 @@
    "fields": {
     "Symbol": "E7",
     "Notes": "E – G♯ – B – D",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49458,7 +49500,7 @@
    "fields": {
     "Symbol": "A♭7",
     "Notes": "A♭ – C – E♭ – G♭",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49529,7 +49571,7 @@
    "fields": {
     "Symbol": "B7",
     "Notes": "B – D♯ – F♯ – A",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49600,7 +49642,7 @@
    "fields": {
     "Symbol": "D♭7",
     "Notes": "D♭ – F – A♭ – C♭",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49841,7 +49883,7 @@
    "fields": {
     "Symbol": "F♯7",
     "Notes": "F♯ – A♯ – C♯ – E",
-    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th)",
+    "Formula": "dominant 7th: 1 – 3 – 5 – ♭7 (major triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49912,7 +49954,7 @@
    "fields": {
     "Symbol": "Cm7",
     "Notes": "C – E♭ – G – B♭",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -49983,7 +50025,7 @@
    "fields": {
     "Symbol": "C♯m7",
     "Notes": "C♯ – E – G♯ – B",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50190,7 +50232,7 @@
    "fields": {
     "Symbol": "Dm7",
     "Notes": "D – F – A – C",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50261,7 +50303,7 @@
    "fields": {
     "Symbol": "E♭m7",
     "Notes": "E♭ – G♭ – B♭ – D♭",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50332,7 +50374,7 @@
    "fields": {
     "Symbol": "Em7",
     "Notes": "E – G – B – D",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50403,7 +50445,7 @@
    "fields": {
     "Symbol": "Fm7",
     "Notes": "F – A♭ – C – E♭",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50554,7 +50596,7 @@
    "fields": {
     "Symbol": "F♯m7",
     "Notes": "F♯ – A – C♯ – E",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50625,7 +50667,7 @@
    "fields": {
     "Symbol": "Gm7",
     "Notes": "G – B♭ – D – F",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50696,7 +50738,7 @@
    "fields": {
     "Symbol": "G♯m7",
     "Notes": "G♯ – B – D♯ – F♯",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50886,7 +50928,7 @@
    "fields": {
     "Symbol": "Am7",
     "Notes": "A – C – E – G",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -50957,7 +50999,7 @@
    "fields": {
     "Symbol": "B♭m7",
     "Notes": "B♭ – D♭ – F – A♭",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51028,7 +51070,7 @@
    "fields": {
     "Symbol": "Bm7",
     "Notes": "B – D – F♯ – A",
-    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th)",
+    "Formula": "minor 7th: 1 – ♭3 – 5 – ♭7 (minor triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51099,7 +51141,7 @@
    "fields": {
     "Symbol": "Cm7♭5",
     "Notes": "C – E♭ – G♭ – B♭",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51261,7 +51303,7 @@
    "fields": {
     "Symbol": "C♯m7♭5",
     "Notes": "C♯ – E – G – B",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51332,7 +51374,7 @@
    "fields": {
     "Symbol": "Dm7♭5",
     "Notes": "D – F – A♭ – C",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51403,7 +51445,7 @@
    "fields": {
     "Symbol": "D♯m7♭5",
     "Notes": "D♯ – F♯ – A – C♯",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51541,7 +51583,7 @@
    "fields": {
     "Symbol": "Em7♭5",
     "Notes": "E – G – B♭ – D",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51612,7 +51654,7 @@
    "fields": {
     "Symbol": "Fm7♭5",
     "Notes": "F – A♭ – C♭ – E♭",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51683,7 +51725,7 @@
    "fields": {
     "Symbol": "F♯m7♭5",
     "Notes": "F♯ – A – C – E",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51754,7 +51796,7 @@
    "fields": {
     "Symbol": "Gm7♭5",
     "Notes": "G – B♭ – D♭ – F",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51825,7 +51867,7 @@
    "fields": {
     "Symbol": "G♯m7♭5",
     "Notes": "G♯ – B – D – F♯",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51896,7 +51938,7 @@
    "fields": {
     "Symbol": "Am7♭5",
     "Notes": "A – C – E♭ – G",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -51967,7 +52009,7 @@
    "fields": {
     "Symbol": "A♯m7♭5",
     "Notes": "A♯ – C♯ – E – G♯",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52038,7 +52080,7 @@
    "fields": {
     "Symbol": "Bm7♭5",
     "Notes": "B – D – F – A",
-    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th)",
+    "Formula": "half-diminished 7th (ø7): 1 – ♭3 – ♭5 – ♭7 (diminished triad + minor 7th) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52107,7 +52149,7 @@
    "fields": {
     "Symbol": "C°7",
     "Notes": "C – E♭ – G♭ – B𝄫",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52176,7 +52218,7 @@
    "fields": {
     "Symbol": "C♯°7",
     "Notes": "C♯ – E – G – B♭",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52245,7 +52287,7 @@
    "fields": {
     "Symbol": "D°7",
     "Notes": "D – F – A♭ – C♭",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52314,7 +52356,7 @@
    "fields": {
     "Symbol": "D♯°7",
     "Notes": "D♯ – F♯ – A – C",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52383,7 +52425,7 @@
    "fields": {
     "Symbol": "E°7",
     "Notes": "E – G – B♭ – D♭",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52452,7 +52494,7 @@
    "fields": {
     "Symbol": "F°7",
     "Notes": "F – A♭ – C♭ – E𝄫",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52521,7 +52563,7 @@
    "fields": {
     "Symbol": "F♯°7",
     "Notes": "F♯ – A – C – E♭",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52590,7 +52632,7 @@
    "fields": {
     "Symbol": "G°7",
     "Notes": "G – B♭ – D♭ – F♭",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52659,7 +52701,7 @@
    "fields": {
     "Symbol": "G♯°7",
     "Notes": "G♯ – B – D – F",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52728,7 +52770,7 @@
    "fields": {
     "Symbol": "A°7",
     "Notes": "A – C – E♭ – G♭",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52797,7 +52839,7 @@
    "fields": {
     "Symbol": "A♯°7",
     "Notes": "A♯ – C♯ – E – G",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52866,7 +52908,7 @@
    "fields": {
     "Symbol": "B°7",
     "Notes": "B – D – F – A♭",
-    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds)",
+    "Formula": "diminished 7th: 1 – ♭3 – ♭5 – 𝄫7 (stacked minor 3rds) · fingers RH 1-2-3-5, LH 5-3-2-1",
     "AddReverse": "y"
    },
    "media": {
@@ -52985,7 +53027,7 @@
    "fields": {
     "Symbol": "C6",
     "Notes": "C – E – G – A",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -53157,7 +53199,7 @@
    "fields": {
     "Symbol": "G6",
     "Notes": "G – B – D – E",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -53312,7 +53354,7 @@
    "fields": {
     "Symbol": "F6",
     "Notes": "F – A – C – D",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -53430,7 +53472,7 @@
    "fields": {
     "Symbol": "D6",
     "Notes": "D – F♯ – A – B",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -53585,7 +53627,7 @@
    "fields": {
     "Symbol": "B♭6",
     "Notes": "B♭ – D – F – G",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -53757,7 +53799,7 @@
    "fields": {
     "Symbol": "A6",
     "Notes": "A – C♯ – E – F♯",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -53875,7 +53917,7 @@
    "fields": {
     "Symbol": "E♭6",
     "Notes": "E♭ – G – B♭ – C",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -54030,7 +54072,7 @@
    "fields": {
     "Symbol": "E6",
     "Notes": "E – G♯ – B – C♯",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -54185,7 +54227,7 @@
    "fields": {
     "Symbol": "A♭6",
     "Notes": "A♭ – C – E♭ – F",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -54359,7 +54401,7 @@
    "fields": {
     "Symbol": "B6",
     "Notes": "B – D♯ – F♯ – G♯",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -54477,7 +54519,7 @@
    "fields": {
     "Symbol": "D♭6",
     "Notes": "D♭ – F – A♭ – B♭",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -54632,7 +54674,7 @@
    "fields": {
     "Symbol": "F♯6",
     "Notes": "F♯ – A♯ – C♯ – D♯",
-    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th)"
+    "Formula": "major 6th: 1 – 3 – 5 – 6 (major triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -54806,7 +54848,7 @@
    "fields": {
     "Symbol": "Cm6",
     "Notes": "C – E♭ – G – A",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -54924,7 +54966,7 @@
    "fields": {
     "Symbol": "Gm6",
     "Notes": "G – B♭ – D – E",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -55079,7 +55121,7 @@
    "fields": {
     "Symbol": "Fm6",
     "Notes": "F – A♭ – C – D",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -55255,7 +55297,7 @@
    "fields": {
     "Symbol": "Dm6",
     "Notes": "D – F – A – B",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -55392,7 +55434,7 @@
    "fields": {
     "Symbol": "B♭m6",
     "Notes": "B♭ – D♭ – F – G",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -55568,7 +55610,7 @@
    "fields": {
     "Symbol": "Am6",
     "Notes": "A – C – E – F♯",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -55744,7 +55786,7 @@
    "fields": {
     "Symbol": "E♭m6",
     "Notes": "E♭ – G♭ – B♭ – C",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -55879,7 +55921,7 @@
    "fields": {
     "Symbol": "Em6",
     "Notes": "E – G – B – C♯",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -56053,7 +56095,7 @@
    "fields": {
     "Symbol": "G♯m6",
     "Notes": "G♯ – B – D♯ – E♯",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -56227,7 +56269,7 @@
    "fields": {
     "Symbol": "Bm6",
     "Notes": "B – D – F♯ – G♯",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -56345,7 +56387,7 @@
    "fields": {
     "Symbol": "C♯m6",
     "Notes": "C♯ – E – G♯ – A♯",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -56480,7 +56522,7 @@
    "fields": {
     "Symbol": "F♯m6",
     "Notes": "F♯ – A – C♯ – D♯",
-    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th)"
+    "Formula": "minor 6th: 1 – ♭3 – 5 – 6 (minor triad + major 6th) · fingers RH 1-2-4-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -56598,7 +56640,7 @@
    "fields": {
     "Symbol": "Cadd9",
     "Notes": "C – E – G – D",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -56716,7 +56758,7 @@
    "fields": {
     "Symbol": "Gadd9",
     "Notes": "G – B – D – A",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -56851,7 +56893,7 @@
    "fields": {
     "Symbol": "Fadd9",
     "Notes": "F – A – C – G",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -56969,7 +57011,7 @@
    "fields": {
     "Symbol": "Dadd9",
     "Notes": "D – F♯ – A – E",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -57087,7 +57129,7 @@
    "fields": {
     "Symbol": "B♭add9",
     "Notes": "B♭ – D – F – C",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -57205,7 +57247,7 @@
    "fields": {
     "Symbol": "Aadd9",
     "Notes": "A – C♯ – E – B",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -57340,7 +57382,7 @@
    "fields": {
     "Symbol": "E♭add9",
     "Notes": "E♭ – G – B♭ – F",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -57458,7 +57500,7 @@
    "fields": {
     "Symbol": "Eadd9",
     "Notes": "E – G♯ – B – F♯",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -57576,7 +57618,7 @@
    "fields": {
     "Symbol": "A♭add9",
     "Notes": "A♭ – C – E♭ – B♭",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -57711,7 +57753,7 @@
    "fields": {
     "Symbol": "Badd9",
     "Notes": "B – D♯ – F♯ – C♯",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -57829,7 +57871,7 @@
    "fields": {
     "Symbol": "D♭add9",
     "Notes": "D♭ – F – A♭ – E♭",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -57947,7 +57989,7 @@
    "fields": {
     "Symbol": "F♯add9",
     "Notes": "F♯ – A♯ – C♯ – G♯",
-    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th)"
+    "Formula": "add 9: 1 – 3 – 5 – 9 (major triad + the 9th, no 7th) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -58065,7 +58107,7 @@
    "fields": {
     "Symbol": "C7sus4",
     "Notes": "C – F – G – B♭",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -58200,7 +58242,7 @@
    "fields": {
     "Symbol": "G7sus4",
     "Notes": "G – C – D – F",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -58318,7 +58360,7 @@
    "fields": {
     "Symbol": "F7sus4",
     "Notes": "F – B♭ – C – E♭",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -58436,7 +58478,7 @@
    "fields": {
     "Symbol": "D7sus4",
     "Notes": "D – G – A – C",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -58571,7 +58613,7 @@
    "fields": {
     "Symbol": "B♭7sus4",
     "Notes": "B♭ – E♭ – F – A♭",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -58689,7 +58731,7 @@
    "fields": {
     "Symbol": "A7sus4",
     "Notes": "A – D – E – G",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -58775,7 +58817,7 @@
    "fields": {
     "Symbol": "E♭7sus4",
     "Notes": "E♭ – A♭ – B♭ – D♭",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -58911,7 +58953,7 @@
    "fields": {
     "Symbol": "E7sus4",
     "Notes": "E – A – B – D",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -59064,7 +59106,7 @@
    "fields": {
     "Symbol": "A♭7sus4",
     "Notes": "A♭ – D♭ – E♭ – G♭",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -59201,7 +59243,7 @@
    "fields": {
     "Symbol": "B7sus4",
     "Notes": "B – E – F♯ – A",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -59354,7 +59396,7 @@
    "fields": {
     "Symbol": "D♭7sus4",
     "Notes": "D♭ – G♭ – A♭ – C♭",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -59541,7 +59583,7 @@
    "fields": {
     "Symbol": "F♯7sus4",
     "Notes": "F♯ – B – C♯ – E",
-    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd)"
+    "Formula": "dominant 7th sus 4: 1 – 4 – 5 – ♭7 (the 4th replaces the 3rd) · fingers RH 1-2-3-5, LH 5-3-2-1"
    },
    "media": {
     "staff": {
@@ -59745,7 +59787,7 @@
    "fields": {
     "Symbol": "C9",
     "Notes": "C – E – G – B♭ – D",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -59935,7 +59977,7 @@
    "fields": {
     "Symbol": "G9",
     "Notes": "G – B – D – F – A",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -60142,7 +60184,7 @@
    "fields": {
     "Symbol": "F9",
     "Notes": "F – A – C – E♭ – G",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -60349,7 +60391,7 @@
    "fields": {
     "Symbol": "D9",
     "Notes": "D – F♯ – A – C – E",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -60539,7 +60581,7 @@
    "fields": {
     "Symbol": "B♭9",
     "Notes": "B♭ – D – F – A♭ – C",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -60746,7 +60788,7 @@
    "fields": {
     "Symbol": "A9",
     "Notes": "A – C♯ – E – G – B",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -60936,7 +60978,7 @@
    "fields": {
     "Symbol": "E♭9",
     "Notes": "E♭ – G – B♭ – D♭ – F",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -61143,7 +61185,7 @@
    "fields": {
     "Symbol": "E9",
     "Notes": "E – G♯ – B – D – F♯",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -61333,7 +61375,7 @@
    "fields": {
     "Symbol": "A♭9",
     "Notes": "A♭ – C – E♭ – G♭ – B♭",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -61540,7 +61582,7 @@
    "fields": {
     "Symbol": "B9",
     "Notes": "B – D♯ – F♯ – A – C♯",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -61730,7 +61772,7 @@
    "fields": {
     "Symbol": "D♭9",
     "Notes": "D♭ – F – A♭ – C♭ – E♭",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
@@ -61870,7 +61912,7 @@
    "fields": {
     "Symbol": "F♯9",
     "Notes": "F♯ – A♯ – C♯ – E – G♯",
-    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th)"
+    "Formula": "dominant 9th: 1 – 3 – 5 – ♭7 – 9 (dominant 7th + major 9th) · fingers RH 1-2-3-4-5, LH 5-4-3-2-1"
    },
    "media": {
     "staff": {
