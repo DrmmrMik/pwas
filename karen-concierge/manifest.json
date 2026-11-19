@@ -4,8 +4,8 @@
   "description": "An Official Intervention for Someone Who Pre-Cleans for Her Cleaners — Otsego, MI Edition",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#FAF7F2",
-  "theme_color": "#1E3A2F",
+  "background_color": "#FBF9F4",
+  "theme_color": "#5A6F58",
   "lang": "en",
   "scope": "./",
   "id": "/pwas/karen-concierge/",
@@ -43,5 +43,5 @@
     }
   ],
   "version": "1.0.0",
-  "x-build-stamp": "20261119125632"
+  "x-build-stamp": "20261119131051"
 }
