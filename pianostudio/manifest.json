@@ -9,7 +9,7 @@
   "lang": "en",
   "scope": "./",
   "id": "/pwas/pianostudio/",
-  "version": "0.11.2",
+  "version": "0.13.0",
   "display_override": [
     "standalone",
     "fullscreen"
@@ -63,5 +63,5 @@
       ]
     }
   ],
-  "x-build-stamp": "20261118023116"
+  "x-build-stamp": "20261120034714"
 }
