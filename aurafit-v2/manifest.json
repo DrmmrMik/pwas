@@ -1,0 +1,82 @@
+{
+  "name": "AuraFit — Heavy Duty Fitness Tracker",
+  "short_name": "AuraFit",
+  "version": "2.0.0",
+  "description": "Offline-first fitness tracker for Mike Mentzer Heavy Duty weightlifting, Peloton cardio, and mindfulness.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone"
+  ],
+  "background_color": "#070b14",
+  "theme_color": "#06b6d4",
+  "orientation": "portrait",
+  "categories": [
+    "fitness",
+    "health",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon_192_maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon_512_maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Log Heavy Duty Lift",
+      "short_name": "Lifts",
+      "description": "Open the Heavy Duty TUL timer and lift logger",
+      "url": "./index.html#lifts",
+      "icons": [
+        {
+          "src": "icons/icon_192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Log Peloton Ride",
+      "short_name": "Peloton",
+      "description": "Record a Peloton class",
+      "url": "./index.html#peloton",
+      "icons": [
+        {
+          "src": "icons/icon_192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "x-build-stamp": "20261123160014",
+  "id": "/pwas/aurafit-v2/"
+}
