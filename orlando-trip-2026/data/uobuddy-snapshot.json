@@ -1,7 +1,7 @@
 {
   "id": "uobuddy-live",
   "schemaVersion": 1,
-  "fetchedAt": "2026-11-26T14:59:24.955Z",
+  "fetchedAt": "2026-11-26T17:37:10.792Z",
   "source": "snapshot",
   "rides": [
     {
@@ -25,14 +25,14 @@
       "park": "EPIC",
       "land": "Celestial Park",
       "status": "OPEN",
-      "standbyWaitMins": 15,
+      "standbyWaitMins": 30,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:57:35.169Z"
+      "modifiedAt": "2026-11-26T17:21:06.330Z"
     },
     {
       "id": "uor.ueu.rides.curse_of_the_werewolf",
@@ -40,14 +40,14 @@
       "park": "EPIC",
       "land": "Dark Universe",
       "status": "OPEN",
-      "standbyWaitMins": 50,
+      "standbyWaitMins": 70,
       "opensAtIso": null,
       "hasSingleRider": true,
-      "singleRiderStatus": "OPEN",
+      "singleRiderStatus": "CLOSED",
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:50:06.146Z"
+      "modifiedAt": "2026-11-26T17:32:30.568Z"
     },
     {
       "id": "uor.ueu.rides.dragon_racers_rally",
@@ -55,14 +55,14 @@
       "park": "EPIC",
       "land": "How To Train Your Dragon",
       "status": "OPEN",
-      "standbyWaitMins": 85,
+      "standbyWaitMins": 55,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:40:36.169Z"
+      "modifiedAt": "2026-11-26T17:03:33.720Z"
     },
     {
       "id": "uor.ueu.rides.fyre_drill",
@@ -77,7 +77,7 @@
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T13:54:45.488Z"
+      "modifiedAt": "2026-11-26T16:05:38.128Z"
     },
     {
       "id": "uor.ueu.rides.harry_potter_and_the_battle_at_the_ministry",
@@ -85,29 +85,29 @@
       "park": "EPIC",
       "land": "Harry Potter: Ministry of Magic",
       "status": "OPEN",
-      "standbyWaitMins": 105,
+      "standbyWaitMins": 140,
       "opensAtIso": null,
       "hasSingleRider": true,
-      "singleRiderStatus": "OPEN",
+      "singleRiderStatus": "AT_CAPACITY",
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:53:46.633Z"
+      "modifiedAt": "2026-11-26T17:27:44.996Z"
     },
     {
       "id": "uor.ueu.rides.hiccups_wing_glider",
       "name": "Hiccup's Wing Gliders",
       "park": "EPIC",
       "land": "How To Train Your Dragon",
-      "status": "BRIEF_DELAY",
-      "standbyWaitMins": null,
+      "status": "OPEN",
+      "standbyWaitMins": 80,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": true,
       "expressStatus": "CLOSED",
-      "downtimeStartedAtIso": "2026-11-26T09:53:18.497340-05:00",
-      "modifiedAt": "2026-11-26T14:50:43.193Z"
+      "downtimeStartedAtIso": null,
+      "modifiedAt": "2026-11-26T17:32:31.769Z"
     },
     {
       "id": "uor.ueu.rides.mario_cart_bowsers_challenge",
@@ -122,7 +122,7 @@
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:41:21.228Z"
+      "modifiedAt": "2026-11-26T17:03:42.702Z"
     },
     {
       "id": "uor.ueu.show.meet_toothless",
@@ -130,14 +130,14 @@
       "park": "EPIC",
       "land": "How To Train Your Dragon",
       "status": "OPEN",
-      "standbyWaitMins": 90,
+      "standbyWaitMins": 80,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:35:34.916Z"
+      "modifiedAt": "2026-11-26T16:32:37.099Z"
     },
     {
       "id": "uor.ueu.rides.mine-cart_madness",
@@ -145,14 +145,14 @@
       "park": "EPIC",
       "land": "Super Nintendo World",
       "status": "OPEN",
-      "standbyWaitMins": 135,
+      "standbyWaitMins": 150,
       "opensAtIso": null,
       "hasSingleRider": true,
       "singleRiderStatus": "AT_CAPACITY",
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:55:24.519Z"
+      "modifiedAt": "2026-11-26T17:01:01.350Z"
     },
     {
       "id": "uor.ueu.rides.monsters_unchained_the_frankenstein_experiment",
@@ -160,14 +160,14 @@
       "park": "EPIC",
       "land": "Dark Universe",
       "status": "OPEN",
-      "standbyWaitMins": 25,
+      "standbyWaitMins": 30,
       "opensAtIso": null,
       "hasSingleRider": true,
       "singleRiderStatus": "CLOSED",
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:57:27.770Z"
+      "modifiedAt": "2026-11-26T17:10:07.349Z"
     },
     {
       "id": "uor.ueu.rides.stardust_racers",
@@ -175,51 +175,6 @@
       "park": "EPIC",
       "land": "Celestial Park",
       "status": "OPEN",
-      "standbyWaitMins": 45,
-      "opensAtIso": null,
-      "hasSingleRider": true,
-      "singleRiderStatus": "CLOSED",
-      "hasExpress": true,
-      "expressStatus": "CLOSED",
-      "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:44:36.333Z"
-    },
-    {
-      "id": "uor.ueu.rides.yoshis_adventure",
-      "name": "Yoshi's Adventure™",
-      "park": "EPIC",
-      "land": "Super Nintendo World",
-      "status": "OPEN",
-      "standbyWaitMins": 65,
-      "opensAtIso": null,
-      "hasSingleRider": false,
-      "singleRiderStatus": null,
-      "hasExpress": true,
-      "expressStatus": "CLOSED",
-      "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:45:03.312Z"
-    },
-    {
-      "id": "uor.ioa.rides.caro-seuss-el",
-      "name": "Caro-Seuss-el™",
-      "park": "IOA",
-      "land": "Seuss Landing",
-      "status": "BRIEF_DELAY",
-      "standbyWaitMins": null,
-      "opensAtIso": null,
-      "hasSingleRider": false,
-      "singleRiderStatus": null,
-      "hasExpress": false,
-      "expressStatus": null,
-      "downtimeStartedAtIso": "2026-11-26T09:43:17.584525-05:00",
-      "modifiedAt": "2026-11-26T14:41:31.280Z"
-    },
-    {
-      "id": "uor.ioa.rides.doctor_dooms_fearfall",
-      "name": "Doctor Doom's Fearfall®",
-      "park": "IOA",
-      "land": "Marvel Super Hero Island",
-      "status": "OPEN",
       "standbyWaitMins": 25,
       "opensAtIso": null,
       "hasSingleRider": true,
@@ -227,7 +182,52 @@
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:51:28.729Z"
+      "modifiedAt": "2026-11-26T17:37:03.066Z"
+    },
+    {
+      "id": "uor.ueu.rides.yoshis_adventure",
+      "name": "Yoshi's Adventure™",
+      "park": "EPIC",
+      "land": "Super Nintendo World",
+      "status": "OPEN",
+      "standbyWaitMins": 95,
+      "opensAtIso": null,
+      "hasSingleRider": false,
+      "singleRiderStatus": null,
+      "hasExpress": true,
+      "expressStatus": "CLOSED",
+      "downtimeStartedAtIso": null,
+      "modifiedAt": "2026-11-26T16:01:20.056Z"
+    },
+    {
+      "id": "uor.ioa.rides.caro-seuss-el",
+      "name": "Caro-Seuss-el™",
+      "park": "IOA",
+      "land": "Seuss Landing",
+      "status": "CLOSED",
+      "standbyWaitMins": null,
+      "opensAtIso": null,
+      "hasSingleRider": false,
+      "singleRiderStatus": null,
+      "hasExpress": false,
+      "expressStatus": null,
+      "downtimeStartedAtIso": null,
+      "modifiedAt": "2026-11-26T17:01:17.342Z"
+    },
+    {
+      "id": "uor.ioa.rides.doctor_dooms_fearfall",
+      "name": "Doctor Doom's Fearfall®",
+      "park": "IOA",
+      "land": "Marvel Super Hero Island",
+      "status": "OPEN",
+      "standbyWaitMins": 30,
+      "opensAtIso": null,
+      "hasSingleRider": true,
+      "singleRiderStatus": "CLOSED",
+      "hasExpress": true,
+      "expressStatus": "CLOSED",
+      "downtimeStartedAtIso": null,
+      "modifiedAt": "2026-11-26T17:35:44.988Z"
     },
     {
       "id": "uor.ioa.rides.dudley_do_rights_ripsaw_falls",
@@ -250,29 +250,29 @@
       "park": "IOA",
       "land": "Hogsmeade",
       "status": "OPEN",
-      "standbyWaitMins": 45,
+      "standbyWaitMins": 90,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:44:09.049Z"
+      "modifiedAt": "2026-11-26T17:07:52.152Z"
     },
     {
       "id": "uor.ioa.rides.hagrids_magical_motorcycle_adventure",
       "name": "Hagrid's Magical Creatures Motorbike Adventure™",
       "park": "IOA",
       "land": "Hogsmeade",
-      "status": "BRIEF_DELAY",
-      "standbyWaitMins": null,
+      "status": "OPEN",
+      "standbyWaitMins": 120,
       "opensAtIso": null,
       "hasSingleRider": true,
       "singleRiderStatus": "CLOSED",
       "hasExpress": false,
       "expressStatus": null,
-      "downtimeStartedAtIso": "2026-11-26T09:28:16.070368-05:00",
-      "modifiedAt": "2026-11-26T14:23:40.678Z"
+      "downtimeStartedAtIso": null,
+      "modifiedAt": "2026-11-26T17:32:10.450Z"
     },
     {
       "id": "uor.ioa.rides.harry_potter_and_the_forbidden_journey",
@@ -280,14 +280,14 @@
       "park": "IOA",
       "land": "Hogsmeade",
       "status": "OPEN",
-      "standbyWaitMins": 30,
+      "standbyWaitMins": 60,
       "opensAtIso": null,
       "hasSingleRider": true,
-      "singleRiderStatus": "CLOSED",
+      "singleRiderStatus": "OPEN",
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:57:24.247Z"
+      "modifiedAt": "2026-11-26T17:08:11.033Z"
     },
     {
       "id": "uor.ioa.rides.hogwarts_express_-_hogsmeade_station",
@@ -295,14 +295,14 @@
       "park": "IOA",
       "land": "Hogsmeade",
       "status": "OPEN",
-      "standbyWaitMins": 10,
+      "standbyWaitMins": 45,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:05:40.100Z"
+      "modifiedAt": "2026-11-26T17:34:15.152Z"
     },
     {
       "id": "uor.ioa.rides.jurassic_park_river_adventure",
@@ -324,15 +324,15 @@
       "name": "Jurassic World VelociCoaster",
       "park": "IOA",
       "land": "Jurassic Park",
-      "status": "BRIEF_DELAY",
-      "standbyWaitMins": null,
+      "status": "OPEN",
+      "standbyWaitMins": 45,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": true,
       "expressStatus": "CLOSED",
-      "downtimeStartedAtIso": "2026-11-26T09:03:12.799583-05:00",
-      "modifiedAt": "2026-11-26T14:06:19.516Z"
+      "downtimeStartedAtIso": null,
+      "modifiedAt": "2026-11-26T17:29:15.020Z"
     },
     {
       "id": "uor.ioa.shows.ollivanders",
@@ -340,14 +340,14 @@
       "park": "IOA",
       "land": "Hogsmeade",
       "status": "OPEN",
-      "standbyWaitMins": 30,
+      "standbyWaitMins": 15,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:07:55.497Z"
+      "modifiedAt": "2026-11-26T17:34:55.070Z"
     },
     {
       "id": "uor.ioa.rides.one_fish_two_fish_red_fish_blue_fish",
@@ -355,14 +355,14 @@
       "park": "IOA",
       "land": "Seuss Landing",
       "status": "OPEN",
-      "standbyWaitMins": 30,
+      "standbyWaitMins": 40,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:49:41.029Z"
+      "modifiedAt": "2026-11-26T17:35:01.073Z"
     },
     {
       "id": "uor.ioa.rides.popeye_blutos_bilge_rat_barges",
@@ -392,7 +392,7 @@
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:39:04.226Z"
+      "modifiedAt": "2026-11-26T17:12:09.735Z"
     },
     {
       "id": "uor.ioa.rides.skull_island_reign_of_kong",
@@ -400,14 +400,14 @@
       "park": "IOA",
       "land": "Skull Island: Reign of Kong",
       "status": "OPEN",
-      "standbyWaitMins": 25,
+      "standbyWaitMins": 60,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:49:28.534Z"
+      "modifiedAt": "2026-11-26T17:17:08.059Z"
     },
     {
       "id": "uor.ioa.rides.storm_force_accelatron",
@@ -415,14 +415,14 @@
       "park": "IOA",
       "land": "Marvel Super Hero Island",
       "status": "OPEN",
-      "standbyWaitMins": 20,
+      "standbyWaitMins": 10,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:58:52.055Z"
+      "modifiedAt": "2026-11-26T17:36:12.038Z"
     },
     {
       "id": "uor.ioa.rides.the_amazing_adventures_of_spider_man",
@@ -430,14 +430,14 @@
       "park": "IOA",
       "land": "Marvel Super Hero Island",
       "status": "OPEN",
-      "standbyWaitMins": 60,
+      "standbyWaitMins": 50,
       "opensAtIso": null,
       "hasSingleRider": true,
       "singleRiderStatus": "CLOSED",
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:56:20.369Z"
+      "modifiedAt": "2026-11-26T17:29:12.156Z"
     },
     {
       "id": "uor.ioa.rides.the_cat_in_the_hat",
@@ -445,14 +445,14 @@
       "park": "IOA",
       "land": "Seuss Landing",
       "status": "OPEN",
-      "standbyWaitMins": 25,
+      "standbyWaitMins": 40,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:52:12.262Z"
+      "modifiedAt": "2026-11-26T17:17:44.004Z"
     },
     {
       "id": "uor.ioa.rides.the_high_in_the_sky_seuss_trolley_train_ride!",
@@ -460,14 +460,14 @@
       "park": "IOA",
       "land": "Seuss Landing",
       "status": "OPEN",
-      "standbyWaitMins": 25,
+      "standbyWaitMins": 45,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:58:48.669Z"
+      "modifiedAt": "2026-11-26T17:29:46.241Z"
     },
     {
       "id": "uor.ioa.rides.the_incredible_hulk_coaster",
@@ -475,14 +475,14 @@
       "park": "IOA",
       "land": "Marvel Super Hero Island",
       "status": "OPEN",
-      "standbyWaitMins": 45,
+      "standbyWaitMins": 55,
       "opensAtIso": null,
       "hasSingleRider": true,
       "singleRiderStatus": "OPEN",
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:51:59.165Z"
+      "modifiedAt": "2026-11-26T17:24:02.523Z"
     },
     {
       "id": "uor.usf.rides.despicable_me_minion_mayhem",
@@ -504,15 +504,15 @@
       "name": "E.T. Adventure",
       "park": "USF",
       "land": "Hollywood",
-      "status": "OPENS_AT",
-      "standbyWaitMins": null,
-      "opensAtIso": "2026-11-26T15:00:00.000Z",
+      "status": "OPEN",
+      "standbyWaitMins": 25,
+      "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T02:04:55.435Z"
+      "modifiedAt": "2026-11-26T17:35:46.652Z"
     },
     {
       "id": "uor.usf.rides.harry_potter_and_the_escape_from_gringotts",
@@ -520,14 +520,14 @@
       "park": "USF",
       "land": "Diagon Alley",
       "status": "OPEN",
-      "standbyWaitMins": 25,
+      "standbyWaitMins": 100,
       "opensAtIso": null,
       "hasSingleRider": true,
       "singleRiderStatus": "CLOSED",
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:48:16.475Z"
+      "modifiedAt": "2026-11-26T17:31:01.855Z"
     },
     {
       "id": "uor.usf.rides.hogwarts_express_-_kings_cross_station",
@@ -535,14 +535,14 @@
       "park": "USF",
       "land": "Diagon Alley",
       "status": "OPEN",
-      "standbyWaitMins": 10,
+      "standbyWaitMins": 20,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:05:18.729Z"
+      "modifiedAt": "2026-11-26T17:33:13.647Z"
     },
     {
       "id": "uor.usf.rides.hogwarts_express_first_train",
@@ -580,29 +580,29 @@
       "park": "USF",
       "land": "Illumination's Minion Land",
       "status": "OPEN",
-      "standbyWaitMins": 5,
+      "standbyWaitMins": 15,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T13:56:13.734Z"
+      "modifiedAt": "2026-11-26T17:25:50.163Z"
     },
     {
       "id": "uor.usf.rides.kang_and_kodos_twirl_n_hurl",
       "name": "Kang & Kodos' Twirl 'n' Hurl",
       "park": "USF",
       "land": "Springfield: Home of the Simpsons",
-      "status": "OPENS_AT",
-      "standbyWaitMins": null,
-      "opensAtIso": "2026-11-26T15:00:00.000Z",
+      "status": "OPEN",
+      "standbyWaitMins": 40,
+      "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T02:04:55.432Z"
+      "modifiedAt": "2026-11-26T17:21:08.176Z"
     },
     {
       "id": "uor.usf.rides.men_in_black_alien_attack",
@@ -610,14 +610,14 @@
       "park": "USF",
       "land": "World Expo",
       "status": "OPEN",
-      "standbyWaitMins": 10,
+      "standbyWaitMins": 35,
       "opensAtIso": null,
       "hasSingleRider": true,
       "singleRiderStatus": "OPEN",
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T13:59:06.529Z"
+      "modifiedAt": "2026-11-26T16:52:43.335Z"
     },
     {
       "id": "uor.usf.shows.ollivanders",
@@ -640,29 +640,29 @@
       "park": "USF",
       "land": "New York",
       "status": "OPEN",
-      "standbyWaitMins": 15,
+      "standbyWaitMins": 50,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:50:41.906Z"
+      "modifiedAt": "2026-11-26T17:33:23.913Z"
     },
     {
       "id": "uor.usf.rides.revenge_of_the_mummy",
       "name": "Revenge of the Mummy",
       "park": "USF",
       "land": "New York",
-      "status": "BRIEF_DELAY",
-      "standbyWaitMins": null,
+      "status": "OPEN",
+      "standbyWaitMins": 50,
       "opensAtIso": null,
       "hasSingleRider": true,
       "singleRiderStatus": "OPEN",
       "hasExpress": true,
       "expressStatus": "CLOSED",
-      "downtimeStartedAtIso": "2026-11-26T09:48:18.149549-05:00",
-      "modifiedAt": "2026-11-26T14:45:44.675Z"
+      "downtimeStartedAtIso": null,
+      "modifiedAt": "2026-11-26T17:30:08.764Z"
     },
     {
       "id": "uor.usf.rides.the_simpsons_ride",
@@ -670,14 +670,14 @@
       "park": "USF",
       "land": "Springfield: Home of the Simpsons",
       "status": "OPEN",
-      "standbyWaitMins": 5,
+      "standbyWaitMins": 50,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:04:03.499Z"
+      "modifiedAt": "2026-11-26T17:18:35.393Z"
     },
     {
       "id": "uor.usf.rides.transformers_the_ride_3d",
@@ -685,29 +685,29 @@
       "park": "USF",
       "land": "New York",
       "status": "OPEN",
-      "standbyWaitMins": 15,
+      "standbyWaitMins": 35,
       "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": true,
       "expressStatus": "CLOSED",
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T14:35:18.004Z"
+      "modifiedAt": "2026-11-26T17:33:15.591Z"
     },
     {
       "id": "uor.usf.rides.trolls_trollercoaster",
       "name": "Trolls Trollercoaster",
       "park": "USF",
       "land": "DreamWorks Land",
-      "status": "OPENS_AT",
-      "standbyWaitMins": null,
-      "opensAtIso": "2026-11-26T15:00:00.000Z",
+      "status": "OPEN",
+      "standbyWaitMins": 45,
+      "opensAtIso": null,
       "hasSingleRider": false,
       "singleRiderStatus": null,
       "hasExpress": false,
       "expressStatus": null,
       "downtimeStartedAtIso": null,
-      "modifiedAt": "2026-11-26T02:04:55.433Z"
+      "modifiedAt": "2026-11-26T17:06:37.407Z"
     }
   ],
   "shows": [
@@ -719,7 +719,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:30:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:55:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:30:00.000Z",
         "2026-11-26T16:20:00.000Z",
@@ -734,7 +734,7 @@
         "2026-11-26T23:20:00.000Z",
         "2026-11-27T00:10:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:09.825Z"
+      "modifiedAt": "2026-11-26T16:56:22.477Z"
     },
     {
       "id": "uor.ueu.show.meet_captain_cacao",
@@ -744,7 +744,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:30:00.000Z",
+      "nextShowTimeIso": "2026-11-26T19:00:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:30:00.000Z",
         "2026-11-26T16:30:00.000Z",
@@ -753,7 +753,7 @@
         "2026-11-26T20:00:00.000Z",
         "2026-11-26T21:00:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:11.205Z"
+      "modifiedAt": "2026-11-26T17:30:27.175Z"
     },
     {
       "id": "uor.ueu.show.meet_mario_and_luigi",
@@ -763,7 +763,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:20:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:20:00.000Z",
       "showTimesIso": [
         "2026-11-26T14:20:00.000Z",
         "2026-11-26T15:20:00.000Z",
@@ -778,7 +778,7 @@
         "2026-11-27T00:20:00.000Z",
         "2026-11-27T01:20:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T14:20:13.027Z"
+      "modifiedAt": "2026-11-26T17:21:03.346Z"
     },
     {
       "id": "uor.ueu.show.meet_princess_peach",
@@ -788,7 +788,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:50:00.000Z",
       "showTimesIso": [
         "2026-11-26T14:00:00.000Z",
         "2026-11-26T15:00:00.000Z",
@@ -803,7 +803,7 @@
         "2026-11-26T23:40:00.000Z",
         "2026-11-27T00:40:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T14:00:12.117Z"
+      "modifiedAt": "2026-11-26T17:00:25.525Z"
     },
     {
       "id": "uor.ueu.shows.the_untrainable_dragon",
@@ -813,7 +813,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T16:10:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:50:00.000Z",
       "showTimesIso": [
         "2026-11-26T16:10:00.000Z",
         "2026-11-26T17:00:00.000Z",
@@ -826,7 +826,7 @@
         "2026-11-26T23:10:00.000Z",
         "2026-11-27T00:00:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T13:49:20.034Z"
+      "modifiedAt": "2026-11-26T17:00:38.460Z"
     },
     {
       "id": "uor.ueu.shows.celestialgoodnight",
@@ -850,7 +850,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:00:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:00:00.000Z",
         "2026-11-26T15:30:00.000Z",
@@ -865,7 +865,7 @@
         "2026-11-26T20:15:00.000Z",
         "2026-11-26T20:45:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:11.802Z"
+      "modifiedAt": "2026-11-26T17:30:27.578Z"
     },
     {
       "id": "uor.ioa.shows.frog_choir",
@@ -875,7 +875,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T16:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:00:00.000Z",
       "showTimesIso": [
         "2026-11-26T16:00:00.000Z",
         "2026-11-26T17:00:00.000Z",
@@ -884,7 +884,7 @@
         "2026-11-26T20:30:00.000Z",
         "2026-11-26T21:30:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:10.062Z"
+      "modifiedAt": "2026-11-26T17:00:44.995Z"
     },
     {
       "id": "uor.ioa.shows.hogwartsalways",
@@ -920,7 +920,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T16:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:00:00.000Z",
       "showTimesIso": [
         "2026-11-26T16:00:00.000Z",
         "2026-11-26T17:00:00.000Z",
@@ -929,7 +929,7 @@
         "2026-11-26T20:45:00.000Z",
         "2026-11-26T21:45:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:11.656Z"
+      "modifiedAt": "2026-11-26T17:00:38.111Z"
     },
     {
       "id": "uor.ioa.shows.raptor_encounter",
@@ -939,7 +939,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:20:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:20:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:00:00.000Z",
         "2026-11-26T15:20:00.000Z",
@@ -969,7 +969,7 @@
         "2026-11-26T23:20:00.000Z",
         "2026-11-26T23:40:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T14:47:12.026Z"
+      "modifiedAt": "2026-11-26T17:33:22.695Z"
     },
     {
       "id": "uor.ioa.shows.seuss_character_zone",
@@ -979,7 +979,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:30:00.000Z",
+      "nextShowTimeIso": "2026-11-26T19:15:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:30:00.000Z",
         "2026-11-26T16:30:00.000Z",
@@ -988,7 +988,7 @@
         "2026-11-26T20:15:00.000Z",
         "2026-11-26T21:15:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:08.604Z"
+      "modifiedAt": "2026-11-26T17:30:26.822Z"
     },
     {
       "id": "uor.ioa.shows.the_grinchmas_who-liday_spectacular",
@@ -998,7 +998,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:15:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:15:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:15:00.000Z",
         "2026-11-26T16:15:00.000Z",
@@ -1009,7 +1009,7 @@
         "2026-11-26T22:30:00.000Z",
         "2026-11-26T23:30:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:11.916Z"
+      "modifiedAt": "2026-11-26T17:01:22.556Z"
     },
     {
       "id": "uor.ioa.shows.the_magic_of_christmas_hogwarts_castle",
@@ -1031,7 +1031,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:30:00.000Z",
+      "nextShowTimeIso": "2026-11-26T19:00:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:30:00.000Z",
         "2026-11-26T16:30:00.000Z",
@@ -1040,7 +1040,7 @@
         "2026-11-26T20:00:00.000Z",
         "2026-11-26T21:00:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:12.464Z"
+      "modifiedAt": "2026-11-26T17:30:27.266Z"
     },
     {
       "id": "uor.usf.shows.vamos_bailalo",
@@ -1050,7 +1050,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:40:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:40:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:40:00.000Z",
         "2026-11-26T16:40:00.000Z",
@@ -1059,7 +1059,7 @@
         "2026-11-26T20:00:00.000Z",
         "2026-11-26T21:00:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:10.954Z"
+      "modifiedAt": "2026-11-26T16:40:56.320Z"
     },
     {
       "id": "uor.usf.shows.beat_builders",
@@ -1069,7 +1069,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T16:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:00:00.000Z",
       "showTimesIso": [
         "2026-11-26T16:00:00.000Z",
         "2026-11-26T17:00:00.000Z",
@@ -1078,7 +1078,7 @@
         "2026-11-26T20:20:00.000Z",
         "2026-11-26T21:20:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:09.321Z"
+      "modifiedAt": "2026-11-26T17:00:25.589Z"
     },
     {
       "id": "uor.usf.shows.celestina_warbeck_and_the_banshees",
@@ -1088,7 +1088,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:30:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:00:00.000Z",
         "2026-11-26T16:00:00.000Z",
@@ -1097,7 +1097,7 @@
         "2026-11-26T19:30:00.000Z",
         "2026-11-26T20:30:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:10.219Z"
+      "modifiedAt": "2026-11-26T17:00:38.396Z"
     },
     {
       "id": "uor.usf.show.dreamworks_character_zone",
@@ -1107,7 +1107,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:30:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:00:00.000Z",
         "2026-11-26T15:30:00.000Z",
@@ -1128,7 +1128,7 @@
         "2026-11-26T21:00:00.000Z",
         "2026-11-26T21:10:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:12.175Z"
+      "modifiedAt": "2026-11-26T17:30:27.494Z"
     },
     {
       "id": "uor.usf.show.dreamWorks_imagination_celebration",
@@ -1138,7 +1138,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T16:30:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:30:00.000Z",
       "showTimesIso": [
         "2026-11-26T16:30:00.000Z",
         "2026-11-26T17:30:00.000Z",
@@ -1149,7 +1149,7 @@
         "2026-11-26T22:45:00.000Z",
         "2026-11-26T23:45:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:09.939Z"
+      "modifiedAt": "2026-11-26T17:30:27.008Z"
     },
     {
       "id": "uor.usf.shows.earl_squirrel_meet_greet_2026",
@@ -1159,7 +1159,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:05:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:55:00.000Z",
       "showTimesIso": [
         "2026-11-26T14:00:00.000Z",
         "2026-11-26T15:05:00.000Z",
@@ -1168,7 +1168,7 @@
         "2026-11-26T19:00:00.000Z",
         "2026-11-26T20:05:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T14:00:10.888Z"
+      "modifiedAt": "2026-11-26T16:10:22.745Z"
     },
     {
       "id": "uor.usf.shows.hollywood_character_zone",
@@ -1178,7 +1178,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:05:00.000Z",
       "showTimesIso": [
         "2026-11-26T14:00:00.000Z",
         "2026-11-26T14:30:00.000Z",
@@ -1193,7 +1193,7 @@
         "2026-11-26T19:35:00.000Z",
         "2026-11-26T20:05:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T14:30:13.518Z"
+      "modifiedAt": "2026-11-26T17:35:26.882Z"
     },
     {
       "id": "uor.usf.shows.illumination_theater",
@@ -1203,7 +1203,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:50:00.000Z",
       "showTimesIso": [
         "2026-11-26T14:00:00.000Z",
         "2026-11-26T14:20:00.000Z",
@@ -1224,7 +1224,7 @@
         "2026-11-26T20:10:00.000Z",
         "2026-11-26T20:30:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T14:40:16.059Z"
+      "modifiedAt": "2026-11-26T16:40:50.037Z"
     },
     {
       "id": "uor.usf.shows.marilyn_and_the_diamond_bellas",
@@ -1234,7 +1234,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:10:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:40:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:10:00.000Z",
         "2026-11-26T16:10:00.000Z",
@@ -1243,7 +1243,7 @@
         "2026-11-26T19:40:00.000Z",
         "2026-11-26T20:40:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:09.558Z"
+      "modifiedAt": "2026-11-26T17:10:25.889Z"
     },
     {
       "id": "uor.usf.shows.meet_spongeBob_squarepants",
@@ -1253,7 +1253,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:15:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:55:00.000Z",
       "showTimesIso": [
         "2026-11-26T14:15:00.000Z",
         "2026-11-26T14:45:00.000Z",
@@ -1268,7 +1268,7 @@
         "2026-11-26T19:55:00.000Z",
         "2026-11-26T20:25:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T14:45:15.773Z"
+      "modifiedAt": "2026-11-26T16:45:24.894Z"
     },
     {
       "id": "uor.usf.shows.meet_the_transformers",
@@ -1278,7 +1278,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:55:00.000Z",
       "showTimesIso": [
         "2026-11-26T15:00:00.000Z",
         "2026-11-26T15:25:00.000Z",
@@ -1300,7 +1300,7 @@
         "2026-11-26T22:05:00.000Z",
         "2026-11-26T22:30:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:12.364Z"
+      "modifiedAt": "2026-11-26T17:30:27.402Z"
     },
     {
       "id": "uor.usf.show.shreks.swamp.meet",
@@ -1310,7 +1310,7 @@
       "showType": "CHARACTER_APPEARANCE",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T15:00:00.000Z",
+      "nextShowTimeIso": "2026-11-26T17:50:00.000Z",
       "showTimesIso": [
         "2026-11-26T14:20:00.000Z",
         "2026-11-26T14:40:00.000Z",
@@ -1334,7 +1334,7 @@
         "2026-11-26T21:20:00.000Z",
         "2026-11-26T22:00:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T14:40:16.335Z"
+      "modifiedAt": "2026-11-26T17:00:25.277Z"
     },
     {
       "id": "uor.usf.shows.blues_brothers",
@@ -1344,7 +1344,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T16:20:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:20:00.000Z",
       "showTimesIso": [
         "2026-11-26T16:20:00.000Z",
         "2026-11-26T17:20:00.000Z",
@@ -1352,7 +1352,7 @@
         "2026-11-26T19:40:00.000Z",
         "2026-11-26T20:40:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:08.930Z"
+      "modifiedAt": "2026-11-26T17:20:26.031Z"
     },
     {
       "id": "uor.usf.shows.the_bourne_stuntacular",
@@ -1362,7 +1362,7 @@
       "showType": "SHOW",
       "status": "OPEN",
       "fixedTime": "",
-      "nextShowTimeIso": "2026-11-26T16:15:00.000Z",
+      "nextShowTimeIso": "2026-11-26T18:00:00.000Z",
       "showTimesIso": [
         "2026-11-26T16:15:00.000Z",
         "2026-11-26T17:00:00.000Z",
@@ -1373,7 +1373,7 @@
         "2026-11-26T21:45:00.000Z",
         "2026-11-26T22:30:00.000Z"
       ],
-      "modifiedAt": "2026-11-26T11:01:10.705Z"
+      "modifiedAt": "2026-11-26T17:00:51.422Z"
     },
     {
       "id": "uor.usf.shows.thetalesofbeedlethebard",
