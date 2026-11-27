@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#6DD5FA" />
+      <stop offset="100%" stop-color="#1E88E5" />
+    </radialGradient>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF176" />
+      <stop offset="55%" stop-color="#FFD600" />
+      <stop offset="100%" stop-color="#F57F17" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#sky)" />
+  <path
+    d="M64 16 L77.5 44.5 L109 49 L86 71 L91.5 102.5 L64 87.5 L36.5 102.5 L42 71 L19 49 L50.5 44.5 Z"
+    fill="url(#starGrad)"
+    stroke="#B45309"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+  <ellipse cx="55" cy="61" rx="4" ry="8.5" fill="#1E1B4B" />
+  <ellipse cx="73" cy="61" rx="4" ry="8.5" fill="#1E1B4B" />
+  <circle cx="53.5" cy="57.5" r="1.6" fill="#FFFFFF" />
+  <circle cx="71.5" cy="57.5" r="1.6" fill="#FFFFFF" />
+</svg>

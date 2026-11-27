@@ -1,0 +1,55 @@
+{
+  "name": "Super Nintendo World Bingo",
+  "short_name": "SNW Bingo",
+  "description": "Interactive Super Nintendo World character spotting Bingo PWA for Universal Epic Universe in Orlando, with multi-card support for sharing a phone.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F5FAFF",
+  "theme_color": "#E52521",
+  "lang": "en",
+  "scope": "./",
+  "version": "1.0.0",
+  "display_override": [
+    "standalone",
+    "fullscreen"
+  ],
+  "orientation": "portrait-primary",
+  "categories": [
+    "games"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "x-build-stamp": "20261127143914",
+  "id": "/pwas/snw-bingo/"
+}
